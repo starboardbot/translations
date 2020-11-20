@@ -1,0 +1,23 @@
+{
+  "name": "starboard-languages",
+  "version": "1.0.0",
+  "description": "Languages for Starboard, the Discord bot.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheNoob27/starboard-languages.git"
+  },
+  "author": "TheNoob27",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheNoob27/starboard-languages/issues"
+  },
+  "homepage": "https://github.com/TheNoob27/starboard-languages#readme",
+  "prettier": {
+    "arrowParens": "avoid",
+    "semi": false
+  }
+}

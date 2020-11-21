@@ -79,3 +79,5 @@ module.exports = {
     return key.replace(/ +/g, "_").replace(/([^A-Z_])([A-Z])/g, (_, bef, aft) => `${bef}_${aft}`).toUpperCase()
   },
 }
+
+module.exports.languageNames = codes.map(c => module.exports.languages[c].name)

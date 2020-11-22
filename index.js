@@ -1,6 +1,14 @@
 /**
  * @typedef {
-    "HELLO_WORLD"
+    "HELLO_WORLD" |
+    "IMAGE" |
+    "GIF_VIDEO" |
+    "VIDEO" |
+    "MEDIA" |
+    "SHORT_CLICK_TO_JUMP" |
+    "CLICK_TO_JUMP" |
+    "REFERENCED_MESSAGE" |
+    "TWEET"
   } Key
  */
 /**
@@ -39,7 +47,7 @@ module.exports = {
    * @param {Key} key The key of the message
    * @param {LanguageCode} code The code of the language
    * @param {...*} args Arguments for the function to retrieve the message, if any.
-   * @returns {string}
+   * @returns {string} The message in a specific language, defaulting to english if not found.
    */
   get(key, code, ...args) {
     key = this._fixCase(key)
@@ -53,19 +61,20 @@ module.exports = {
   /**
    * Parse a string into a valid language code, defaulting to "en-GB".
    * @param {string} code
+   * @param {boolean} returnNull Return null instead of defaulting
    * @returns {LanguageCode}
    */
-  _parseCode(code) {
+  _parseCode(code, returnNull) {
     if (this.codes.includes(code)) return code
     let [a, b = ""] = this._fixCase(code).split("_") // "EN_US"
-    if (!a) return codes.default
+    if (!a) return returnNull ? null : codes.default
     if (!b)
       switch (a) { // parses "english" to "en-US", "spanish" to "es" etc
         case "ENGLISH": case "EN": a = "en-US"; break;
       }
 
     code = `${a.toLowerCase()}${b && `-${b}`}`
-    if (!this.codes.includes(code)) return codes.default
+    if (!this.codes.includes(code)) return returnNull ? null : codes.default
     return code
   },
 

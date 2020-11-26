@@ -1,5 +1,5 @@
 module.exports = {
-  name: "Turkish",
+  name: "Türkçe",
   HELLO_WORLD: "Merhaba dünya!",
   
   // miscellaneous

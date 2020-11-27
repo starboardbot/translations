@@ -19,6 +19,7 @@
  * @typedef {
     "en-GB" |
     "en-US" |
+    "lt-LT" |
     "tr-TR"
   } LanguageCode
  */
@@ -30,7 +31,8 @@ const { readdirSync: readDirectory } = require("fs")
  * @type {[
     "en-GB",
     "en-US",
-    "tr-TR"
+    "lt-LT",
+    "tr-TR",
   ]}
  */
 const codes = readDirectory(

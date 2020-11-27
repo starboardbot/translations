@@ -1,14 +1,18 @@
 /**
  * @typedef {
-    "HELLO_WORLD" |
-    "IMAGE" |
-    "GIF_VIDEO" |
-    "VIDEO" |
-    "MEDIA" |
+    "HELLO_WORLD"         |
+    "IMAGE"               |
+    "GIF_VIDEO"           |
+    "VIDEO"               |
+    "MEDIA"               |
     "SHORT_CLICK_TO_JUMP" |
-    "CLICK_TO_JUMP" |
-    "REFERENCED_MESSAGE" |
-    "TWEET"
+    "CLICK_TO_JUMP"       |
+    "REFERENCED_MESSAGE"  |
+    "TWEET"               |
+
+    "ENGLISH"     |
+    "LITHUANIAN"  |
+    "TURKISH"
   } Key
  */
 /**

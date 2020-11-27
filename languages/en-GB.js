@@ -17,4 +17,9 @@ module.exports = {
   REFERENCED_MESSAGE: isReply =>
     isReply ? "Replying to this message" : "Referenced Message",
   TWEET: (authorName, number) => `Tweet${number && typeof number === "number" ? ` ${number}` : ""} from ${authorName}`,
+
+  // languages
+  ENGLISH: "English",
+  LITHUANIAN: "Lithuanian",
+  TURKISH: "Turkish",
 }

@@ -1,5 +1,5 @@
 module.exports = {
-  name: "Türkçe",
+  name: "Turkish",
   HELLO_WORLD: "Merhaba dünya!",
   
   // miscellaneous
@@ -16,4 +16,9 @@ module.exports = {
   REFERENCED_MESSAGE: isReply =>
     isReply ? "Bu mesajı yanıtlıyor" : "Referans Mesaj",
   TWEET: (authorName, number) => `Tweet${number && typeof number === "number" ? ` ${number}` : ""} ${authorName} tarafından`,
+
+  // languages
+  ENGLISH: "İngilizce",
+  LITHUANIAN: "Litvanyaca",
+  TURKISH: "Türkçe",
 }

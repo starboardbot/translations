@@ -18,16 +18,19 @@
 /**
  * @typedef {
     "en-GB" |
-    "en-US"
+    "en-US" |
+    "tr-TR"
   } LanguageCode
  */
+
 const { readdirSync: readDirectory } = require("fs")
 
 /**
  * Every lanuage code available - [ "en-GB", "en-US", ... ]
  * @type {[
     "en-GB",
-    "en-US"
+    "en-US",
+    "tr-TR"
   ]}
  */
 const codes = readDirectory(
@@ -55,7 +58,7 @@ module.exports = {
    */
   get(key, code, ...args) {
     key = this._fixCase(key)
-    code = this._parseCode(code)
+    code = this._parseLocale(code)
     
     const msg = this.languages[code][key] || this.languages[this.codes.default][key]
     if (!msg) return null
@@ -63,18 +66,19 @@ module.exports = {
   },
 
   /**
-   * Parse a string into a valid language code, defaulting to "en-GB".
+   * Parse a string into a valid locale, defaulting to "en-GB".
    * @param {string} code
    * @param {boolean} returnNull Return null instead of defaulting
    * @returns {LanguageCode}
    */
-  _parseCode(code, returnNull) {
+  _parseLocale(code, returnNull) {
     if (this.codes.includes(code)) return code
     let [a, b = ""] = this._fixCase(code).split("_") // "EN_US"
     if (!a) return returnNull ? null : codes.default
     if (!b)
       switch (a) { // parses "english" to "en-US", "spanish" to "es" etc
         case "ENGLISH": case "EN": a = "en-US"; break;
+        case "TURKISH": case "TR": case "TURK": a = "tr-TR"; break;
       }
 
     code = `${a.toLowerCase()}${b && `-${b}`}`

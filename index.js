@@ -1,14 +1,20 @@
 /**
  * @typedef {
     "HELLO_WORLD"         |
+
     "IMAGE"               |
     "GIF_VIDEO"           |
     "VIDEO"               |
     "MEDIA"               |
+
     "SHORT_CLICK_TO_JUMP" |
     "CLICK_TO_JUMP"       |
     "REFERENCED_MESSAGE"  |
     "TWEET"               |
+    "UNKNOWN_TAG"         |
+    "FROM_SERVER"         |
+    "TRASH_EMBED"         |
+
 
     "LANGUAGES.ENGLISH"     |
     "LANGUAGES.LITHUANIAN"  |
@@ -26,6 +32,17 @@
 
 const { readdirSync: readDirectory } = require("fs")
 const { get } = require("lodash")
+
+// used in languages and code formatting and stuff
+if (typeof String.prototype.stripIndents !== "function") Object.defineProperties(String.prototype, "stripIndents", {
+  value: function(tabSize) {
+    if (!tabSize || typeof tabSize !== "number" || tabSize < 1)
+      return this.trim().replace(/^[\t ]+/gm, "")
+    return this.trim().replace(new RegExp(`^[\\t]{0,${tabSize}}`, "gm"), "")
+  },
+  writable: true,
+  configurable: true,
+})
 
 /**
  * Every lanuage code available - [ "en-GB", "en-US", ... ]

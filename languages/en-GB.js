@@ -17,6 +17,9 @@ module.exports = {
   REFERENCED_MESSAGE: isReply =>
     isReply ? "Replying to this message" : "Referenced Message",
   TWEET: (authorName, number) => `Tweet${number && typeof number === "number" ? ` ${number}` : ""} from ${authorName}`,
+  UNKNOWN_TAG: "Unknown#0000",
+  FROM_SERVER: server => `From ${server}`,
+  TRASHED_EMBED: (reason, userList, removeTrashCommand) => ``, // will do later (todo)
 
   // languages
   LANGUAGES: {

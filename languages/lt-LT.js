@@ -18,7 +18,9 @@ module.exports = {
   TWEET: (authorName, number) => `Tweetinti${number && typeof number === "number" ? ` ${number}` : ""} nuo ${authorName}`,
 
   // languages
-  ENGLISH: "Lietuvių kalba",
-  LITHUANIAN: "Turkų kalba",
-  TURKISH: "Anglų kalba",
+  LANGUAGES: {
+    ENGLISH: "Lietuvių kalba",
+    LITHUANIAN: "Turkų kalba",
+    TURKISH: "Anglų kalba",
+  }
 }

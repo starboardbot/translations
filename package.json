@@ -19,5 +19,8 @@
   "prettier": {
     "arrowParens": "avoid",
     "semi": false
+  },
+  "dependencies": {
+    "lodash": "^4.17.20"
   }
 }

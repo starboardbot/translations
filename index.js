@@ -10,9 +10,9 @@
     "REFERENCED_MESSAGE"  |
     "TWEET"               |
 
-    "ENGLISH"     |
-    "LITHUANIAN"  |
-    "TURKISH"
+    "LANGUAGES.ENGLISH"     |
+    "LANGUAGES.LITHUANIAN"  |
+    "LANGUAGES.TURKISH"
   } Key
  */
 /**
@@ -25,6 +25,7 @@
  */
 
 const { readdirSync: readDirectory } = require("fs")
+const { get } = require("lodash")
 
 /**
  * Every lanuage code available - [ "en-GB", "en-US", ... ]
@@ -59,11 +60,16 @@ module.exports = {
    * @returns {string} The message in a specific language, defaulting to english if not found.
    */
   get(key, code, ...args) {
-    key = this._fixCase(key)
+    key = this._fixCase(Array.isArray(key) ? key.join(".") : key)
     code = this._parseLocale(code)
     
-    const msg = this.languages[code][key] || this.languages[this.codes.default][key]
+    const msg = get(
+      this.languages,
+      `${code}.${key}`,
+      get(this.languages, `${this.codes.default}.${key}`)
+    )
     if (!msg) return null
+
     return typeof msg === "function" ? msg(...args) : msg
   },
 
@@ -95,7 +101,11 @@ module.exports = {
    */
   _fixCase(key) {
     if (typeof key !== "string") return ""
-    return key.replace(/ +/g, "_").replace(/([^A-Z_])([A-Z])/g, (_, bef, aft) => `${bef}_${aft}`).toUpperCase()
+    return key
+    .replace(/ +/g, "_")
+    .replace(/([^A-Z_])([A-Z])/g, (_, bef, aft) => `${bef}_${aft}`)
+    .replace(/_?\._?/g, ".") // replace _._ with .
+    .toUpperCase()
   },
 }
 

@@ -19,7 +19,15 @@ module.exports = {
   TWEET: (authorName, number) => `Tweet${number && typeof number === "number" ? ` ${number}` : ""} from ${authorName}`,
   UNKNOWN: tag => `Unknown${tag ? "#0000" : ""}`,
   FROM_SERVER: server => `From ${server}`,
-  TRASHED_EMBED: (reason, userList, removeTrashCommand) => ``, // will do later (todo)
+  TRASHED_EMBED: (reason, userList, removeTrashCommand) => 
+  `This message has been trashed/removed by a moderator.
+  ${reason ? `**Reason**: ${reason}\n` : ""}
+  If my calculations are correct, the first few people to star this message should've been:
+  ${userList}
+
+  Feel free to delete this message after punishing these people if you need to.
+  This message can no longer be starred, ever. However, if you want this message to get starred again, you can remove it from the trash with \`${removeTrashCommand}\``
+  .stripIndents(),
 
   // languages
   LANGUAGES: {

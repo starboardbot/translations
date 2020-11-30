@@ -117,12 +117,14 @@ module.exports = {
    * @returns {Key}
    */
   _fixCase(key) {
+    if (Array.isArray(key)) key = key.join(".")
     if (typeof key !== "string") return ""
+
     return key
-    .replace(/ +/g, "_")
-    .replace(/([^A-Z_])([A-Z])/g, (_, bef, aft) => `${bef}_${aft}`)
-    .replace(/_?\._?/g, ".") // replace _._ with .
-    .toUpperCase()
+      .replace(/ +/g, "_")
+      .replace(/([^A-Z_])([A-Z])/g, (_, bef, aft) => `${bef}_${aft}`)
+      .replace(/_?\._?/g, ".") // replace _._ with .
+      .toUpperCase()
   },
 }
 

@@ -1,5 +1,5 @@
 module.exports = {
-  name: "Bosanski",
+  name: "Bosnian",
   HELLO_WORLD: "Zdravo svijete!",
 
   // misc
@@ -34,5 +34,6 @@ module.exports = {
     ENGLISH: "Engleski",
     LITHUANIAN: "Litvanski",
     TURKISH: "Turski",
+    BOSNIAN: "Bosanski",
   }
 }

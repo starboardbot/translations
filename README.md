@@ -9,6 +9,7 @@ ___
 
 # Locales
 Here are a list of supported locales, if you wish to contribute but don't know your *exact* locale.
+If you want to create a fictional language, go ahead, as long as its not pointless :^)
 ```
 af-ZA
 am-ET

@@ -15,6 +15,10 @@
     "FROM_SERVER"         |
     "TRASH_EMBED"         |
 
+    "GET_STARTED"         |
+    "GET_STARTED_EMBED"   |
+    "GET_STARTED_FOOTER"  |
+
 
     "LANGUAGES.ENGLISH"     |
     "LANGUAGES.LITHUANIAN"  |

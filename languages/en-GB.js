@@ -29,6 +29,14 @@ module.exports = {
   This message can no longer be starred, ever. However, if you want this message to get starred again, you can remove it from the trash with \`${removeTrashCommand}\``
   .stripIndents(),
 
+  // upon joining a server
+  GET_STARTED: "Get Started",
+  GET_STARTED_EMBED: (req, prefix) => `I've detected a channel named \`#starboard\`, so this is now where all starred messages will go. You can change this later.
+  Currently in this server, messages need to have ${req} star reactions to get posted in this channel, which can be changed.
+  You can set the server up properly with \`${prefix}setup\`, this will walk you through all the settings.
+  And most importantly, have fun!`,
+  GET_STARTED_FOOTER: "Thank you for using Starboard!",
+
   // languages
   LANGUAGES: {
     ENGLISH: "English",

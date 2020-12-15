@@ -14,8 +14,8 @@ module.exports = {
   SHORT_CLICK_TO_JUMP: deleted =>
     // if for whatever reason there are 25 fields and content over 1928 and less than 1947 chars
     !deleted ? "Click!" : "Context",
-  REFERENCED_MESSAGE: isReply =>
-    isReply ? "Replying to this message" : "Referenced Message",
+  REFERENCED_MESSAGE: (isReply, deleted) =>
+    isReply ? `Replying to this message${deleted ? " (deleted)" : ""}` : "Referenced Message",
   TWEET: (authorName, number) => `Tweet${number && typeof number === "number" ? ` ${number}` : ""} from ${authorName}`,
   UNKNOWN: tag => `Unknown${tag ? "#0000" : ""}`,
   FROM_SERVER: server => `From ${server}`,

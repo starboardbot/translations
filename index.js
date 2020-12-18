@@ -19,6 +19,8 @@
     "GET_STARTED_EMBED"   |
     "GET_STARTED_FOOTER"  |
 
+    "CANT_SPEAK"          |
+    "PREFIX_INFO"         |
 
     "LANGUAGES.ENGLISH"     |
     "LANGUAGES.LITHUANIAN"  |

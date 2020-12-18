@@ -37,6 +37,10 @@ module.exports = {
   And most importantly, have fun!`,
   GET_STARTED_FOOTER: "Thank you for using Starboard!",
 
+  // message event
+  CANT_SPEAK: "I cannot speak in that channel! Please get a moderator to change my permissions for that channel, or try using me in a different channel.",
+  PREFIX_INFO: (prefixes = ["star "]) => `My prefix for this server is${prefixes.length > 1 ? " any of" : ""} \`${prefixes.join("`, `")}\`, but my mention also works as a prefix.`,
+
   // languages
   LANGUAGES: {
     ENGLISH: "English",

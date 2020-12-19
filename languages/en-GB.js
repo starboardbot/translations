@@ -41,6 +41,28 @@ module.exports = {
   CANT_SPEAK: "I cannot speak in that channel! Please get a moderator to change my permissions for that channel, or try using me in a different channel.",
   PREFIX_INFO: (prefixes = ["star "]) => `My prefix for this server is${prefixes.length > 1 ? " any of" : ""} \`${prefixes.join("`, `")}\`, but my mention also works as a prefix.`,
 
+  COMMANDS: {
+    COOLDOWN_MESSAGE: time => `You're using this command too frequently! Please wait ${time} before using it again.`,
+    WAIT_SUGGESTIONS: (hasVoted, guildID) => {
+      return [
+        "**[join the support server](https://discord.gg/rZgxfbH)** and have fun talking to us, participate in polls which heavily determine what gets added to the bot, possible giveaways and much much more",
+        `**[vote for the bot](https://top.gg/bot/655390915325591629/vote)** ${hasVoted ? "for extra coolness points" : "to have this cooldown sawed in half"}`,
+        "**[become a patron](https://patreon.com/TheNoob27)** and unlock some sweet donator only features, and a donator only role in our discord server",
+        "**[follow my twitter](https://twitter.com/DaNoob27)** for absolutely no reason at all",
+        "support one of our patrons, x79#8008, by **[following their twitter](https://twitter.com/cometvgc)**",
+        "support one of out patrons, Conifer ConnieTreeCow#9864 by **[subscribing to their youtube channel](https://www.youtube.com/channel/UCzL9A1orpOcXCSOQ3n6ujEA)**",
+        `check out this cool **[Minecraft Discord bot](https://discord.com/oauth2/authorize?client_id=652726107535310859&permissions=16&scope=bot&guild_id=${guildID})** for all you minecraft players out there`,
+        "check out Starboard's **[Github page](https://github.com/TheNoob27/starboard-issues/issues)** where you can post bugs/suggestions instead of using the commands"
+      ]
+    },
+    COOLDOWN: "Cooldown",
+    COOLDOWN_EMBED: (cooldownMessage, cooldown, waitSuggestions) => 
+    `${cooldownMessage}
+    The cooldown for this command is **${cooldown}**. 
+    While you wait, why not ${waitSuggestions.join(" or ")}!`
+    .stripIndents()
+  },
+
   // languages
   LANGUAGES: {
     ENGLISH: "English",

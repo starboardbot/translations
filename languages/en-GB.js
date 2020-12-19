@@ -60,7 +60,47 @@ module.exports = {
     `${cooldownMessage}
     The cooldown for this command is **${cooldown}**. 
     While you wait, why not ${waitSuggestions.join(" or ")}!`
-    .stripIndents()
+    .stripIndents(),
+    /** @param {import ("../../Starboard/src/classes/Command")} command @param {import("../../Starboard/src/classes/Embed")} Embed */
+    COMMAND_HELP_EMBED: (command, Embed, prefix, color, cooldown) => {
+      const l = __filename.split("/").slice(-1)[0].slice(0, -3) // a/b/c/en-GB.js -> en-GB
+      const c = command.language(l).get()
+      const embed = Embed
+        .setTitle("Help")
+        .setColor(command.enabled ? color : command.client.colors.error)
+        .addField(
+          `Command: ${prefix}${command.language(l).name}`,
+          `**Aliases**: ${command.language(l).aliases.get().join(", ") || "none"}
+          **Description**: ${command.language(l).description || "none"}
+          **Usage**: ${prefix}${command.language(l).usage}
+          ${c.EXAMPLE ? `**Example${Array.isArray(c.EXAMPLE) ? "s" : ""}**: ${Array.isArray(c.EXAMPLE) ? c.EXAMPLE.map(c => `${prefix}${c}`).join("\n") : `${prefix}${c.EXAMPLE}`}` : ""}`
+          .stripIndents()
+        )
+        .addField(
+          "Extra",
+          `**Category**: ${command.language(l).base.categories(command.category)}
+          **Cooldown**: ${cooldown}
+          **Enabled**: ${command.client.config.ids.emojis[command.enabled ? "yes" : "no"]}
+          **Required Bot Permissions**: ${command.client.util.readablePermissions(command.botPermissions)}
+          **Required User Permissions**: ${command.client.util.readablePermissions(command.requiredPermissions)}`
+          .stripIndents()
+        )
+        .setFooter("() = optional arguments, <> = required arguments, -- = optional flag")
+      if (command.notices) embed.addField(
+        "Notices",
+        `${
+          command.errorMessage
+            ? `Something is currently wrong with this command: **${command.errorMessage}**.\n`
+            : ""
+        }${
+          command.disableMessage
+            ? `This command is disabled: **${command.disableMessage}**`
+            : ""
+        }`
+      )
+
+      return embed
+    }
   },
 
   // languages

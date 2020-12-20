@@ -40,6 +40,7 @@ module.exports = {
   // message event
   CANT_SPEAK: "I cannot speak in that channel! Please get a moderator to change my permissions for that channel, or try using me in a different channel.",
   PREFIX_INFO: (prefixes = ["star "]) => `My prefix for this server is${prefixes.length > 1 ? " any of" : ""} \`${prefixes.join("`, `")}\`, but my mention also works as a prefix.`,
+  HELP: "Help",
 
   COMMANDS: {
     COOLDOWN_MESSAGE: time => `You're using this command too frequently! Please wait ${time} before using it again.`,
@@ -100,6 +101,66 @@ module.exports = {
       )
 
       return embed
+    },
+
+    /** @param {import ("../../Starboard/src/classes/Command")} command @param {import("../../Starboard/src/classes/Embed")} Embed */
+    COMMAND_DISABLED_EMBED: (command, Embed) =>
+      Embed
+        .setTitle("Command Disabled")
+        .setDescription(`This command is currently disabled. ${command.settings.disableMessage ? `The reason for that is: **${command.disableMessage}**.` : "It was probably disabled because something wasn't functioning properly, otherwise another reason."}
+        Please try again later, or **[join the support server](https://discord.gg/rZgxfbH)** for more info.`.stripIndents())
+        .setColor(command.client.colors.error)
+        .setTimestamp(),
+    /** @param {import ("../../Starboard/src/classes/Command")} command @param {import("../../Starboard/src/classes/Embed")} Embed */
+    COMMAND_ERROR_EMBED: (command, Embed, e, owner, prefix) => 
+      Embed
+        .setTitle("An Error Occurred!")
+        .setColor(command.client.colors.error)
+        .setDescription(
+          `Something went wrong while trying to run this command! This shouldn't happen. ${command.errorMessage
+            ? `\nNote: **${command.errorMessage}**`
+            : `If this persists, please **[join the support server](${command.client.config.links.support})** and explain your problem there.`}
+
+          **Error**: \`\`\`js
+          ${e[owner ? "stack" : "message"]}
+          \`\`\``.stripIndents()
+        )
+        .setFooter(`Failed to run ${prefix}${command.name}.`)
+        .setTimestamp(),
+    /** @param {import ("../../Starboard/src/classes/Command")} command @param {import("../../Starboard/src/classes/Embed")} Embed  @param {[("ENUM" | "MATCH" | "TYPE" | "RANGE" | "PARSE")]} e */
+    COMMAND_INVALID_ARGS: (command, Embed, e) => {
+      let m, esc = command.client.util.discordUtil.escapeMarkdown
+      switch (e[0]) {
+        case "ENUM": {
+          const [, raw, en] = e
+          m = `The provided argument \`${esc(raw)}\` has to be one of \`${en.join("`, `")}\`.`
+          break
+        }
+        case "MATCH": {
+          const [, raw, match] = e
+          m = `The provided argument \`${esc(raw)}\` has to match the regex \`${match.toString().split("/")[1] || match}\`.`
+          break
+        }
+        case "PARSE": {
+          const [, raw, toParse] = e
+          m = `Could not parse a ${toParse} from the provided argument \`${esc(raw)}\``
+          break
+        }
+        case "RANGE": {
+          const [, raw, greatOrLess, boundary] = e
+          m = `The provided argument \`${esc(raw)}\` cannot be ${greatOrLess} than \`${boundary}\`.`
+          break
+        }
+        case "TYPE": {
+          const [, raw, type] = e
+          m = `The provided argument \`${esc(raw)}\` has to be a \`${type}\`.`
+          break
+        }
+      }
+      return Embed
+        .setTitle("Invalid Arguments")
+        .setDescription(`The arguments provided were not valid: **${m}**`)
+        .setColor(command.client.colors.error)
     }
   },
 

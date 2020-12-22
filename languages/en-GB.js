@@ -161,6 +161,30 @@ module.exports = {
         .setTitle("Invalid Arguments")
         .setDescription(`The arguments provided were not valid: **${m}**`)
         .setColor(command.client.colors.error)
+    },
+
+    PING: {
+      DESCRIPTION: "Check the bot's ping, response times and edit speed.",
+      USAGE: "ping",
+      PINGING: "Pinging...",
+      CLUSTER: n => `Cluster ${n}`,
+      SHARD: n => `Shard ${n}`,
+      PING: "Ping",
+      LATENCY: "Latency",
+      EDIT: "Edit"
+    },
+    HELP: {
+      DESCRIPTION: "View all the commands the bot has to offer, or view info about a specific command.",
+      USAGE: "help (command)",
+      EMBED_DESCRIPTION: (command, owner, categories, prefix) => `Commands: ${
+          owner
+            ? command.client.commands.size
+            : Object.values(categories) // { "Category": "...\n..." }
+              .reduce((p, c) => c.split("\n").length + p, 0)
+        }
+        If you're new to the bot, you can set up your server using \`${prefix}setup\`.
+        If you still need help, please join our **[support server](${command.client.config.links.support})**.`.stripIndents(),
+      EMBED_FOOTER: "() = optional, <> = required - don't include these when using the commands."
     }
   },
 

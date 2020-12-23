@@ -62,7 +62,7 @@ module.exports = {
     The cooldown for this command is **${cooldown}**. 
     While you wait, why not ${waitSuggestions.join(" or ")}!`
     .stripIndents(),
-    /** @param {import ("../../Starboard/src/classes/Command")} command @param {import("../../Starboard/src/classes/Embed")} Embed */
+    /** @param {import("../../classes/Command")} command @param {import("../../classes/Embed")} Embed */
     COMMAND_HELP_EMBED: (command, Embed, prefix, color, cooldown) => {
       const l = __filename.split("/").slice(-1)[0].slice(0, -3) // a/b/c/en-GB.js -> en-GB
       const c = command.language(l).get()
@@ -70,7 +70,7 @@ module.exports = {
         .setTitle("Help")
         .setColor(command.enabled ? color : command.client.colors.error)
         .addField(
-          `Command: ${prefix}${command.language(l).name}`,
+          `Command: ${prefix}${command.language(l).name || command.name}`,
           `**Aliases**: ${command.language(l).aliases.get().join(", ") || "none"}
           **Description**: ${command.language(l).description || "none"}
           **Usage**: ${prefix}${command.language(l).usage}
@@ -103,7 +103,7 @@ module.exports = {
       return embed
     },
 
-    /** @param {import ("../../Starboard/src/classes/Command")} command @param {import("../../Starboard/src/classes/Embed")} Embed */
+    /** @param {import ("../../classes/Command")} command @param {import("../../classes/Embed")} Embed */
     COMMAND_DISABLED_EMBED: (command, Embed) =>
       Embed
         .setTitle("Command Disabled")
@@ -111,7 +111,7 @@ module.exports = {
         Please try again later, or **[join the support server](https://discord.gg/rZgxfbH)** for more info.`.stripIndents())
         .setColor(command.client.colors.error)
         .setTimestamp(),
-    /** @param {import ("../../Starboard/src/classes/Command")} command @param {import("../../Starboard/src/classes/Embed")} Embed */
+    /** @param {import ("../../classes/Command")} command @param {import("../../classes/Embed")} Embed */
     COMMAND_ERROR_EMBED: (command, Embed, e, owner, prefix) => 
       Embed
         .setTitle("An Error Occurred!")
@@ -127,7 +127,7 @@ module.exports = {
         )
         .setFooter(`Failed to run ${prefix}${command.name}.`)
         .setTimestamp(),
-    /** @param {import ("../../Starboard/src/classes/Command")} command @param {import("../../Starboard/src/classes/Embed")} Embed  @param {[("ENUM" | "MATCH" | "TYPE" | "RANGE" | "PARSE")]} e */
+    /** @param {import ("../../classes/Command")} command @param {import("../../classes/Embed")} Embed  @param {[("ENUM" | "MATCH" | "TYPE" | "RANGE" | "PARSE")]} e */
     COMMAND_INVALID_ARGS: (command, Embed, e) => {
       let m, esc = command.client.util.discordUtil.escapeMarkdown
       switch (e[0]) {
@@ -162,16 +162,11 @@ module.exports = {
         .setDescription(`The arguments provided were not valid: **${m}**`)
         .setColor(command.client.colors.error)
     },
+    MISSING_PERMISSIONS: (perms, bot) => `${bot ? "The bot is" : "You are"} missing the ${perms} permissions, required to run this command.`,
 
-    PING: {
-      DESCRIPTION: "Check the bot's ping, response times and edit speed.",
-      USAGE: "ping",
-      PINGING: "Pinging...",
-      CLUSTER: n => `Cluster ${n}`,
-      SHARD: n => `Shard ${n}`,
-      PING: "Ping",
-      LATENCY: "Latency",
-      EDIT: "Edit"
+    EVAL: {
+      DESCRIPTION: "Evaluates a bit of code.",
+      USAGE: "eval <code>"
     },
     HELP: {
       DESCRIPTION: "View all the commands the bot has to offer, or view info about a specific command.",
@@ -185,6 +180,20 @@ module.exports = {
         If you're new to the bot, you can set up your server using \`${prefix}setup\`.
         If you still need help, please join our **[support server](${command.client.config.links.support})**.`.stripIndents(),
       EMBED_FOOTER: "() = optional, <> = required - don't include these when using the commands."
+    },
+    PING: {
+      DESCRIPTION: "Check the bot's ping, response times and edit speed.",
+      USAGE: "ping",
+      PINGING: "Pinging...",
+      CLUSTER: n => `Cluster ${n}`,
+      SHARD: n => `Shard ${n}`,
+      PING: "Ping",
+      LATENCY: "Latency",
+      EDIT: "Edit"
+    },
+    RELOAD: {
+      DESCRIPTION: "Reload commands, events or a file.",
+      USAGE: "reload <[command]/event/file> <[event]/[file]>"
     }
   },
 

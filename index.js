@@ -60,7 +60,7 @@ if (typeof String.prototype.stripIndents !== "function") Object.defineProperties
   ]}
  */
 const codes = readDirectory(
-  require("path").resolve("./languages")
+  require("path").resolve(__dirname, "./languages")
 ).map(c =>
   c.endsWith(".js") ? c.slice(0, -3) : c
 )

@@ -146,7 +146,7 @@ module.exports = {
           break
         }
         case "MISSING": {
-          const [, name]
+          const [, name] = e
           m = `The required argument **${name}** is missing.`
           break
         }

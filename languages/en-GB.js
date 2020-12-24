@@ -132,28 +132,39 @@ module.exports = {
       let m, esc = command.client.util.discordUtil.escapeMarkdown
       switch (e[0]) {
         case "ENUM": {
-          const [, raw, en] = e
-          m = `The provided argument \`${esc(raw)}\` has to be one of \`${en.join("`, `")}\`.`
+          const [, name, raw, en] = e
+          m = `The argument **${name}** ${
+            raw ? `(provided: \`${esc(raw).replace(/(\w{20}).+/, "$1...")}\`) ` : ""
+          }has to be one of \`${en.join("`, `")}\`.`
           break
         }
         case "MATCH": {
-          const [, raw, match] = e
-          m = `The provided argument \`${esc(raw)}\` has to match the regex \`${match.toString().split("/")[1] || match}\`.`
+          const [, name, raw, match] = e
+          m = `The argument **${name}** ${
+            raw ? `(provided: \`${esc(raw).replace(/(\w{20}).+/, "$1...")}\`) ` : ""
+          }has to match the regex \`${match.toString().split("/")[1] || match}\`.`
+          break
+        }
+        case "MISSING": {
+          const [, name]
+          m = `The required argument **${name}** is missing.`
           break
         }
         case "PARSE": {
           const [, raw, toParse] = e
-          m = `Could not parse a ${toParse} from the provided argument \`${esc(raw)}\``
+          m = `Could not parse a ${toParse} ${typeof raw === "number" ? "for argument" : "from the provided argument"} \`${esc(String(raw || "")).replace(/(\w{20}).+/, "$1...")}\``
           break
         }
         case "RANGE": {
           const [, raw, greatOrLess, boundary] = e
-          m = `The provided argument \`${esc(raw)}\` cannot be ${greatOrLess} than \`${boundary}\`.`
+          m = `The provided argument \`${esc(raw).replace(/(\w{20}).+/, "$1...")}\` cannot be ${greatOrLess} than \`${boundary}\`.`
           break
         }
         case "TYPE": {
-          const [, raw, type] = e
-          m = `The provided argument \`${esc(raw)}\` has to be a \`${type}\`.`
+          const [, name, raw, type] = e
+          m = `The argument **${name}** ${
+            raw ? `(provided: \`${esc(raw).replace(/(\w{20}).+/, "$1...")}\`) ` : ""
+          }has to be a \`${type}\`.`
           break
         }
       }

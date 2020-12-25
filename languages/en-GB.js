@@ -63,7 +63,7 @@ module.exports = {
     While you wait, why not ${waitSuggestions.join(" or ")}!`
     .stripIndents(),
     /** @param {import("../../classes/Command")} command @param {import("../../classes/Embed")} Embed */
-    COMMAND_HELP_EMBED: (command, Embed, prefix, color, cooldown) => {
+    COMMAND_HELP_EMBED: (command, Embed, prefix, color, cooldown, requiredPermissions) => {
       const l = __filename.split("/").slice(-1)[0].slice(0, -3) // a/b/c/en-GB.js -> en-GB
       const c = command.language(l).get()
       const embed = Embed
@@ -83,7 +83,7 @@ module.exports = {
           **Cooldown**: ${cooldown}
           **Enabled**: ${command.client.config.ids.emojis[command.enabled ? "yes" : "no"]}
           **Required Bot Permissions**: ${command.client.util.readablePermissions(command.botPermissions)}
-          **Required User Permissions**: ${command.client.util.readablePermissions(command.requiredPermissions)}`
+          **Required User Permissions**: ${command.client.util.readablePermissions(requiredPermissions)}`
           .stripIndents()
         )
         .setFooter("() = optional arguments, <> = required arguments, -- = optional flag")
@@ -190,7 +190,7 @@ module.exports = {
         }
         If you're new to the bot, you can set up your server using \`${prefix}setup\`.
         If you still need help, please join our **[support server](${command.client.config.links.support})**.`.stripIndents(),
-      EMBED_FOOTER: "() = optional, <> = required - don't include these when using the commands."
+      EMBED_FOOTER: "() = optional, <> = required, [] = a placeholder, -- = optional flags - don't include these when using the commands."
     },
     PING: {
       DESCRIPTION: "Check the bot's ping, response times and edit speed.",
@@ -204,7 +204,42 @@ module.exports = {
     },
     RELOAD: {
       DESCRIPTION: "Reload commands, events or a file.",
-      USAGE: "reload <[command]/event/file> <[event]/[file]>"
+      USAGE: "reload <[command]/event/file> ([event]/[file])"
+    },
+    CHANGESETTING: {
+      DESCRIPTION: "Change a setting for the channel or server, such as the required amount of stars needed to reach the starboard. All the settings are in the settings command, so you can view your options there.",
+      USAGE: "changesetting <[setting]> <[value]> --channel ([channelID])",
+      
+      UPDATED_SETTINGS: "Updated Settings",
+      ERRORS: "Errors",
+
+      NO_CHANNEL_SETTINGS: (c) => `There are no channel settings specifically for ${c ? c : "this channel"}.`,
+      INVALID_CHANNEL_SETTING: s => `**${s}** is not a valid setting for channels, it is only available as a server setting.`,
+      
+      INVALID_LANGUAGE: l => `**${l}** was not a valid language.`,
+      LANGUAGE_SET: l => `Successfully set the language to ${l}`, // passing l because other languages may not be finished and have this translation
+
+      NO_STARBOARD: (c, nsfw) => `There is no ${nsfw ? "NSFW " : ""}starboard set${c ? " for this channel" : ""}.`,
+      INVALID_CHANNEL: "That channel does not exist.",
+      INVALID_CHANNEL_TYPE: "The channel must be either a text or announcement channel.",
+      CANT_SPEAK: embeds => `I cannot send ${embeds ? "embeds" : "messages"} in that channel`,
+      SAME_STARBOARDS: "You cannot set the normal starboard to the same channel as the NSFW starboard.",
+      NOT_NSFW: "The NSFW starboard must be set as a NSFW channel.",
+      STARBOARD_DELETE: (c, nsfw) => `Successfully unset the ${nsfw ? "NSFW " : ""}starboard${c ? " for this channel" : ""}.`,
+      STARBOARD_SET: (c, channel, nsfw) => `Successfully set the ${nsfw ? "NSFW " : ""} starboard ${c ? "for this channel " : ""}to ${channel}.`,
+
+      REQUIRED_TOO_BIG: "The required amount of stars to reach the starboard cannot be that high.",
+      REQUIRED_TOO_SMALL: "The required amount of stars to reach the starboard has to be a number greater than 0.",
+      REQUIRED_SET: (n, c) => `Successfully set the required amount of stars to reach the starboard ${c ? "for this channel " : ""}to ${n}.`,
+      REQUIRED_SET_BOTH: (n, c) => `Successfully set the required amount of stars to reach the starboard ${c ? "for this channel " : ""}to ${n}, and lowered **RequiredToRemove** to ${n - 1}.`,
+      RTR_TOO_BIG: "The required amount of stars to be removed from the starboard cannot be that high.",
+      RTR_TOO_SMALL: "The required amount of stars to be removed from the starboard has to be a number greater than or equal to 0.",
+      RTR_SET: (n, c) => `Successfully set the required amount of stars to be removed from the starboard ${c ? "for this channel " : ""}to ${n}.`,
+      RTR_SET_BOTH: (n, c) => `Successfully set the required amount of stars to be removed from the starboard ${c ? "for this channel " : ""}to ${n}, and raised **Required** to ${n + 2}.`,
+
+      INVALID_PERMISSIONS: "The permissions provided were not valid.",
+      PERMISSIONS_SET: p => `Successfully set the permissions required to perform various actions to ${p}.`,
+      COLOR_SET: (c, r) => `Successfully set the colour for starboard messages above ${r} stars to ${c}.`
     }
   },
 

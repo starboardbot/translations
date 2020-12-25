@@ -104,16 +104,18 @@ module.exports = {
    */
   _parseLocale(code, returnNull) {
     if (this.codes.includes(code)) return code
-    let [a, b = ""] = this._fixCase(code).split("_") // "EN_US"
-    if (!a) return returnNull ? null : codes.default
+    let [a, b = ""] = this._fixCase(code).split(/[-_]/) // "EN_US" -> ["EN", "US"]
+    if (!a) return returnNull ? null : this.codes.default
     if (!b)
       switch (a) { // parses "english" to "en-US", "spanish" to "es" etc
-        case "ENGLISH": case "EN": a = "en-US"; break;
-        case "TURKISH": case "TR": case "TURK": a = "tr-TR"; break;
+        case "DEFAULT": case "NONE": [a, b] = ["en", "GB"]; break;
+        case "ENGLISH": case "EN": [a, b] = ["en", "US"]; break;
+        case "TURKISH": case "TR": case "TURK": [a, b] = ["tr", "TR"]; break;
+        case "LITHUANIAN": case "LT": [a, b] = ["lt", "LT"]; break
       }
 
     code = `${a.toLowerCase()}${b && `-${b}`}`
-    if (!this.codes.includes(code)) return returnNull ? null : codes.default
+    if (!this.codes.includes(code)) return returnNull ? null : this.codes.default
     return code
   },
 

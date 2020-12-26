@@ -1,3 +1,4 @@
+// jsdoc is outdated, will update later
 /**
  * @typedef {
     "HELLO_WORLD"         |
@@ -21,10 +22,22 @@
 
     "CANT_SPEAK"          |
     "PREFIX_INFO"         |
+    "HELP"                |
 
-    "LANGUAGES.ENGLISH"     |
-    "LANGUAGES.LITHUANIAN"  |
-    "LANGUAGES.TURKISH"
+    "COMMANDS.NEED_VOTE"              |
+    "COMMANDS.NEED_PREMIUM"           |
+    "COMMANDS.COOLDOWN_MESSAGE"       |
+    "COMMANDS.WAIT_SUGGESTIONS"       |
+    "COMMANDS.COOLDOWN"               |
+    "COMMANDS.COOLDOWN_EMBED"         |
+    "COMMANDS.COMMAND_HELP_EMBED"     |
+    "COMMANDS.COMMAND_DISABLED_EMBED" |
+    "COMMANDS.COMMAND_ERROR_EMBED"    |
+    "COMMANDS.COMMAND_INVALID_ARGS"   |
+    "COMMANDS.MISSING_PERMISSIONS"    |
+
+    "LANGUAGES" |
+    "SETTINGS"
   } Key
  */
 /**

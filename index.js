@@ -1,31 +1,35 @@
-// jsdoc is outdated, will update later
 /**
  * @typedef {
-    "HELLO_WORLD"         |
+    "HELLO_WORLD"          |
 
-    "IMAGE"               |
-    "GIF_VIDEO"           |
-    "VIDEO"               |
-    "MEDIA"               |
+    "IMAGE"                |
+    "GIF_VIDEO"            |
+    "VIDEO"                |
+    "MEDIA"                |
 
-    "SHORT_CLICK_TO_JUMP" |
-    "CLICK_TO_JUMP"       |
-    "REFERENCED_MESSAGE"  |
-    "TWEET"               |
-    "UNKNOWN_TAG"         |
-    "FROM_SERVER"         |
-    "TRASH_EMBED"         |
+    "SHORT_CLICK_TO_JUMP"  |
+    "CLICK_TO_JUMP"        |
+    "REFERENCED_MESSAGE"   |
+    "TWEET"                |
+    "UNKNOWN_TAG"          |
+    "FROM_SERVER"          |
+    "TRASH_EMBED"          |
 
-    "GET_STARTED"         |
-    "GET_STARTED_EMBED"   |
-    "GET_STARTED_FOOTER"  |
+    "GET_STARTED"          |
+    "GET_STARTED_EMBED"    |
+    "GET_STARTED_FOOTER"   |
 
-    "CANT_SPEAK"          |
-    "PREFIX_INFO"         |
-    "HELP"                |
+    "CANT_SPEAK"           |
+    "PREFIX_INFO"          |
+    "HELP"                 |
+    "NEED_VOTE"            |
+    "NEED_PREMIUM"         |
+    "STAR_REQ_FEAT"        |
+    "EMOJIS_FEAT"          |
+    "DOWNVOTE_FEAT"        |
+    "MULTIPLE_EMOJIS_FEAT" |
 
-    "COMMANDS.NEED_VOTE"              |
-    "COMMANDS.NEED_PREMIUM"           |
+    "COMMANDS"                        |
     "COMMANDS.COOLDOWN_MESSAGE"       |
     "COMMANDS.WAIT_SUGGESTIONS"       |
     "COMMANDS.COOLDOWN"               |

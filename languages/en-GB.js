@@ -42,9 +42,14 @@ module.exports = {
   PREFIX_INFO: (prefixes = ["star "]) => `My prefix for this server is${prefixes.length > 1 ? " any of" : ""} \`${prefixes.join("`, `")}\`, but my mention also works as a prefix.`,
   HELP: "Help",
 
+  NEED_VOTE: doThis => `To ${doThis}, you need to **[vote for the bot](https://top.gg/bot/655390915325591629/vote)**. Once you have voted, you have to wait a few minutes for me to recieve your vote.`,
+  NEED_PREMIUM: doThis => `To ${doThis}, your server needs to be a **[Premium Server](https://patreon.com/TheNoob27)**.`,
+  STAR_REQ_FEAT: "change the requirements for different star emojis to appear",
+  EMOJIS_FEAT: "change the emojis",
+  DOWNVOTE_FEAT: "downvote starred messages",
+  MULTIPLE_EMOJIS_FEAT: "have multiple emojis at once",
+  
   COMMANDS: {
-    NEED_VOTE: doThis => `To ${doThis}, you need to **[vote for the bot](https://top.gg/bot/655390915325591629/vote)**. Once you have voted, you have to wait a few minutes for me to recieve your vote.`,
-    NEED_PREMIUM: doThis => `To ${doThis}, your server needs to be a **[Premium Server](https://patreon.com/TheNoob27)**.`,
     COOLDOWN_MESSAGE: time => `You're using this command too frequently! Please wait ${time} before using it again.`,
     WAIT_SUGGESTIONS: (hasVoted, guildID) => {
       return [
@@ -244,15 +249,11 @@ module.exports = {
       PERMISSIONS_SET: p => `Successfully set the permissions required to perform various actions to ${p}.`,
       COLOR_SET: (c, r) => `Successfully set the colour for starboard messages above ${r} stars to ${c}.`,
 
-      STAR_REQ_FEAT: "change the requirements for different star emojis to appear",
       REQUIREMENT_TOO_HIGH: t => `The **${t}** requirement cannot be that high.`,
       REQUIREMENT_TOO_LOW: t => `The **${t}** requirement has to be a number greater than 0.`,
       REQUIREMENT_BOUNDARY: (t, next, n, higher) => `The **${t}** requirement has to be a number ${higher ? "higher" : "lower"} than ${n}, which is what **${next}** is currently set as.`,
       REQUIREMENT_SET: (type, emoji, n) => `Successfully set the required amount of stars for the **${type}** emoji${emoji ? ` (${emoji})` : ""} to show up on the starboard to ${n}.`,
       
-      EMOJIS_FEAT: "change the emojis",
-      DOWNVOTE_FEAT: "downvote starred messages",
-      MULTIPLE_EMOJIS_FEAT: "have multiple emojis at once",
       EMOJI_NOT_FOUND: "That emoji could not be found, or was invalid.",
       CANNOT_USE_EMOJI: "I cannot use this emoji, it has to be an emoji from a server I am in.",
       EMOJIS_SAME: "The emoji to upvote starred messages and the emoji to downvote starred messages cannot be the same.",

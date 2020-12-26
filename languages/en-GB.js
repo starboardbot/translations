@@ -176,6 +176,7 @@ module.exports = {
         .setColor(command.client.colors.error)
     },
     MISSING_PERMISSIONS: (perms, bot) => `${bot ? "The bot is" : "You are"} missing the ${perms} permissions, required to run this command.`,
+    // STARRED_MESSAGE_NOT_IN_GUILD: "The starred message must be from this server.",
 
     EVAL: {
       DESCRIPTION: "Evaluates a bit of code.",
@@ -264,7 +265,31 @@ module.exports = {
       EMOJI_SET: e => `Successfully set the emoji to react on messages with to ${e}.`,
       STAR_SET: (e, type) => `Successfully changed the **${type}** star to ${e}.`,
       DV_EMOJI_SET: e => `Successfully set the emoji to downvote messages with to ${e}.`,
-    }
+    },
+    LOCK: {
+      DESCRIPTION: "Locks a starred message to the starboard, so it'll stay there even if it reaches 0 stars.",
+      USAGE: "lock <messageID>",
+      SUCCESS: "Successfully locked that message to the starboard.",
+      FAILED: "That message is already locked."
+    },
+    UNLOCK: {
+      DESCRIPTION: "Unlocks a starred message from the starboard, so it can be removed as normal.",
+      USAGE: "unlock <messageID>",
+      SUCCESS: "Successfully unlocked that message from the starboard.",
+      FAILED: "That message is not locked."
+    },
+    FREEZE: {
+      DESCRIPTION: "Freezes a starred message, so no-one can add or remove stars.",
+      USAGE: "freeze <messageID>",
+      SUCCESS: "Successfully froze that message.",
+      FAILED: "That message is already frozen."
+    },
+    UNFREEZE: {
+      DESCRIPTION: "Unfreezes a starred message, so everyone can add or remove stars as normal.",
+      USAGE: "unfreeze <messageID>",
+      SUCCESS: "Successfully unfroze that message.",
+      FAILED: "That message is not frozen."
+    },
   },
 
   // languages

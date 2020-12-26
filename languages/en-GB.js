@@ -19,7 +19,7 @@ module.exports = {
   TWEET: (authorName, number) => `Tweet${number && typeof number === "number" ? ` ${number}` : ""} from ${authorName}`,
   UNKNOWN: tag => `Unknown${tag ? "#0000" : ""}`,
   FROM_SERVER: server => `From ${server}`,
-  TRASHED_EMBED: (reason, userList, removeTrashCommand) => 
+  TRASH_EMBED: (reason, userList, removeTrashCommand) => 
   `This message has been trashed/removed by a moderator.
   ${reason ? `**Reason**: ${reason}\n` : ""}
   If my calculations are correct, the first few people to star this message should've been:
@@ -43,6 +43,8 @@ module.exports = {
   HELP: "Help",
 
   COMMANDS: {
+    NEED_VOTE: doThis => `To ${doThis}, you need to **[vote for the bot](https://top.gg/bot/655390915325591629/vote)**. Once you have voted, you have to wait a few minutes for me to recieve your vote.`,
+    NEED_PREMIUM: doThis => `To ${doThis}, your server needs to be a **[Premium Server](https://patreon.com/TheNoob27)**.`,
     COOLDOWN_MESSAGE: time => `You're using this command too frequently! Please wait ${time} before using it again.`,
     WAIT_SUGGESTIONS: (hasVoted, guildID) => {
       return [
@@ -156,8 +158,8 @@ module.exports = {
           break
         }
         case "RANGE": {
-          const [, raw, greatOrLess, boundary] = e
-          m = `The provided argument \`${esc(raw).replace(/(\w{20}).+/, "$1...")}\` cannot be ${greatOrLess} than \`${boundary}\`.`
+          const [, raw, greater, boundary] = e
+          m = `The provided argument \`${esc(raw).replace(/(\w{20}).+/, "$1...")}\` cannot be ${greater ? "greater" : "less"} than \`${boundary}\`.`
           break
         }
         case "TYPE": {
@@ -226,7 +228,7 @@ module.exports = {
       SAME_STARBOARDS: "You cannot set the normal starboard to the same channel as the NSFW starboard.",
       NOT_NSFW: "The NSFW starboard must be set as a NSFW channel.",
       STARBOARD_DELETE: (c, nsfw) => `Successfully unset the ${nsfw ? "NSFW " : ""}starboard${c ? " for this channel" : ""}.`,
-      STARBOARD_SET: (c, channel, nsfw) => `Successfully set the ${nsfw ? "NSFW " : ""} starboard ${c ? "for this channel " : ""}to ${channel}.`,
+      STARBOARD_SET: (c, channel, nsfw) => `Successfully set the ${nsfw ? "NSFW " : ""}starboard ${c ? "for this channel " : ""}to ${channel}.`,
 
       REQUIRED_TOO_BIG: "The required amount of stars to reach the starboard cannot be that high.",
       REQUIRED_TOO_SMALL: "The required amount of stars to reach the starboard has to be a number greater than 0.",
@@ -239,7 +241,29 @@ module.exports = {
 
       INVALID_PERMISSIONS: "The permissions provided were not valid.",
       PERMISSIONS_SET: p => `Successfully set the permissions required to perform various actions to ${p}.`,
-      COLOR_SET: (c, r) => `Successfully set the colour for starboard messages above ${r} stars to ${c}.`
+      COLOR_SET: (c, r) => `Successfully set the colour for starboard messages above ${r} stars to ${c}.`,
+
+      STAR_REQ_FEAT: "change the requirements for different star emojis to appear",
+      REQUIREMENT_TOO_HIGH: t => `The **${t}** requirement cannot be that high.`,
+      REQUIREMENT_TOO_LOW: t => `The **${t}** requirement has to be a number greater than 0.`,
+      REQUIREMENT_BOUNDARY: (t, next, n, higher) => `The **${t}** requirement has to be a number ${higher ? "higher" : "lower"} than ${n}, which is what **${next}** is currently set as.`,
+      REQUIREMENT_SET: (type, emoji, n) => `Successfully set the required amount of stars for the **${type}** emoji${emoji ? ` (${emoji})` : ""} to show up on the starboard to ${n}.`,
+      
+      EMOJIS_FEAT: "change the emojis",
+      DOWNVOTE_FEAT: "downvote starred messages",
+      MULTIPLE_EMOJIS_FEAT: "have multiple emojis at once",
+      EMOJI_NOT_FOUND: "That emoji could not be found, or was invalid.",
+      CANNOT_USE_EMOJI: "I cannot use this emoji, it has to be an emoji from a server I am in.",
+      EMOJIS_SAME: "The emoji to upvote starred messages and the emoji to downvote starred messages cannot be the same.",
+      RESERVED_EMOJI: "Sorry, but this emoji cannot be used.",
+      MAX_EMOJIS: "You have reached the maximum amount of emojis allowed for 1 server.",
+      ALREADY_AN_EMOJI: "Your emoji is already saved as one in the list of emojis.",
+      NOT_AN_EMOJI: "Your emoji is not saved as one in the list of emojis.",
+      EMOJI_ADD_SET: e => `Successfully added ${e} to the list of emojis.`,
+      EMOJI_REMOVE_SET: e => `Successfully removed ${e} from the list of emojis.`,
+      EMOJI_SET: e => `Successfully set the emoji to react on messages with to ${e}.`,
+      STAR_SET: (e, type) => `Successfully changed the **${type}** star to ${e}.`,
+      DV_EMOJI_SET: e => `Successfully set the emoji to downvote messages with to ${e}.`,
     }
   },
 

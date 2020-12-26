@@ -294,8 +294,9 @@ module.exports = {
 
   // languages
   LANGUAGES: {
-    ENGLISH: "English",
-    LITHUANIAN: "Lithuanian",
-    TURKISH: "Turkish",
+    EN_GB: "English (GB)",
+    EN_US: "English (US)",
+    LT_LT: "Lithuanian",
+    TR_TR: "Turkish",
   }
 }

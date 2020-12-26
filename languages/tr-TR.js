@@ -19,8 +19,9 @@ module.exports = {
 
   // languages
   LANGUAGES: {
-    ENGLISH: "İngilizce",
-    LITHUANIAN: "Litvanyaca",
-    TURKISH: "Türkçe",
+    EN_GB: "İngilizce",
+    EN_US: "İngilizce",
+    LT_LT: "Litvanyaca",
+    TR_TR: "Türkçe",
   }
 }

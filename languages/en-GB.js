@@ -254,7 +254,7 @@ module.exports = {
       }
       return Embed
         .setTitle("Invalid Arguments")
-        .setDescription(`The arguments provided were not valid: **${m}**`)
+        .setDescription(`The arguments provided were not valid: ${m}`)
         .setColor(command.client.colors.error)
     },
     MISSING_PERMISSIONS: (perms, bot) => `${bot ? "The bot is" : "You are"} missing the ${perms} permissions, required to run this command.`,
@@ -293,7 +293,7 @@ module.exports = {
     },
     CHANGESETTING: {
       DESCRIPTION: "Change a setting for the channel or server, such as the required amount of stars needed to reach the starboard. All the settings are in the settings command, so you can view your options there.",
-      USAGE: "changesetting <[setting]> <[value]> --channel ([channelID])",
+      USAGE: "changesetting <[setting]> <[value]> --channel ([channel])",
       
       UPDATED_SETTINGS: "Updated Settings",
       ERRORS: "Errors",
@@ -368,28 +368,55 @@ module.exports = {
     },
     LOCK: {
       DESCRIPTION: "Locks a starred message to the starboard, so it'll stay there even if it reaches 0 stars.",
-      USAGE: "lock <messageID>",
+      USAGE: "lock <[messageID]>",
       SUCCESS: "Successfully locked that message to the starboard.",
       FAILED: "That message is already locked."
     },
     UNLOCK: {
       DESCRIPTION: "Unlocks a starred message from the starboard, so it can be removed as normal.",
-      USAGE: "unlock <messageID>",
+      USAGE: "unlock <[messageID]>",
       SUCCESS: "Successfully unlocked that message from the starboard.",
       FAILED: "That message is not locked."
     },
     FREEZE: {
       DESCRIPTION: "Freezes a starred message, so no-one can add or remove stars.",
-      USAGE: "freeze <messageID>",
+      USAGE: "freeze <[messageID]>",
       SUCCESS: "Successfully froze that message.",
       FAILED: "That message is already frozen."
     },
     UNFREEZE: {
       DESCRIPTION: "Unfreezes a starred message, so everyone can add or remove stars as normal.",
-      USAGE: "unfreeze <messageID>",
+      USAGE: "unfreeze <[messageID]>",
       SUCCESS: "Successfully unfroze that message.",
       FAILED: "That message is not frozen."
     },
+    PREFIXES: {
+      DESCRIPTION: "Add or remove prefixes for the server, or view a list of them.",
+      USAGE: "prefixes (add/remove) ([prefix])",
+      ALREADY_PREFIX: "That is already a prefix for this server.",
+      TOO_MANY_PREFIXES: "There are too many prefixes set for this server.",
+      PREFIX_TOO_LONG: "That prefix is too long.",
+      NOT_PREFIX: "That is not a prefix for this server.",
+      PREFIX_ADD: p => `Successfully added "${p}" to the list of prefixes.`,
+      PREFIX_REMOVE: p => `Successfully removed "${p}" from the list of prefixes.`,
+      PREFIX_SET: p => `Successfully set the server's prefix to "${p}"`,
+      LIST_PREFIXES: prefixes => `The prefixes for this server ${
+        prefixes.length > 1
+          ? `are: \n"${prefixes.join("\",\n\"")}"`
+          : `is "${prefixes}".`
+      }`,
+      FOOTER: "My mention also works as a prefix."
+    },
+    LINKS: {
+      DESCRIPTION: "Get the links related to the bot, such as the bot's invite link.",
+      USAGE: "links",
+      LINKS: "Links",
+      DONATION: "Donation",
+      OTHER: "Other",
+      DISCORD_LINKS: (i, s) => `**[Invite me!](${i})**\n**[Join our support server](${s})**`,
+      PATREON_LINK: p => `**[Become a Patron!](${p})**`,
+      OTHER_LINKS: (v, gh) => `**[Vote for the bot!](${v})**\n**[GitHub Issues](${gh})**`
+    }
   },
 
   // languages

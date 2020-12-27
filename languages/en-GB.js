@@ -48,7 +48,80 @@ module.exports = {
   EMOJIS_FEAT: "change the emojis",
   DOWNVOTE_FEAT: "downvote starred messages",
   MULTIPLE_EMOJIS_FEAT: "have multiple emojis at once",
-  
+
+  SETTINGS: { // prefix, isPremium, channelSettingName
+    STARBOARD_ID: (p, _prm, name) => `This is where starred messages will go. If you wish to unset the starboard, run \`${p}changesetting starboard none${name && ` --channel ${name}`}\``,
+    NSFW_STARBOARD_ID: "This is where starred messages from NSFW channels will go. If this isn't set, messages from NSFW channels will go to the normal starboard. If channel settings are set, all messages will go there.",
+    REQUIRED: "This is how many stars a message needs before reaching the starboard.",
+    REQUIRED_TO_REMOVE: "When a message on the starboard drops to this number, it will get removed from the starboard.",
+    LANGUAGE: (_p, _pm, name) => `The language of the ${name ? "channel" : "server"}.`,
+    PERMISSION: `This is the permission users need to have before performing various actions, such as trashing messages, changing settings and blacklisting users.
+    When setting the permission, you can input something like \`MANAGE_MESSAGES\`, \`Manage Messages\`, \`Manage-Messages\` or \`8192\`. For multiple permissions, use a permissions calculator.`.stripIndents(),
+
+    LINK_DELETES: "If a message is deleted, the starboard message will automatically be deleted.",
+    FILTER_BOTS: "Whether or not bots should be filtered off the starboard.",
+    STAR_SELF: "If users are able to star their own messages.",
+    WATCHING: `This is if you want the full functionality of Starboard without actually posting messages to a starboard.
+    I guess this is useful if you have a server with a second Starboard bot, but this setting was mainly made for the Discord Bot List Discord server, which the bot is no longer in. This setting may get removed in the future.`,
+    VISIBLE: (p, _prm, name) => `This determines whether or not users can find this ${name ? "channel" : "server"}'s messages in \`${p}explore\`, and whether or not this server appears on the server leaderboard (\`${p}leaderboard servers\`)`,
+    CLEAN: "With this enabled, **[Click to jump to message!](https://www.youtube.com/watch?v=KvxteMk0e84)** and other links/media will not show up at the bottom of starboard messages.",
+    DOWNVOTE: "If users can downvote starred messages.",
+    BOTS_OB_LB: "If bots are able to appear on the leaderboard.",
+    ATTACHMENTS: "If media such as videos should be attached to the starboard message instead of just appended as links.",
+    NO_EXPLORE: p => `If the \`${p}explore\` command should be disabled for the server. Your messages will still appear in this command if the **Visible** setting is enabled.`,
+    FILTER_BLACKLISTED: `Whether or not blacklisted users should be filtered off the starboard.`,
+    REMOVE_REACTIONS: "If reactions should get removed if a user reacts wrongly, such as reacting on a blacklisted user's message.",
+    NO_LEADERBOARD: (_p, _prm, name) => !name ? "If leaderboard related commands should be disabled for the server." : "If leaderboard stats should not be recorded for this channel.",
+    KEEP_ROLES: "If users should keep old reward roles upon getting a new one.",
+    MENTION_AUTHOR: "If the author of a message should be pinged on their starboard messages.",
+    QUICK_ACTIONS: `With this enabled, users can perform actions on a starred message by reacting on the starboard message with specific emojis.
+    __Moderators:__
+    **Trashing**: 🗑️
+    **Locking**: 🔒 
+    **Unlocking**: 🔓 
+    **Freezing**: 🧊 
+    **Unfreezing**: 🔥 
+    **Refreshing**: 🔄 or 🔁
+    **Add to Hall of Fame**: 🏆
+    **Forcing**: 📌 - only on the original message after it's been starred
+    __Anyone:__
+    **Saving**: 📥
+    `.stripIndents(),
+    LINK_EDITS: "If a message is edited, the starboard message will update with the new message content.",
+    DISPLAY_NICKNAME: "Whether or not the nickname of the author should be displayed instead of their Discord tag.",
+    NO_COMMANDS: "If the bot should not respond to commands run by non-moderators, so the bot kinda \"works in the background\".",
+
+    DOWNVOTE_EMOJI: "The emoji used to downvote starred messages.",
+    EMOJIS: {
+      REACTION: (p, prm, name) => `The emoji${prm ? "s" : ""} users react with to get a message on the starboard. ${prm ? `You can add/remove more emojis with ${p}changesetting emoji reaction <add/remove> <[emoji]>${name && `--channel ${name}`}` : "**[Premium Servers](https://patreon.com/TheNoob27)** can add up to **5** different emojis."}`,
+      FIRST: (_p, _prm, _n, { starRequirements: r }) => `Beside the star counter on a starboard message, this emoji will show when the message has less than ${r.first} stars.`,
+      SECOND: (_p, _prm, _n, { starRequirements: r }) => `Beside the star counter on a starboard message, this emoji will show when the message has ${r.first + 1}-${r.second} stars.`,
+      THIRD: (_p, _prm, _n, { starRequirements: r }) => `Beside the star counter on a starboard message, this emoji will show when the message has ${r.second + 1}-${r.third} stars.`,
+      FOURTH: (_p, _prm, _n, { starRequirements: r }) => `Beside the star counter on a starboard message, this emoji will show when the message has more than ${r.third + 1} stars.`
+    },
+    STAR_REQUIREMENTS: {
+      FIRST: "The amount of stars a message needs to have before the star beside the counter switches to the second star.",
+      SECOND: "The amount of stars a message needs to have before the star beside the counter switches to the third star.",
+      THIRD: "The amount of stars a message needs to have before the star beside the counter switches to the fourth star.",
+    },
+    COLORS: {
+      FIRST: (_p, _prm, _n, { starRequirements: r }) => `This will be the colour of the starboard message when the message has ${r.first + 1}-${r.second} stars.`,
+      SECOND: (_p, _prm, _n, { starRequirements: r }) => `This will be the colour of the starboard message when the message has ${r.second + 1}-${r.third} stars.`,
+      THIRD: (_p, _prm, _n, { starRequirements: r }) => `This will be the colour of the starboard message when the message has more than ${r.third + 1} stars.`,
+    },
+    TYPES: {
+      NOT_SET: "Not Set",
+      NONE: "None",
+      CHANNEL: "channel",
+      NUMBER: "number",
+      LANGUAGE: "language",
+      PERMISSION: "permission",
+      EMOJI: "emoji",
+      COLOR: "colour",
+      BOOLEAN: "true/false/yes/no",
+    }
+  },
+
   COMMANDS: {
     COOLDOWN_MESSAGE: time => `You're using this command too frequently! Please wait ${time} before using it again.`,
     WAIT_SUGGESTIONS: (hasVoted, guildID) => {

@@ -66,7 +66,7 @@ module.exports = {
     VISIBLE: (p, _prm, name) => `This determines whether or not users can find this ${name ? "channel" : "server"}'s messages in \`${p}explore\`, and whether or not this server appears on the server leaderboard (\`${p}leaderboard servers\`)`,
     CLEAN: "With this enabled, **[Click to jump to message!](https://www.youtube.com/watch?v=KvxteMk0e84)** and other links/media will not show up at the bottom of starboard messages.",
     DOWNVOTE: "If users can downvote starred messages.",
-    BOTS_OB_LB: "If bots are able to appear on the leaderboard.",
+    BOTS_ON_LB: "If bots are able to appear on the leaderboard.",
     ATTACHMENTS: "If media such as videos should be attached to the starboard message instead of just appended as links.",
     NO_EXPLORE: p => `If the \`${p}explore\` command should be disabled for the server. Your messages will still appear in this command if the **Visible** setting is enabled.`,
     FILTER_BLACKLISTED: `Whether or not blacklisted users should be filtered off the starboard.`,
@@ -93,7 +93,11 @@ module.exports = {
 
     DOWNVOTE_EMOJI: "The emoji used to downvote starred messages.",
     EMOJIS: {
-      REACTION: (p, prm, name) => `The emoji${prm ? "s" : ""} users react with to get a message on the starboard. ${prm ? `You can add/remove more emojis with ${p}changesetting emoji reaction <add/remove> <[emoji]>${name && `--channel ${name}`}` : "**[Premium Servers](https://patreon.com/TheNoob27)** can add up to **5** different emojis."}`,
+      REACTION: (p, prm, name) => `The emoji${prm ? "s" : ""} users react with to get a message on the starboard. ${
+        prm
+          ? `You can add/remove more emojis with ${p}changesetting emoji reaction <add/remove> <[emoji]>${name && `--channel ${name}`}`
+          : "**[Premium Servers](https://patreon.com/TheNoob27)** can add up to **5** different emojis."
+      }`,
       FIRST: (_p, _prm, _n, { starRequirements: r }) => `Beside the star counter on a starboard message, this emoji will show when the message has less than ${r.first} stars.`,
       SECOND: (_p, _prm, _n, { starRequirements: r }) => `Beside the star counter on a starboard message, this emoji will show when the message has ${r.first + 1}-${r.second} stars.`,
       THIRD: (_p, _prm, _n, { starRequirements: r }) => `Beside the star counter on a starboard message, this emoji will show when the message has ${r.second + 1}-${r.third} stars.`,
@@ -339,6 +343,28 @@ module.exports = {
       EMOJI_SET: e => `Successfully set the emoji to react on messages with to ${e}.`,
       STAR_SET: (e, type) => `Successfully changed the **${type}** star to ${e}.`,
       DV_EMOJI_SET: e => `Successfully set the emoji to downvote messages with to ${e}.`,
+
+      LINK_DELETES: b => `When a message is deleted, the starboard message will ${b ? "now" : "no longer"} be deleted.`,
+      FILTER_BOTS: b => `Bots can ${b ? "no longer" : "now"} get on the starboard.`,
+      STAR_SELF: b => `Users can ${b ? "now" : "no longer"} star their own messages.`,
+      WATCHING: b => b ? "Nothing now goes on the starboard, but stats are still being recorded." : "The starboard will now be used along with recording of stats.",
+      VISIBLE: b => `People can ${b ? "now" : "no longer"} find this server's messages in the explore command.`,
+      CLEAN: b => `The **Click to jump to message!** and other links will ${b ? "now" : "no longer"} show.`,
+      DOWNVOTE: b => `Users can ${b ? "now" : "no longer"} downvote starred messages.`,
+      BOTS_ON_LB: b => `Bots will ${b ? "now" : "no longer"} show on the leaderboard.`,
+      ATTACHMENTS: b => `Attachments will ${b ? "now" : "no longer"} be attached onto the starboard message.`,
+      NO_EXPLORE: b => `Users can ${b ? "no longer" : "now"} use the explore command.`,
+      FILTER_BLACKLISTED: b => `Blacklisted users will ${b ? "now" : "no longer"} be filtered off the starboard.`,
+      REMOVE_REACTIONS: b => `Reactions will ${b ? "now" : "no longer"} be removed if a user reacts wrongly, such as in a blacklisted channel.`,
+      NO_LEADERBOARD: (b, cs) => cs
+        ? `The leaderboard for this channel will ${b ? "no longer" : "now"} be recorded.`
+        : `The leaderboard and leaderboard related commands have been ${b ? "disabled" : "enabled"}.`,
+      KEEP_ROLES: b => `Users will ${b ? "now" : "no longer"} keep old reward roles upon getting a new one.`,
+      MENTION_AUTHOR: b => `Users will ${b ? "now" : "no longer"} be pinged on their starboard messages.`,
+      QUICK_ACTIONS: b => `You can ${b ? "now" : "no longer"} react on starboard messages to quickly perform actions on them.`,
+      LINK_EDITS: b => `Starboard messages will ${b ? "now" : "no longer"} be updated when its original message is edited.`,
+      DISPLAY_NICKNAME: b => `Starboard messages will now display the message author's ${b ? "server nickname" : "Discord tag"}.`,
+      NO_COMMANDS: b => `Commands will ${b ? "now" : "no longer"} only work for moderators.`
     },
     LOCK: {
       DESCRIPTION: "Locks a starred message to the starboard, so it'll stay there even if it reaches 0 stars.",

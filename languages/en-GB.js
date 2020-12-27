@@ -258,7 +258,7 @@ module.exports = {
         .setColor(command.client.colors.error)
     },
     MISSING_PERMISSIONS: (perms, bot) => `${bot ? "The bot is" : "You are"} missing the ${perms} permissions, required to run this command.`,
-    // STARRED_MESSAGE_NOT_IN_GUILD: "The starred message must be from this server.",
+    NO_CHANNEL_SETTINGS: (c) => `There are no channel settings specifically for ${c ? c : "this channel"}.`,
 
     EVAL: {
       DESCRIPTION: "Evaluates a bit of code.",
@@ -298,7 +298,6 @@ module.exports = {
       UPDATED_SETTINGS: "Updated Settings",
       ERRORS: "Errors",
 
-      NO_CHANNEL_SETTINGS: (c) => `There are no channel settings specifically for ${c ? c : "this channel"}.`,
       INVALID_CHANNEL_SETTING: s => `**${s}** is not a valid setting for channels, it is only available as a server setting.`,
       
       INVALID_LANGUAGE: l => `**${l}** was not a valid language.`,

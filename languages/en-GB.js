@@ -415,6 +415,49 @@ module.exports = {
       DISCORD_LINKS: (i, s) => `**[Invite me!](${i})**\n**[Join our support server](${s})**`,
       PATREON_LINK: p => `**[Become a Patron!](${p})**`,
       OTHER_LINKS: (v, gh) => `**[Vote for the bot!](${v})**\n**[GitHub Issues](${gh})**`
+    },
+    BLACKLIST: {
+      DESCRIPTION: "View info about blacklisted users, roles or channels, or modify the list.",
+      USAGE: "blacklist (add/remove) ([user/role/channel]) --channel ([channel])",
+      BLACKLIST: "Blacklist",
+      EMBED_DESCRIPTION: (blsb, c, nothing, prefix) => `The following ${c ? `users and roles` : `users, roles and channels`} are blacklisted and cannot interact with the starboard${c ? "in this channel" : ""}.${
+        blsb 
+          ? " Blacklisted users can still get on the starboard."
+          : ""
+      }${nothing ? `\n**Nothing has been blacklisted yet**\nTo add/remove to the list, do \`${prefix}blacklist <add/remove> <[user/role${c ? "" : "/channel"}]>\`.` : ""}`,
+      USERS: "Users",
+      ROLES: "Roles",
+      CHANNELS: "Channels",
+      UNKNOWN: "Unknown",
+      NOT_FOUND: c => `I could not find a ${c ? "user or role" : "user, role or channel"} from your input.`,
+      ALREADY_BLACKLISTED: s => `**${s}** is already blacklisted.`,
+      NOT_BLACKLISTED: s => `**${s}** is not blacklisted.`,
+      TOO_MANY_BLACKLISTED: "There are too many items on the blacklist.",
+      NOTHING_BLACKLISTED: "There is nothing blacklisted.",
+      BLACKLIST_ADD: s => `Successfully blacklisted **${s}**.`,
+      REMOVE_ALL: "Successfully removed everything from the blacklist.",
+      BLACKLIST_REMOVE: s => `Successfully removed **${s}** from the blacklist.`
+    },
+    WHITELIST: {
+      DESCRIPTION: "View info about whitelisted users or roles, or modify the list.",
+      USAGE: "whitelist (add/remove) ([user/role]) --channel ([channel])",
+      WHITELIST: "Whitelist",
+      EMBED_DESCRIPTION: (c, nothing, prefix) => `The following users and roles are whitelisted and bypass the blacklist ${c ? "in this channel " : ""}if on it.${
+        nothing
+          ? `\n**Nothing has been whitelisted yet**\nTo add/remove to the list, do \`${prefix}whitelist <add/remove> <[user/role]>.\``
+          : ""
+        }`,
+      USERS: "Users",
+      ROLES: "Roles",
+      UNKNOWN: "Unknown",
+      NOT_FOUND: "I could not find a user or role from your input.",
+      ALREADY_WHITELISTED: s => `**${s}** is already whitelisted.`,
+      NOT_WHITELISTED: s => `**${s}** is not whitelisted.`,
+      TOO_MANY_WHITELISTED: "There are too many items on the whitelist.",
+      NOTHING_WHITELISTED: "There is nothing whitelisted.",
+      WHITELIST_ADD: s => `Successfully whitelisted **${s}**.`,
+      REMOVE_ALL: "Successfully removed everything from the whitelist.",
+      WHITELIST_REMOVE: s => `Successfully removed **${s}** from the whitelist.`
     }
   },
 

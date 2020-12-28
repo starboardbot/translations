@@ -148,7 +148,7 @@ module.exports = {
     .stripIndents(),
     /** @param {import("../../classes/Command")} command @param {import("../../classes/Embed")} Embed */
     COMMAND_HELP_EMBED: (command, Embed, prefix, color, cooldown, requiredPermissions) => {
-      const l = __filename.split("/").slice(-1)[0].slice(0, -3) // a/b/c/en-GB.js -> en-GB
+      const l = "en-GB" // change to file name
       const c = command.language(l).get()
       const embed = Embed
         .setTitle("Help")
@@ -241,7 +241,7 @@ module.exports = {
         }
         case "RANGE": {
           const [, raw, greater, boundary] = e
-          m = `The provided argument \`${esc(raw).replace(/(\w{20}).+/, "$1...")}\` cannot be ${greater ? "greater" : "less"} than \`${boundary}\`.`
+          m = `The provided argument \`${esc(raw).replace(/(\w{20}).+/, "$1...")}\` cannot be ${greater ? "greater" : "less"} than \`${boundary.toLocaleString("en-GB")}\`.`
           break
         }
         case "TYPE": {
@@ -458,6 +458,36 @@ module.exports = {
       WHITELIST_ADD: s => `Successfully whitelisted **${s}**.`,
       REMOVE_ALL: "Successfully removed everything from the whitelist.",
       WHITELIST_REMOVE: s => `Successfully removed **${s}** from the whitelist.`
+    },
+    REWARDROLES: {
+      DESCRIPTION:
+        "View info about or add/remove reward roles, roles that get added to users once they surpass a certain amount of stars. " +
+        "You can add/subtract to the amount of stars needed for an existing reward role by putting a +/- before the stars argument.",
+      USAGE: "rewardroles (add/remove) ([role]) ([stars])",
+      NO_LEADERBOARD: "The leaderboard is disabled for the server, which includes reward roles.",
+      REWARD_ROLES: "Reward Roles",
+      ROLE: "Role",
+      STARS_NEEDED: "Stars Needed",
+      PROGRESS: "Your Progress",
+      EMBED_DESCRIPTION: c => `Here are the current reward roles set for this ${c ? "channel" : "server"}.`,
+      NO_REWARD_ROLES: (p, c) => `**There are no reward roles set for this ${c ? "channel" : "server"}.**
+      To add a reward role, do ${p}rewardroles add <[role]> ([stars])`.stripIndents(),
+      RR_FEAT: "customise reward roles",
+      ROLE_NOT_FOUND: "That was not a valid role.",
+      HIGHER_POSITION: "That role is higher than my highest role, so I cannot give this role to users.",
+      ROLE_MANAGED: "This role is automatically managed by an integration and cannot be manually assigned to members.",
+      HIGHER_THAN_USER: "You cannot add this role as it is higher than your highest role.",
+      TOO_HIGH: "That number is too high.",
+      TOO_LOW: "That number is too low.",
+      NOT_A_NUMBER: "The amount of stars needs to be a number.",
+      ADD_TOO_MANY: "You are adding too many stars to this reward role.",
+      SUBTRACT_TOO_MANY: "You are subtracting too many stars from this reward role.",
+      HIT_MAX: c => `This ${c ? "channel" : "server"} has hit the max of 25 reward roles.`,
+      NOT_RR: `That role is not set as a reaction role.`,
+      RR_SET: (name, stars) => `Successfully set the stars needed for the reward role **${name}** to ${stars.toLocaleString("en-GB")}`,
+      RR_ADD: (name, stars, c) => `Successfully added the role **${name}** as a reward role, awarded to users after getting a total of **${stars.toLocaleString("en-GB")}**${c ? " from this channel" : ""}.`,
+      RR_REMOVE_ALL: c => `Successfully removed all reaction roles${c ? " for this channel" : ""}.`,
+      RR_REMOVE: (name, c) => `Successfully removed **${name}** from this ${c ? "channel" : "server"}'s reward roles.`
     }
   },
 

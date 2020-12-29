@@ -493,8 +493,34 @@ module.exports = {
       RR_ADD: (name, stars, c) => `Successfully added the role **${name}** as a reward role, awarded to users after getting a total of **${stars.toLocaleString("en-GB")}** stars${c ? " from this channel" : ""}.`,
       RR_REMOVE_ALL: c => `Successfully removed all reaction roles${c ? " for this channel" : ""}.`,
       RR_REMOVE: (name, c) => `Successfully removed **${name}** from this ${c ? "channel" : "server"}'s reward roles.`
+    },
+    FORCE: {
+      DESCRIPTION: "Force or refresh a message on the starboard.",
+      USAGE: "force ([channel]) <[messageID]>",
+      NO_STARBOARDS: c => `There are no starboards currently set for this ${c ? "channel" : "server"}.`,
+      NO_MESSAGE_ID: "Please provide a message ID. If you don't know how to get the ID of a message, you have to enable **Developer Mode** in settings, click the three dots on a message and click **Copy ID**.",
+      INVALID_TYPE: "The channel must be a text channel.",
+      FROZEN: "That message is frozen and cannot be forced or refreshed until unfrozen.",
+      NOT_FOUND: "I couldn't find a message from your input.",
+      IS_STARBOARD_MESSAGE: "This message seems to be a starboard message, so it can't be forced.",
+      IS_EXPLORE_MESSAGE: "This message seems to be a message from the explore command, so it can't be forced.",
+      CHANNEL_BLACKLISTED: "That channel is blacklisted, so this message can't be forced.",
+      STARS_RECOUNTED: url => `Successfully recounted the stars for this message${url ? `, the starboard message is **[here](${url})**` : ""}.`,
+      FORCE_SUCCESS: "Successfully forced this message to the starboard!",
+      POST_SUCCESS: "Successfully posted this message to the starboard!"
+    },
+    PURGE: {
+      DESCRIPTION: "Purge and freeze a number of messages off a starboard.",
+      USAGE: "purge ([channel]) <[messages]>",
+      NOT_STARBOARD: "That channel is not a starboard channel.",
+      MISSING_PERMISSIONS: sb => `I do not have permission to bulk delete messages in ${sb}.`,
+      ARE_YOU_SURE: "Are you sure?",
+      CONFIRMATION_EMBED: (n, starboard) => `Are you sure you want to purge and freeze the last ${n} messages from ${starboard}? If the original messages are deleted, they may be lost forever.
+      Say **yes** to continue.`.stripIndents(),
+      NOTHING_TO_DELETE: "There are no starboard messages to delete.",
+      SUCCESS: (n, sb) => `Successfully removed and froze ${n} messages from ${sb}.`
     }
-  },
+  }, // might alphabetically order the commands one day
 
   // languages
   LANGUAGES: {

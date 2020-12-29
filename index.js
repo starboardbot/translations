@@ -29,6 +29,9 @@
     "DOWNVOTE_FEAT"        |
     "MULTIPLE_EMOJIS_FEAT" |
 
+    "FIND_USER_MORE_SPECIFIC" |
+    "FIND_USER_PROMPT"        |
+
     "COMMANDS"                        |
     "COMMANDS.COOLDOWN_MESSAGE"       |
     "COMMANDS.WAIT_SUGGESTIONS"       |

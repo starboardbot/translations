@@ -49,6 +49,11 @@ module.exports = {
   DOWNVOTE_FEAT: "downvote starred messages",
   MULTIPLE_EMOJIS_FEAT: "have multiple emojis at once",
 
+  FIND_USER_MORE_SPECIFIC: users => `Please be more specific, I found ${users} users matching your input.`,
+  FIND_USER_PROMPT: list => `I found multiple users matching your input:
+  ${list}
+  Please respond with the number of the user you want.`.stripIndents(),
+
   SETTINGS: { // prefix, isPremium, channelSettingName
     STARBOARD_ID: (p, _prm, name) => `This is where starred messages will go. If you wish to unset the starboard, run \`${p}changesetting starboard none${name && ` --channel ${name}`}\``,
     NSFW_STARBOARD_ID: "This is where starred messages from NSFW channels will go. If this isn't set, messages from NSFW channels will go to the normal starboard. If channel settings are set, all messages will go there.",
@@ -485,7 +490,7 @@ module.exports = {
       HIT_MAX: c => `This ${c ? "channel" : "server"} has hit the max of 25 reward roles.`,
       NOT_RR: `That role is not set as a reaction role.`,
       RR_SET: (name, stars) => `Successfully set the stars needed for the reward role **${name}** to ${stars.toLocaleString("en-GB")}`,
-      RR_ADD: (name, stars, c) => `Successfully added the role **${name}** as a reward role, awarded to users after getting a total of **${stars.toLocaleString("en-GB")}**${c ? " from this channel" : ""}.`,
+      RR_ADD: (name, stars, c) => `Successfully added the role **${name}** as a reward role, awarded to users after getting a total of **${stars.toLocaleString("en-GB")}** stars${c ? " from this channel" : ""}.`,
       RR_REMOVE_ALL: c => `Successfully removed all reaction roles${c ? " for this channel" : ""}.`,
       RR_REMOVE: (name, c) => `Successfully removed **${name}** from this ${c ? "channel" : "server"}'s reward roles.`
     }

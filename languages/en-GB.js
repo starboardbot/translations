@@ -140,7 +140,7 @@ module.exports = {
         "**[become a patron](https://patreon.com/TheNoob27)** and unlock some sweet donator only features, and a donator only role in our discord server",
         "**[follow my twitter](https://twitter.com/DaNoob27)** for absolutely no reason at all",
         "support one of our patrons, x79#8008, by **[following their twitter](https://twitter.com/cometvgc)**",
-        "support one of out patrons, Conifer ConnieTreeCow#9864 by **[subscribing to their youtube channel](https://www.youtube.com/channel/UCzL9A1orpOcXCSOQ3n6ujEA)**",
+        "support one of our patrons, Conifer ConnieTreeCow#9864 by **[subscribing to their youtube channel](https://www.youtube.com/channel/UCzL9A1orpOcXCSOQ3n6ujEA)**",
         `check out this cool **[Minecraft Discord bot](https://discord.com/oauth2/authorize?client_id=652726107535310859&permissions=16&scope=bot&guild_id=${guildID})** for all you minecraft players out there`,
         "check out Starboard's **[Github page](https://github.com/TheNoob27/starboard-issues/issues)** where you can post bugs/suggestions instead of using the commands"
       ]
@@ -500,6 +500,7 @@ module.exports = {
       NO_STARBOARDS: c => `There are no starboards currently set for this ${c ? "channel" : "server"}.`,
       NO_MESSAGE_ID: "Please provide a message ID. If you don't know how to get the ID of a message, you have to enable **Developer Mode** in settings, click the three dots on a message and click **Copy ID**.",
       INVALID_TYPE: "The channel must be a text channel.",
+      TRASHED: "That message is trashed and cannot be forced.",
       FROZEN: "That message is frozen and cannot be forced or refreshed until unfrozen.",
       NOT_FOUND: "I couldn't find a message from your input.",
       IS_STARBOARD_MESSAGE: "This message seems to be a starboard message, so it can't be forced.",
@@ -519,6 +520,30 @@ module.exports = {
       Say **yes** to continue.`.stripIndents(),
       NOTHING_TO_DELETE: "There are no starboard messages to delete.",
       SUCCESS: (n, sb) => `Successfully removed and froze ${n} messages from ${sb}.`
+    },
+    TRASH: {
+      DESCRIPTION: "Trash a message from the starboard and show the first 5 people to react to it, check if a message exists in the list of trashed messages, remove a message from the list of trashed messages, clear the list, or view the first 100 message IDs on the list.",
+      REASON_TOO_LONG: "Your reason is too long.",
+      NOT_MESSAGE_ID: "Please provide a message ID.",
+      NOT_FOUND: "I could not find a starred message from your input.",
+      ALREADY_TRASHED: "That messsage is already trashed.",
+      NOT_TRASHED: "That message is not trashed.",
+      TRASHED_MESSAGES: "Trashed Messages",
+      AND_MORE: n => `\n\n...And ${n} more.`,
+      NO_TRASHED: "There are no trashed messages.",
+      LIST_FOOTER: n => `Amount: ${n}${n > 100 ? ` - Listing the first 100` : ""}`,
+      TRASH_SUCCESS: "Successfully trashed that message.",
+      UNTRASH_SUCCESS: "Successfully untrashed that message. It can now be starred again.",
+      IS_TRASHED: (b, id, p) => b
+        ? `Your message with ID \`${id}\` is currently in the list of trashed messages. You can remove it from the trash with \`${p}trash remove ${id}\``
+        : `Your message with ID \`${id}\` is not currently trashed.`,
+      CLEAR_TRASH: n => `Successfully removed ${n} items from the trash.`
+    },
+    STARWORTHY: {
+      DESCRIPTION: "Check if a message is worthy of being starred or not :)",
+      USAGE: "starworthy <[messageID]>",
+      NOT_ID: "Please provide a valid message ID.",
+      WORTHY: p => `That message is ${p}% star worthy.`
     }
   }, // might alphabetically order the commands one day
 

@@ -22,12 +22,14 @@
     "CANT_SPEAK"           |
     "PREFIX_INFO"          |
     "HELP"                 |
-    "NEED_VOTE"            |
-    "NEED_PREMIUM"         |
-    "STAR_REQ_FEAT"        |
-    "EMOJIS_FEAT"          |
-    "DOWNVOTE_FEAT"        |
-    "MULTIPLE_EMOJIS_FEAT" |
+
+    "NEED_VOTE"             |
+    "NEED_PREMIUM"          |
+    "STAR_REQ_FEAT"         |
+    "EMOJIS_FEAT"           |
+    "DOWNVOTE_FEAT"         |
+    "MULTIPLE_EMOJIS_FEAT"  |
+    "CHANNEL_SETTINGS_FEAT" |
 
     "FIND_USER_MORE_SPECIFIC" |
     "FIND_USER_PROMPT"        |

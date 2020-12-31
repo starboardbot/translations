@@ -48,6 +48,7 @@ module.exports = {
   EMOJIS_FEAT: "change the emojis",
   DOWNVOTE_FEAT: "downvote starred messages",
   MULTIPLE_EMOJIS_FEAT: "have multiple emojis at once",
+  CHANNEL_SETTINGS_FEAT: "have more than 10 sets of channel settings",
 
   FIND_USER_MORE_SPECIFIC: users => `Please be more specific, I found ${users} users matching your input.`,
   FIND_USER_PROMPT: list => `I found multiple users matching your input:
@@ -302,6 +303,8 @@ module.exports = {
       
       UPDATED_SETTINGS: "Updated Settings",
       ERRORS: "Errors",
+      CHANNEL_SETTINGS: "Channel Settings",
+      NONE: "None",
 
       INVALID_CHANNEL_SETTING: s => `**${s}** is not a valid setting for channels, it is only available as a server setting.`,
       
@@ -523,6 +526,7 @@ module.exports = {
     },
     TRASH: {
       DESCRIPTION: "Trash a message from the starboard and show the first 5 people to react to it, check if a message exists in the list of trashed messages, remove a message from the list of trashed messages, clear the list, or view the first 100 message IDs on the list.",
+      USAGE: "trash (add/remove/exists/clear/list) ([messageID])",
       REASON_TOO_LONG: "Your reason is too long.",
       NOT_MESSAGE_ID: "Please provide a message ID.",
       NOT_FOUND: "I could not find a starred message from your input.",
@@ -544,6 +548,36 @@ module.exports = {
       USAGE: "starworthy <[messageID]>",
       NOT_ID: "Please provide a valid message ID.",
       WORTHY: p => `That message is ${p}% star worthy.`
+    },
+    CHANNELSETTINGS: {
+      DESCRIPTION: "View info about channel settings, or create/clone channel settings for a set of channels.",
+      USAGE: "channelsettings (list/create/edit) ([name]) (...[channels]) --channel ([channel]) --name ([name])",
+      NO_CHANNEL_SETTINGS: prefix => `**This server has no channel settings.**
+      To create channel settings, do \`${prefix}channnelsettings create (...[channels]) --name ([name])\`.`.stripIndents(),
+      EMBED_DESCRIPTION: p => `Here are the channel settings for this server.
+
+      • If you want to clone one of these, you can do \`${p}channelsettings create (...[channels]) --name <[name]> --channel ([channelSettingsName])\`
+
+      • If you want to edit channel settings to add/remove channels or change the name, you can do \`${p}channelsettings edit ([channelSettingsName]) (...[channels]) --name ([name])\`
+
+      • If you need to delete channel settings, you can do \`${p}channelsettings delete (name)\`
+
+      • To edit channel settings, do \`${p}changesettings <[settings]> <[value]> --channel ([name/channel])\`.`.stripIndents(),
+      CHANNEL_SETTINGS: "Channel Settings",
+      CHANNELS: "Channels",
+      STARBOARD: "Starboard",
+      NONE: "Not Set",
+      NAME_TOO_LONG: "Channel setting names cannot be more than 64 characters long.",
+      HIT_MAX: "You have hit the maximum amount of channel settings for one server.",
+      PROVIDE_CHANNELS: "Please provide channels for which these channel settings apply for.",
+      INVALID_CHANNELS: "You did not provide valid channels.",
+      DUPLICATE_CHANNELS: "The channels provided must not already have channel settings. A channel may only have one channel settings.",
+      SUCCESS_CREATE: n => `Successfully created a new set of channel settings: **${n}**.`,
+      NOTHING_MODIFIED: "Please provide edits to make.",
+      MODIFIED_NAME: n => `changed the name to **${n}**`,
+      MODIFIED_CHANNELS: "changed the channels which these channel settings apply for",
+      MODIFIED: modifications => `Successfully ${modifications.join(" and ")}.`,
+      SUCCESS_DELETE: n => `Successfully deleted **${n}**.`
     }
   }, // might alphabetically order the commands one day
 

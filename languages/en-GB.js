@@ -56,7 +56,7 @@ module.exports = {
   Please respond with the number of the user you want.`.stripIndents(),
 
   SETTINGS: { // prefix, isPremium, channelSettingName
-    STARBOARD_ID: (p, _prm, name) => `This is where starred messages will go. If you wish to unset the starboard, run \`${p}changesetting starboard none${name && ` --channel ${name}`}\``,
+    STARBOARD_ID: (p, _prm, name) => `This is where starred messages will go. If you wish to unset the starboard, run \`${p}changesetting starboard none${name && ` --channel ${name}`}\`.`,
     NSFW_STARBOARD_ID: "This is where starred messages from NSFW channels will go. If this isn't set, messages from NSFW channels will go to the normal starboard. If channel settings are set, all messages will go there.",
     REQUIRED: "This is how many stars a message needs before reaching the starboard.",
     REQUIRED_TO_REMOVE: "When a message on the starboard drops to this number, it will get removed from the starboard.",
@@ -69,7 +69,7 @@ module.exports = {
     STAR_SELF: "If users are able to star their own messages.",
     WATCHING: `This is if you want the full functionality of Starboard without actually posting messages to a starboard.
     I guess this is useful if you have a server with a second Starboard bot, but this setting was mainly made for the Discord Bot List Discord server, which the bot is no longer in. This setting may get removed in the future.`,
-    VISIBLE: (p, _prm, name) => `This determines whether or not users can find this ${name ? "channel" : "server"}'s messages in \`${p}explore\`, and whether or not this server appears on the server leaderboard (\`${p}leaderboard servers\`)`,
+    VISIBLE: (p, _prm, name) => `This determines whether or not users can find this ${name ? "channel" : "server"}'s messages in \`${p}explore\`, and whether or not this server appears on the server leaderboard (\`${p}leaderboard servers\`).`,
     CLEAN: "With this enabled, **[Click to jump to message!](https://www.youtube.com/watch?v=KvxteMk0e84)** and other links/media will not show up at the bottom of starboard messages.",
     DOWNVOTE: "If users can downvote starred messages.",
     BOTS_ON_LB: "If bots are able to appear on the leaderboard.",
@@ -105,9 +105,9 @@ module.exports = {
           : "**[Premium Servers](https://patreon.com/TheNoob27)** can add up to **5** different emojis."
       }`,
       FIRST: (_p, _prm, _n, { starRequirements: r }) => `Beside the star counter on a starboard message, this emoji will show when the message has less than ${r.first} stars.`,
-      SECOND: (_p, _prm, _n, { starRequirements: r }) => `Beside the star counter on a starboard message, this emoji will show when the message has ${r.first + 1}-${r.second} stars.`,
-      THIRD: (_p, _prm, _n, { starRequirements: r }) => `Beside the star counter on a starboard message, this emoji will show when the message has ${r.second + 1}-${r.third} stars.`,
-      FOURTH: (_p, _prm, _n, { starRequirements: r }) => `Beside the star counter on a starboard message, this emoji will show when the message has more than ${r.third + 1} stars.`
+      SECOND: (_p, _prm, _n, { starRequirements: r }) => `Beside the star counter on a starboard message, this emoji will show when the message has ${r.first}-${r.second - 1} stars.`,
+      THIRD: (_p, _prm, _n, { starRequirements: r }) => `Beside the star counter on a starboard message, this emoji will show when the message has ${r.second}-${r.third - 1} stars.`,
+      FOURTH: (_p, _prm, _n, { starRequirements: r }) => `Beside the star counter on a starboard message, this emoji will show when the message has ${r.third} stars or more.`
     },
     STAR_REQUIREMENTS: {
       FIRST: "The amount of stars a message needs to have before the star beside the counter switches to the second star.",
@@ -115,20 +115,21 @@ module.exports = {
       THIRD: "The amount of stars a message needs to have before the star beside the counter switches to the fourth star.",
     },
     COLORS: {
-      FIRST: (_p, _prm, _n, { starRequirements: r }) => `This will be the colour of the starboard message when the message has ${r.first + 1}-${r.second} stars.`,
-      SECOND: (_p, _prm, _n, { starRequirements: r }) => `This will be the colour of the starboard message when the message has ${r.second + 1}-${r.third} stars.`,
-      THIRD: (_p, _prm, _n, { starRequirements: r }) => `This will be the colour of the starboard message when the message has more than ${r.third + 1} stars.`,
+      FIRST: (_p, _prm, _n, { starRequirements: r }) => `This will be the colour of the starboard message when the message has less than ${r.first} stars.`,
+      SECOND: (_p, _prm, _n, { starRequirements: r }) => `This will be the colour of the starboard message when the message has ${r.first}-${r.second - 1} stars.`,
+      THIRD: (_p, _prm, _n, { starRequirements: r }) => `This will be the colour of the starboard message when the message has ${r.second}-${r.third - 1} stars.`,
+      FOURTH: (_p, _prm, _n, { starRequirements: r }) => `This will be the colour of the starboard message when the message has ${r.third} stars or more.`,
     },
     TYPES: {
       NOT_SET: "Not Set",
       NONE: "None",
+      STARS: "stars",
       CHANNEL: "channel",
       NUMBER: "number",
       LANGUAGE: "language",
       PERMISSION: "permission",
       EMOJI: "emoji",
       COLOR: "colour",
-      BOOLEAN: "true/false/yes/no",
     }
   },
 
@@ -309,7 +310,7 @@ module.exports = {
       INVALID_CHANNEL_SETTING: s => `**${s}** is not a valid setting for channels, it is only available as a server setting.`,
       
       INVALID_LANGUAGE: l => `**${l}** was not a valid language.`,
-      LANGUAGE_SET: l => `Successfully set the language to ${l}`, // passing l because other languages may not be finished and have this translation
+      LANGUAGE_SET: l => `Successfully set the language to ${l}`, // passing l because other languages may not be finished and will use this translation
 
       NO_STARBOARD: (c, nsfw) => `There is no ${nsfw ? "NSFW " : ""}starboard set${c ? " for this channel" : ""}.`,
       INVALID_CHANNEL: "That channel does not exist.",
@@ -404,13 +405,13 @@ module.exports = {
       TOO_MANY_PREFIXES: "There are too many prefixes set for this server.",
       PREFIX_TOO_LONG: "That prefix is too long.",
       NOT_PREFIX: "That is not a prefix for this server.",
-      PREFIX_ADD: p => `Successfully added "${p}" to the list of prefixes.`,
-      PREFIX_REMOVE: p => `Successfully removed "${p}" from the list of prefixes.`,
-      PREFIX_SET: p => `Successfully set the server's prefix to "${p}"`,
+      PREFIX_ADD: p => `Successfully added \`${p}\` to the list of prefixes.`,
+      PREFIX_REMOVE: p => `Successfully removed \`${p}\` from the list of prefixes.`,
+      PREFIX_SET: p => `Successfully set the server's prefix to \`${p}\``,
       LIST_PREFIXES: prefixes => `The prefixes for this server ${
         prefixes.length > 1
-          ? `are: \n"${prefixes.join("\",\n\"")}"`
-          : `is "${prefixes}".`
+          ? `are: \n\`${prefixes.join("`,\n`")}\``
+          : `is \`${prefixes}\`.`
       }`,
       FOOTER: "My mention also works as a prefix."
     },
@@ -428,7 +429,7 @@ module.exports = {
       DESCRIPTION: "View info about blacklisted users, roles or channels, or modify the list.",
       USAGE: "blacklist (add/remove) ([user/role/channel]) --channel ([channel])",
       BLACKLIST: "Blacklist",
-      EMBED_DESCRIPTION: (blsb, c, nothing, prefix) => `The following ${c ? `users and roles` : `users, roles and channels`} are blacklisted and cannot interact with the starboard${c ? "in this channel" : ""}.${
+      EMBED_DESCRIPTION: (blsb, c, nothing, prefix) => `The following ${c ? `users and roles` : `users, roles and channels`} are blacklisted and cannot interact with the starboard${c ? " in this channel" : ""}.${
         blsb 
           ? " Blacklisted users can still get on the starboard."
           : ""
@@ -578,6 +579,67 @@ module.exports = {
       MODIFIED_CHANNELS: "changed the channels which these channel settings apply for",
       MODIFIED: modifications => `Successfully ${modifications.join(" and ")}.`,
       SUCCESS_DELETE: n => `Successfully deleted **${n}**.`
+    },
+    SETTINGS: {
+      DESCRIPTION: "View the server/channel's settings, or view info about a specific setting.",
+      USAGE: "settings ([setting]) --channel ([channel])",
+      SETTINGS: "Settings",
+      CHANNEL_SETTINGS: "Channel Settings",
+      EMOJIS: "Emojis",
+      REQUIREMENTS: "Requirements",
+      COLORS: "Colours",
+      EMBED_FOOTER: prefix => `To view info about a specific setting, do ${prefix}settings <setting>`,
+      INVALID_SETTING: s => `**${s}** was not a valid setting.`,
+      // PLEASE_INPUT: firstToFourth => `Please input ${firstToFourth.slice(0, -1).join(", ")} or ${firstToFourth.slice(-1)}.`
+      INVALID_CHANNEL_SETTING: s => `**${s}** is not a valid setting for channels, it is only available as a server setting.`,
+      EMBED_DESCRIPTION: (lock, name, desc) => `${lock} **Setting**: ${name}\n${desc}`,
+      DATA: "Data",
+      VALUE: "Value",
+      DEFAULT: "Default",
+      PERMISSION: "Permission",
+      ALIASES: "Aliases",
+      NONE: "None",
+      CAN_CHANGE: (prefix, name, sub, value) => `You can change this setting with \`${prefix}changesetting ${name}${sub && ` ${sub}`} <${value.includes("/") ? value : `[${value}]`}>\`.`,
+      MISSING_PERMISSIONS: p => `You need to have the ${p} permissions to change settings.`,
+      CANT_CHANGE: reason => `You cannot change this setting: ${reason}`,
+      USE_ALIASES: "You can also use any of these to change/view the setting."
+    },
+    SETUP: {
+      DESCRIPTION: "Set up the bot in a server or channel by walking you through basic settings.",
+      USAGE: "setup --channel ([channel])",
+      SETUP: "Setup",
+      EMBED_DESCRIPTION: c => `Here I will walk you through **some** of the settings to help you set me up in this ${c ? "channel" : "server"}.
+      Say \`cancel\` or \`stop\` to cancel the setup, \`skip\` or \`next\` to skip to the next setting, and \`end\` to skip to the end.`.stripIndents(),
+      EMBED_FOOTER: (n, total) => `You can stop, skip or skip to the end at any time. Setting ${n}/${total}`,
+      SETTING: "Setting",
+      PLEASE_INPUT: item => `Please input ${item.includes("/") ? "" : "a "}\`${item}\`.`,
+      SETTING_SKIPPED: "Skipped the setting.",
+      MISSING_PERMISSIONS: "The bot is missing the `Manage Channels` permission, required to create channels.",
+      CREATE_CHANNEL_FAIL: "Something went wrong when creating a starboard channel.",
+      CREATE_CHANNEL_SUCCESS: c => `Successfully created a starboard channel: ${c}`,
+      REQUIRED_NAN: "The required amount of stars to reach the starboard has to be a number.",
+      RTR_NAN: "The amount of stars a message needs to have to be removed from the starboard has to be a number.",
+      STARBOARD_ID: "If you want me to create a starboard channel for you, input `create`, optionally followed by the name of the channel, such as \`create message-museum\` (will be \"starboard\" by default).",
+      LANGUAGE: "Note that not all languages are completed, English is the only one completed.",
+      REQUIRED: s => `Currently, if ${s.required} different people star a message, it will then be posted to the starboard.`,
+      REQUIRED_TO_REMOVE: s => `Currently, if a message in the starboard drops below ${s.requiredToRemove} stars, it will then be removed from the starboard.`,
+      FILTER_BOTS: "If you want bots to reach the starboard, don't enable this.",
+      VISIBLE: "If you star personal/private stuff, you should definitely disable this.",
+      CANCELLED_BY_MISTAKES: "Cancelled due to too many mistakes.",
+      WAS_INACTIVE: "Stopped due to inactivity.",
+      CANCELLED: "The setup has been cancelled, no settings have been changed.",
+      CONFIRMATION: del => `Are you happy with these results? Respond with yes or no. ${
+        del
+          ? "You can also add `delete` at the end of your respond (like `yes delete`) to clear all embeds I have sent during this setup."
+          : ""
+      }`,
+      SOMETHING_WRONG: "Something went wrong.",
+      BULK_DELETE_FAIL: "Something went wrong when trying to delete my embeds.",
+      RESULT: (b, p, c) => `${
+        b
+          ? `Successfully updated the settings for this ${c ? "channel" : "server"}`
+          : `The settings for this ${c ? "channel" : "server"} have not been updated`
+      }. If you want to change more settings, you can view them all with ${p} settings.`
     }
   }, // might alphabetically order the commands one day
 

@@ -151,7 +151,7 @@ module.exports = {
     if (typeof key !== "string") return ""
 
     return key
-      .replace(/ +/g, "_")
+      .replace(/ +|-/g, "_")
       .replace(/([^A-Z_])([A-Z])/g, (_, bef, aft) => `${bef}_${aft}`)
       .replace(/_?\._?/g, ".") // replace _._ with .
       .toUpperCase()

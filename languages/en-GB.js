@@ -522,6 +522,7 @@ module.exports = {
       ARE_YOU_SURE: "Are you sure?",
       CONFIRMATION_EMBED: (n, starboard) => `Are you sure you want to purge and freeze the last ${n} messages from ${starboard}? If the original messages are deleted, they may be lost forever.
       Say **yes** to continue.`.stripIndents(),
+      NOT_PURGED: "Cancelled the purging of the starboard.",
       NOTHING_TO_DELETE: "There are no starboard messages to delete.",
       SUCCESS: (n, sb) => `Successfully removed and froze ${n} messages from ${sb}.`
     },
@@ -573,6 +574,11 @@ module.exports = {
       PROVIDE_CHANNELS: "Please provide channels for which these channel settings apply for.",
       INVALID_CHANNELS: "You did not provide valid channels.",
       DUPLICATE_CHANNELS: "The channels provided must not already have channel settings. A channel may only have one channel settings.",
+      ARE_YOU_SURE: "Are you sure?",
+      CONFIRMATION_EMBED: name => `Are you sure you want to delete the **${name}** channel settings?
+      You will lose all saved reward roles, blacklists/whitelists, filters and other saved configurations, and they will be gone forever.
+      Say **yes** to continue.`.stripIndents(),
+      NOT_DELETED: "The settings will not be deleted.",
       SUCCESS_CREATE: n => `Successfully created a new set of channel settings: **${n}**.`,
       NOTHING_MODIFIED: "Please provide edits to make.",
       MODIFIED_NAME: n => `changed the name to **${n}**`,

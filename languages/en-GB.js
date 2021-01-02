@@ -646,7 +646,40 @@ module.exports = {
           ? `Successfully updated the settings for this ${c ? "channel" : "server"}`
           : `The settings for this ${c ? "channel" : "server"} have not been updated`
       }. If you want to change more settings, you can view them all with ${p} settings.`
-    }
+    },
+    MESSAGEINFO: {
+      DESCRIPTION: "View info about a starred message.",
+      USAGE: "messageinfo <[messageID]>",
+      NO_MESSAGE_ID: "Please provide a message ID.",
+      NOT_FOUND: "I could not find a starred message from your input.",
+      STARRED_MESSAGE_INFO: "Starred Message Info",
+
+      CONTEXT: "Context",
+      AUTHOR: "Author",
+      CHANNEL: "Channel",
+      STARBOARD: "Starboard",
+      STARRED_AT: "Starred At",
+
+      STATS: "Stats",
+      UPVOTES: "Upvotes",
+      DOWNVOTES: "Downvotes",
+      GLOBAL: "Global Points",
+
+      OTHER: "Other",
+      DELETED: "Message Deleted",
+      AT_DATE: d => `(at ${d})`,
+      SAVED: "Message Saved",
+      WILL_DELETE: d => `(will delete in ${d})`,
+      ON_STARBOARD: "On Starboard",
+      ON_STARBOARD_BEFORE: "On Starboard Before",
+      ATTRIBUTES: "Attributes",
+      NONE: "None",
+
+      LINKS: "Links",
+      MESSAGE: "Message",
+      CONVERSATION: "Conversation",
+      STARBOARD_MESSAGE: "Starboard Message"
+    },
   }, // might alphabetically order the commands one day
 
   // languages

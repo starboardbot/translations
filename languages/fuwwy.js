@@ -515,137 +515,137 @@ module.exports = {
       POST_SUCCESS: "Successfuwwy posted this message to the stawboawd!"
     },
     PURGE: {
-      DESCRIPTION: "Purge and freeze a number of messages off a starboard.",
+      DESCRIPTION: "Puwge and fweeze a numbew of messages off a stawboawd.",
       USAGE: "purge ([channel]) <[messages]>",
-      NOT_STARBOARD: "That channel is not a starboard channel.",
-      MISSING_PERMISSIONS: sb => `I do not have permission to bulk delete messages in ${sb}.`,
-      ARE_YOU_SURE: "Are you sure?",
-      CONFIRMATION_EMBED: (n, starboard) => `Are you sure you want to purge and freeze the last ${n} messages from ${starboard}? If the original messages are deleted, they may be lost forever.
+      NOT_STARBOARD: "That channew is not a stawboawd channew.",
+      MISSING_PERMISSIONS: sb => `I do not have pewmission to buwk dewete messages in ${sb}.`,
+      ARE_YOU_SURE: "Awe you suwe?",
+      CONFIRMATION_EMBED: (n, starboard) => `Awe you suwe you want to puwge and fweeze the wast ${n} messages fwom ${starboard}? If the owiginaw messages awe deweted, they may be wost fowevew.
       Say **yes** to continue.`.stripIndents(),
-      NOT_PURGED: "Cancelled the purging of the starboard.",
-      NOTHING_TO_DELETE: "There are no starboard messages to delete.",
-      SUCCESS: (n, sb) => `Successfully removed and froze ${n} messages from ${sb}.`
+      NOT_PURGED: "Cancewwed the puwging of the stawboawd.",
+      NOTHING_TO_DELETE: "Thewe awe no stawboawd messages to dewete.",
+      SUCCESS: (n, sb) => `Successfuwwy wemoved and fwoze ${n} messages fwom ${sb}.`
     },
     TRASH: {
-      DESCRIPTION: "Trash a message from the starboard and show the first 5 people to react to it, check if a message exists in the list of trashed messages, remove a message from the list of trashed messages, clear the list, or view the first 100 message IDs on the list.",
+      DESCRIPTION: "Twash a message fwom the stawboawd and show the fiwst 5 peopwe to weact to it, check if a message exists in the wist of twashed messages, wemove a message fwom the wist of twashed messages, cweaw the wist, ow view the fiwst 100 message ids on the wist.",
       USAGE: "trash (add/remove/exists/clear/list) ([messageID])",
-      REASON_TOO_LONG: "Your reason is too long.",
-      NOT_MESSAGE_ID: "Please provide a message ID.",
-      NOT_FOUND: "I could not find a starred message from your input.",
-      ALREADY_TRASHED: "That messsage is already trashed.",
-      NOT_TRASHED: "That message is not trashed.",
-      TRASHED_MESSAGES: "Trashed Messages",
-      AND_MORE: n => `\n\n...And ${n} more.`,
-      NO_TRASHED: "There are no trashed messages.",
-      LIST_FOOTER: n => `Amount: ${n}${n > 100 ? ` - Listing the first 100` : ""}`,
-      TRASH_SUCCESS: "Successfully trashed that message.",
-      UNTRASH_SUCCESS: "Successfully untrashed that message. It can now be starred again.",
+      REASON_TOO_LONG: "Youw weason is too wong.",
+      NOT_MESSAGE_ID: "Pwease pwovide a message ID.",
+      NOT_FOUND: "I couwd not find a stawwed message fwom youw input.",
+      ALREADY_TRASHED: "That messsage is alweady twashed.",
+      NOT_TRASHED: "That message is not twashed.",
+      TRASHED_MESSAGES: "Twashed Messages",
+      AND_MORE: n => `\n\n...And ${n} mowe.`,
+      NO_TRASHED: "Thewe awe no twashed messages.",
+      LIST_FOOTER: n => `Amount: ${n}${n > 100 ? ` - Listing the fiwst 100` : ""}`,
+      TRASH_SUCCESS: "Successfuwwy twashed that message.",
+      UNTRASH_SUCCESS: "Successfuwwy untwashed that message. It can now be stawwed again.",
       IS_TRASHED: (b, id, p) => b
-        ? `Your message with ID \`${id}\` is currently in the list of trashed messages. You can remove it from the trash with \`${p}trash remove ${id}\``
-        : `Your message with ID \`${id}\` is not currently trashed.`,
-      CLEAR_TRASH: n => `Successfully removed ${n} items from the trash.`
+        ? `Youw message with ID \`${id}\` is cuwwentwy in the wist of twashed messages. You can wemove it fwom the twash with \`${p}trash remove ${id}\``
+        : `Youw message with ID \`${id}\` is not cuwwentwy twashed.`,
+      CLEAR_TRASH: n => `Successfuwwy wemoved ${n} items fwom the twash.`
     },
     STARWORTHY: {
-      DESCRIPTION: "Check if a message is worthy of being starred or not :)",
+      DESCRIPTION: "Check if a message is wowthy of being stawwed ow not :)",
       USAGE: "starworthy <[messageID]>",
-      NOT_ID: "Please provide a valid message ID.",
-      WORTHY: p => `That message is ${p}% star worthy.`
+      NOT_ID: "Pwease pwovide a vawid message ID.",
+      WORTHY: p => `That message is ${p}% staw wowthy.`
     },
     CHANNELSETTINGS: {
-      DESCRIPTION: "View info about channel settings, or create/clone channel settings for a set of channels.",
+      DESCRIPTION: "View info about channew settings, ow cweate/cwone channew settings fow a set of channews.",
       USAGE: "channelsettings (list/create/edit) ([name]) (...[channels]) --channel ([channel]) --name ([name])",
-      NO_CHANNEL_SETTINGS: prefix => `**This server has no channel settings.**
-      To create channel settings, do \`${prefix}channnelsettings create (...[channels]) --name ([name])\`.`.stripIndents(),
-      EMBED_DESCRIPTION: p => `Here are the channel settings for this server.
+      NO_CHANNEL_SETTINGS: prefix => `**This sewvew has no channew settings.**
+      To cweate channew settings, do \`${prefix}channnelsettings create (...[channels]) --name ([name])\`.`.stripIndents(),
+      EMBED_DESCRIPTION: p => `Hewe awe the channew settings fow this sewvew.
 
-      • If you want to clone one of these, you can do \`${p}channelsettings create (...[channels]) --name <[name]> --channel ([channelSettingsName])\`
+      • If you want to cwone one of these, you can do \`${p}channelsettings create (...[channels]) --name <[name]> --channel ([channelSettingsName])\`
 
-      • If you want to edit channel settings to add/remove channels or change the name, you can do \`${p}channelsettings edit ([channelSettingsName]) (...[channels]) --name ([name])\`
+      • If you want to edit channew settings to add/wemove channews ow change the name, you can do\`${p}channelsettings edit ([channelSettingsName]) (...[channels]) --name ([name])\`
 
-      • If you need to delete channel settings, you can do \`${p}channelsettings delete (name)\`
+      • If you need to dewete channew settings, you can do \`${p}channelsettings delete (name)\`
 
-      • To edit channel settings, do \`${p}changesettings <[settings]> <[value]> --channel ([name/channel])\`.`.stripIndents(),
-      CHANNEL_SETTINGS: "Channel Settings",
-      CHANNELS: "Channels",
-      STARBOARD: "Starboard",
+      • To edit channew settings, do \`${p}changesettings <[settings]> <[value]> --channel ([name/channel])\`.`.stripIndents(),
+      CHANNEL_SETTINGS: "Channew Settings",
+      CHANNELS: "Channews",
+      STARBOARD: "Stawboawd",
       NONE: "Not Set",
-      NAME_TOO_LONG: "Channel setting names cannot be more than 64 characters long.",
-      HIT_MAX: "You have hit the maximum amount of channel settings for one server.",
-      PROVIDE_CHANNELS: "Please provide channels for which these channel settings apply for.",
-      INVALID_CHANNELS: "You did not provide valid channels.",
-      DUPLICATE_CHANNELS: "The channels provided must not already have channel settings. A channel may only have one channel settings.",
-      ARE_YOU_SURE: "Are you sure?",
-      CONFIRMATION_EMBED: name => `Are you sure you want to delete the **${name}** channel settings?
-      You will lose all saved reward roles, blacklists/whitelists, filters and other saved configurations, and they will be gone forever.
+      NAME_TOO_LONG: "Channew setting names cannot be mowe than 64 chawactews wong.",
+      HIT_MAX: "You have hit the maximum amount of channew settings fow one sewvew.",
+      PROVIDE_CHANNELS: "Pwease pwovide channews fow which these channew settings appwy fow.",
+      INVALID_CHANNELS: "You did not pwovide vawid channews.",
+      DUPLICATE_CHANNELS: "The channews pwovided must not awweady have channew settings. A channew may onwy have one channew settings.",
+      ARE_YOU_SURE: "Awe you suwe?",
+      CONFIRMATION_EMBED: name => `Awe you suwe you want to dewete the **${name}** channew settings?
+      You wiww wose aww saved wewawd wowes, bwackwists/whitewists, fiwtews and othew saved configuwations, and they wiww be gone fowevew.
       Say **yes** to continue.`.stripIndents(),
-      NOT_DELETED: "The settings will not be deleted.",
-      SUCCESS_CREATE: n => `Successfully created a new set of channel settings: **${n}**.`,
-      NOTHING_MODIFIED: "Please provide edits to make.",
+      NOT_DELETED: "The settings wiww not be deweted.",
+      SUCCESS_CREATE: n => `Successfuwwy cweated a new set of channew settings: **${n}**.`,
+      NOTHING_MODIFIED: "Pwease pwovide edits to make.",
       MODIFIED_NAME: n => `changed the name to **${n}**`,
-      MODIFIED_CHANNELS: "changed the channels which these channel settings apply for",
-      MODIFIED: modifications => `Successfully ${modifications.join(" and ")}.`,
-      SUCCESS_DELETE: n => `Successfully deleted **${n}**.`
+      MODIFIED_CHANNELS: "changed the channews which these channew settings appwy fow",
+      MODIFIED: modifications => `Successfuwwy ${modifications.join(" and ")}.`,
+      SUCCESS_DELETE: n => `Successfuwwy deweted **${n}**.`
     },
     SETTINGS: {
-      DESCRIPTION: "View the server/channel's settings, or view info about a specific setting.",
+      DESCRIPTION: "View the sewvew/channew's settings, ow view info about a specific setting.",
       USAGE: "settings ([setting]) --channel ([channel])",
       SETTINGS: "Settings",
-      CHANNEL_SETTINGS: "Channel Settings",
+      CHANNEL_SETTINGS: "Channew Settings",
       EMOJIS: "Emojis",
-      REQUIREMENTS: "Requirements",
-      COLORS: "Colours",
+      REQUIREMENTS: "Wequiwements",
+      COLORS: "Cowours",
       EMBED_FOOTER: prefix => `To view info about a specific setting, do ${prefix}settings <setting>`,
-      INVALID_SETTING: s => `**${s}** was not a valid setting.`,
+      INVALID_SETTING: s => `**${s}** was not a vawid setting.`,
       // PLEASE_INPUT: firstToFourth => `Please input ${firstToFourth.slice(0, -1).join(", ")} or ${firstToFourth.slice(-1)}.`
-      INVALID_CHANNEL_SETTING: s => `**${s}** is not a valid setting for channels, it is only available as a server setting.`,
+      INVALID_CHANNEL_SETTING: s => `**${s}** is not a vawid setting fow channews, it is onwy avaiwabwe as a sewvew setting.`,
       EMBED_DESCRIPTION: (lock, name, desc) => `${lock} **Setting**: ${name}\n${desc}`,
       DATA: "Data",
-      VALUE: "Value",
-      DEFAULT: "Default",
-      PERMISSION: "Permission",
-      ALIASES: "Aliases",
+      VALUE: "Vawue",
+      DEFAULT: "Defauwt",
+      PERMISSION: "Pewmission",
+      ALIASES: "Awiases",
       NONE: "None",
       CAN_CHANGE: (prefix, name, sub, value) => `You can change this setting with \`${prefix}changesetting ${name}${sub && ` ${sub}`} <${value.includes("/") ? value : `[${value}]`}>\`.`,
-      MISSING_PERMISSIONS: p => `You need to have the ${p} permissions to change settings.`,
+      MISSING_PERMISSIONS: p => `You need to have the ${p} pewmissions to change settings.`,
       CANT_CHANGE: reason => `You cannot change this setting: ${reason}`,
-      USE_ALIASES: "You can also use any of these to change/view the setting."
+      USE_ALIASES: "You can awso use any of these to change/view the setting."
     },
     SETUP: {
-      DESCRIPTION: "Set up the bot in a server or channel by walking you through basic settings.",
+      DESCRIPTION: "Set up the bot in a sewvew or channew by wawking you thwough basic settings.",
       USAGE: "setup --channel ([channel])",
       SETUP: "Setup",
-      EMBED_DESCRIPTION: c => `Here I will walk you through **some** of the settings to help you set me up in this ${c ? "channel" : "server"}.
-      Say \`cancel\` or \`stop\` to cancel the setup, \`skip\` or \`next\` to skip to the next setting, and \`end\` to skip to the end.`.stripIndents(),
-      EMBED_FOOTER: (n, total) => `You can stop, skip or skip to the end at any time. Setting ${n}/${total}`,
+      EMBED_DESCRIPTION: c => `Hewe i wiww wawk you thwough **some** of the settings to hewp you set me up in this ${c ? "channew" : "sewvew"}.
+      Say \`cancel\` or \`stop\` to cancew the setup, \`skip\` or \`next\` to skip to the next setting, and \`end\` to skip to the end.`.stripIndents(),
+      EMBED_FOOTER: (n, total) => `You can stop, skip ow skip to the end at any time. Setting ${n}/${total}`,
       SETTING: "Setting",
-      PLEASE_INPUT: item => `Please input ${item.includes("/") ? "" : "a "}\`${item}\`.`,
+      PLEASE_INPUT: item => `Pwease input ${item.includes("/") ? "" : "a "}\`${item}\`.`,
       SETTING_SKIPPED: "Skipped the setting.",
-      MISSING_PERMISSIONS: "The bot is missing the `Manage Channels` permission, required to create channels.",
-      CREATE_CHANNEL_FAIL: "Something went wrong when creating a starboard channel.",
-      CREATE_CHANNEL_SUCCESS: c => `Successfully created a starboard channel: ${c}`,
-      REQUIRED_NAN: "The required amount of stars to reach the starboard has to be a number.",
-      RTR_NAN: "The amount of stars a message needs to have to be removed from the starboard has to be a number.",
-      STARBOARD_ID: "If you want me to create a starboard channel for you, input `create`, optionally followed by the name of the channel, such as \`create message-museum\` (will be \"starboard\" by default).",
-      LANGUAGE: "Note that not all languages are completed, English is the only one completed.",
-      REQUIRED: s => `Currently, if ${s.required} different people star a message, it will then be posted to the starboard.`,
-      REQUIRED_TO_REMOVE: s => `Currently, if a message in the starboard drops below ${s.requiredToRemove} stars, it will then be removed from the starboard.`,
-      FILTER_BOTS: "If you want bots to reach the starboard, don't enable this.",
-      VISIBLE: "If you star personal/private stuff, you should definitely disable this.",
-      CANCELLED_BY_MISTAKES: "Cancelled due to too many mistakes.",
+      MISSING_PERMISSIONS: "The bot is missing the `Manage Channels` pewmission, wequiwed to cweate channews.",
+      CREATE_CHANNEL_FAIL: "Something went wwong when cweating a stawboawd channew.",
+      CREATE_CHANNEL_SUCCESS: c => `Successfuwwy cweated a stawboawd channew: ${c}`,
+      REQUIRED_NAN: "The wequiwed amount of staws to weach the stawboawd has to be a numbew.",
+      RTR_NAN: "The amount of staws a message needs to have to be wemoved fwom the stawboawd has to be a numbew.",
+      STARBOARD_ID: "If you want me to cweate a stawboard channel fow you, input `create`, optionawwy fowwowed by the name of the channew, such as \`create message-museum\` (wiww be \"stawboard\" by defauwt).",
+      LANGUAGE: "Note that not aww wanguages awe compweted, Engwish is the onwy one compweted.",
+      REQUIRED: s => `Cuwwentwy, if ${s.required} diffewent people staw a message, it wiww then be posted to the stawboawd.`,
+      REQUIRED_TO_REMOVE: s => `Cuwwentwy, if a message in the stawboawd dwops bewow ${s.requiredToRemove} staws, it wiww then be wemoved fwom the stawboawd.`,
+      FILTER_BOTS: "If you want bots to weach the stawboawd, don't enabwe this.",
+      VISIBLE: "If you staw pewsonal/pwivate stuff, you shouwd definitewy disabwe this.",
+      CANCELLED_BY_MISTAKES: "Cancewwed due to too many mistakes.",
       WAS_INACTIVE: "Stopped due to inactivity.",
-      CANCELLED: "The setup has been cancelled, no settings have been changed.",
-      CONFIRMATION: del => `Are you happy with these results? Respond with yes or no. ${
+      CANCELLED: "The setup has been cancewwed, no settings have been changed.",
+      CONFIRMATION: del => `Awe you happy with these wesults? Wespond with yes or no. ${
         del
-          ? "You can also add `delete` at the end of your respond (like `yes delete`) to clear all embeds I have sent during this setup."
+          ? "You can also add `delete` at the end of your wesponse (like `yes delete`) to cleaw aww embeds I have sent duwing this setup."
           : ""
       }`,
-      SOMETHING_WRONG: "Something went wrong.",
-      BULK_DELETE_FAIL: "Something went wrong when trying to delete my embeds.",
+      SOMETHING_WRONG: "Something went wwong.",
+      BULK_DELETE_FAIL: "Something went wwong when twying to delete my embeds.",
       RESULT: (b, p, c) => `${
         b
-          ? `Successfully updated the settings for this ${c ? "channel" : "server"}`
-          : `The settings for this ${c ? "channel" : "server"} have not been updated`
-      }. If you want to change more settings, you can view them all with ${p} settings.`
+          ? `Successfuwwy updated the settings for this ${c ? "channew" : "sewvew"}`
+          : `The settings for this ${c ? "channew" : "sewvew"} have not been updated`
+      }. If you want to change mowe settings, you can view them aww with ${p} settings.`
     }
   }, // might alphabetically order the commands one day
 
@@ -655,5 +655,6 @@ module.exports = {
     EN_US: "English (US)",
     LT_LT: "Lithuanian",
     TR_TR: "Turkish",
+    FUWWY: "Fuwwy",
   }
 }

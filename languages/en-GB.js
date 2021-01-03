@@ -161,8 +161,8 @@ module.exports = {
         .setTitle("Help")
         .setColor(command.enabled ? color : command.client.colors.error)
         .addField(
-          `Command: ${prefix}${command.language(l).name || command.name}`,
-          `**Aliases**: ${command.language(l).aliases.get().join(", ") || "none"}
+          `Command: ${prefix}${command.language(l).name.get() || command.name}`,
+          `**Aliases**: ${(command.language(l).aliases.get() || command.aliases).join(", ") || "none"}
           **Description**: ${command.language(l).description || "none"}
           **Usage**: ${prefix}${command.language(l).usage}
           ${c.EXAMPLE ? `**Example${Array.isArray(c.EXAMPLE) ? "s" : ""}**: ${Array.isArray(c.EXAMPLE) ? c.EXAMPLE.map(c => `${prefix}${c}`).join("\n") : `${prefix}${c.EXAMPLE}`}` : ""}`
@@ -170,14 +170,14 @@ module.exports = {
         )
         .addField(
           "Extra",
-          `**Category**: ${command.language(l).base.categories(command.category)}
+          `**Category**: ${command.language(l).base.categories(command.category).get() || command.category}
           **Cooldown**: ${cooldown}
-          **Enabled**: ${command.client.config.ids.emojis[command.enabled ? "yes" : "no"]}
+          **Enabled**: ${command.client.config.emojis[command.enabled ? "yes" : "no"]}
           **Required Bot Permissions**: ${command.client.util.readablePermissions(command.botPermissions)}
-          **Required User Permissions**: ${command.client.util.readablePermissions(requiredPermissions)}`
+          **Required User Permissions**: ${command.client.util.readablePermissions(requiredPermissions || 0)}`
           .stripIndents()
         )
-        .setFooter("() = optional arguments, <> = required arguments, -- = optional flag")
+        .setFooter("() = optional arguments, <> = required arguments, [] = a placeholder, -- = optional flag")
       if (command.notices) embed.addField(
         "Notices",
         `${
@@ -357,7 +357,7 @@ module.exports = {
       STAR_SELF: b => `Users can ${b ? "now" : "no longer"} star their own messages.`,
       WATCHING: b => b ? "Nothing now goes on the starboard, but stats are still being recorded." : "The starboard will now be used along with recording of stats.",
       VISIBLE: b => `People can ${b ? "now" : "no longer"} find this server's messages in the explore command.`,
-      CLEAN: b => `The **Click to jump to message!** and other links will ${b ? "now" : "no longer"} show.`,
+      CLEAN: b => `The **Click to jump to message!** and other links will ${!b ? "now" : "no longer"} show.`,
       DOWNVOTE: b => `Users can ${b ? "now" : "no longer"} downvote starred messages.`,
       BOTS_ON_LB: b => `Bots will ${b ? "now" : "no longer"} show on the leaderboard.`,
       ATTACHMENTS: b => `Attachments will ${b ? "now" : "no longer"} be attached onto the starboard message.`,
@@ -553,16 +553,16 @@ module.exports = {
     },
     CHANNELSETTINGS: {
       DESCRIPTION: "View info about channel settings, or create/clone channel settings for a set of channels.",
-      USAGE: "channelsettings (list/create/edit) ([name]) (...[channels]) --channel ([channel]) --name ([name])",
+      USAGE: "channelsettings (list/create/edit) ([name]) (...[channels]) --channel ([channel]) --name <[name]>",
       NO_CHANNEL_SETTINGS: prefix => `**This server has no channel settings.**
-      To create channel settings, do \`${prefix}channnelsettings create (...[channels]) --name ([name])\`.`.stripIndents(),
+      To create channel settings, do \`${prefix}channnelsettings create (...[channels]) --name <[name]>\`.`.stripIndents(),
       EMBED_DESCRIPTION: p => `Here are the channel settings for this server.
 
       • If you want to clone one of these, you can do \`${p}channelsettings create (...[channels]) --name <[name]> --channel ([channelSettingsName])\`
 
-      • If you want to edit channel settings to add/remove channels or change the name, you can do \`${p}channelsettings edit ([channelSettingsName]) (...[channels]) --name ([name])\`
+      • If you want to edit channel settings to add/remove channels or change the name, you can do \`${p}channelsettings edit ([channelSettingsName]) (...[channels]) --name <[name]>\`
 
-      • If you need to delete channel settings, you can do \`${p}channelsettings delete (name)\`
+      • If you need to delete channel settings, you can do \`${p}channelsettings delete <[name]>\`
 
       • To edit channel settings, do \`${p}changesettings <[settings]> <[value]> --channel ([name/channel])\`.`.stripIndents(),
       CHANNEL_SETTINGS: "Channel Settings",

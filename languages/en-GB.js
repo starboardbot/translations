@@ -516,14 +516,15 @@ module.exports = {
     },
     PURGE: {
       DESCRIPTION: "Purge and freeze a number of messages off a starboard.",
-      USAGE: "purge ([channel]) <[messages]>",
+      USAGE: "purge ([channel]) <[messages]> --before <[messageID]> --after <[messageID]>",
       NOT_STARBOARD: "That channel is not a starboard channel.",
       MISSING_PERMISSIONS: sb => `I do not have permission to bulk delete messages in ${sb}.`,
       ARE_YOU_SURE: "Are you sure?",
-      CONFIRMATION_EMBED: (n, starboard) => `Are you sure you want to purge and freeze the last ${n} messages from ${starboard}? If the original messages are deleted, they may be lost forever.
+      CONFIRMATION_EMBED: (n, starboard, before, after) =>
+      `Are you sure you want to purge and freeze the last ${n} messages${before ? ` before ${before}${after ? " and" : ""}` : ""}${after ? ` after ${after}` : ""} from ${starboard}? If the original messages are deleted, they may be lost forever.
       Say **yes** to continue.`.stripIndents(),
       NOT_PURGED: "Cancelled the purging of the starboard.",
-      NOTHING_TO_DELETE: "There are no starboard messages to delete.",
+      NOTHING_TO_DELETE: (before, after) => `There are no starboard messages${before ? ` before ${before}${after ? " and" : ""}` : ""}${after ? ` after ${after}` : ""} to delete.`,
       SUCCESS: (n, sb) => `Successfully removed and froze ${n} messages from ${sb}.`
     },
     TRASH: {

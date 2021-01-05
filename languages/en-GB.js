@@ -269,11 +269,11 @@ module.exports = {
 
     EVAL: {
       DESCRIPTION: "Evaluates a bit of code.",
-      USAGE: "eval <code>"
+      USAGE: "**eval** <code>"
     },
     HELP: {
       DESCRIPTION: "View all the commands the bot has to offer, or view info about a specific command.",
-      USAGE: "help (command)",
+      USAGE: "**help** (command)",
       EMBED_DESCRIPTION: (command, owner, categories, prefix) => `Commands: ${
           owner
             ? command.client.commands.size
@@ -286,7 +286,7 @@ module.exports = {
     },
     PING: {
       DESCRIPTION: "Check the bot's ping, response times and edit speed.",
-      USAGE: "ping",
+      USAGE: "**ping**",
       PINGING: "Pinging...",
       CLUSTER: n => `Cluster ${n}`,
       SHARD: n => `Shard ${n}`,
@@ -296,11 +296,11 @@ module.exports = {
     },
     RELOAD: {
       DESCRIPTION: "Reload commands, events or a file.",
-      USAGE: "reload <[command]/event/file> ([event]/[file])"
+      USAGE: "**reload** <[command]/event/file> ([event]/[file])"
     },
     CHANGESETTING: {
       DESCRIPTION: "Change a setting for the channel or server, such as the required amount of stars needed to reach the starboard. All the settings are in the settings command, so you can view your options there.",
-      USAGE: "changesetting <[setting]> <[value]> --channel ([channel])",
+      USAGE: "**changesetting** <[setting]> <[value]> --channel ([channel])",
       
       UPDATED_SETTINGS: "Updated Settings",
       ERRORS: "Errors",
@@ -357,7 +357,7 @@ module.exports = {
       STAR_SELF: b => `Users can ${b ? "now" : "no longer"} star their own messages.`,
       WATCHING: b => b ? "Nothing now goes on the starboard, but stats are still being recorded." : "The starboard will now be used along with recording of stats.",
       VISIBLE: b => `People can ${b ? "now" : "no longer"} find this server's messages in the explore command.`,
-      CLEAN: b => `The **Click to jump to message!** and other links will ${!b ? "now" : "no longer"} show.`,
+      CLEAN: b => `The **Click to jump to message!** and other links will ${!b ? "now" : "no longer"} show on starboard messages.`,
       DOWNVOTE: b => `Users can ${b ? "now" : "no longer"} downvote starred messages.`,
       BOTS_ON_LB: b => `Bots will ${b ? "now" : "no longer"} show on the leaderboard.`,
       ATTACHMENTS: b => `Attachments will ${b ? "now" : "no longer"} be attached onto the starboard message.`,
@@ -376,31 +376,31 @@ module.exports = {
     },
     LOCK: {
       DESCRIPTION: "Locks a starred message to the starboard, so it'll stay there even if it reaches 0 stars.",
-      USAGE: "lock <[messageID]>",
+      USAGE: "**lock** <[messageID]>",
       SUCCESS: "Successfully locked that message to the starboard.",
       FAILED: "That message is already locked."
     },
     UNLOCK: {
       DESCRIPTION: "Unlocks a starred message from the starboard, so it can be removed as normal.",
-      USAGE: "unlock <[messageID]>",
+      USAGE: "**unlock** <[messageID]>",
       SUCCESS: "Successfully unlocked that message from the starboard.",
       FAILED: "That message is not locked."
     },
     FREEZE: {
       DESCRIPTION: "Freezes a starred message, so no-one can add or remove stars.",
-      USAGE: "freeze <[messageID]>",
+      USAGE: "**freeze** <[messageID]>",
       SUCCESS: "Successfully froze that message.",
       FAILED: "That message is already frozen."
     },
     UNFREEZE: {
       DESCRIPTION: "Unfreezes a starred message, so everyone can add or remove stars as normal.",
-      USAGE: "unfreeze <[messageID]>",
+      USAGE: "**unfreeze** <[messageID]>",
       SUCCESS: "Successfully unfroze that message.",
       FAILED: "That message is not frozen."
     },
     PREFIXES: {
       DESCRIPTION: "Add or remove prefixes for the server, or view a list of them.",
-      USAGE: "prefixes (add/remove) ([prefix])",
+      USAGE: "**prefixes** (add/remove) ([prefix])",
       ALREADY_PREFIX: "That is already a prefix for this server.",
       TOO_MANY_PREFIXES: "There are too many prefixes set for this server.",
       PREFIX_TOO_LONG: "That prefix is too long.",
@@ -417,7 +417,7 @@ module.exports = {
     },
     LINKS: {
       DESCRIPTION: "Get the links related to the bot, such as the bot's invite link.",
-      USAGE: "links",
+      USAGE: "**links**",
       LINKS: "Links",
       DONATION: "Donation",
       OTHER: "Other",
@@ -427,7 +427,7 @@ module.exports = {
     },
     BLACKLIST: {
       DESCRIPTION: "View info about blacklisted users, roles or channels, or modify the list.",
-      USAGE: "blacklist (add/remove) ([user/role/channel]) --channel ([channel])",
+      USAGE: "**blacklist** (add/remove) ([user/role/channel]) --channel ([channel])",
       BLACKLIST: "Blacklist",
       EMBED_DESCRIPTION: (blsb, c, nothing, prefix) => `The following ${c ? `users and roles` : `users, roles and channels`} are blacklisted and cannot interact with the starboard${c ? " in this channel" : ""}.${
         blsb 
@@ -449,7 +449,7 @@ module.exports = {
     },
     WHITELIST: {
       DESCRIPTION: "View info about whitelisted users or roles, or modify the list.",
-      USAGE: "whitelist (add/remove) ([user/role]) --channel ([channel])",
+      USAGE: "**whitelist** (add/remove) ([user/role]) --channel ([channel])",
       WHITELIST: "Whitelist",
       EMBED_DESCRIPTION: (c, nothing, prefix) => `The following users and roles are whitelisted and bypass the blacklist ${c ? "in this channel " : ""}if on it.${
         nothing
@@ -472,7 +472,7 @@ module.exports = {
       DESCRIPTION:
         "View info about or add/remove reward roles, roles that get added to users once they surpass a certain amount of stars. " +
         "You can add/subtract to the amount of stars needed for an existing reward role by putting a +/- before the stars argument.",
-      USAGE: "rewardroles (add/remove) ([role]) ([stars])",
+      USAGE: "**rewardroles** (add/remove) ([role]) ([stars])",
       NO_LEADERBOARD: "The leaderboard is disabled for the server, which includes reward roles.",
       REWARD_ROLES: "Reward Roles",
       ROLE: "Role",
@@ -500,7 +500,7 @@ module.exports = {
     },
     FORCE: {
       DESCRIPTION: "Force or refresh a message on the starboard.",
-      USAGE: "force ([channel]) <[messageID]>",
+      USAGE: "**force** ([channel]) <[messageID]>",
       NO_STARBOARDS: c => `There are no starboards currently set for this ${c ? "channel" : "server"}.`,
       NO_MESSAGE_ID: "Please provide a message ID. If you don't know how to get the ID of a message, you have to enable **Developer Mode** in settings, click the three dots on a message and click **Copy ID**.",
       INVALID_TYPE: "The channel must be a text channel.",
@@ -516,7 +516,7 @@ module.exports = {
     },
     PURGE: {
       DESCRIPTION: "Purge and freeze a number of messages off a starboard.",
-      USAGE: "purge ([channel]) <[messages]> --before <[messageID]> --after <[messageID]>",
+      USAGE: "**purge** ([channel]) <[messages]> --before <[messageID]> --after <[messageID]>",
       NOT_STARBOARD: "That channel is not a starboard channel.",
       MISSING_PERMISSIONS: sb => `I do not have permission to bulk delete messages in ${sb}.`,
       ARE_YOU_SURE: "Are you sure?",
@@ -529,7 +529,7 @@ module.exports = {
     },
     TRASH: {
       DESCRIPTION: "Trash a message from the starboard and show the first 5 people to react to it, check if a message exists in the list of trashed messages, remove a message from the list of trashed messages, clear the list, or view the first 100 message IDs on the list.",
-      USAGE: "trash (add/remove/exists/clear/list) ([messageID])",
+      USAGE: "**trash** (add/remove/exists/clear/list) ([messageID])",
       REASON_TOO_LONG: "Your reason is too long.",
       NOT_MESSAGE_ID: "Please provide a message ID.",
       NOT_FOUND: "I could not find a starred message from your input.",
@@ -548,13 +548,13 @@ module.exports = {
     },
     STARWORTHY: {
       DESCRIPTION: "Check if a message is worthy of being starred or not :)",
-      USAGE: "starworthy <[messageID]>",
+      USAGE: "**starworthy** <[messageID]>",
       NOT_ID: "Please provide a valid message ID.",
       WORTHY: p => `That message is ${p}% star worthy.`
     },
     CHANNELSETTINGS: {
       DESCRIPTION: "View info about channel settings, or create/clone channel settings for a set of channels.",
-      USAGE: "channelsettings (list/create/edit) ([name]) (...[channels]) --channel ([channel]) --name <[name]>",
+      USAGE: "**channelsettings** (list/create/edit) ([name]) (...[channels]) --channel ([channel]) --name <[name]>",
       NO_CHANNEL_SETTINGS: prefix => `**This server has no channel settings.**
       To create channel settings, do \`${prefix}channnelsettings create (...[channels]) --name <[name]>\`.`.stripIndents(),
       EMBED_DESCRIPTION: p => `Here are the channel settings for this server.
@@ -589,7 +589,7 @@ module.exports = {
     },
     SETTINGS: {
       DESCRIPTION: "View the server/channel's settings, or view info about a specific setting.",
-      USAGE: "settings ([setting]) --channel ([channel])",
+      USAGE: "**settings** ([setting]) --channel ([channel])",
       SETTINGS: "Settings",
       CHANNEL_SETTINGS: "Channel Settings",
       EMOJIS: "Emojis",
@@ -613,7 +613,7 @@ module.exports = {
     },
     SETUP: {
       DESCRIPTION: "Set up the bot in a server or channel by walking you through basic settings.",
-      USAGE: "setup --channel ([channel])",
+      USAGE: "**setup** --channel ([channel])",
       SETUP: "Setup",
       EMBED_DESCRIPTION: c => `Here I will walk you through **some** of the settings to help you set me up in this ${c ? "channel" : "server"}.
       Say \`cancel\` or \`stop\` to cancel the setup, \`skip\` or \`next\` to skip to the next setting, and \`end\` to skip to the end.`.stripIndents(),
@@ -650,7 +650,7 @@ module.exports = {
     },
     MESSAGEINFO: {
       DESCRIPTION: "View info about a starred message.",
-      USAGE: "messageinfo <[messageID]>",
+      USAGE: "**messageinfo** <[messageID]>",
       NO_MESSAGE_ID: "Please provide a message ID.",
       NOT_FOUND: "I could not find a starred message from your input.",
       STARRED_MESSAGE_INFO: "Starred Message Info",

@@ -721,10 +721,10 @@ module.exports = {
 
   // languages
   LANGUAGES: {
-    EN_GB: "English (GB)",
-    EN_US: "English (US)",
-    LT_LT: "Lithuanian",
-    TR_TR: "Turkish",
+    EN_GB: "Engwish (GB)",
+    EN_US: "Engwish (US)",
+    LT_LT: "Withuanian",
+    TR_TR: "Tuwkish",
     FUWWY: "Fuwwy",
   }
 }

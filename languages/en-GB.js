@@ -1,3 +1,5 @@
+const LOCALE = "en-GB"
+
 module.exports = {
   name: "English (GB)",
   HELLO_WORLD: "Hello world!",
@@ -34,7 +36,7 @@ module.exports = {
   GET_STARTED_EMBED: (req, prefix) => `I've detected a channel named \`#starboard\`, so this is now where all starred messages will go. You can change this later.
   Currently in this server, messages need to have ${req} star reactions to get posted in this channel, which can be changed.
   You can set the server up properly with \`${prefix}setup\`, this will walk you through all the settings.
-  And most importantly, have fun!`,
+  And most importantly, have fun!`.stripIndents(),
   GET_STARTED_FOOTER: "Thank you for using Starboard!",
 
   // message event
@@ -60,7 +62,7 @@ module.exports = {
     NSFW_STARBOARD_ID: "This is where starred messages from NSFW channels will go. If this isn't set, messages from NSFW channels will go to the normal starboard. If channel settings are set, all messages will go there.",
     REQUIRED: "This is how many stars a message needs before reaching the starboard.",
     REQUIRED_TO_REMOVE: "When a message on the starboard drops to this number, it will get removed from the starboard.",
-    LANGUAGE: (_p, _pm, name) => `The language of the ${name ? "channel" : "server"}.`,
+    LANGUAGE: (_p, _pm, name) => `The language of the ${name ? "channel" : "server"}. The languages that are currently available are ${Object.values(module.exports.LANGUAGES).join(", ")}.`,
     PERMISSION: `This is the permission users need to have before performing various actions, such as trashing messages, changing settings and blacklisting users.
     When setting the permission, you can input something like \`MANAGE_MESSAGES\`, \`Manage Messages\`, \`Manage-Messages\` or \`8192\`. For multiple permissions, use a permissions calculator.`.stripIndents(),
 
@@ -155,7 +157,7 @@ module.exports = {
     .stripIndents(),
     /** @param {import("../../classes/Command")} command @param {import("../../classes/Embed")} Embed */
     COMMAND_HELP_EMBED: (command, Embed, prefix, color, cooldown, requiredPermissions) => {
-      const l = "en-GB" // change to file name
+      const l = LOCALE
       const c = command.language(l).get()
       const embed = Embed
         .setTitle("Help")
@@ -248,7 +250,7 @@ module.exports = {
         }
         case "RANGE": {
           const [, raw, greater, boundary] = e
-          m = `The provided argument \`${esc(raw).replace(/(\w{20}).+/, "$1...")}\` cannot be ${greater ? "greater" : "less"} than \`${boundary.toLocaleString("en-GB")}\`.`
+          m = `The provided argument \`${esc(raw).replace(/(\w{20}).+/, "$1...")}\` cannot be ${greater ? "greater" : "less"} than \`${boundary.toLocaleString(LOCALE)}\`.`
           break
         }
         case "TYPE": {
@@ -262,6 +264,7 @@ module.exports = {
       return Embed
         .setTitle("Invalid Arguments")
         .setDescription(`The arguments provided were not valid: ${m}`)
+        .addField("Usage", `\`${command.language(LOCALE).usage}\``)
         .setColor(command.client.colors.error)
     },
     MISSING_PERMISSIONS: (perms, bot) => `${bot ? "The bot is" : "You are"} missing the ${perms} permissions, required to run this command.`,
@@ -269,11 +272,11 @@ module.exports = {
 
     EVAL: {
       DESCRIPTION: "Evaluates a bit of code.",
-      USAGE: "**eval** <code>"
+      USAGE: "eval <code>"
     },
     HELP: {
       DESCRIPTION: "View all the commands the bot has to offer, or view info about a specific command.",
-      USAGE: "**help** (command)",
+      USAGE: "help (command)",
       EMBED_DESCRIPTION: (command, owner, categories, prefix) => `Commands: ${
           owner
             ? command.client.commands.size
@@ -286,7 +289,7 @@ module.exports = {
     },
     PING: {
       DESCRIPTION: "Check the bot's ping, response times and edit speed.",
-      USAGE: "**ping**",
+      USAGE: "ping",
       PINGING: "Pinging...",
       CLUSTER: n => `Cluster ${n}`,
       SHARD: n => `Shard ${n}`,
@@ -296,11 +299,11 @@ module.exports = {
     },
     RELOAD: {
       DESCRIPTION: "Reload commands, events or a file.",
-      USAGE: "**reload** <[command]/event/file> ([event]/[file])"
+      USAGE: "reload <[command]/event/file> ([event]/[file])"
     },
     CHANGESETTING: {
       DESCRIPTION: "Change a setting for the channel or server, such as the required amount of stars needed to reach the starboard. All the settings are in the settings command, so you can view your options there.",
-      USAGE: "**changesetting** <[setting]> <[value]> --channel ([channel])",
+      USAGE: "changesetting <[setting]> <[value]> --channel ([channel])",
       
       UPDATED_SETTINGS: "Updated Settings",
       ERRORS: "Errors",
@@ -376,31 +379,31 @@ module.exports = {
     },
     LOCK: {
       DESCRIPTION: "Locks a starred message to the starboard, so it'll stay there even if it reaches 0 stars.",
-      USAGE: "**lock** <[messageID]>",
+      USAGE: "lock <[messageID]>",
       SUCCESS: "Successfully locked that message to the starboard.",
       FAILED: "That message is already locked."
     },
     UNLOCK: {
       DESCRIPTION: "Unlocks a starred message from the starboard, so it can be removed as normal.",
-      USAGE: "**unlock** <[messageID]>",
+      USAGE: "unlock <[messageID]>",
       SUCCESS: "Successfully unlocked that message from the starboard.",
       FAILED: "That message is not locked."
     },
     FREEZE: {
       DESCRIPTION: "Freezes a starred message, so no-one can add or remove stars.",
-      USAGE: "**freeze** <[messageID]>",
+      USAGE: "freeze <[messageID]>",
       SUCCESS: "Successfully froze that message.",
       FAILED: "That message is already frozen."
     },
     UNFREEZE: {
       DESCRIPTION: "Unfreezes a starred message, so everyone can add or remove stars as normal.",
-      USAGE: "**unfreeze** <[messageID]>",
+      USAGE: "unfreeze <[messageID]>",
       SUCCESS: "Successfully unfroze that message.",
       FAILED: "That message is not frozen."
     },
     PREFIXES: {
       DESCRIPTION: "Add or remove prefixes for the server, or view a list of them.",
-      USAGE: "**prefixes** (add/remove) ([prefix])",
+      USAGE: "prefixes (add/remove) ([prefix])",
       ALREADY_PREFIX: "That is already a prefix for this server.",
       TOO_MANY_PREFIXES: "There are too many prefixes set for this server.",
       PREFIX_TOO_LONG: "That prefix is too long.",
@@ -417,7 +420,7 @@ module.exports = {
     },
     LINKS: {
       DESCRIPTION: "Get the links related to the bot, such as the bot's invite link.",
-      USAGE: "**links**",
+      USAGE: "links",
       LINKS: "Links",
       DONATION: "Donation",
       OTHER: "Other",
@@ -427,7 +430,7 @@ module.exports = {
     },
     BLACKLIST: {
       DESCRIPTION: "View info about blacklisted users, roles or channels, or modify the list.",
-      USAGE: "**blacklist** (add/remove) ([user/role/channel]) --channel ([channel])",
+      USAGE: "blacklist (add/remove) ([user/role/channel]) --channel ([channel])",
       BLACKLIST: "Blacklist",
       EMBED_DESCRIPTION: (blsb, c, nothing, prefix) => `The following ${c ? `users and roles` : `users, roles and channels`} are blacklisted and cannot interact with the starboard${c ? " in this channel" : ""}.${
         blsb 
@@ -449,7 +452,7 @@ module.exports = {
     },
     WHITELIST: {
       DESCRIPTION: "View info about whitelisted users or roles, or modify the list.",
-      USAGE: "**whitelist** (add/remove) ([user/role]) --channel ([channel])",
+      USAGE: "whitelist (add/remove) ([user/role]) --channel ([channel])",
       WHITELIST: "Whitelist",
       EMBED_DESCRIPTION: (c, nothing, prefix) => `The following users and roles are whitelisted and bypass the blacklist ${c ? "in this channel " : ""}if on it.${
         nothing
@@ -472,7 +475,7 @@ module.exports = {
       DESCRIPTION:
         "View info about or add/remove reward roles, roles that get added to users once they surpass a certain amount of stars. " +
         "You can add/subtract to the amount of stars needed for an existing reward role by putting a +/- before the stars argument.",
-      USAGE: "**rewardroles** (add/remove) ([role]) ([stars])",
+      USAGE: "rewardroles (add/remove) ([role]) ([stars])",
       NO_LEADERBOARD: "The leaderboard is disabled for the server, which includes reward roles.",
       REWARD_ROLES: "Reward Roles",
       ROLE: "Role",
@@ -493,14 +496,14 @@ module.exports = {
       SUBTRACT_TOO_MANY: "You are subtracting too many stars from this reward role.",
       HIT_MAX: c => `This ${c ? "channel" : "server"} has hit the max of 25 reward roles.`,
       NOT_RR: `That role is not set as a reaction role.`,
-      RR_SET: (name, stars) => `Successfully set the stars needed for the reward role **${name}** to ${stars.toLocaleString("en-GB")}`,
-      RR_ADD: (name, stars, c) => `Successfully added the role **${name}** as a reward role, awarded to users after getting a total of **${stars.toLocaleString("en-GB")}** stars${c ? " from this channel" : ""}.`,
+      RR_SET: (name, stars) => `Successfully set the stars needed for the reward role **${name}** to ${stars.toLocaleString(LOCALE)}`,
+      RR_ADD: (name, stars, c) => `Successfully added the role **${name}** as a reward role, awarded to users after getting a total of **${stars.toLocaleString(LOCALE)}** stars${c ? " from this channel" : ""}.`,
       RR_REMOVE_ALL: c => `Successfully removed all reaction roles${c ? " for this channel" : ""}.`,
       RR_REMOVE: (name, c) => `Successfully removed **${name}** from this ${c ? "channel" : "server"}'s reward roles.`
     },
     FORCE: {
       DESCRIPTION: "Force or refresh a message on the starboard.",
-      USAGE: "**force** ([channel]) <[messageID]>",
+      USAGE: "force ([channel]) <[messageID]>",
       NO_STARBOARDS: c => `There are no starboards currently set for this ${c ? "channel" : "server"}.`,
       NO_MESSAGE_ID: "Please provide a message ID. If you don't know how to get the ID of a message, you have to enable **Developer Mode** in settings, click the three dots on a message and click **Copy ID**.",
       INVALID_TYPE: "The channel must be a text channel.",
@@ -516,7 +519,7 @@ module.exports = {
     },
     PURGE: {
       DESCRIPTION: "Purge and freeze a number of messages off a starboard.",
-      USAGE: "**purge** ([channel]) <[messages]> --before <[messageID]> --after <[messageID]>",
+      USAGE: "purge ([channel]) <[messages]> --before <[messageID]> --after <[messageID]>",
       NOT_STARBOARD: "That channel is not a starboard channel.",
       MISSING_PERMISSIONS: sb => `I do not have permission to bulk delete messages in ${sb}.`,
       MIGRATING: "I cannot purge messages from starboards right now.",
@@ -530,7 +533,7 @@ module.exports = {
     },
     TRASH: {
       DESCRIPTION: "Trash a message from the starboard and show the first 5 people to react to it, check if a message exists in the list of trashed messages, remove a message from the list of trashed messages, clear the list, or view the first 100 message IDs on the list.",
-      USAGE: "**trash** (add/remove/exists/clear/list) ([messageID])",
+      USAGE: "trash (add/remove/exists/clear/list) ([messageID])",
       REASON_TOO_LONG: "Your reason is too long.",
       NOT_MESSAGE_ID: "Please provide a message ID.",
       NOT_FOUND: "I could not find a starred message from your input.",
@@ -549,13 +552,13 @@ module.exports = {
     },
     STARWORTHY: {
       DESCRIPTION: "Check if a message is worthy of being starred or not :)",
-      USAGE: "**starworthy** <[messageID]>",
+      USAGE: "starworthy <[messageID]>",
       NOT_ID: "Please provide a valid message ID.",
       WORTHY: p => `That message is ${p}% star worthy.`
     },
     CHANNELSETTINGS: {
       DESCRIPTION: "View info about channel settings, or create/clone channel settings for a set of channels.",
-      USAGE: "**channelsettings** (list/create/edit) ([name]) (...[channels]) --channel ([channel]) --name <[name]>",
+      USAGE: "channelsettings (list/create/edit) ([name]) (...[channels]) --channel ([channel]) --name <[name]>",
       NO_CHANNEL_SETTINGS: prefix => `**This server has no channel settings.**
       To create channel settings, do \`${prefix}channnelsettings create (...[channels]) --name <[name]>\`.`.stripIndents(),
       EMBED_DESCRIPTION: p => `Here are the channel settings for this server.
@@ -590,7 +593,7 @@ module.exports = {
     },
     SETTINGS: {
       DESCRIPTION: "View the server/channel's settings, or view info about a specific setting.",
-      USAGE: "**settings** ([setting]) --channel ([channel])",
+      USAGE: "settings ([setting]) --channel ([channel])",
       SETTINGS: "Settings",
       CHANNEL_SETTINGS: "Channel Settings",
       EMOJIS: "Emojis",
@@ -605,7 +608,7 @@ module.exports = {
       VALUE: "Value",
       DEFAULT: "Default",
       PERMISSION: "Permission",
-      ALIASES: "Aliases",
+      SETTING_ALIASES: "Aliases",
       NONE: "None",
       CAN_CHANGE: (prefix, name, sub, value) => `You can change this setting with \`${prefix}changesetting ${name}${sub && ` ${sub}`} <${value.includes("/") ? value : `[${value}]`}>\`.`,
       MISSING_PERMISSIONS: p => `You need to have the ${p} permissions to change settings.`,
@@ -614,7 +617,7 @@ module.exports = {
     },
     SETUP: {
       DESCRIPTION: "Set up the bot in a server or channel by walking you through basic settings.",
-      USAGE: "**setup** --channel ([channel])",
+      USAGE: "setup --channel ([channel])",
       SETUP: "Setup",
       EMBED_DESCRIPTION: c => `Here I will walk you through **some** of the settings to help you set me up in this ${c ? "channel" : "server"}.
       Say \`cancel\` or \`stop\` to cancel the setup, \`skip\` or \`next\` to skip to the next setting, and \`end\` to skip to the end.`.stripIndents(),
@@ -651,7 +654,7 @@ module.exports = {
     },
     MESSAGEINFO: {
       DESCRIPTION: "View info about a starred message.",
-      USAGE: "**messageinfo** <[messageID]>",
+      USAGE: "messageinfo <[messageID]>",
       NO_MESSAGE_ID: "Please provide a message ID.",
       NOT_FOUND: "I could not find a starred message from your input.",
       STARRED_MESSAGE_INFO: "Starred Message Info",
@@ -684,7 +687,7 @@ module.exports = {
     },
     MIGRATE: {
       DESCRIPTION: "Scan the starboard for posts by other starboard bots and convert them to starred messages for this bot. You can optionally provide an ID for starboard to scan before or after.",
-      USAGE: "**migrate** ([starboard]) ([limit]) --after <[messageID]> --before <[messageID]>", // these usages are getting too long :(
+      USAGE: "migrate ([starboard]) ([limit]) --after <[messageID]> --before <[messageID]>", // these usages are getting too long :(
       NO_STARBOARD: "There are no starboards set for this server.",
       // NOT_STARBOARD: "That channel is not a starboard channel.",
       MISSING_PERMISSIONS: sb => `I do not have permission to bulk delete messages in ${sb}. Note that I will not bulk delete until after migrating.`,
@@ -703,7 +706,7 @@ module.exports = {
     },
     EXPLORE: {
       DESCRIPTION: "Bring up a random starred message from a user, your server or from any server! For a message to be brought up from any server, it has to have 5+ stars and the server has to have the **Visible** setting enabled.",
-      USAGE: "**explore** ([stars]) (me/user/server/global) ([user])",
+      USAGE: "explore ([stars]) (me/user/server/global) ([user])",
       NOT_FOUND: "No visible starred messages have been found. Messages need to have 5+ stars to show up, so go on and star any funny messages!",
       NOT_FOUND_STARS: stars => `No visible starred messages with ${stars}+ stars have been found. Try searching for a smaller amount.`,
       TYPE_NOT_FOUND: (stars, type) => `No messages ${stars ? `with ${stars}+ stars ` : ""}have been found from ${type}.`,

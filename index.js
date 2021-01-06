@@ -54,7 +54,8 @@
     "en-GB" |
     "en-US" |
     "lt-LT" |
-    "tr-TR"
+    "tr-TR" |
+    "fuwwy"
   } LanguageCode
  */
 
@@ -79,6 +80,7 @@ if (typeof String.prototype.stripIndents !== "function") Object.defineProperties
     "en-US",
     "lt-LT",
     "tr-TR",
+    "fuwwy",
   ]}
  */
 const codes = readDirectory(

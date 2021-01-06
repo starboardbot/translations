@@ -519,6 +519,7 @@ module.exports = {
       USAGE: "**purge** ([channel]) <[messages]> --before <[messageID]> --after <[messageID]>",
       NOT_STARBOARD: "That channel is not a starboard channel.",
       MISSING_PERMISSIONS: sb => `I do not have permission to bulk delete messages in ${sb}.`,
+      MIGRATING: "I cannot purge messages from starboards right now.",
       ARE_YOU_SURE: "Are you sure?",
       CONFIRMATION_EMBED: (n, starboard, before, after) =>
       `Are you sure you want to purge and freeze the last ${n} messages${before ? ` before ${before}${after ? " and" : ""}` : ""}${after ? ` after ${after}` : ""} from ${starboard}? If the original messages are deleted, they may be lost forever.
@@ -681,6 +682,35 @@ module.exports = {
       CONVERSATION: "Conversation",
       STARBOARD_MESSAGE: "Starboard Message"
     },
+    MIGRATE: {
+      DESCRIPTION: "Scan the starboard for posts by other starboard bots and convert them to starred messages for this bot. You can optionally provide an ID for starboard to scan before or after.",
+      USAGE: "**migrate** ([starboard]) ([limit]) --after <[messageID]> --before <[messageID]>", // these usages are getting too long :(
+      NO_STARBOARD: "There are no starboards set for this server.",
+      // NOT_STARBOARD: "That channel is not a starboard channel.",
+      MISSING_PERMISSIONS: sb => `I do not have permission to bulk delete messages in ${sb}. Note that I will not bulk delete until after migrating.`,
+      NOTHING_TO_MIGRATE: (sb, bots) => `I could not find any messages to migrate in ${sb}. Currently, I can only migrate starboard messages by <@${bots.join(">, <@")}>.`,
+      MIGRATE: "Migrate",
+      CONFIRMATION_EMBED: (n, bots, c, before, after) => `I've found ${n} messages${before ? ` before ${before}${after ? " and" : ""}` : ""}${after ? ` after ${after}` : ""} by <@${bots.join(">, <@")}> in ${c} that could be starred messages. Do you want me to continue?
+      I will attempt to turn these messages into starred messages for me, and post them all to the starboard. Once done, I will then delete all the messages that I have successfully replaced, or ones that already exist as starred messages.
+      • Starboard messages for messages that are deleted can not be migrated and will be ignored.
+      • Starboard messages for messages sent in a channel that does not have a starboard will be ignored.
+      Say **yes** to continue.`.stripIndents(),
+      ETA: t => `ETA: about ${t}`,
+      CANCELLED: "Cancelled the migrating of the starboard.",
+      ALREADY_MIGRATING: "It seems this server is currently already migrating messages.",
+      STATUS: (n, total, sb, typing) => `${typing} Migrating messages from ${sb} - ${n}/${total} \`[${"#".repeat((n / total) * 10).padEnd(10, " ")}]\``,
+      SUCCESS: n => `Successfully migrated ${n} messages.`
+    },
+    EXPLORE: {
+      DESCRIPTION: "Bring up a random starred message from a user, your server or from any server! For a message to be brought up from any server, it has to have 5+ stars and the server has to have the **Visible** setting enabled.",
+      USAGE: "**explore** ([stars]) (me/user/server/global) ([user])",
+      NOT_FOUND: "No visible starred messages have been found. Messages need to have 5+ stars to show up, so go on and star any funny messages!",
+      NOT_FOUND_STARS: stars => `No visible starred messages with ${stars}+ stars have been found. Try searching for a smaller amount.`,
+      TYPE_NOT_FOUND: (stars, type) => `No messages ${stars ? `with ${stars}+ stars ` : ""}have been found from ${type}.`,
+      THIS_SERVER: "this server",
+      THIS_USER: "this user",
+      YOU: "you"
+    }
   }, // might alphabetically order the commands one day
 
   // languages

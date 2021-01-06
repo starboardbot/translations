@@ -23,6 +23,6 @@ module.exports = {
     EN_US: "Lietuvių kalba",
     LT_LT: "Turkų kalba",
     TR_TR: "Anglų kalba",
-	FUWWY: "Fuwwy",
+    FUWWY: "Fuwwy",
   }
 }

@@ -250,7 +250,7 @@ module.exports = {
         }
         case "RANGE": {
           const [, raw, greater, boundary] = e
-          m = `The pwovided awgument \`${esc(raw).replace(/(\w{20}).+/, "$1...")}\` cannot be ${greater ? "gweatew" : "wess"} than \`${boundary.toLocaleString("en-GB")}\`.`
+          m = `The pwovided awgument \`${esc(raw).replace(/(\w{20}).+/, "$1...")}\` cannot be ${greater ? "gweatew" : "wess"} than \`${boundary.toLocaleString(LOCALE)}\`.`
           break
         }
         case "TYPE": {
@@ -499,8 +499,8 @@ module.exports = {
       SUBTRACT_TOO_MANY: "You awe subtwacting too many staws fwom this wewawd wowe.",
       HIT_MAX: c => `This ${c ? "channew" : "sewvew"} has hit the max of 25 wewawd wowes.`,
       NOT_RR: `That wowe is not set as a weward wowe.`,
-      RR_SET: (name, stars) => `Successfuwwy set the staws needed fow the wewawd wowe **${name}** to ${stars.toLocaleString("en-GB")}`,
-      RR_ADD: (name, stars, c) => `Successfuwwy added the wowe **${name}** as a wewawd wowe, awawded to usews aftew getting a totaw of **${stars.toLocaleString("en-GB")}** staws${c ? " fwom this channew" : ""}.`,
+      RR_SET: (name, stars) => `Successfuwwy set the staws needed fow the wewawd wowe **${name}** to ${stars.toLocaleString(LOCALE)}`,
+      RR_ADD: (name, stars, c) => `Successfuwwy added the wowe **${name}** as a wewawd wowe, awawded to usews aftew getting a totaw of **${stars.toLocaleString(LOCALE)}** staws${c ? " fwom this channew" : ""}.`,
       RR_REMOVE_ALL: c => `Successfuwwy wemoved aww weward wowes${c ? " fow this channew" : ""}.`,
       RR_REMOVE: (name, c) => `Successfuwwy wemoved **${name}** fwom this ${c ? "channew" : "sewvew"}'s weward wowes.`
     },

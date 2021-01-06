@@ -725,6 +725,6 @@ module.exports = {
     EN_US: "English (US)",
     LT_LT: "Lithuanian",
     TR_TR: "Turkish",
-	FUWWY: "Fuwwy",
+    FUWWY: "Fuwwy",
   }
 }

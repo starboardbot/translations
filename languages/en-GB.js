@@ -321,6 +321,9 @@ module.exports = {
       CANT_SPEAK: embeds => `I cannot send ${embeds ? "embeds" : "messages"} in that channel`,
       SAME_STARBOARDS: "You cannot set the normal starboard to the same channel as the NSFW starboard.",
       NOT_NSFW: "The NSFW starboard must be set as a NSFW channel.",
+      MISSING_PERMISSIONS: "The bot is missing the `Manage Channels` permission, required to create channels.",
+      CREATE_STARBOARD_FAIL: "Something went wrong when creating a starboard channel.",
+      CREATE_STARBOARD_SUCCESS: c => `Successfully created a starboard channel: ${c}`,
       STARBOARD_DELETE: (c, nsfw) => `Successfully unset the ${nsfw ? "NSFW " : ""}starboard${c ? " for this channel" : ""}.`,
       STARBOARD_SET: (c, channel, nsfw) => `Successfully set the ${nsfw ? "NSFW " : ""}starboard ${c ? "for this channel " : ""}to ${channel}.`,
 

@@ -161,8 +161,8 @@ module.exports = {
         .setTitle("Help")
         .setColor(command.enabled ? color : command.client.colors.error)
         .addField(
-          `Command: ${prefix}${command.language(l).name || command.name}`,
-          `**Awiases**: ${command.language(l).aliases.get().join(", ") || "none"}
+          `Command: ${prefix}${command.language(l).name.get() || command.name}`,
+          `**Awiases**: ${(command.language(l).aliases.get() || command.aliases).join(", ") || "none"}
           **Descwiption**: ${command.language(l).description || "none"}
           **Usage**: ${prefix}${command.language(l).usage}
           ${c.EXAMPLE ? `**Exampwe${Array.isArray(c.EXAMPLE) ? "s" : ""}**: ${Array.isArray(c.EXAMPLE) ? c.EXAMPLE.map(c => `${prefix}${c}`).join("\n") : `${prefix}${c.EXAMPLE}`}` : ""}`
@@ -170,14 +170,14 @@ module.exports = {
         )
         .addField(
           "Extwa",
-          `**Categowy**: ${command.language(l).base.categories(command.category)}
+          `**Categowy**: ${command.language(l).base.categories(command.category).get() || command.category}
           **Coowdown**: ${cooldown}
-          **Enabwed**: ${command.client.config.ids.emojis[command.enabled ? "yes" : "no"]}
+          **Enabwed**: ${command.client.config.emojis[command.enabled ? "yes" : "no"]}
           **Requiwed bot pewmissions**: ${command.client.util.readablePermissions(command.botPermissions)}
-          **Requiwed usew pewmissions**: ${command.client.util.readablePermissions(requiredPermissions)}`
+          **Wequiwed usew pewmissions**: ${command.client.util.readablePermissions(requiredPermissions || 0)}`
           .stripIndents()
         )
-        .setFooter("() = optionaw awguments, <> = wequiwed awguments, -- = optionaw fwag")
+        .setFooter("() = optionaw awguments, <> = wequiwed awguments, [] = a pwacehowdew, -- = optionaw fwag")
       if (command.notices) embed.addField(
         "Notices",
         `${
@@ -269,11 +269,11 @@ module.exports = {
 
     EVAL: {
       DESCRIPTION: "Evawuates a bit of code.",
-      USAGE: "eval <code>"
+      USAGE: "**eval** <code>"
     },
     HELP: {
       DESCRIPTION: "View aww the commands the bot has to offew, ow view info about a specific command.",
-      USAGE: "help (command)",
+      USAGE: "**help** (command)",
       EMBED_DESCRIPTION: (command, owner, categories, prefix) => `Commands: ${
           owner
             ? command.client.commands.size
@@ -286,7 +286,7 @@ module.exports = {
     },
     PING: {
       DESCRIPTION: "Check the bot's ping, wesponse times and edit speed.",
-      USAGE: "ping",
+      USAGE: "**ping**",
       PINGING: "Pinging...",
       CLUSTER: n => `Cwustew ${n}`,
       SHARD: n => `Shawd ${n}`,
@@ -296,11 +296,11 @@ module.exports = {
     },
     RELOAD: {
       DESCRIPTION: "Weload commands, events ow a fiwe.",
-      USAGE: "reload <[command]/event/file> ([event]/[file])"
+      USAGE: "**reload** <[command]/event/file> ([event]/[file])"
     },
     CHANGESETTING: {
       DESCRIPTION: "Change a setting fow the channel ow sewvew, such as the wequiwed amount of staws needed to weach the stawboard. Aww the settings awe in the settings command, so you can view youw options thewe.",
-      USAGE: "changesetting <[setting]> <[value]> --channel ([channel])",
+      USAGE: "**changesetting** <[setting]> <[value]> --channel ([channel])",
       
       UPDATED_SETTINGS: "Updated Settings",
       ERRORS: "Ewwows",
@@ -357,7 +357,7 @@ module.exports = {
       STAR_SELF: b => `Usews can ${b ? "now" : "no wongew"} staw theiw own messages.`,
       WATCHING: b => b ? "Nothing now goes on the stawboawd, but stats awe stiww being wecowded." : "The stawboawd wiww now be used awong with wecowding of stats.",
       VISIBLE: b => `People can ${b ? "now" : "no longer"} find this server's messages in the explore command.`,
-      CLEAN: b => `The **Cwick to jump to message!** and othew winks wiww ${b ? "now" : "no wongew"} show.`,
+      CLEAN: b => `The **Cwick to jump to message!** and othew winks wiww ${!b ? "now" : "no wongew"} show on stawboawd messages.`,
       DOWNVOTE: b => `Usews can ${b ? "now" : "no wongew"} downvote stawwed messages.`,
       BOTS_ON_LB: b => `Bots wiww ${b ? "now" : "no wongew"} show on the weadewboawd.`,
       ATTACHMENTS: b => `Attachments wiww ${b ? "now" : "no wongew"} be attached onto the stawboawd message.`,
@@ -376,31 +376,31 @@ module.exports = {
     },
     LOCK: {
       DESCRIPTION: "Wocks a stawwed message to the stawboawd, so it'ww stay thewe even if it weaches 0 staws.",
-      USAGE: "lock <[messageID]>",
+      USAGE: "**lock** <[messageID]>",
       SUCCESS: "Successfuwwy wocked that message to the stawboawd.",
       FAILED: "That message is awweady wocked."
     },
     UNLOCK: {
       DESCRIPTION: "Unwocks a stawwed message fwom the stawboawd, so it can be wemoved as nowmaw.",
-      USAGE: "unlock <[messageID]>",
+      USAGE: "**unlock** <[messageID]>",
       SUCCESS: "Successfuwwy unwocked that message fwom the stawboawd.",
       FAILED: "That message is not wocked."
     },
     FREEZE: {
       DESCRIPTION: "Fweezes a stawwed message, so no-one can add ow wemove staws.",
-      USAGE: "freeze <[messageID]>",
+      USAGE: "**freeze** <[messageID]>",
       SUCCESS: "Successfuwwy fwoze that message.",
       FAILED: "That message is awweady fwozen."
     },
     UNFREEZE: {
       DESCRIPTION: "Unfweezes a stawwed message, so evewyone can add ow wemove staws as nowmaw.",
-      USAGE: "unfreeze <[messageID]>",
+      USAGE: "**unfreeze** <[messageID]>",
       SUCCESS: "Successfuwwy unfwoze that message.",
       FAILED: "That message is not fwozen."
     },
     PREFIXES: {
       DESCRIPTION: "Add ow wemove pwefixes fow the sewvew, ow view a wist of them.",
-      USAGE: "prefixes (add/remove) ([prefix])",
+      USAGE: "**prefixes** (add/remove) ([prefix])",
       ALREADY_PREFIX: "That is awweady a pwefix fow this sewvew.",
       TOO_MANY_PREFIXES: "Thewe awe too many pwefixes set fow this sewvew.",
       PREFIX_TOO_LONG: "That pwefix is too wong.",
@@ -417,7 +417,7 @@ module.exports = {
     },
     LINKS: {
       DESCRIPTION: "Get the winks wewated to the bot, such as the bot's invite wink.",
-      USAGE: "links",
+      USAGE: "**links**",
       LINKS: "Winks",
       DONATION: "Donation",
       OTHER: "Othew",
@@ -427,7 +427,7 @@ module.exports = {
     },
     BLACKLIST: {
       DESCRIPTION: "View info about bwackwisted usews, wowes ow channews, ow modify the wist.",
-      USAGE: "blacklist (add/remove) ([user/role/channel]) --channel ([channel])",
+      USAGE: "**blacklist** (add/remove) ([user/role/channel]) --channel ([channel])",
       BLACKLIST: "Bwackwist",
       EMBED_DESCRIPTION: (blsb, c, nothing, prefix) => `The fowwowing ${c ? `usews and wowes` : `wsews, wowes and channews`} awe bwackwisted and cannot intewact with the stawboard${c ? " in this channew" : ""}.${
         blsb 
@@ -449,7 +449,7 @@ module.exports = {
     },
     WHITELIST: {
       DESCRIPTION: "View info about whitewisted usews ow wowes, ow modify the wist.",
-      USAGE: "whitelist (add/remove) ([user/role]) --channel ([channel])",
+      USAGE: "**whitelist** (add/remove) ([user/role]) --channel ([channel])",
       WHITELIST: "Whitelist",
       EMBED_DESCRIPTION: (c, nothing, prefix) => `The following users and roles are whitelisted and bypass the blacklist ${c ? "in this channewThe fowwowing usews and wowes awe whitewisted and bypass the bwackwist " : ""}if on it.${
         nothing
@@ -472,7 +472,7 @@ module.exports = {
       DESCRIPTION:
         "View info about ow add/wemove wewawd wowes, wowes that get added to usews once they suwpass a cewtain amount of staws. " +
         "You can add/subtwact to the amount of staws needed fow an existing wewawd wowe by putting a +/- befowe the staws awgument.",
-      USAGE: "rewardroles (add/remove) ([role]) ([stars])",
+      USAGE: "**rewardroles** (add/remove) ([role]) ([stars])",
       NO_LEADERBOARD: "The weadewboawd is disabwed fow the sewvew, which incwudes wewawd wowes.",
       REWARD_ROLES: "Wewawd Wowes",
       ROLE: "WoWe",
@@ -500,7 +500,7 @@ module.exports = {
     },
     FORCE: {
       DESCRIPTION: "Fowce ow wefwesh a message on the stawboawd.",
-      USAGE: "force ([channel]) <[messageID]>",
+      USAGE: "**force** ([channel]) <[messageID]>",
       NO_STARBOARDS: c => `Thewe awe no stawboawds cuwwentwy set fow this ${c ? "channew" : "sewvew"}.`,
       NO_MESSAGE_ID: "Pwease pwovide a message id. If you don't know how to get the id of a message, you have to enabwe **Devewopew Mode** in settings, click the three dots on a message and clickin settings, cwick the thwee dots on a message and cwick **Copy ID**.",
       INVALID_TYPE: "The channew must be a text channew.",
@@ -516,19 +516,20 @@ module.exports = {
     },
     PURGE: {
       DESCRIPTION: "Puwge and fweeze a numbew of messages off a stawboawd.",
-      USAGE: "purge ([channel]) <[messages]>",
+      USAGE: "**purge** ([channel]) <[messages]> --before <[messageID]> --after <[messageID]>",
       NOT_STARBOARD: "That channew is not a stawboawd channew.",
       MISSING_PERMISSIONS: sb => `I do not have pewmission to buwk dewete messages in ${sb}.`,
       ARE_YOU_SURE: "Awe you suwe?",
-      CONFIRMATION_EMBED: (n, starboard) => `Awe you suwe you want to puwge and fweeze the wast ${n} messages fwom ${starboard}? If the owiginaw messages awe deweted, they may be wost fowevew.
+      CONFIRMATION_EMBED: (n, starboard, before, after) =>
+      `Awe you suwe you want to puwge and fweeze the wast ${n} messages${before ? ` befowe ${before}${after ? " and" : ""}` : ""}${after ? ` aftew ${after}` : ""} fwom ${starboard}? If the owiginaw messages awe deweted, they may be wost fowevew.
       Say **yes** to continue.`.stripIndents(),
       NOT_PURGED: "Cancewwed the puwging of the stawboawd.",
-      NOTHING_TO_DELETE: "Thewe awe no stawboawd messages to dewete.",
+      NOTHING_TO_DELETE: (before, after) => `Thewe awe no stawboawd messages${before ? ` befowe ${before}${after ? " and" : ""}` : ""}${after ? ` aftew ${after}` : ""} to dewete.`,
       SUCCESS: (n, sb) => `Successfuwwy wemoved and fwoze ${n} messages fwom ${sb}.`
     },
     TRASH: {
       DESCRIPTION: "Twash a message fwom the stawboawd and show the fiwst 5 peopwe to weact to it, check if a message exists in the wist of twashed messages, wemove a message fwom the wist of twashed messages, cweaw the wist, ow view the fiwst 100 message ids on the wist.",
-      USAGE: "trash (add/remove/exists/clear/list) ([messageID])",
+      USAGE: "**trash** (add/remove/exists/clear/list) ([messageID])",
       REASON_TOO_LONG: "Youw weason is too wong.",
       NOT_MESSAGE_ID: "Pwease pwovide a message ID.",
       NOT_FOUND: "I couwd not find a stawwed message fwom youw input.",
@@ -547,22 +548,22 @@ module.exports = {
     },
     STARWORTHY: {
       DESCRIPTION: "Check if a message is wowthy of being stawwed ow not :)",
-      USAGE: "starworthy <[messageID]>",
+      USAGE: "**starworthy** <[messageID]>",
       NOT_ID: "Pwease pwovide a vawid message ID.",
       WORTHY: p => `That message is ${p}% staw wowthy.`
     },
     CHANNELSETTINGS: {
       DESCRIPTION: "View info about channew settings, ow cweate/cwone channew settings fow a set of channews.",
-      USAGE: "channelsettings (list/create/edit) ([name]) (...[channels]) --channel ([channel]) --name ([name])",
+      USAGE: "**channelsettings** (list/create/edit) ([name]) (...[channels]) --channel ([channel]) --name ([name])",
       NO_CHANNEL_SETTINGS: prefix => `**This sewvew has no channew settings.**
-      To cweate channew settings, do \`${prefix}channnelsettings create (...[channels]) --name ([name])\`.`.stripIndents(),
+      To cweate channew settings, do \`${prefix}channnelsettings create (...[channels]) --name <[name]>\`.`.stripIndents(),
       EMBED_DESCRIPTION: p => `Hewe awe the channew settings fow this sewvew.
 
       • If you want to cwone one of these, you can do \`${p}channelsettings create (...[channels]) --name <[name]> --channel ([channelSettingsName])\`
 
-      • If you want to edit channew settings to add/wemove channews ow change the name, you can do\`${p}channelsettings edit ([channelSettingsName]) (...[channels]) --name ([name])\`
+      • If you want to edit channew settings to add/wemove channews ow change the name, you can do\`${p}channelsettings edit ([channelSettingsName]) (...[channels]) --name <[name]>\`
 
-      • If you need to dewete channew settings, you can do \`${p}channelsettings delete (name)\`
+      • If you need to dewete channew settings, you can do \`${p}channelsettings delete <name>\`
 
       • To edit channew settings, do \`${p}changesettings <[settings]> <[value]> --channel ([name/channel])\`.`.stripIndents(),
       CHANNEL_SETTINGS: "Channew Settings",
@@ -588,7 +589,7 @@ module.exports = {
     },
     SETTINGS: {
       DESCRIPTION: "View the sewvew/channew's settings, ow view info about a specific setting.",
-      USAGE: "settings ([setting]) --channel ([channel])",
+      USAGE: "**settings** ([setting]) --channel ([channel])",
       SETTINGS: "Settings",
       CHANNEL_SETTINGS: "Channew Settings",
       EMOJIS: "Emojis",
@@ -612,7 +613,7 @@ module.exports = {
     },
     SETUP: {
       DESCRIPTION: "Set up the bot in a sewvew or channew by wawking you thwough basic settings.",
-      USAGE: "setup --channel ([channel])",
+      USAGE: "**setup** --channel ([channel])",
       SETUP: "Setup",
       EMBED_DESCRIPTION: c => `Hewe i wiww wawk you thwough **some** of the settings to hewp you set me up in this ${c ? "channew" : "sewvew"}.
       Say \`cancel\` or \`stop\` to cancew the setup, \`skip\` or \`next\` to skip to the next setting, and \`end\` to skip to the end.`.stripIndents(),
@@ -646,7 +647,40 @@ module.exports = {
           ? `Successfuwwy updated the settings for this ${c ? "channew" : "sewvew"}`
           : `The settings for this ${c ? "channew" : "sewvew"} have not been updated`
       }. If you want to change mowe settings, you can view them aww with ${p} settings.`
-    }
+    },
+    MESSAGEINFO: {
+      DESCRIPTION: "View info about a stawwed message.",
+      USAGE: "**messageinfo** <[messageID]>",
+      NO_MESSAGE_ID: "Pwease pwovide a message ID.",
+      NOT_FOUND: "I couwd not find a stawwed message fwom youw input.",
+      STARRED_MESSAGE_INFO: "Stawwed Message Info",
+
+      CONTEXT: "Context",
+      AUTHOR: "Authow",
+      CHANNEL: "Channew",
+      STARBOARD: "Stawboawd",
+      STARRED_AT: "Stawwed At",
+
+      STATS: "Stats",
+      UPVOTES: "Upvotes",
+      DOWNVOTES: "Downvotes",
+      GLOBAL: "Gwobaw Points",
+
+      OTHER: "Othew",
+      DELETED: "Message Deweted",
+      AT_DATE: d => `(at ${d})`,
+      SAVED: "Message Saved",
+      WILL_DELETE: d => `(wiww dewete in ${d})`,
+      ON_STARBOARD: "On Stawboawd",
+      ON_STARBOARD_BEFORE: "On Stawboawd Befowe",
+      ATTRIBUTES: "Attwibutes",
+      NONE: "None",
+
+      LINKS: "Winks",
+      MESSAGE: "Message",
+      CONVERSATION: "Convewsation",
+      STARBOARD_MESSAGE: "Stawboawd Message"
+    },
   }, // might alphabetically order the commands one day
 
   // languages

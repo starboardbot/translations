@@ -167,7 +167,7 @@ module.exports = {
           `**Aliases**: ${(command.language(l).aliases.get() || command.aliases).join(", ") || "none"}
           **Description**: ${command.language(l).description || "none"}
           **Usage**: ${prefix}${command.language(l).usage}
-          ${c.EXAMPLE ? `**Example${Array.isArray(c.EXAMPLE) ? "s" : ""}**: ${Array.isArray(c.EXAMPLE) ? c.EXAMPLE.map(c => `${prefix}${c}`).join("\n") : `${prefix}${c.EXAMPLE}`}` : ""}`
+          ${command.example ? `**Example${Array.isArray(command.example) ? "s" : ""}**: ${Array.isArray(command.example) ? command.example.map(c => `${prefix}${c}`).join("\n") : `${prefix}${command.example}`}` : ""}`
           .stripIndents()
         )
         .addField(

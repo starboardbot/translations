@@ -175,7 +175,7 @@ module.exports = {
           `**Category**: ${command.language(l).base.categories(command.category).get() || command.category}
           **Cooldown**: ${cooldown}
           **Enabled**: ${command.client.config.emojis[command.enabled ? "yes" : "no"]}
-          **Required Bot Permissions**: ${command.client.util.readablePermissions(command.botPermissions)}
+          **Required Bot Permissions**: ${command.client.util.readablePermissions(command.botPermissions || 0)}
           **Required User Permissions**: ${command.client.util.readablePermissions(requiredPermissions || 0)}`
           .stripIndents()
         )
@@ -200,7 +200,7 @@ module.exports = {
     COMMAND_DISABLED_EMBED: (command, Embed) =>
       Embed
         .setTitle("Command Disabled")
-        .setDescription(`This command is currently disabled. ${command.settings.disableMessage ? `The reason for that is: **${command.disableMessage}**.` : "It was probably disabled because something wasn't functioning properly, otherwise another reason."}
+        .setDescription(`This command is currently disabled. ${command.disableMessage ? `The reason for that is: **${command.disableMessage}**.` : "It was probably disabled because something wasn't functioning properly, otherwise another reason."}
         Please try again later, or **[join the support server](https://discord.gg/rZgxfbH)** for more info.`.stripIndents())
         .setColor(command.client.colors.error)
         .setTimestamp(),

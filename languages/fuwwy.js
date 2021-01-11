@@ -167,7 +167,7 @@ module.exports = {
           `**Awiases**: ${(command.language(l).aliases.get() || command.aliases).join(", ") || "none"}
           **Descwiption**: ${command.language(l).description || "none"}
           **Usage**: ${prefix}${command.language(l).usage}
-          ${c.EXAMPLE ? `**Exampwe${Array.isArray(c.EXAMPLE) ? "s" : ""}**: ${Array.isArray(c.EXAMPLE) ? c.EXAMPLE.map(c => `${prefix}${c}`).join("\n") : `${prefix}${c.EXAMPLE}`}` : ""}`
+          ${command.example ? `**Exampwe${Array.isArray(command.example) ? "s" : ""}**: ${Array.isArray(command.example) ? command.example.map(c => `${prefix}${c}`).join("\n") : `${prefix}${command.example}`}` : ""}`
           .stripIndents()
         )
         .addField(
@@ -200,7 +200,7 @@ module.exports = {
     COMMAND_DISABLED_EMBED: (command, Embed) =>
       Embed
         .setTitle("Command disabwed")
-        .setDescription(`This command is cuwwentwy disabwed. ${command.settings.disableMessage ? `The weason fow that is: **${command.disableMessage}**.` : "It was pwobabwy disabwed because something wasn't functioning pwopewwy, othewwise anothew weason."}
+        .setDescription(`This command is cuwwentwy disabwed. ${command.disableMessage ? `The weason fow that is: **${command.disableMessage}**.` : "It was pwobabwy disabwed because something wasn't functioning pwopewwy, othewwise anothew weason."}
         Pwease twy again watew, ow **[join the suppowt sewvew](https://discord.gg/rZgxfbH)** fow mowe info.`.stripIndents())
         .setColor(command.client.colors.error)
         .setTimestamp(),
@@ -294,7 +294,7 @@ module.exports = {
       CLUSTER: n => `Cwustew ${n}`,
       SHARD: n => `Shawd ${n}`,
       PING: "Ping",
-      LATENCY: "Latency",
+      LATENCY: "Watency",
       EDIT: "Edit"
     },
     RELOAD: {
@@ -319,13 +319,12 @@ module.exports = {
       INVALID_CHANNEL: "That channew does not exist.",
       INVALID_CHANNEL_TYPE: "The channew must be eithew a text ow announcement channew.",
       CANT_SPEAK: embeds => `I cannot send ${embeds ? "embeds" : "messages"} in that channew`,
-      SAME_STARBOARDS: "You cannot set the nowmaw stawboawd to the same channew as the nsfw stawboawd.",
       NOT_NSFW: "The nsfw stawboawd must be set as a nsfw channew.",
       MISSING_PERMISSIONS: "The bot is missing the `Manage Channews` pewmission, wequiwed to cweate channews.",
       CREATE_STARBOARD_FAIL: "Something went wwong when cweating a stawboawd channew.",
-      CREATE_STARBOARD_SUCCESS: c => `Successfuwwy cweated a stawboawd channew: ${c}`,
+      CREATE_STARBOARD_SUCCESS: (c, nsfw) => `Successfuwwy cweated a ${nsfw ? "NSFW" : ""} stawboawd channew: ${c}`,
       STARBOARD_DELETE: (c, nsfw) => `Successfuwwy unset the ${nsfw ? "NSFW " : ""}stawboawd${c ? " fow this channew" : ""}.`,
-      STARBOARD_SET: (c, channel, nsfw) => `Successfuwwy set the ${nsfw ? "NSFW " : ""}stawboawd$ ${c ? "fow this channew " : ""}to ${channel}.`,
+      STARBOARD_SET: (c, channel, nsfw) => `Successfuwwy set the ${nsfw ? "NSFW " : ""}stawboawd ${c ? "fow this channew " : ""}to ${channel}.`,
 
       REQUIRED_TOO_BIG: "The wequiwed amount of staws to weach the stawboawd cannot be that high.",
       REQUIRED_TOO_SMALL: "The wequiwed amount of staws to weach the stawboawd has to be a numbew gweatew than 0.",
@@ -689,7 +688,7 @@ module.exports = {
       STARBOARD_MESSAGE: "Stawboawd Message"
     },
     MIGRATE: {
-      DESCRIPTION: "Scan the stawboawd fow posts by othew stawboawd bots and convewt them to stawwed messages fow this bot. You can optionawwy pwovide an ID fow stawboawd to scan befowe ow aftew.",
+      DESCRIPTION: "Scan the wast 75 messages in the stawboawd fow posts by othew stawboawd bots and convewt them to stawwed messages fow this bot. You can optionawwy pwovide an ID fow stawboawd to scan befowe ow aftew.",
       USAGE: "migrate ([starboard]) ([limit]) --after <[messageID]> --before <[messageID]>", // these usages are getting too long :(
       NO_STARBOARD: "Thewe awe no stawboawds set fow this sewvew.",
       // NOT_STARBOARD: "That channel is not a starboard channel.",

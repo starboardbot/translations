@@ -688,7 +688,7 @@ module.exports = {
       STARBOARD_MESSAGE: "Starboard Message"
     },
     MIGRATE: {
-      DESCRIPTION: "Scan the starboard for posts by other starboard bots and convert them to starred messages for this bot. You can optionally provide an ID for starboard to scan before or after.",
+      DESCRIPTION: "Scan the last 75 messages in the starboard for posts by other starboard bots and convert them to starred messages for this bot. You can optionally provide an ID for starboard to scan before or after.",
       USAGE: "migrate ([starboard]) ([limit]) --after <[messageID]> --before <[messageID]>", // these usages are getting too long :(
       NO_STARBOARD: "There are no starboards set for this server.",
       // NOT_STARBOARD: "That channel is not a starboard channel.",

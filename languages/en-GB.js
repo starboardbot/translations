@@ -319,11 +319,10 @@ module.exports = {
       INVALID_CHANNEL: "That channel does not exist.",
       INVALID_CHANNEL_TYPE: "The channel must be either a text or announcement channel.",
       CANT_SPEAK: embeds => `I cannot send ${embeds ? "embeds" : "messages"} in that channel`,
-      SAME_STARBOARDS: "You cannot set the normal starboard to the same channel as the NSFW starboard.",
       NOT_NSFW: "The NSFW starboard must be set as a NSFW channel.",
       MISSING_PERMISSIONS: "The bot is missing the `Manage Channels` permission, required to create channels.",
       CREATE_STARBOARD_FAIL: "Something went wrong when creating a starboard channel.",
-      CREATE_STARBOARD_SUCCESS: c => `Successfully created a starboard channel: ${c}`,
+      CREATE_STARBOARD_SUCCESS: (c, nsfw) => `Successfully created a ${nsfw ? "NSFW" : ""} starboard channel: ${c}`,
       STARBOARD_DELETE: (c, nsfw) => `Successfully unset the ${nsfw ? "NSFW " : ""}starboard${c ? " for this channel" : ""}.`,
       STARBOARD_SET: (c, channel, nsfw) => `Successfully set the ${nsfw ? "NSFW " : ""}starboard ${c ? "for this channel " : ""}to ${channel}.`,
 
@@ -689,7 +688,7 @@ module.exports = {
       STARBOARD_MESSAGE: "Starboard Message"
     },
     MIGRATE: {
-      DESCRIPTION: "Scan the starboard for posts by other starboard bots and convert them to starred messages for this bot. You can optionally provide an ID for starboard to scan before or after.",
+      DESCRIPTION: "Scan the last 75 messages in the starboard for posts by other starboard bots and convert them to starred messages for this bot. You can optionally provide an ID for starboard to scan before or after.",
       USAGE: "migrate ([starboard]) ([limit]) --after <[messageID]> --before <[messageID]>", // these usages are getting too long :(
       NO_STARBOARD: "There are no starboards set for this server.",
       // NOT_STARBOARD: "That channel is not a starboard channel.",

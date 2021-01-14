@@ -449,6 +449,7 @@ module.exports = {
       TOO_MANY_BLACKLISTED: "There are too many items on the blacklist.",
       NOTHING_BLACKLISTED: "There is nothing blacklisted.",
       BLACKLIST_ADD: s => `Successfully blacklisted **${s}**.`,
+      BLACKLIST_ADD_CHANNELS: n => `Successfully blacklisted ${n} channels.`,
       REMOVE_ALL: "Successfully removed everything from the blacklist.",
       BLACKLIST_REMOVE: s => `Successfully removed **${s}** from the blacklist.`
     },

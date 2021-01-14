@@ -637,7 +637,7 @@ module.exports = {
       REQUIRED: s => `Currently, if ${s.required} different people star a message, it will then be posted to the starboard.`,
       REQUIRED_TO_REMOVE: s => `Currently, if a message in the starboard drops below ${s.requiredToRemove} stars, it will then be removed from the starboard.`,
       FILTER_BOTS: "If you want bots to reach the starboard, don't enable this.",
-      VISIBLE: "If you star personal/private stuff, you should definitely disable this.",
+      VISIBLE: "If you star personal/private stuff, you should definitely disable this. If this is enabled, a 🌍 will appear on starred messages that have been found in the explore command.",
       CANCELLED_BY_MISTAKES: "Cancelled due to too many mistakes.",
       WAS_INACTIVE: "Stopped due to inactivity.",
       CANCELLED: "The setup has been cancelled, no settings have been changed.",

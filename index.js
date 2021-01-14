@@ -132,10 +132,26 @@ module.exports = {
     if (!a) return returnNull ? null : this.codes.default
     if (!b)
       switch (a) { // parses "english" to "en-US", "spanish" to "es" etc
-        case "DEFAULT": case "NONE": [a, b] = ["en", "GB"]; break;
-        case "ENGLISH": case "EN": [a, b] = ["en", "US"]; break;
-        case "TURKISH": case "TR": case "TURK": [a, b] = ["tr", "TR"]; break;
-        case "LITHUANIAN": case "LT": [a, b] = ["lt", "LT"]; break
+        case "DEFAULT":
+        case "NONE":
+          [a, b] = ["en", "GB"]
+          break
+        case "ENGLISH":
+        case "EN":
+          [a, b] = ["en", "US"]
+          break
+        case "TURKISH":
+        case "TR":
+        case "TURK":
+          [a, b] = ["tr", "TR"]
+          break
+        case "LITHUANIAN":
+        case "LT":
+          [a, b] = ["lt", "LT"]
+          break
+        case "FURRY":
+        case "OWO":
+          a = "fuwwy"
       }
 
     code = `${a.toLowerCase()}${b && `-${b}`}`

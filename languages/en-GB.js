@@ -477,13 +477,14 @@ module.exports = {
     REWARDROLES: {
       DESCRIPTION:
         "View info about or add/remove reward roles, roles that get added to users once they surpass a certain amount of stars. " +
-        "You can add/subtract to the amount of stars needed for an existing reward role by putting a +/- before the stars argument.",
+        "You can add/subtract to the amount of stars needed for an existing reward role by putting a +/- before the stars argument. " +
+        "When viewing reward roles, you can optionally ping a user to see their progress.",
       USAGE: "rewardroles (add/remove) ([role]) ([stars])",
       NO_LEADERBOARD: "The leaderboard is disabled for the server, which includes reward roles.",
       REWARD_ROLES: "Reward Roles",
       ROLE: "Role",
       STARS_NEEDED: "Stars Needed",
-      PROGRESS: "Your Progress",
+      PROGRESS: u => `${u ? `${u}'s` : "Your"} Progress`,
       EMBED_DESCRIPTION: c => `Here are the current reward roles set for this ${c ? "channel" : "server"}.`,
       NO_REWARD_ROLES: (p, c) => `**There are no reward roles set for this ${c ? "channel" : "server"}.**
       To add a reward role, do ${p}rewardroles add <[role]> ([stars])`.stripIndents(),
@@ -719,7 +720,7 @@ module.exports = {
     },
     LEADERBOARD: {
       DESCRIPTION: "Show a leaderboard for people with the most stats. You can input a user to jump to their position on the leaderboard, or a channel to filter stats for starred messages only in that channel.",
-      USAGE: "leaderboard (messages/stars/starboarded/global/trashed/downvotes/servers) (page) (user) (channel)",
+      USAGE: "leaderboard (messages/stars/starboarded/global/trashed/downvotes/channels/servers) (page) (user) (channel)",
       NO_LEADERBOARD: "The leaderboard is disabled for this server.",
       NOT_ON_LEADERBOARD: "Not on the leaderboard.",
       TITLE: title => `Leaderboard - ${title}`,
@@ -729,12 +730,15 @@ module.exports = {
       DOWNVOTES: c => `Downvotes ${c ? `in #${c}` : ""}`,
       GLOBAL: c => `Global Points ${c ? `in #${c}` : ""}`,
       MOST_STARRED_MESSAGES: (c, u) => `Most Starred Messages${u ? ` by ${u}` : ""}${c ? ` in #${c}` : ""}`,
+      CHANNELS: u => `${u ? `${u}'s ` : ""}Most Starred Channel`,
       SERVERS: "Servers",
       STARS_LINE: (medal, isYou, place, name, stars, star) => `${isYou ? "**" : ""}${medal} ${place}: ${name} - Stars: ${stars.toLocaleString(LOCALE)} ${star}${isYou ? "**" : ""}`,
       STARBOARDED_LINE: (medal, isYou, place, name, times) => `${isYou ? "**" : ""}${medal} ${place}: ${name} - Times on Starboard: ${times.toLocaleString(LOCALE)}${isYou ? "**" : ""}`,
       TRASHED_LINE: (medal, isYou, place, name, trashed) => `${isYou ? "**" : ""}${medal} ${place}: ${name} - Messages Trashed: ${trashed.toLocaleString(LOCALE)}${isYou ? "**" : ""}`,
       DOWNVOTES_LINE: (medal, isYou, place, name, downvotes) => `${isYou ? "**" : ""}${medal} ${place}: ${name} - Downvotes: ${downvotes.toLocaleString(LOCALE)}${isYou ? "**" : ""}`,
       GLOBAL_LINE: (medal, isYou, place, name, g) => `${isYou ? "**" : ""}${medal} ${place}: ${name} - Global Points: ${g.toLocaleString(LOCALE)}${isYou ? "**" : ""}`,
+      CHANNEL_LEADERBOARD_LINE: (medal, isYou, place, channel, star, stars) =>
+        `${isYou ? "**" : ""}${medal} ${place}: ${channel} - ${stars.toLocaleString(LOCALE)} ${star}${isYou ? "**" : ""}`,
       MESSAGE_LEADERBOARD_LINE: (medal, isYou, place, messageID, name, url, star, stars) =>
         `${isYou ? "**" : ""}${medal} ${place}: ${isYou ? `[${messageID}](${url})` : `**[${messageID}](${url})**`}${name && ` by ${name}`} - ${stars.toLocaleString(LOCALE)} ${star}${isYou ? "**" : ""}`,
       SERVER_LEADERBOARD_LINE: (isYou, medal, place, name, stars, star) =>

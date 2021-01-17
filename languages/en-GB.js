@@ -529,7 +529,7 @@ module.exports = {
       MIGRATING: "I cannot purge messages from starboards right now.",
       ARE_YOU_SURE: "Are you sure?",
       CONFIRMATION_EMBED: (n, starboard, before, after) =>
-      `Are you sure you want to purge and freeze the last ${n} messages${before ? ` before ${before}${after ? " and" : ""}` : ""}${after ? ` after ${after}` : ""} from ${starboard}? If the original messages are deleted, they may be lost forever.
+      `Are you sure you want to purge and freeze the last ${n} of starboard messages${before ? ` before ${before}${after ? " and" : ""}` : ""}${after ? ` after ${after}` : ""} from ${starboard}? I can only purge starboard messages sent in the last 14 days. If the original messages are deleted, they may be lost forever.
       Say **yes** to continue.`.stripIndents(),
       NOT_PURGED: "Cancelled the purging of the starboard.",
       NOTHING_TO_DELETE: (before, after) => `There are no starboard messages${before ? ` before ${before}${after ? " and" : ""}` : ""}${after ? ` after ${after}` : ""} to delete.`,
@@ -746,6 +746,25 @@ module.exports = {
       NOTHING_TO_DISPLAY: "Nothing to display.",
       EMBED_FOOTER: (user, place, page, totalPages) =>
         `${user ? `${user}'s` : "Your"} Place: ${place} | Page ${page}/${totalPages}`
+    },
+    HALLOFFAME: {
+      DESCRIPTION: "Shows the server's Hall of Fame, or add/remove messages from it. You can also add messages by using the 🏆 quick action.",
+      USAGE: "halloffame (add/remove/[page]) ([messageID])",
+      TITLE: "Hall Of Fame",
+      LINE: (id, url, name, stars, star) => `• **[${id}](${url})** by ${name} - ${star} ${stars.toLocaleString(LOCALE)}`,
+      NOTHING: p => `Nothing to display.\nModerators can add a message to the hall of fame by using \`${p}halloffame add <[messageID]>\`, or using the 🏆 quick action.`,
+      EMBED_DESCRIPTION: `This is the Hall of Fame, messages that "belong in a museum" - the best messages on the server. These messages were picked by various moderators, so appearing here is a great achievement. Here's the list:`,
+      PAGE: (p, t) => `Page ${p}/${t}`,
+      NOT_FOUND: "I couldn't find a starred message from your input.",
+      ALREADY_ON: "That message is already on the Hall of Fame.",
+      MAX: "You have hit the maximum of 100 messages on the Hall of Fame.",
+      NOT_ON: "That message is not on the Hall of Fame.",
+      ARE_YOU_SURE: "Are You Sure?",
+      CONFIRMATION_EMBED: "Are you sure you want to remove every message from the Hall of Fame?\nSay **yes** to continue.",
+      CANCELLED: "Cancelled removing every message from the Hall of Fame.",
+      SUCCESS_ADD: "Successfully added that message to the Hall of Fame.",
+      SUCCESS_REMOVE: "Successfully removed that message from the Hall of Fame.",
+      SUCCESS_REMOVE_ALL: "Successfully removed everything from the Hall of Fame."
     }
   }, // might alphabetically order the commands one day
 

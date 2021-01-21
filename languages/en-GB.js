@@ -794,7 +794,8 @@ module.exports = {
       WORLDWIDE: "Worldwide Stats",
       TOTAL_STARS: "Total Stars",
       HALL_OF_FAME: "Messages On Hall Of Fame",
-      HALL_OF_FAME_BY_YOU: "Hall Of Fame Entries By You"
+      HALL_OF_FAME_BY_YOU: "Hall Of Fame Entries By You",
+      NONE: "None"
     }
   }, // might alphabetically order the commands one day
 

@@ -130,10 +130,13 @@ module.exports = {
     if (this.codes.includes(code)) return code
     let [a, b = ""] = this._fixCase(code).split(/[-_]/) // "EN_US" -> ["EN", "US"]
     if (!a) return returnNull ? null : this.codes.default
+    if (b === "(GB)" || b === "(US)") [a, b] = ["en", b.slice(1, -1)]
     if (!b)
       switch (a) { // parses "english" to "en-US", "spanish" to "es" etc
         case "DEFAULT":
         case "NONE":
+        case "GB":
+        case "UK":
           [a, b] = ["en", "GB"]
           break
         case "ENGLISH":

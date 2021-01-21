@@ -767,6 +767,34 @@ module.exports = {
       SUCCESS_ADD: "Successfully added that message to the Hall of Fame.",
       SUCCESS_REMOVE: "Successfully removed that message from the Hall of Fame.",
       SUCCESS_REMOVE_ALL: "Successfully removed everything from the Hall of Fame."
+    },
+    STATS: {
+      DESCRIPTION: "View stats about a user, or reset a user's stats.",
+      USAGE: "stats ([user]) --reset",
+      SUCCESS_RESET: u => `Successfully reset leaderboard stats for **${u}**. Note that only the first set of stats (Stars, Times On Starboard, Global Points etc) can be reset.`,
+      STATS: u => `${u ? `${u}'s` : "Your"} Stats`,
+      STARS: "Stars",
+      STARBOARDED: "Times On Starboard",
+      GLOBAL_POINTS: "Global Points",
+      DOWNVOTES: "Downvotes",
+      TRASHED: "Trashed",
+      MESSAGES_STARRED: "Starred Messages",
+      LOCKED: "Locked Messages",
+      FROZEN: "Frozen Messages",
+      CURRENTLY_TRASHED: "Messages Currently Trashed",
+      ON_STARBOARD_BEFORE: "Messages On Starboard Before",
+      AVG_STARS_PER_MESSAGE: "Average Stars Per Message",
+      STARRED_CHANNEL: "Most Stars Earned In",
+      MOST_STARRED: "Most Stars On A Message",
+      PERCENT_LOCKED: "% Locked",
+      PERCENT_FROZEN: "% Frozen",
+      PERCENT_TRASHED: "% Trashed",
+      STARRED_MESSAGES_BY_YOU: "% Of Starred Messages By You",
+      CHANCE_ON_STARBOARD: "Chance On Starboard",
+      WORLDWIDE: "Worldwide Stats",
+      TOTAL_STARS: "Total Stars",
+      HALL_OF_FAME: "Messages On Hall Of Fame",
+      HALL_OF_FAME_BY_YOU: "Hall Of Fame Entries By You"
     }
   }, // might alphabetically order the commands one day
 

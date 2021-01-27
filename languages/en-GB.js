@@ -131,7 +131,9 @@ module.exports = {
       LANGUAGE: "language",
       PERMISSION: "permission",
       EMOJI: "emoji",
-      COLOR: "colour",
+      COLOR: "role/random/[colour]",
+      RANDOM: "random",
+      ROLE: "the author's highest role colour"
     }
   },
 

@@ -167,7 +167,7 @@ module.exports = {
           `**Aliases**: ${(command.language(l).aliases.get() || command.aliases).join(", ") || "none"}
           **Description**: ${command.language(l).description || "none"}
           **Usage**: ${prefix}${command.language(l).usage}
-          ${command.example ? `**Example${Array.isArray(command.example) ? "s" : ""}**: ${Array.isArray(command.example) ? command.example.map(c => `${prefix}${c}`).join("\n") : `${prefix}${command.example}`}` : ""}`
+          ${command.example ? `**Example${Array.isArray(command.example) ? "s" : ""}**: ${Array.isArray(command.example) ? `\n\`${command.example.map(c => `${prefix}${c}`).join("`\n`")}\`` : `${prefix}${command.example}`}` : ""}`
           .stripIndents()
         )
         .addField(
@@ -654,7 +654,7 @@ module.exports = {
         b
           ? `Successfully updated the settings for this ${c ? "channel" : "server"}`
           : `The settings for this ${c ? "channel" : "server"} have not been updated`
-      }. If you want to change more settings, you can view them all with ${p} settings.`
+      }. If you want to change more settings, you can view them all with ${p}settings.`
     },
     MESSAGEINFO: {
       DESCRIPTION: "View info about a starred message.",
@@ -794,6 +794,89 @@ module.exports = {
       HALL_OF_FAME: "Messages On Hall Of Fame",
       HALL_OF_FAME_BY_YOU: "Hall Of Fame Entries By You",
       NONE: "None"
+    },
+    FILTERS: {
+      DESCRIPTION: "View, create or edit filters used to filter messages from being starred.",
+      USAGE: "filters (add/remove/list/edit) (content/attachments/age/[filterNumber]) (...[options]) --simple --options",
+      MAX_FILTERS: c => `You have hit the maximum amount of filters allowed for this ${c ? "channel" : "server"}.`,
+      SUCCESS_ADD: desc => `Successfully added a new filter${desc ? `:\n${desc}` : "."}`,
+      NO_FILTERS: c => `There are no filters currently set for this ${c ? "channel" : "server"}.`,
+      SUCCESS_EDIT: (n, desc) => `Successfully edited the ${n} filter${desc ? `:\n${desc}` : "."}`,
+      SUCCESS_REMOVE: n => `Successfully removed the ${n} filter.`,
+      SUCCESS_REMOVE_ALL: "Successfully removed all filters.",
+      MAX_MIN: age => `The maximum${age && " age"} cannot be less than the minimum${age && " age"}.${age ? " (`olderThan` cannot be bigger than `newerThan`)" : ""}`,
+      REGEX_SAME: "The regex/strings to match and not match cannot be the same.",
+      MEDIA_REQUIRED_MAX: "You cannot make media required when the maximum attachments is 0.",
+      REQUIRED_MAX: "Content cannot be required if the maximum characters is 0.",
+      MIN_MAX_CONTENT: min => `The ${min ? "min" : "max"}imum character length cannot be greater than 2000.`,
+      MIN_MAX_ATTACHMENTS: min => `The ${min ? "min" : "max"}imum amount of attachments cannot be greater than 50.`,
+      MIN_MAX_AGE: min => `The ${min ? "min" : "max"}imum age cannot be greater than 5 years.`,
+      INVALID_REGEX: (t, e) => `An invalid regex was provided for **${t}**: ${e}`,
+      REGEX_TOO_LONG: "That regex is too long.",
+      FILTERS: "Filters",
+      EMBED_DESCRIPTION: c => `${c ? `**Channel Settings**: ${c}\n` : ""}
+      These are the filters for this ${c ? "channel" : "server"}. Messages cannot be starred if they don't pass all of these filters.
+      If a message has been starred before filters were made, or forced to the starboard, they'll still be able to get more stars.`.stripIndents(),
+      OPTIONS: p => `The current types of filters are **Content**, **Attachments** and **Age**.
+      The options available are:
+      __**Content**__
+      - Required
+      - Minimum [number]
+      - Maximum [number]
+      - IsReply
+      - Match [text/regex]
+      - NotMatch [text/regex]
+      
+      __**Attachments**__
+      - Required
+      - Minimum [number]
+      - Maximum [number]
+      - MediaRequired
+      
+      __**Age**__
+      - NewerThan [time]
+      - OlderThan [time]
+      
+      To create a filter, do \`${p}filters add <content/attachments/age> <...[options]>\``.stripIndents(),
+      VIEW_OPTIONS: (p, ex) => `You can view all the options for creating filters with \`${p}filters --options\`, or edit an existing filter with \`${p}filters edit <[number]> <...[options]>\`
+      ${!ex ? `If you want an explanation for all your filters, do \`${p}filters --explain\`` : ""}`.stripIndents(),
+      DESCRIBE: "In order for a message to be starred, it must:",
+      REQUIRED_CONTENT: "have content",
+      MIN_CONTENT: n => `have content greater than or equal to **${n}** characters`,
+      MAX_CONTENT: n => `have content less than or equal to **${n}** characters`,
+      IS_REPLY: is => `${is ? "" : "**not** "}be a reply`,
+      MATCH_REGEX: (rgx, flags) => `match the regex \`/${rgx}/${flags}\``,
+      INCLUDES: str => `include \`${str}\``,
+      NOT_MATCH_REGEX: (rgx, flags) => `not match the regex \`/${rgx}/${flags}\``,
+      NOT_INCLUDES: str => `not include \`${str}\``,
+      REQUIRED_ATTACHMENT: "have at least **one** attachment/embed",
+      MIN_ATTACHMENTS: n => `have no less than **${n}** attachments`,
+      MAX_ATTACHMENTS: n => `have no more than **${n}** attachments`,
+      MEDIA_REQUIRED: "have at least **one** image, video or other forms of media",
+      MIN_AGE: t => `be older than \`${t}\``,
+      MAX_AGE: t => `be newer than \`${t}\``,
+      APPLIES_TO: list => `This filter applies to ${list}`,
+      DOES_NOT_APPLY_TO: list => `This filter does not apply to ${list}`,
+      NOT_SET: "Not set",
+      REQUIRED_NAME: "Required",
+      MIN_NAME: "Minimum",
+      MAX_NAME: "Maximum",
+      IS_REPLY_NAME: "Is Reply",
+      MATCH_NAME: "Match Regex",
+      INCLUDES_NAME: "Includes",
+      NOT_MATCH_NAME: "Not Match Regex",
+      NOT_INCLUDES_NAME: "Excludes",
+      MEDIA_REQUIRED_NAME: "Media Required",
+      MIN_AGE_NAME: "Older Than",
+      MAX_AGE_NAME: "Newer Than",
+      APPLIES_TO_NAME: "Applies To",
+      DOES_NOT_APPLY_TO_NAME: "Does Not Apply To",
+      NOONE: "no one",
+      CONTENT: "Message Content Filter",
+      ATTACHMENTS: "Message Attachments Filter",
+      AGE: "Message Age Filter",
+      FILTER_PAGE: (n, t) => `Filter ${n}/${t}`,
+      PLEASE_INPUT: more => `Please input ${more ? "some more " : ""}options for this filter.`
     }
   }, // might alphabetically order the commands one day
 

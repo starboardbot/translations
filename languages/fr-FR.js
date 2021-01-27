@@ -1,6 +1,6 @@
 const LOCALE = 'en-GB';
 module.exports = {
-    name: 'English (GB)',
+    name: 'Français (FR)',
     HELLO_WORLD: 'Hello world!',
     // miscellaneous - could be used anywhere
     IMAGE: num => `Image${ typeof num === 'number' && num ? ` ${ num }` : '' }`,
@@ -23,20 +23,20 @@ module.exports = {
   Feel free to delete this message after punishing these people if you need to.
   This message can no longer be starred, ever. However, if you want this message to get starred again, you can remove it from the trash with \`${ removeTrashCommand }\``.stripIndents(),
     // upon joining a server
-    GET_STARTED: 'Get Started',
+    GET_STARTED: 'Commencer',
     GET_STARTED_EMBED: (req, prefix) => `I've detected a channel named \`#starboard\`, so this is now where all starred messages will go. You can change this later.
   Currently in this server, messages need to have ${ req } star reactions to get posted in this channel, which can be changed.
   You can set the server up properly with \`${ prefix }setup\`, this will walk you through all the settings.
   And most importantly, have fun!`.stripIndents(),
-    GET_STARTED_FOOTER: 'Thank you for using Starboard!',
+    GET_STARTED_FOOTER: 'Merci d\'avoir choisi Starboard !',
     // message event
-    CANT_SPEAK: 'I cannot speak in that channel! Please get a moderator to change my permissions for that channel, or try using me in a different channel.',
+    CANT_SPEAK: 'Je ne peux pas parler dans ce salon ! Demandez à un modérateur de changer mes permissions pour ce salon, ou essayez de m\'utiliser dans un autre salon.',
     PREFIX_INFO: (prefixes = ['star ']) => `My prefix for this server is${ prefixes.length > 1 ? ' any of' : '' } \`${ prefixes.join('`, `') }\`, but my mention also works as a prefix.`,
-    HELP: 'Help',
+    HELP: 'Aide',
     NEED_VOTE: doThis => `To ${ doThis }, you need to **[vote for the bot](https://top.gg/bot/655390915325591629/vote)**. Once you have voted, you have to wait a few minutes for me to recieve your vote.`,
     NEED_PREMIUM: doThis => `To ${ doThis }, your server needs to be a **[Premium Server](https://patreon.com/TheNoob27)**.`,
-    STAR_REQ_FEAT: 'change the requirements for different star emojis to appear',
-    EMOJIS_FEAT: 'change the emojis',
+    STAR_REQ_FEAT: 'modifier les conditions d\'apparition des différents emojis d\'étoiles',
+    EMOJIS_FEAT: 'changer les emojis',
     DOWNVOTE_FEAT: 'downvote starred messages',
     MULTIPLE_EMOJIS_FEAT: 'have multiple emojis at once',
     CHANNEL_SETTINGS_FEAT: 'have more than 10 sets of channel settings',

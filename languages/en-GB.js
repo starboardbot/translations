@@ -16,9 +16,9 @@ module.exports = {
   SHORT_CLICK_TO_JUMP: deleted =>
     // if for whatever reason there are 25 fields and content over 1928 and less than 1947 chars
     !deleted ? "Click!" : "Context",
-  REFERENCED_MESSAGE: (isReply, deleted) =>
-    isReply ? `Replying to this message${deleted ? " (deleted)" : ""}` : "Referenced Message",
-  TWEET: (authorName, number) => `Tweet${number && typeof number === "number" ? ` ${number}` : ""} from ${authorName}`,
+  REFERENCED_MESSAGE: (isReply, deleted, user) =>
+    isReply ? `Replying to ${user || "this message"}${deleted ? " (deleted)" : ""}` : "Referenced Message",
+  TWEET: authorName => `Tweet from ${authorName}`,
   UNKNOWN: tag => `Unknown${tag ? "#0000" : ""}`,
   FROM_SERVER: server => `From ${server}`,
   TRASH_EMBED: (reason, userList, removeTrashCommand) => 
@@ -59,7 +59,7 @@ module.exports = {
 
   SETTINGS: { // prefix, isPremium, channelSettingName
     STARBOARD_ID: (p, _prm, name) => `This is where starred messages will go. If you wish to unset the starboard, run \`${p}changesetting starboard none${name && ` --channel ${name}`}\`.`,
-    NSFW_STARBOARD_ID: "This is where starred messages from NSFW channels will go. If this isn't set, messages from NSFW channels will go to the normal starboard. If channel settings are set, all messages will go there.",
+    NSFW_STARBOARD_ID: "This is where starred messages from NSFW channels will go. If this isn't set, messages from NSFW channels will go to the normal starboard, with images spoilered.",
     REQUIRED: "This is how many stars a message needs before reaching the starboard.",
     REQUIRED_TO_REMOVE: "When a message on the starboard drops to this number, it will get removed from the starboard.",
     LANGUAGE: (_p, _pm, name) => `The language of the ${name ? "channel" : "server"}. The languages that are currently available are ${Object.values(module.exports.LANGUAGES).join(", ")}.`,
@@ -278,14 +278,15 @@ module.exports = {
     },
     HELP: {
       DESCRIPTION: "View all the commands the bot has to offer, or view info about a specific command.",
-      USAGE: "help (command)",
-      EMBED_DESCRIPTION: (command, owner, categories, prefix) => `Commands: ${
+      USAGE: "help ([command])",
+      EMBED_DESCRIPTION: (command, owner, categories, prefix, guide) => `Commands: ${
           owner
             ? command.client.commands.size
             : Object.values(categories) // { "Category": "...\n..." }
               .reduce((p, c) => c.split("\n").length + p, 0)
         }
         If you're new to the bot, you can set up your server using \`${prefix}setup\`.
+        For more info on various features, you could read the **[guide](${guide})**.
         If you still need help, please join our **[support server](${command.client.config.links.support})**.`.stripIndents(),
       EMBED_FOOTER: "() = optional, <> = required, [] = a placeholder, -- = optional flags - don't include these when using the commands."
     },
@@ -428,9 +429,9 @@ module.exports = {
       LINKS: "Links",
       DONATION: "Donation",
       OTHER: "Other",
-      DISCORD_LINKS: (i, s) => `**[Invite me!](${i})**\n**[Join our support server](${s})**`,
+      DISCORD_LINKS: (i, s) => `**[Invite me!](${i})**\n**[Support Server](${s})**`,
       PATREON_LINK: p => `**[Become a Patron!](${p})**`,
-      OTHER_LINKS: (v, gh) => `**[Vote for the bot!](${v})**\n**[GitHub Issues](${gh})**`
+      OTHER_LINKS: (v, gh, g) => `**[Vote for the bot!](${v})**\n**[GitHub Issues](${gh})**\n**[Starboard Guide](${g})**`
     },
     BLACKLIST: {
       DESCRIPTION: "View info about blacklisted users, roles or channels, or modify the list.",
@@ -564,9 +565,11 @@ module.exports = {
     CHANNELSETTINGS: {
       DESCRIPTION: "View info about channel settings, or create/clone channel settings for a set of channels.",
       USAGE: "channelsettings (list/create/edit) ([name]) (...[channels]) --channel ([channel]) --name <[name]>",
-      NO_CHANNEL_SETTINGS: prefix => `**This server has no channel settings.**
-      To create channel settings, do \`${prefix}channnelsettings create (...[channels]) --name <[name]>\`.`.stripIndents(),
-      EMBED_DESCRIPTION: p => `Here are the channel settings for this server.
+      NO_CHANNEL_SETTINGS: (prefix, guide) => `**This server has no channel settings.**
+      To create channel settings, do \`${prefix}channnelsettings create (...[channels]) --name <[name]>\`
+      
+      **[Learn More](${guide})**`.stripIndents(),
+      EMBED_DESCRIPTION: (p, guide) => `Here are the channel settings for this server.
 
       • If you want to clone one of these, you can do \`${p}channelsettings create (...[channels]) --name <[name]> --channel ([channelSettingsName])\`
 
@@ -574,7 +577,9 @@ module.exports = {
 
       • If you need to delete channel settings, you can do \`${p}channelsettings delete <[name]>\`
 
-      • To edit channel settings, do \`${p}changesettings <[settings]> <[value]> --channel ([name/channel])\`.`.stripIndents(),
+      • To edit channel settings, do \`${p}changesettings <[settings]> <[value]> --channel ([name/channel])\`
+      
+      **[Learn More](${guide})**`.stripIndents(),
       CHANNEL_SETTINGS: "Channel Settings",
       CHANNELS: "Channels",
       STARBOARD: "Starboard",
@@ -641,7 +646,7 @@ module.exports = {
       REQUIRED: s => `Currently, if ${s.required} different people star a message, it will then be posted to the starboard.`,
       REQUIRED_TO_REMOVE: s => `Currently, if a message in the starboard drops below ${s.requiredToRemove} stars, it will then be removed from the starboard.`,
       FILTER_BOTS: "If you want bots to reach the starboard, don't enable this.",
-      VISIBLE: "If you star personal/private stuff, you should definitely disable this. If this is enabled, a 🌍 will appear on starred messages that have been found in the explore command.",
+      VISIBLE: "If you star personal/private stuff, you should definitely disable this. If this is enabled, a 🌍 will appear on starred messages that have been found in the explore command, followed by the number of times it was found.",
       CANCELLED_BY_MISTAKES: "Cancelled due to too many mistakes.",
       WAS_INACTIVE: "Stopped due to inactivity.",
       CANCELLED: "The setup has been cancelled, no settings have been changed.",
@@ -696,11 +701,11 @@ module.exports = {
       USAGE: "migrate ([starboard]) ([limit]) --after <[messageID]> --before <[messageID]>", // these usages are getting too long :(
       NO_STARBOARD: "There are no starboards set for this server.",
       // NOT_STARBOARD: "That channel is not a starboard channel.",
-      MISSING_PERMISSIONS: sb => `I do not have permission to bulk delete messages in ${sb}. Note that I will not bulk delete until after migrating.`,
+      MISSING_PERMISSIONS: sb => `I do not have permission to delete messages in ${sb}. Note that I will not delete a message until after it has successfully been migrated.`,
       NOTHING_TO_MIGRATE: (sb, bots) => `I could not find any messages to migrate in ${sb}. Currently, I can only migrate starboard messages by <@${bots.join(">, <@")}>.`,
       MIGRATE: "Migrate",
       CONFIRMATION_EMBED: (n, bots, c, before, after) => `I've found ${n} messages${before ? ` before ${before}${after ? " and" : ""}` : ""}${after ? ` after ${after}` : ""} by <@${bots.join(">, <@")}> in ${c} that could be starred messages. Do you want me to continue?
-      I will attempt to turn these messages into starred messages for me, and post them all to the starboard. Once done, I will then delete all the messages that I have successfully replaced, or ones that already exist as starred messages.
+      I will attempt to turn these messages into starred messages for me, and post them all to the starboard. As I go, I will delete the messages I have successfully replaced, or ones that already exist as starred messages.
       • Starboard messages for messages that are deleted can not be migrated and will be ignored.
       • Starboard messages for messages sent in a channel that does not have a starboard will be ignored.
       Say **yes** to continue.`.stripIndents(),
@@ -716,6 +721,7 @@ module.exports = {
       NOT_FOUND: "No visible starred messages have been found. Messages need to have 5+ stars to show up, so go on and star any funny messages!",
       NOT_FOUND_STARS: stars => `No visible starred messages with ${stars}+ stars have been found. Try searching for a smaller amount.`,
       TYPE_NOT_FOUND: (stars, type) => `No messages ${stars ? `with ${stars}+ stars ` : ""}have been found from ${type}.`,
+      COULD_NOT_FETCH: id => `I couldn't resolve a starred message from a random entry with ID \`${id}\``,
       THIS_SERVER: "this server",
       THIS_USER: "this user",
       YOU: "you"
@@ -819,7 +825,7 @@ module.exports = {
       EMBED_DESCRIPTION: c => `${c ? `**Channel Settings**: ${c}\n` : ""}
       These are the filters for this ${c ? "channel" : "server"}. Messages cannot be starred if they don't pass all of these filters.
       If a message has been starred before filters were made, or forced to the starboard, they'll still be able to get more stars.`.stripIndents(),
-      OPTIONS: p => `The current types of filters are **Content**, **Attachments** and **Age**.
+      OPTIONS: (p, guide) => `The current types of filters are **Content**, **Attachments** and **Age**.
       The options available are:
       __**Content**__
       - Required
@@ -839,9 +845,12 @@ module.exports = {
       - NewerThan [time]
       - OlderThan [time]
       
-      To create a filter, do \`${p}filters add <content/attachments/age> <...[options]>\``.stripIndents(),
-      VIEW_OPTIONS: (p, ex) => `You can view all the options for creating filters with \`${p}filters --options\`, or edit an existing filter with \`${p}filters edit <[number]> <...[options]>\`
-      ${!ex ? `If you want an explanation for all your filters, do \`${p}filters --explain\`` : ""}`.stripIndents(),
+      To create a filter, do \`${p}filters add <content/attachments/age> <...[options]>\`
+      
+      **[Learn More](${guide})**`.stripIndents(),
+      VIEW_OPTIONS: (p, ex, guide) => `You can view all the options for creating filters with \`${p}filters --options\`, or edit an existing filter with \`${p}filters edit <[number]> <...[options]>\`
+      ${!ex ? `If you want an explanation for all your filters, do \`${p}filters --explain\`\n` : ""}
+      **[Learn More](${guide})**`.stripIndents(),
       DESCRIBE: "In order for a message to be starred, it must:",
       REQUIRED_CONTENT: "have content",
       MIN_CONTENT: n => `have content greater than or equal to **${n}** characters`,

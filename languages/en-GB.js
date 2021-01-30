@@ -9,6 +9,7 @@ module.exports = {
   GIF_VIDEO: num => `GIF Video${typeof num === "number" && num ? ` ${num}` : ""}`,
   VIDEO: num => `Video${typeof num === "number" && num ? ` ${num}` : ""}`,
   MEDIA: num => `Media${typeof num === "number" && num ? ` ${num}` : ""}`,
+  FILE: num => `File${typeof num === "number" && num ? ` ${num}` : ""}`,
   
   // starred message embed - stuff that shows up in starboard message embeds
   CLICK_TO_JUMP: deleted =>
@@ -229,14 +230,14 @@ module.exports = {
         case "ENUM": {
           const [, name, raw, en] = e
           m = `The argument **${name}** ${
-            raw ? `(provided: \`${esc(raw).replace(/(\w{20}).+/, "$1...")}\`) ` : ""
+            raw ? `(provided: \`${esc(raw).replace(/([^]{20}).+/, "$1...")}\`) ` : ""
           }has to be one of \`${en.join("`, `")}\`.`
           break
         }
         case "MATCH": {
           const [, name, raw, match] = e
           m = `The argument **${name}** ${
-            raw ? `(provided: \`${esc(raw).replace(/(\w{20}).+/, "$1...")}\`) ` : ""
+            raw ? `(provided: \`${esc(raw).replace(/([^]{20}).+/, "$1...")}\`) ` : ""
           }has to match the regex \`${match.toString().split("/")[1] || match}\`.`
           break
         }
@@ -247,18 +248,18 @@ module.exports = {
         }
         case "PARSE": {
           const [, raw, toParse] = e
-          m = `Could not parse a ${toParse} ${typeof raw === "number" ? "for argument" : "from the provided argument"} \`${esc(String(raw || "")).replace(/(\w{20}).+/, "$1...")}\``
+          m = `Could not parse a ${toParse} ${typeof raw === "number" ? "for argument" : "from the provided argument"} \`${esc(String(raw || "")).replace(/([^]{20}).+/, "$1...")}\``
           break
         }
         case "RANGE": {
           const [, raw, greater, boundary] = e
-          m = `The provided argument \`${esc(raw).replace(/(\w{20}).+/, "$1...")}\` cannot be ${greater ? "greater" : "less"} than \`${boundary.toLocaleString(LOCALE)}\`.`
+          m = `The provided argument \`${esc(raw).replace(/([^]{20}).+/, "$1...")}\` cannot be ${greater ? "greater" : "less"} than \`${boundary.toLocaleString(LOCALE)}\`.`
           break
         }
         case "TYPE": {
           const [, name, raw, type] = e
           m = `The argument **${name}** ${
-            raw ? `(provided: \`${esc(raw).replace(/(\w{20}).+/, "$1...")}\`) ` : ""
+            raw ? `(provided: \`${esc(raw).replace(/([^]{20}).+/, "$1...")}\`) ` : ""
           }has to be a \`${type}\`.`
           break
         }
@@ -697,7 +698,7 @@ module.exports = {
       STARBOARD_MESSAGE: "Starboard Message"
     },
     MIGRATE: {
-      DESCRIPTION: "Scan the last 75 messages in the starboard for posts by other starboard bots and convert them to starred messages for this bot. You can optionally provide an ID for starboard to scan before or after.",
+      DESCRIPTION: "Scan up to the last 1000 messages in the starboard for posts by other starboard bots and convert them to starred messages for this bot. You can optionally provide an ID for starboard to scan before or after.",
       USAGE: "migrate ([starboard]) ([limit]) --after <[messageID]> --before <[messageID]>", // these usages are getting too long :(
       NO_STARBOARD: "There are no starboards set for this server.",
       // NOT_STARBOARD: "That channel is not a starboard channel.",

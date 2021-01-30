@@ -227,14 +227,14 @@ module.exports = {
         case "ENUM": {
           const [, name, raw, en] = e
           m = `The awgument **${name}** ${
-            raw ? `(pwovided: \`${esc(raw).replace(/(\w{20}).+/, "$1...")}\`) ` : ""
+            raw ? `(pwovided: \`${esc(raw).replace(/([^]{20}).+/, "$1...")}\`) ` : ""
           }has to be one of \`${en.join("`, `")}\`.`
           break
         }
         case "MATCH": {
           const [, name, raw, match] = e
           m = `The awgument **${name}** ${
-            raw ? `(pwovided: \`${esc(raw).replace(/(\w{20}).+/, "$1...")}\`) ` : ""
+            raw ? `(pwovided: \`${esc(raw).replace(/([^]{20}).+/, "$1...")}\`) ` : ""
           }has to match the wegex \`${match.toString().split("/")[1] || match}\`.`
           break
         }
@@ -245,18 +245,18 @@ module.exports = {
         }
         case "PARSE": {
           const [, raw, toParse] = e
-          m = `Couwd not pawse a ${toParse} ${typeof raw === "number" ? "fow awgument" : "fwom the pwovided awgument"} \`${esc(String(raw || "")).replace(/(\w{20}).+/, "$1...")}\``
+          m = `Couwd not pawse a ${toParse} ${typeof raw === "number" ? "fow awgument" : "fwom the pwovided awgument"} \`${esc(String(raw || "")).replace(/([^]{20}).+/, "$1...")}\``
           break
         }
         case "RANGE": {
           const [, raw, greater, boundary] = e
-          m = `The pwovided awgument \`${esc(raw).replace(/(\w{20}).+/, "$1...")}\` cannot be ${greater ? "gweatew" : "wess"} than \`${boundary.toLocaleString(LOCALE)}\`.`
+          m = `The pwovided awgument \`${esc(raw).replace(/([^]{20}).+/, "$1...")}\` cannot be ${greater ? "gweatew" : "wess"} than \`${boundary.toLocaleString(LOCALE)}\`.`
           break
         }
         case "TYPE": {
           const [, name, raw, type] = e
           m = `The asgument **${name}** ${
-            raw ? `(pwovided: \`${esc(raw).replace(/(\w{20}).+/, "$1...")}\`) ` : ""
+            raw ? `(pwovided: \`${esc(raw).replace(/([^]{20}).+/, "$1...")}\`) ` : ""
           }has to be a \`${type}\`.`
           break
         }

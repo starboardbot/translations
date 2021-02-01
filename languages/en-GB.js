@@ -86,15 +86,15 @@ module.exports = {
     QUICK_ACTIONS: `With this enabled, users can perform actions on a starred message by reacting on the starboard message with specific emojis.
     __Moderators:__
     **Trashing**: 🗑️
-    **Locking**: 🔒 
-    **Unlocking**: 🔓 
-    **Freezing**: 🧊 
-    **Unfreezing**: 🔥 
+    **Locking**: 🔒
+    **Unlocking**: 🔓
+    **Freezing**: 🧊 or ❄️
+    **Unfreezing**: 🔥
     **Refreshing**: 🔄 or 🔁
-    **Add to Hall of Fame**: 🏆
-    **Forcing**: 📌 - only on the original message after it's been starred
+    **Add to Hall of Fame**: 🏆 or 🏅
+    **Forcing**: 📌 or 📍 - only on the original message after it's been starred
     __Anyone:__
-    **Saving**: 📥
+    **Saving**: 📥 or 💾
     `.stripIndents(),
     LINK_EDITS: "If a message is edited, the starboard message will update with the new message content.",
     DISPLAY_NICKNAME: "Whether or not the nickname of the author should be displayed instead of their Discord tag.",
@@ -889,6 +889,46 @@ module.exports = {
       AGE: "Message Age Filter",
       FILTER_PAGE: (n, t) => `Filter ${n}/${t}`,
       PLEASE_INPUT: more => `Please input ${more ? "some more " : ""}options for this filter.`
+    },
+    DEBUG: {
+      DESCRIPTION: "Debug and get reasons for why a message, messages in a specific channel, or all messages aren't being starred.",
+      USAGE: "debug ([channel]) ([messageID])",
+      DEBUG: "Debug",
+      NO_STARBOARD: c => `There is currently no starboard channel set for this ${c ? "channel" : "server"}.`,
+      NO_STARBOARDS: "There are no starboards set for this server.",
+      MISSING_READ: c => `I cannot view ${c}, please enable the \`View Channel\` permission.`,
+      MISSING_HISTORY: c => `I cannot read message history in ${c}, please enable the \`Read Message History\` permission.`,
+      MISSING_EMBEDS: c => `I cannot send embeds in ${c}, please enable the \`Embed Links\` permission.`,
+      MISSING_FILES: c => `I cannot attach files in ${c}, so attachments will not be attached to the starboard message and will instead be linked. Please enable the \`Attach Files\` permission if you want attachments.`,
+      MESSAGE_NOT_EXISTS: (id, c) => `A message with ID \`${id}\` was not found in ${c}`,
+      TRASHED: "This message is trashed.",
+      FROZEN: "This message is frozen and cannot get or lose any more stars.",
+      FILTER_BOTS: "Messages by bots cannot be starred because the **FilterBots** setting is enabled.",
+      BLACKLISTED: roles => `The author of this message is blacklisted${roles && ` because they have the roles ${roles}`}.`,
+      CHANNEL_BLACKLISTED: c => `${c || "The channel where this message was sent in"} is currently blacklisted.`,
+      FILTER: (c, list) => `This message doesn't pass the ${list.length > 1 ? `${list.slice(0, -1).join(", ")} and ${list.slice(-1)}` : list} filters set for this ${c ? "channel" : "server"}.`,
+      CONTENT_REQUIRED: "This message has no content but content is required.",
+      CONTENT_MIN: (n, l) => `The length of this message needs to be ${n} characters or greater, it is currently ${l}.`,
+      CONTENT_MAX: (n, l) => `The length of this message exceeds the limit of ${n} characters. (${l})`,
+      IS_REPLY: b => `This message cannot be starred because it ${b ? "isn't" : "is"} a reply.`,
+      MATCH_REGEX: r => `This message doesn't match the regex${r && ` \`${r}\``}.`,
+      CONTENT_INCLUDES: str => `This message does not contain${str ? `\`${str}\`` : "a phrase"} and therefor cannot be starred.`,
+      NOT_MATCH_REGEX: r => `This message matches the regex${r && ` \`${r}\``} so it cannot be starred.`,
+      CONTENT_EXCLUDES: str => `This message contains${str ? `\`${str}\`` : "a phrase"} and therefor cannot be starred.`,
+      ATTACHMENT_REQUIRED: "An attachment or embed is required and this message has none.",
+      ATTACHMENT_MIN: (m, n) => `This message needs to have ${m} or more attachments/embeds, it currently has ${n}.`,
+      ATTACHMENT_MAX: (m, n) => `This message needs to have less than ${m + 1} attachments/embeds, it currently has ${n}.`,
+      MEDIA_REQUIRED: "This message does not have any media but media is required. (Images, GIFs, video, etc)",
+      OLDER_THAN: (t, curr) => `This message needs to be older than ${t} to be starred, it is currently ${curr} old.`,
+      NEWER_THAN: (t, curr) => `This message needs to be newer than ${t} to be starred, it is currently ${curr} old.`,
+      REQUIRED_STARS: (r, s, emojis) => `This message needs ${r} stars (${emojis}) to reach the starboard, right now it only has ${s}.`,
+      CHANNEL_SETTINGS: "Channel Settings",
+      STARBOARD: "Starboard",
+      REQUIRED: "Required",
+      EMOJI: "Emoji",
+      BLACKLISTED: "Blacklisted Items",
+      FILTERS: "Filters",
+      NOTHING_WRONG: (m, c) => `There seems to be nothing wrong and ${m ? "this message" : "all messages"} from ${c || "channels I can see"} should be able to be starred as normal. ${c ? "" : "If you want, you can input a channel to debug that instead."}`
     }
   }, // might alphabetically order the commands one day
 

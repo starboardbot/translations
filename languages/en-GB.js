@@ -829,6 +829,7 @@ module.exports = {
       MIN_MAX_AGE: min => `The ${min ? "min" : "max"}imum age cannot be greater than 5 years.`,
       INVALID_REGEX: (t, e) => `An invalid regex was provided for **${t}**: ${e}`,
       REGEX_TOO_LONG: "That regex is too long.",
+      AUTO_STAR_AGE: "The **AutoStar** option cannot be used for age filters.",
       FILTERS: "Filters",
       EMBED_DESCRIPTION: c => `${c ? `**Channel Settings**: ${c}\n` : ""}
       These are the filters for this ${c ? "channel" : "server"}. Messages cannot be starred if they don't pass all of these filters.
@@ -836,18 +837,20 @@ module.exports = {
       OPTIONS: (p, guide) => `The current types of filters are **Content**, **Attachments** and **Age**.
       The options available are:
       __**Content**__
-      - Required
+      - Required yes/no
       - Minimum [number]
       - Maximum [number]
-      - IsReply
+      - IsReply yes/no/none
       - Match [text/regex]
       - NotMatch [text/regex]
+      - AutoStar yes/no/none
       
       __**Attachments**__
-      - Required
+      - Required yes/no
       - Minimum [number]
       - Maximum [number]
-      - MediaRequired
+      - MediaRequired yes/no
+      - AutoStar yes/no/none
       
       __**Age**__
       - NewerThan [time]
@@ -876,6 +879,7 @@ module.exports = {
       MAX_AGE: t => `be newer than \`${t}\``,
       APPLIES_TO: list => `This filter applies to ${list}`,
       DOES_NOT_APPLY_TO: list => `This filter does not apply to ${list}`,
+      AUTO_STAR: b => `This filter ${b ? "applies only" : "doesn't apply"} to messages being automatically starred.`,
       NOT_SET: "Not set",
       REQUIRED_NAME: "Required",
       MIN_NAME: "Minimum",
@@ -890,6 +894,7 @@ module.exports = {
       MAX_AGE_NAME: "Newer Than",
       APPLIES_TO_NAME: "Applies To",
       DOES_NOT_APPLY_TO_NAME: "Does Not Apply To",
+      AUTO_STAR_NAME: "Auto Starred Messages",
       NOONE: "no one",
       CONTENT: "Message Content Filter",
       ATTACHMENTS: "Message Attachments Filter",
@@ -899,7 +904,7 @@ module.exports = {
     },
     DEBUG: {
       DESCRIPTION: "Debug and get reasons for why a message, messages in a specific channel, or all messages aren't being starred.",
-      USAGE: "debug ([channel]) ([messageID])",
+      USAGE: "debug ([channel]) ([messageID]) --autoStar",
       DEBUG: "Debug",
       NO_STARBOARD: c => `There is currently no starboard channel set for this ${c ? "channel" : "server"}.`,
       NO_STARBOARDS: "There are no starboards set for this server.",

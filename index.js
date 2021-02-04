@@ -30,6 +30,7 @@
     "DOWNVOTE_FEAT"         |
     "MULTIPLE_EMOJIS_FEAT"  |
     "CHANNEL_SETTINGS_FEAT" |
+    "AUTO_STAR_FEAT"        |
 
     "FIND_USER_MORE_SPECIFIC" |
     "FIND_USER_PROMPT"        |

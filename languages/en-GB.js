@@ -52,6 +52,7 @@ module.exports = {
   DOWNVOTE_FEAT: "downvote starred messages",
   MULTIPLE_EMOJIS_FEAT: "have multiple emojis at once",
   CHANNEL_SETTINGS_FEAT: "have more than 10 sets of channel settings",
+  AUTO_STAR_FEAT: "enable auto starring",
 
   FIND_USER_MORE_SPECIFIC: users => `Please be more specific, I found ${users} users matching your input.`,
   FIND_USER_PROMPT: list => `I found multiple users matching your input:
@@ -99,6 +100,8 @@ module.exports = {
     LINK_EDITS: "If a message is edited, the starboard message will update with the new message content.",
     DISPLAY_NICKNAME: "Whether or not the nickname of the author should be displayed instead of their Discord tag.",
     NO_COMMANDS: "If the bot should not respond to commands run by non-moderators, so the bot kinda \"works in the background\".",
+    AUTO_STAR: "If the bot should automatically star messages in these channels.",
+    DELETE_INVALID: "If the bot should delete messages in an auto star channel that don't pass the filters or were sent by a blacklisted user.",
 
     DOWNVOTE_EMOJI: "The emoji used to downvote starred messages.",
     EMOJIS: {
@@ -315,6 +318,7 @@ module.exports = {
       NONE: "None",
 
       INVALID_CHANNEL_SETTING: s => `**${s}** is not a valid setting for channels, it is only available as a server setting.`,
+      INVALID_GUILD_SETTING: s => `**${s}** is not a valid setting for servers, it is only available as a channel setting.`,
       
       INVALID_LANGUAGE: l => `**${l}** was not a valid language.`,
       LANGUAGE_SET: l => `Successfully set the language to ${l}`, // passing l because other languages may not be finished and will use this translation
@@ -381,7 +385,9 @@ module.exports = {
       QUICK_ACTIONS: b => `You can ${b ? "now" : "no longer"} react on starboard messages to quickly perform actions on them.`,
       LINK_EDITS: b => `Starboard messages will ${b ? "now" : "no longer"} be updated when its original message is edited.`,
       DISPLAY_NICKNAME: b => `Starboard messages will now display the message author's ${b ? "server nickname" : "Discord tag"}.`,
-      NO_COMMANDS: b => `Commands will ${b ? "now" : "no longer"} only work for moderators.`
+      NO_COMMANDS: b => `Commands will ${b ? "now" : "no longer"} only work for moderators.`,
+      AUTO_STAR: b => `Messages from these channels will ${b ? "now" : "no longer"} be automatically starred by me.`,
+      DELETE_INVALID: b => `Messages sent while auto starring is enabled that either don't pass the filters or were sent by blacklisted users will ${b ? "now" : "no longer"} be deleted.`
     },
     LOCK: {
       DESCRIPTION: "Locks a starred message to the starboard, so it'll stay there even if it reaches 0 stars.",
@@ -584,6 +590,7 @@ module.exports = {
       CHANNEL_SETTINGS: "Channel Settings",
       CHANNELS: "Channels",
       STARBOARD: "Starboard",
+      AUTO_STAR: "AutoStar",
       NONE: "Not Set",
       NAME_TOO_LONG: "Channel setting names cannot be more than 64 characters long.",
       HIT_MAX: "You have hit the maximum amount of channel settings for one server.",
@@ -613,8 +620,8 @@ module.exports = {
       COLORS: "Colours",
       EMBED_FOOTER: prefix => `To view info about a specific setting, do ${prefix}settings <setting>`,
       INVALID_SETTING: s => `**${s}** was not a valid setting.`,
-      // PLEASE_INPUT: firstToFourth => `Please input ${firstToFourth.slice(0, -1).join(", ")} or ${firstToFourth.slice(-1)}.`
       INVALID_CHANNEL_SETTING: s => `**${s}** is not a valid setting for channels, it is only available as a server setting.`,
+      INVALID_GUILD_SETTING: s => `**${s}** is not a valid setting for servers, it is only available as a channel setting.`,
       EMBED_DESCRIPTION: (lock, name, desc) => `${lock} **Setting**: ${name}\n${desc}`,
       DATA: "Data",
       VALUE: "Value",
@@ -906,7 +913,7 @@ module.exports = {
       FILTER_BOTS: "Messages by bots cannot be starred because the **FilterBots** setting is enabled.",
       BLACKLISTED: roles => `The author of this message is blacklisted${roles && ` because they have the roles ${roles}`}.`,
       CHANNEL_BLACKLISTED: c => `${c || "The channel where this message was sent in"} is currently blacklisted.`,
-      FILTER: (c, list) => `This message doesn't pass the ${list.length > 1 ? `${list.slice(0, -1).join(", ")} and ${list.slice(-1)}` : list} filters set for this ${c ? "channel" : "server"}.`,
+      FILTER: (c, list) => `This message doesn't pass the ${list.length > 1 ? `${list.slice(0, -1).join(", ")} and ${list.slice(-1)} filters` : `${list} filter`} set for this ${c ? "channel" : "server"}.`,
       CONTENT_REQUIRED: "This message has no content but content is required.",
       CONTENT_MIN: (n, l) => `The length of this message needs to be ${n} characters or greater, it is currently ${l}.`,
       CONTENT_MAX: (n, l) => `The length of this message exceeds the limit of ${n} characters. (${l})`,

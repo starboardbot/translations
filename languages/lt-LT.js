@@ -820,7 +820,7 @@ module.exports = {
             EMOJI: 'Emoji',
             BLACKLISTED: 'Blacklisted Items',
             FILTERS: 'Filters',
-            NOTHING_WRONG: (m, c) => `There seems to be nothing wrong and ${ m ? 'this message' : 'all messages' } from ${ c || 'channels I can see' } should be able to be starred as normal. ${ c ? '' : 'If you want, you can input a channel to debug that instead.' }`
+            NOTHING_WRONG: (m, c, as) => `There seems to be nothing wrong and ${ m ? 'this message' : 'all messages' } from ${ c || 'channels I can see' } should be able to be ${ as ? 'auto ' : '' }starred as normal. ${ c ? '' : 'If you want, you can input a channel to debug that instead.' }`
         }
     },
     // might alphabetically order the commands one day

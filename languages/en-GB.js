@@ -93,7 +93,7 @@ module.exports = {
     **Unfreezing**: 🔥
     **Refreshing**: 🔄 or 🔁
     **Add to Hall of Fame**: 🏆 or 🏅
-    **Forcing**: 📌 or 📍 - only on the original message after it's been starred
+    **Forcing**: 📌 or 📍 - only on the original message
     __Anyone:__
     **Saving**: 📥 or 💾
     `.stripIndents(),

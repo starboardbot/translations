@@ -124,15 +124,12 @@ module.exports = {
     },
     COMMANDS: {
         COOLDOWN_MESSAGE: time => `You're using this command too frequently! Please wait ${ time } before using it again.`,
-        WAIT_SUGGESTIONS: (hasVoted, guildID) => {
+        WAIT_SUGGESTIONS: hasVoted => {
             return [
                 '**[join the support server](https://discord.gg/rZgxfbH)** and have fun talking to us, participate in polls which heavily determine what gets added to the bot, possible giveaways and much much more',
                 `**[vote for the bot](https://top.gg/bot/655390915325591629/vote)** ${ hasVoted ? 'for extra coolness points' : 'to have this cooldown sawed in half' }`,
                 '**[become a patron](https://patreon.com/TheNoob27)** and unlock some sweet donator only features, and a donator only role in our discord server',
                 '**[follow my twitter](https://twitter.com/DaNoob27)** for absolutely no reason at all',
-                'support one of our patrons, x79#8008, by **[following their twitter](https://twitter.com/cometvgc)**',
-                'support one of our patrons, Conifer ConnieTreeCow#9864 by **[subscribing to their youtube channel](https://www.youtube.com/channel/UCzL9A1orpOcXCSOQ3n6ujEA)**',
-                `check out this cool **[Minecraft Discord bot](https://discord.com/oauth2/authorize?client_id=652726107535310859&permissions=16&scope=bot&guild_id=${ guildID })** for all you minecraft players out there`,
                 'check out Starboard\'s **[Github page](https://github.com/TheNoob27/starboard-issues/issues)** where you can post bugs/suggestions instead of using the commands'
             ];
         },
@@ -821,6 +818,68 @@ module.exports = {
             BLACKLISTED: 'Blacklisted Items',
             FILTERS: 'Filters',
             NOTHING_WRONG: (m, c, as) => `There seems to be nothing wrong and ${ m ? 'this message' : 'all messages' } from ${ c || 'channels I can see' } should be able to be ${ as ? 'auto ' : '' }starred as normal. ${ c ? '' : 'If you want, you can input a channel to debug that instead.' }`
+        },
+        BOTINFO: {
+            DESCRIPTION: 'View info about the bot.',
+            USAGE: 'botinfo (bot/star)',
+            BOT_STATS: 'Bot Stats',
+            STARRED_STATS: 'Starred Message Stats',
+            SYSTEM_STATS: 'System Stats',
+            SERVERS: 'Servers',
+            USERS: 'Users',
+            MESSAGES: 'Messages',
+            CHANNELS: 'Channels',
+            COMMANDS_RUN: 'Commands Run',
+            PING: 'Ping',
+            UPTIME: 'Uptime',
+            CREATED_AT: 'Bot Creation',
+            JOINED_AT: 'Joined the Server',
+            COMMANDS: 'Commands',
+            VERSION: 'Version',
+            STARRED_MESSAGES: 'Starred Messages',
+            LIFETIME_STARRED_MESSAGES: 'Lifetime Starred Messages',
+            MOST_STARS: 'Most Stars on a Message',
+            TOTAL_STARS: 'Total Stars',
+            UPVOTES: 'Recorded Stars',
+            GLOBAL: 'Global Points Recorded',
+            TRASHED: 'Messages Trashed',
+            POSTED_MESSAGES: 'Messages Posted',
+            EDITED_MESSAGES: 'Messages Edited',
+            REWARD_ROLES: 'Reward Roles Given',
+            LOCKED: 'Messages Locked',
+            FROZEN: 'Messages Frozen',
+            SAVED: 'Messages Sent To DMs',
+            QUICK_ACTIONS: 'QuickActions Performed',
+            CPU: 'CPU',
+            DISK_USAGE: 'Disk Usage',
+            MEMORY_USAGE: 'Memory Usage',
+            PROCESS_UPTIME: 'Process Uptime',
+            PLATFORM: 'Platform',
+            LIBRARY: 'Library'
+        },
+        SHOW: {
+            DESCRIPTION: 'Preview any starred message, or the most starred message.',
+            USAGE: 'show <moststarred/[messageID]>',
+            NOT_FOUND: 'I couldn\'t find a starred message from your input.',
+            STARRED_MESSAGE: 'Starred Message',
+            COULD_NOT_OBTAIN: 'I couldn\'t obtain this starred message, this is most likely because both messages were deleted, the channel was deleted or I can no longer see the channel. But, here\'s some info about it anyway:',
+            STARS: 'Stars',
+            GLOBAL: 'Global Points',
+            AUTHOR: 'Author',
+            CHANNEL: 'Channel'
+        },
+        SHARDS: {
+            DESCRIPTION: 'Shard info',
+            USAGE: 'shards'
+        },
+        SUGGEST: {
+            DESCRIPTION: 'Suggest anything you think this bot should have/change.',
+            USAGE: 'suggest <[suggestion]>',
+            NEED_VOTE: (vote, support) => `In order to reduce spam, you have to **[vote for the bot](${ vote })** to make suggestions outside the **[support server](${ support })**.`,
+            NO_INPUT: 'Please provide a suggestion to make.',
+            ATTACHMENTS_NSFW: 'Attachments cannot be used for suggestions when in a NSFW channel.',
+            SUGGESTION: 'Suggestion',
+            THANK_YOU: link => `Thank you so much for your suggestion, these really help the development of this bot a lot. You can view your suggestion **[here](${ link })**, where people vote on it.`
         }
     },
     // might alphabetically order the commands one day

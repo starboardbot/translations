@@ -67,6 +67,7 @@ module.exports = {
     LANGUAGE: (_p, _pm, name) => `The language of the ${name ? "channel" : "server"}. The languages that are currently available are ${Object.values(module.exports.LANGUAGES).join(", ")}.`,
     PERMISSION: `This is the permission users need to have before performing various actions, such as trashing messages, changing settings and blacklisting users.
     When setting the permission, you can input something like \`MANAGE_MESSAGES\`, \`Manage Messages\`, \`Manage-Messages\` or \`8192\`. For multiple permissions, use a permissions calculator.`.stripIndents(),
+    ON_DELETION: "This is what should happen when a moderator deletes a starboard message. Repost means the starboard message automatically gets reposted, freeze means the starred message gets frozen and trash means the starred message gets trashed.",
 
     LINK_DELETES: "If a message is deleted, the starboard message will automatically be deleted.",
     FILTER_BOTS: "Whether or not bots should be filtered off the starboard.",
@@ -96,6 +97,7 @@ module.exports = {
     **Forcing**: 📌 or 📍 - only on the original message
     __Anyone:__
     **Saving**: 📥 or 💾
+    **Deleting**: 🇽 or ❌ - only on starred messages they own
     `.stripIndents(),
     LINK_EDITS: "If a message is edited, the starboard message will update with the new message content.",
     DISPLAY_NICKNAME: "Whether or not the nickname of the author should be displayed instead of their Discord tag.",
@@ -362,6 +364,11 @@ module.exports = {
       STAR_SET: (e, type) => `Successfully changed the **${type}** star to ${e}.`,
       DV_EMOJI_SET: e => `Successfully set the emoji to downvote messages with to ${e}.`,
 
+      ON_DELETION_NOTHING: "Starboard message will no longer be reposted, frozen or trashed when they get deleted.",
+      ON_DELETION_REPOST: "Starboard messages will now be automatically reposted when they get deleted by a moderator.",
+      ON_DELETION_FREEZE: "Starred messages will now be automatically frozen if the starboard message gets deleted by a moderator.",
+      ON_DELETION_TRASH: "Starred messages will now be automatically trashed if the starboard message gets deleted by a moderator.",
+
       LINK_DELETES: b => `When a message is deleted, the starboard message will ${b ? "now" : "no longer"} be deleted.`,
       FILTER_BOTS: b => `Bots can ${b ? "no longer" : "now"} get on the starboard.`,
       STAR_SELF: b => `Users can ${b ? "now" : "no longer"} star their own messages.`,
@@ -612,7 +619,14 @@ module.exports = {
       USAGE: "settings ([setting]) --channel ([channel])",
       SETTINGS: "Settings",
       CHANNEL_SETTINGS: "Channel Settings",
-      EMOJIS: "Emojis",
+      MAIN: "Main Settings",
+      FILTERING: "Filtering",
+      CUSTOMISATION: "Customisation",
+      EVENTS: "Events",
+      DOWNVOTING: "Downvoting",
+      AUTO_STAR: "Auto Starring",
+      MISCELLANEOUS: "Miscellaneous",
+      STARS: "Stars",
       REQUIREMENTS: "Requirements",
       COLORS: "Colours",
       EMBED_FOOTER: prefix => `To view info about a specific setting, do ${prefix}settings <setting>`,

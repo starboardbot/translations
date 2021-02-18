@@ -63,7 +63,7 @@ module.exports = {
     I guess this is useful if you have a server with a second Starboard bot, but this setting was mainly made for the Discord Bot List Discord server, which the bot is no longer in. This setting may get removed in the future.`,
         VISIBLE: (p, _prm, name) => `This determines whether or not users can find this ${ name ? 'channel' : 'server' }'s messages in \`${ p }explore\`, and whether or not this server appears on the server leaderboard (\`${ p }leaderboard servers\`).`,
         CLEAN: 'With this enabled, **[Click to jump to message!](https://www.youtube.com/watch?v=KvxteMk0e84)** and other links/media will not show up at the bottom of starboard messages.',
-        DOWNVOTE: 'If users can downvote starred messages.',
+        DOWNVOTE: 'If users can downvote starboard messages. When a message is downvoted off the starboard, it is automatically frozen so it cannot be sent back to the starboard.',
         BOTS_ON_LB: 'If bots are able to appear on the leaderboard.',
         ATTACHMENTS: 'If media such as videos should be attached to the starboard message instead of just appended as links.',
         NO_EXPLORE: p => `If the \`${ p }explore\` command should be disabled for the server. Your messages will still appear in this command if the **Visible** setting is enabled.`,
@@ -580,6 +580,7 @@ module.exports = {
             STARBOARD: 'Starboard',
             STARRED_AT: 'Starred At',
             STATS: 'Stats',
+            STARS: 'Stars',
             UPVOTES: 'Upvotes',
             DOWNVOTES: 'Downvotes',
             GLOBAL: 'Global Points',
@@ -893,6 +894,43 @@ module.exports = {
             ATTACHMENTS_NSFW: 'Attachments cannot be used for suggestions when in a NSFW channel.',
             SUGGESTION: 'Suggestion',
             THANK_YOU: link => `Thank you so much for your suggestion, these really help the development of this bot a lot. You can view your suggestion **[here](${ link })**, where people vote on it.`
+        },
+        GENERATE: {
+            DESCRIPTION: 'Generate a premium code',
+            USAGE: 'generate ([code])'
+        },
+        REDEEM: {
+            DESCRIPTION: 'Redeem a premium code',
+            USAGE: 'redeem <[code]>',
+            SUPPORT: 'Please redeem Starboard Premium codes in the server you actually want Starboard Premium in.',
+            CODE_USED: 'This code has already been redeemed.',
+            CODE_INVALID: 'Sorry, that was not a valid code.',
+            ALREADY_PREMIUM: 'This server already has lifetime premium, so a code cannot be redeemed.',
+            EXTRA_PREMIUM: months => `That code has been successfully redeemed. This server now has Starboard Premium for an extra month, for a total of ${ months } months.`,
+            SUCCESS_PREMIUM: expires => `That code has been successfully redeemed. This server now has Starboard Premium${ expires ? ' for a month' : '' }!`
+        },
+        PREMIUM: {
+            DESCRIPTION: 'View info about premium, or your premium status.',
+            USAGE: 'premium',
+            PREMIUM: 'Starboard Premium',
+            HAVE_PREMIUM: n => `You currently have premium active on ${ n } servers.`,
+            SINCE: 'Since',
+            EXPIRES: 'Expires In',
+            NEVER: 'Never',
+            DONATED: 'Thanks for donating and supporting the development of Starboard!',
+            PREMIUM_INFO: idonated => `
+      __By **donating**, you get (permanently):__
+      - A Donator role and donator-only chat in our support server.
+      - A ${ idonated } badge that appears on all your starboard messages.
+
+      __By getting **Starboard Premium**, you can:__
+      - Claim a Premium role in our support server.
+      *And in one server of your choice...*
+      - Have up to 5 emojis.
+      - Have up to 25 channel settings.
+      - Have the ability to **downvote** starboard messages.
+      - Have all command responses that have embeds to be the colour set for starboard messages.
+      `.stripIndents()
         }
     },
     // might alphabetically order the commands one day

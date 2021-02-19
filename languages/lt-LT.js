@@ -631,7 +631,7 @@ module.exports = {
         },
         LEADERBOARD: {
             DESCRIPTION: 'Show a leaderboard for people with the most stats. You can input a user to jump to their position on the leaderboard, or a channel to filter stats for starred messages only in that channel.',
-            USAGE: 'leaderboard (messages/stars/starboarded/global/trashed/downvotes/channels/servers) (page) (user) (channel)',
+            USAGE: 'leaderboard (messages/stars/starboarded/global/trashed/downvotes/channels/servers/reset) ([page]) ([user]) ([channel]) --before <[date]> --after <[date]>',
             NO_LEADERBOARD: 'The leaderboard is disabled for this server.',
             NOT_ON_LEADERBOARD: 'Not on the leaderboard.',
             TITLE: title => `Leaderboard - ${ title }`,
@@ -652,7 +652,14 @@ module.exports = {
             MESSAGE_LEADERBOARD_LINE: (medal, isYou, place, messageID, name, url, star, stars) => `${ isYou ? '**' : '' }${ medal } ${ place }: ${ isYou ? `[${ messageID }](${ url })` : `**[${ messageID }](${ url })**` }${ name && ` by ${ name }` } - ${ stars.toLocaleString(LOCALE) } ${ star }${ isYou ? '**' : '' }`,
             SERVER_LEADERBOARD_LINE: (isYou, medal, place, name, stars, star) => `${ isYou ? '**' : '' }${ medal } ${ place }: ${ isYou ? name : `**${ name }**` } - Stars: ${ stars.toLocaleString(LOCALE) } ${ star }${ isYou ? '**' : '' }`,
             NOTHING_TO_DISPLAY: 'Nothing to display.',
-            EMBED_FOOTER: (user, place, page, totalPages) => `${ user ? `${ user }'s` : 'Your' } Place: ${ place } | Page ${ page }/${ totalPages }`
+            EMBED_FOOTER: (user, place, page, totalPages) => `${ user ? `${ user }'s` : 'Your' } Place: ${ place } | Page ${ page }/${ totalPages }`,
+            ARE_YOU_SURE: 'Are you sure?',
+            CONFIRMATION_EMBED: `Are you sure you want to erase the leaderboard?
+      Please note that this doesn't reset all leaderboards, just the server-wide **Stars**, **Global**, **Trashed** and **Times On Starboard** leaderboards.
+      For other leaderboards such as the message leaderboard, you can use the --before or --after flags, e.g. \`--after 14/09/2021\`.
+      Say **yes** to continue.`.stripIndents(),
+            NOT_RESET: 'Cancelled resetting the leaderboard.',
+            SUCCESS_RESET: 'Successfully reset the leaderboard.'
         },
         HALLOFFAME: {
             DESCRIPTION: 'Shows the server\'s Hall of Fame, or add/remove messages from it. You can also add messages by using the 🏆 quick action.',
@@ -666,7 +673,7 @@ module.exports = {
             ALREADY_ON: 'That message is already on the Hall of Fame.',
             MAX: 'You have hit the maximum of 100 messages on the Hall of Fame.',
             NOT_ON: 'That message is not on the Hall of Fame.',
-            ARE_YOU_SURE: 'Are You Sure?',
+            ARE_YOU_SURE: 'Are you sure?',
             CONFIRMATION_EMBED: 'Are you sure you want to remove every message from the Hall of Fame?\nSay **yes** to continue.',
             CANCELLED: 'Cancelled removing every message from the Hall of Fame.',
             SUCCESS_ADD: 'Successfully added that message to the Hall of Fame.',

@@ -97,7 +97,7 @@ module.exports = {
     **Forcing**: 📌 or 📍 - only on the original message
     __Anyone:__
     **Saving**: 📥 or 💾
-    **Deleting**: 🇽 or ❌ - only on starred messages they own
+    **Deleting**: ❌ or 🇽 - only on starred messages they own
     `.stripIndents(),
     LINK_EDITS: "If a message is edited, the starboard message will update with the new message content.",
     DISPLAY_NICKNAME: "Whether or not the nickname of the author should be displayed instead of their Discord tag.",
@@ -1060,6 +1060,48 @@ module.exports = {
       - Have the ability to **downvote** starboard messages.
       - Have all command responses that have embeds to be the colour set for starboard messages.
       `.stripIndents()
+    },
+    LANGUAGES: {
+      DESCRIPTION: "View a list of all languages, or set the language for the server.",
+      USAGE: "languages ([language])",
+      LANGUAGES: "Languages",
+      EMBED_DESCRIPTION: (l, p) => `You now have the option to set the language for the bot! The bot will respond with all commands in that language, but commands still have to be inputted in English.
+      Please note that English is the only language that will always be 100% complete, so if a statement cannot be found in your language, it'll be sent in English by default.
+      If you want, you can help add more languages at https://github.com/TheNoob27/starboard-languages, it'd help a lot.
+
+      The current list of available languages is:
+      - ${Object.values(module.exports.LANGUAGES).join("\n- ")}
+      
+      The language that is currently being used is **${l}**. You can set the language with \`${p}languages <[language]>\``.stripIndents(),
+      INVALID_LANGUAGE: l => `**${l}** was not a valid language.`,
+      SUCCESS: l => `Successfully set the language of the server to **${l}**.`
+    },
+    QUICKACTIONS: {
+      DESCRIPTION: "View more info about Quick Actions.",
+      USAGE: "quickactions",
+      QUICK_ACTIONS: "Quick Actions",
+      EMBED_DESCRIPTION: (enabled, prefix) => `**Enabled**: ${enabled}
+
+      QuickActions allow users to quickly perform actions on starboard messages, such as locking, freezing, deleting or saving, by reacting on the starboard message with specific emojis.
+      __Here's the list of QuickActions for moderators:__
+      🗑️: Trash the message
+      🔒: Lock the message
+      🔓: Unlock the message
+      🧊/❄️: Freeze the message
+      🔥: Unfreeze the message
+      🔄/🔁: Recount the stars of the message
+      🏆/🏅: Add to Hall of Fame
+      ❌/🇽: Delete the starboard message
+      📌/📍: Force to the starboard
+
+      __And for everyone:__
+      📥/💾: Save the starred message to DMs
+      ❌/🇽: Delete a starboard message belonging to them
+      
+      **Note**: The 📌/📍 force QuickAction has to be used on the original message.
+      **Tip**: If you don't want users to be using the QuickActions for everyone, you can disable their \`Add Reactions\` permission.
+
+      To enable/disable QuickActions, do \`${prefix}changesetting quickActions <true/false/yes/no>\``.stripIndents()
     }
   }, // might alphabetically order the commands one day
 

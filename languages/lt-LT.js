@@ -19,10 +19,10 @@ module.exports = {
 
   // languages
   LANGUAGES: {
-    EN_GB: "Lietuvių kalba",
-    EN_US: "Lietuvių kalba",
-    LT_LT: "Turkų kalba",
-    TR_TR: "Anglų kalba",
+    EN_GB: "Anglų kalba",
+    EN_US: "Anglų kalba",
+    LT_LT: "Lietuvių kalba",
+    TR_TR: "Turkų kalba",
     FUWWY: "Fuwwy",
   }
 }

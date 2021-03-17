@@ -838,6 +838,7 @@ module.exports = {
             EMOJI: 'Emoji',
             BLACKLISTED: 'Blacklisted Items',
             FILTERS: 'Filters',
+            NOT_SET: 'not set',
             NOTHING_WRONG: (m, c, as) => `There seems to be nothing wrong and ${ m ? 'this message' : 'all messages' } from ${ c || 'channels I can see' } should be able to be ${ as ? 'auto ' : '' }starred as normal. ${ c ? '' : 'If you want, you can input a channel to debug that instead.' }`
         },
         BOTINFO: {

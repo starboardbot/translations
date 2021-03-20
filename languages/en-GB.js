@@ -487,17 +487,20 @@ module.exports = {
       WHITELIST_REMOVE: s => `Successfully removed **${s}** from the whitelist.`
     },
     REWARDROLES: {
-      DESCRIPTION:
-        "View info about or add/remove reward roles, roles that get added to users once they surpass a certain amount of stars. " +
-        "You can add/subtract to the amount of stars needed for an existing reward role by putting a +/- before the stars argument. " +
-        "When viewing reward roles, you can optionally ping a user to see their progress.",
+      DESCRIPTION: "View info about or add/remove reward roles, roles that get added to users once they surpass a certain amount of stars. ",
       USAGE: "rewardroles (add/remove) ([role]) ([stars])",
       NO_LEADERBOARD: "The leaderboard is disabled for the server, which includes reward roles.",
       REWARD_ROLES: "Reward Roles",
       ROLE: "Role",
       STARS_NEEDED: "Stars Needed",
       PROGRESS: u => `${u ? `${u}'s` : "Your"} Progress`,
-      EMBED_DESCRIPTION: c => `Here are the current reward roles set for this ${c ? "channel" : "server"}.`,
+      EMBED_DESCRIPTION: (c, showThisBit) => `Reward roles are a fun way to reward users for getting their messages starred. Users will be given a role based on the amount of stars they have gotten in this ${c ? "channel" : "server"}.
+      ${showThisBit
+        ? `You can add/subtract to the amount of stars needed for an existing reward role by creating it again, but putting a +/- before the stars argument. (+50, -50 etc)
+          When viewing reward roles, you can optionally **ping a user** to see their progress.
+          If you wish for users to only have **one reward role at a time**, disable the **KeepRoles** setting.\n`
+        : ""}
+      Here are the current reward roles set for this ${c ? "channel" : "server"}:`.stripIndents(),
       NO_REWARD_ROLES: (p, c) => `**There are no reward roles set for this ${c ? "channel" : "server"}.**
       To add a reward role, do ${p}rewardroles add <[role]> ([stars])`.stripIndents(),
       RR_FEAT: "customise reward roles",

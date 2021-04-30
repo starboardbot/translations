@@ -141,6 +141,9 @@ module.exports = {
           [a, b] = ["en", "GB"]
           break
         case "ENGLISH":
+        case "AMERICAN":
+        case "USA":
+        case "US":
         case "EN":
           [a, b] = ["en", "US"]
           break

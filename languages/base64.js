@@ -1,6 +1,7 @@
 // @ts-nocheck
 // This file generates a base64 version of a langauge on the spot.
 // Loads in approx. 20ms
+// Change `lang` constant to change which language is being converted.
 
 const timestamp = Date.now();
 
@@ -27,7 +28,7 @@ function convertFunc(func) {
  * @returns {string} Base64 String
  */
 function convertString(str) {
-	return Buffer.from(String(str)).toString("base64");
+	return String(Buffer.from(String(str)).toString("base64"));
 }
 
 /**
@@ -41,9 +42,6 @@ function convertObject(obj) {
 		let mapValue;
 		switch (typeof value) {
 			case "string":
-			case "bigint":
-			case "boolean":
-			case "number":
 				mapValue = [key, convertString(value)];
 				break;
 			case "function":
@@ -53,7 +51,7 @@ function convertObject(obj) {
 				mapValue = [key, convertObject(value)];
 				break;
 			default:
-				mapValue = [key, undefined];
+				mapValue = [key, value];
 				break;
 		}
 		return mapValue;

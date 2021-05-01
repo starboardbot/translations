@@ -42,7 +42,7 @@ module.exports = {
 
   // message event
   CANT_SPEAK: "I cannot speak in that channel! Please get a moderator to change my permissions for that channel, or try using me in a different channel.",
-  PREFIX_INFO: (prefixes = ["star "]) => `My prefix for this server is${prefixes.length > 1 ? " any of" : ""} \`${prefixes.join("`, `")}\`, but my mention also works as a prefix.`,
+  PREFIX_INFO: (prefixes = ["star "]) => `My prefix for this server is${prefixes.length > 1 ? " any one of" : ""} \`${prefixes.join("`, `")}\`, but my mention also works as a prefix.`,
   HELP: "Help",
 
   NEED_VOTE: doThis => `To ${doThis}, you need to **[vote for the bot](https://top.gg/bot/655390915325591629/vote)**. Once you have voted, you have to wait a few minutes for me to recieve your vote.`,
@@ -578,22 +578,26 @@ module.exports = {
     },
     CHANNELSETTINGS: {
       DESCRIPTION: "View info about channel settings, or create/clone channel settings for a set of channels.",
-      USAGE: "channelsettings (list/create/edit) ([name]) (...[channels]) --channel ([channel]) --name <[name]>",
+      USAGE: "channelsettings (list/create/edit/delete) ([name]) (...[channels]) --channel ([channel])",
       NO_CHANNEL_SETTINGS: (prefix, guide) => `**This server has no channel settings.**
-      To create channel settings, do \`${prefix}channnelsettings create (...[channels]) --name <[name]>\`
+      To create channel settings, do \`${prefix}channnelsettings create ([name]) <...[channels]>\`
       
       **[Learn More](${guide})**`.stripIndents(),
-      EMBED_DESCRIPTION: (p, guide) => `Here are the channel settings for this server.
+      EMBED_DESCRIPTION: (p, guide, help) => 
+        `Here are the channel settings for this server.
+        ${ // ew
+          help
+            ? `
+              • If you want to clone one of these, you can do \`${p}channelsettings create ([name]) <...[channels]> --channel ([channel])\` where \`([channel])\` is the channel settings to clone from.
 
-      • If you want to clone one of these, you can do \`${p}channelsettings create (...[channels]) --name <[name]> --channel ([channelSettingsName])\`
+              • If you want to edit channel settings to add/remove channels or change the name, you can do \`${p}channelsettings edit ([channel]) ([name]) (...[channels])\` where \`([channel])\` is the channel settings to edit. Prefix the channels with + or - to add or remove them from the list (e.g. \`+#general\`, \`-#memes\`).
 
-      • If you want to edit channel settings to add/remove channels or change the name, you can do \`${p}channelsettings edit ([channelSettingsName]) (...[channels]) --name <[name]>\`
+              • If you need to delete channel settings, you can do \`${p}channelsettings delete <[name]>\`
 
-      • If you need to delete channel settings, you can do \`${p}channelsettings delete <[name]>\`
-
-      • To edit channel settings, do \`${p}changesettings <[settings]> <[value]> --channel ([name/channel])\`
-      
-      **[Learn More](${guide})**`.stripIndents(),
+              • To edit the settings of channel settings, do \`${p}changesetting <[setting]> <[value]> --channel ([channel])\`
+              \n`
+            : `Run \`${p}channelsettings --help\` for more info, or `
+        }**[Learn More](${guide})**`.stripIndents(),
       CHANNEL_SETTINGS: "Channel Settings",
       CHANNELS: "Channels",
       STARBOARD: "Starboard",
@@ -609,11 +613,11 @@ module.exports = {
       You will lose all saved reward roles, blacklists/whitelists, filters and other saved configurations, and they will be gone forever.
       Say **yes** to continue.`.stripIndents(),
       NOT_DELETED: "The settings will not be deleted.",
-      SUCCESS_CREATE: n => `Successfully created a new set of channel settings: **${n}**.`,
+      SUCCESS_CREATE: (n, size) => `Successfully created a new set of channel settings for ${size} channel${size !== 1 ? "s" : ""}: **${n}**.`,
       NOTHING_PROVIDED: "Please provide channel settings.",
       NOTHING_MODIFIED: "Please provide edits to make.",
       MODIFIED_NAME: n => `changed the name to **${n}**`,
-      MODIFIED_CHANNELS: "changed the channels which these channel settings apply for",
+      MODIFIED_CHANNELS: n => `changed the channels which these channel settings apply for to ${n} channel${n !== 1 ? "s" : ""}`,
       MODIFIED: modifications => `Successfully ${modifications.join(" and ")}.`,
       SUCCESS_DELETE: n => `Successfully deleted **${n}**.`
     },
@@ -667,6 +671,7 @@ module.exports = {
       LANGUAGE: "Note that not all languages are completed, English is the only one completed.",
       REQUIRED: s => `Currently, if ${s.required} different people star a message, it will then be posted to the starboard.`,
       REQUIRED_TO_REMOVE: s => `Currently, if a message in the starboard drops below ${s.requiredToRemove} stars, it will then be removed from the starboard.`,
+      EMOJIS: "This is the emoji users must react with to get a message on the starboard. You can also react to this message with the emoji you want.",
       FILTER_BOTS: "If you want bots to reach the starboard, don't enable this.",
       VISIBLE: "If you star personal/private stuff, you should definitely disable this. If this is enabled, a 🌍 will appear on starred messages that have been found in the explore command, followed by the number of times it was found.",
       CANCELLED_BY_MISTAKES: "Cancelled due to too many mistakes.",
@@ -679,11 +684,13 @@ module.exports = {
       }`,
       SOMETHING_WRONG: "Something went wrong.",
       BULK_DELETE_FAIL: "Something went wrong when trying to delete my embeds.",
-      RESULT: (b, p, c) => `${
+      RESULT: (b, p, c, v) => `${
         b
           ? `Successfully updated the settings for this ${c ? "channel" : "server"}`
           : `The settings for this ${c ? "channel" : "server"} have not been updated`
-      }. If you want to change more settings, you can view them all with ${p}settings.`
+      }. If you want to change more settings, you can view them all with ${p}settings${
+        v ? "" : `, and if you want to change the emoji, you must vote for the bot first and then either run this command again or run \`${p}changesetting emoji <[emoji]>\``
+      }.`
     },
     MESSAGEINFO: {
       DESCRIPTION: "View info about a starred message.",
@@ -961,7 +968,8 @@ module.exports = {
       STARBOARD: "Starboard",
       REQUIRED: "Required",
       EMOJI: "Emoji",
-      BLACKLISTED: "Blacklisted Items",
+      STAR_SELF: "StarSelf",
+      BLACKLISTED_ITEMS: "Blacklisted Items",
       FILTERS: "Filters",
       NOT_SET: "not set",
       NOTHING_WRONG: (m, c, as) => `There seems to be nothing wrong and ${m ? "this message" : "all messages"} from ${c || "channels I can see"} should be able to be ${as ? "auto " : ""}starred as normal. ${c ? "" : "If you want, you can input a channel to debug that instead."}`
@@ -1106,6 +1114,15 @@ module.exports = {
       **Tip**: If you don't want users to be using the QuickActions for everyone, you can disable their \`Add Reactions\` permission.
 
       To enable/disable QuickActions, do \`${prefix}changesetting quickActions <true/false/yes/no>\``.stripIndents()
+    },
+    SAVE: {
+      DESCRIPTION: "Save a starred message or a normal message to your dms.",
+      USAGE: "save ([channel]) <[messageID]>",
+      RECENTLY_SAVED: "This message has already been saved recently.",
+      DMS_CLOSED: "I cannot send you this message because your DMs are closed.",
+      SUCCESS: "That message has successfully been sent to your DMs.",
+      FAIL: "Something went wrong when sending you that message.",
+      NO_MESSAGE_ID: "Please provide a message ID."
     }
   }, // might alphabetically order the commands one day
 

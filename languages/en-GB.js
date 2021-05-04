@@ -1085,7 +1085,7 @@ module.exports = {
       - ${Object.values(module.exports.LANGUAGES).join("\n- ")}
       
       The language that is currently being used is **${l}**. You can set the language with \`${p}languages <[language]>\``.stripIndents(),
-      INVALID_LANGUAGE: l => `**${l}** was not a valid language.`,
+      INVALID_LANGUAGE: l => `${l ? `**${l}**` : "That"} was not a valid language.`,
       SUCCESS: l => `Successfully set the language of the server to **${l}**.`
     },
     QUICKACTIONS: {

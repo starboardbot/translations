@@ -48,11 +48,11 @@ module.exports = {
   Please respond with the number of the user you want.`.stripIndents(),
     SETTINGS: {
         // prefix, isPremium, channelSettingName
-        STARBOARD_ID: (p, _prm, name) => `This is where starred messages will go. If you wish to unset the starboard, run \`${ p }changesetting starboard none${ name && ` --channel ${ name }` }\`.`,
+        STARBOARD_ID: (p, _prm, name) => `This is where starred messages will go. If you wish to unset the starboard, run \`${ p }changesetting${ name && ` ${ name }` } starboard none\`.`,
         NSFW_STARBOARD_ID: 'This is where starred messages from NSFW channels will go. If this isn\'t set, messages from NSFW channels will go to the normal starboard, with images spoilered.',
         REQUIRED: 'This is how many stars a message needs before reaching the starboard.',
         REQUIRED_TO_REMOVE: 'When a message on the starboard drops to this number, it will get removed from the starboard.',
-        LANGUAGE: (_p, _pm, name) => `The language of the ${ name ? 'channel' : 'server' }. The languages that are currently available are ${ Object.values(module.exports.LANGUAGES).join(', ') }.`,
+        LANGUAGE: (_p, _pm, name) => `The language of the ${ name && name !== 'server' ? 'channel' : 'server' }. The languages that are currently available are ${ Object.values(module.exports.LANGUAGES).join(', ') }.`,
         PERMISSION: `This is the permission users need to have before performing various actions, such as trashing messages, changing settings and blacklisting users.
     When setting the permission, you can input something like \`MANAGE_MESSAGES\`, \`Manage Messages\`, \`Manage-Messages\` or \`8192\`. For multiple permissions, use a permissions calculator.`.stripIndents(),
         ON_DELETION: 'This is what should happen when a moderator deletes a starboard message. Repost means the starboard message automatically gets reposted, freeze means the starred message gets frozen and trash means the starred message gets trashed.',
@@ -61,7 +61,7 @@ module.exports = {
         STAR_SELF: 'If users are able to star their own messages.',
         WATCHING: `This is if you want the full functionality of Starboard without actually posting messages to a starboard.
     I guess this is useful if you have a server with a second Starboard bot, but this setting was mainly made for the Discord Bot List Discord server, which the bot is no longer in. This setting may get removed in the future.`,
-        VISIBLE: (p, _prm, name) => `This determines whether or not users can find this ${ name ? 'channel' : 'server' }'s messages in \`${ p }explore\`, and whether or not this server appears on the server leaderboard (\`${ p }leaderboard servers\`).`,
+        VISIBLE: (p, _prm, name) => `This determines whether or not users can find this ${ name && name !== 'server' ? 'channel' : 'server' }'s messages in \`${ p }explore\`, and whether or not this server appears on the server leaderboard (\`${ p }leaderboard servers\`).`,
         CLEAN: 'With this enabled, **[Click to jump to message!](https://www.youtube.com/watch?v=KvxteMk0e84)** and other links/media will not show up at the bottom of starboard messages.',
         DOWNVOTE: 'If users can downvote starboard messages. When a message is downvoted off the starboard, it is automatically frozen so it cannot be sent back to the starboard.',
         BOTS_ON_LB: 'If bots are able to appear on the leaderboard.',
@@ -69,7 +69,7 @@ module.exports = {
         NO_EXPLORE: p => `If the \`${ p }explore\` command should be disabled for the server. Your messages will still appear in this command if the **Visible** setting is enabled.`,
         FILTER_BLACKLISTED: `Whether or not blacklisted users should be filtered off the starboard.`,
         REMOVE_REACTIONS: 'If reactions should get removed if a user reacts wrongly, such as reacting on a blacklisted user\'s message.',
-        NO_LEADERBOARD: (_p, _prm, name) => !name ? 'If leaderboard related commands should be disabled for the server.' : 'If leaderboard stats should not be recorded for this channel.',
+        NO_LEADERBOARD: (_p, _prm, name) => !name || name === 'server' ? 'If leaderboard related commands should be disabled for the server.' : 'If leaderboard stats should not be recorded for this channel.',
         KEEP_ROLES: 'If users should keep old reward roles upon getting a new one.',
         MENTION_AUTHOR: 'If the author of a message should be pinged on their starboard messages.',
         QUICK_ACTIONS: `With this enabled, users can perform actions on a starred message by reacting on the starboard message with specific emojis.
@@ -93,7 +93,7 @@ module.exports = {
         DELETE_INVALID: 'If the bot should delete messages in an auto star channel that don\'t pass the filters or were sent by a blacklisted user.',
         DOWNVOTE_EMOJI: 'The emoji used to downvote starred messages.',
         EMOJIS: {
-            REACTION: (p, prm, name) => `The emoji${ prm ? 's' : '' } users react with to get a message on the starboard. ${ prm ? `You can add/remove more emojis with ${ p }changesetting emoji reaction <add/remove> <[emoji]>${ name && `--channel ${ name }` }` : '**[Premium Servers](https://patreon.com/TheNoob27)** can add up to **5** different emojis.' }`,
+            REACTION: (p, prm, name) => `The emoji${ prm ? 's' : '' } users react with to get a message on the starboard. ${ prm ? `You can add/remove more emojis with ${ p }changesetting${ name && ` ${ name }` } emoji reaction <add/remove> <[emoji]>` : '**[Premium Servers](https://patreon.com/TheNoob27)** can add up to **5** different emojis.' }`,
             FIRST: (_p, _prm, _n, {starRequirements: r}) => `Beside the star counter on a starboard message, this emoji will show when the message has less than ${ r.first } stars.`,
             SECOND: (_p, _prm, _n, {starRequirements: r}) => `Beside the star counter on a starboard message, this emoji will show when the message has ${ r.first }-${ r.second - 1 } stars.`,
             THIRD: (_p, _prm, _n, {starRequirements: r}) => `Beside the star counter on a starboard message, this emoji will show when the message has ${ r.second }-${ r.third - 1 } stars.`,
@@ -232,7 +232,7 @@ module.exports = {
         },
         CHANGESETTING: {
             DESCRIPTION: 'Change a setting for the channel or server, such as the required amount of stars needed to reach the starboard. All the settings are in the settings command, so you can view your options there.',
-            USAGE: 'changesetting <[setting]> <[value]> --channel ([channel])',
+            USAGE: 'changesetting ([channel]) <[setting]> <[value]>',
             UPDATED_SETTINGS: 'Updated Settings',
             ERRORS: 'Errors',
             CHANNEL_SETTINGS: 'Channel Settings',
@@ -354,7 +354,7 @@ module.exports = {
         },
         BLACKLIST: {
             DESCRIPTION: 'View info about blacklisted users, roles or channels, or modify the list.',
-            USAGE: 'blacklist (add/remove) ([user/role/channel]) --channel ([channel])',
+            USAGE: 'blacklist (add/remove) ([user/role/channel]) --channel ([channelSettings])',
             BLACKLIST: 'Blacklist',
             EMBED_DESCRIPTION: (blsb, c, nothing, prefix) => `The following ${ c ? `users and roles` : `users, roles and channels` } are blacklisted and cannot interact with the starboard${ c ? ' in this channel' : '' }.${ blsb ? ' Blacklisted users can still get on the starboard.' : '' }${ nothing ? `\n**Nothing has been blacklisted yet**\nTo add/remove to the list, do \`${ prefix }blacklist <add/remove> <[user/role${ c ? '' : '/channel' }]>\`.` : '' }`,
             USERS: 'Users',
@@ -372,7 +372,7 @@ module.exports = {
         },
         WHITELIST: {
             DESCRIPTION: 'View info about whitelisted users or roles, or modify the list.',
-            USAGE: 'whitelist (add/remove) ([user/role]) --channel ([channel])',
+            USAGE: 'whitelist (add/remove) ([user/role]) --channel ([channelSettings])',
             WHITELIST: 'Whitelist',
             EMBED_DESCRIPTION: (c, nothing, prefix) => `The following users and roles are whitelisted and bypass the blacklist ${ c ? 'in this channel ' : '' }if on it.${ nothing ? `\n**Nothing has been whitelisted yet**\nTo add/remove to the list, do \`${ prefix }whitelist <add/remove> <[user/role]>.\`` : '' }`,
             USERS: 'Users',
@@ -388,7 +388,7 @@ module.exports = {
         },
         REWARDROLES: {
             DESCRIPTION: 'View info about or add/remove reward roles, roles that get added to users once they surpass a certain amount of stars. ',
-            USAGE: 'rewardroles (add/remove) ([role]) ([stars])',
+            USAGE: 'rewardroles ([channelSettings]) (add/remove) ([role]) ([stars])',
             NO_LEADERBOARD: 'The leaderboard is disabled for the server, which includes reward roles.',
             REWARD_ROLES: 'Reward Roles',
             ROLE: 'Role',
@@ -473,7 +473,7 @@ module.exports = {
         },
         CHANNELSETTINGS: {
             DESCRIPTION: 'View info about channel settings, or create/clone channel settings for a set of channels.',
-            USAGE: 'channelsettings (list/create/edit/delete) ([name]) (...[channels]) --channel ([channel])',
+            USAGE: 'channelsettings (list/create/edit/delete) ([name]) (...[channels]) --channel ([channelSettings])',
             NO_CHANNEL_SETTINGS: (prefix, guide) => `**This server has no channel settings.**
       To create channel settings, do \`${ prefix }channnelsettings create ([name]) <...[channels]>\`
       
@@ -481,13 +481,13 @@ module.exports = {
             EMBED_DESCRIPTION: (p, guide, help) => `Here are the channel settings for this server.
             // ew
 ${ help ? `
-              • If you want to clone one of these, you can do \`${ p }channelsettings create ([name]) <...[channels]> --channel ([channel])\` where \`([channel])\` is the channel settings to clone from.
+              • If you want to clone one of these, you can do \`${ p }channelsettings create ([name]) <...[channels]> --channel ([channelSettings])\` where \`([channelSettings])\` is the channel settings to clone from.
 
               • If you want to edit channel settings to add/remove channels or change the name, you can do \`${ p }channelsettings edit ([channel]) ([name]) (...[channels])\` where \`([channel])\` is the channel settings to edit. Prefix the channels with + or - to add or remove them from the list (e.g. \`+#general\`, \`-#memes\`).
 
               • If you need to delete channel settings, you can do \`${ p }channelsettings delete <[name]>\`
 
-              • To edit the settings of channel settings, do \`${ p }changesetting <[setting]> <[value]> --channel ([channel])\`
+              • To edit the settings of channel settings, do \`${ p }changesetting <[setting]> <[value]> --channel ([channelSettings])\`
               \n` : `Run \`${ p }channelsettings --help\` for more info, or ` }**[Learn More](${ guide })**`.stripIndents(),
             CHANNEL_SETTINGS: 'Channel Settings',
             CHANNELS: 'Channels',
@@ -514,7 +514,7 @@ ${ help ? `
         },
         SETTINGS: {
             DESCRIPTION: 'View the server/channel\'s settings, or view info about a specific setting.',
-            USAGE: 'settings ([setting]) --channel ([channel])',
+            USAGE: 'settings ([channelSettings]) ([setting])',
             SETTINGS: 'Settings',
             CHANNEL_SETTINGS: 'Channel Settings',
             MAIN: 'Main Settings',
@@ -545,7 +545,7 @@ ${ help ? `
         },
         SETUP: {
             DESCRIPTION: 'Set up the bot in a server or channel by walking you through basic settings.',
-            USAGE: 'setup --channel ([channel])',
+            USAGE: 'setup ([channel])',
             SETUP: 'Setup',
             EMBED_DESCRIPTION: c => `Here I will walk you through **some** of the settings to help you set me up in this ${ c ? 'channel' : 'server' }.
       Say \`cancel\` or \`stop\` to cancel the setup, \`skip\` or \`next\` to skip to the next setting, and \`end\` to skip to the end.`.stripIndents(),
@@ -716,7 +716,7 @@ ${ help ? `
         },
         FILTERS: {
             DESCRIPTION: 'View, create or edit filters used to filter messages from being starred.',
-            USAGE: 'filters (add/remove/list/edit) (content/attachments/age/[filterNumber]) (...[options]) --simple --options',
+            USAGE: 'filters ([channelSettings]) (add/remove/list/edit) (content/attachments/age/[filterNumber]) (...[options]) --explain --options',
             MAX_FILTERS: c => `You have hit the maximum amount of filters allowed for this ${ c ? 'channel' : 'server' }.`,
             SUCCESS_ADD: desc => `Successfully added a new filter${ desc ? `:\n${ desc }` : '.' }`,
             NO_FILTERS: c => `There are no filters currently set for this ${ c ? 'channel' : 'server' }.`,

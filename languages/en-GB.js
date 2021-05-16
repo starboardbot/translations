@@ -64,7 +64,7 @@ module.exports = {
     NSFW_STARBOARD_ID: "This is where starred messages from NSFW channels will go. If this isn't set, messages from NSFW channels will go to the normal starboard, with images spoilered.",
     REQUIRED: "This is how many stars a message needs before reaching the starboard.",
     REQUIRED_TO_REMOVE: "When a message on the starboard drops to this number, it will get removed from the starboard.",
-    LANGUAGE: (_p, _pm, name) => `The language of the ${name ? "channel" : "server"}. The languages that are currently available are ${Object.values(module.exports.LANGUAGES).join(", ")}.`,
+    LANGUAGE: (_p, _pm, name) => `The language of the ${name && name !== "server" ? "channel" : "server"}. The languages that are currently available are ${Object.values(module.exports.LANGUAGES).join(", ")}.`,
     PERMISSION: `This is the permission users need to have before performing various actions, such as trashing messages, changing settings and blacklisting users.
     When setting the permission, you can input something like \`MANAGE_MESSAGES\`, \`Manage Messages\`, \`Manage-Messages\` or \`8192\`. For multiple permissions, use a permissions calculator.`.stripIndents(),
     ON_DELETION: "This is what should happen when a moderator deletes a starboard message. Repost means the starboard message automatically gets reposted, freeze means the starred message gets frozen and trash means the starred message gets trashed.",
@@ -74,7 +74,7 @@ module.exports = {
     STAR_SELF: "If users are able to star their own messages.",
     WATCHING: `This is if you want the full functionality of Starboard without actually posting messages to a starboard.
     I guess this is useful if you have a server with a second Starboard bot, but this setting was mainly made for the Discord Bot List Discord server, which the bot is no longer in. This setting may get removed in the future.`,
-    VISIBLE: (p, _prm, name) => `This determines whether or not users can find this ${name ? "channel" : "server"}'s messages in \`${p}explore\`, and whether or not this server appears on the server leaderboard (\`${p}leaderboard servers\`).`,
+    VISIBLE: (p, _prm, name) => `This determines whether or not users can find this ${name && name !== "server" ? "channel" : "server"}'s messages in \`${p}explore\`, and whether or not this server appears on the server leaderboard (\`${p}leaderboard servers\`).`,
     CLEAN: "With this enabled, **[Click to jump to message!](https://www.youtube.com/watch?v=KvxteMk0e84)** and other links/media will not show up at the bottom of starboard messages.",
     DOWNVOTE: "If users can downvote starboard messages. When a message is downvoted off the starboard, it is automatically frozen so it cannot be sent back to the starboard.",
     BOTS_ON_LB: "If bots are able to appear on the leaderboard.",
@@ -82,7 +82,7 @@ module.exports = {
     NO_EXPLORE: p => `If the \`${p}explore\` command should be disabled for the server. Your messages will still appear in this command if the **Visible** setting is enabled.`,
     FILTER_BLACKLISTED: `Whether or not blacklisted users should be filtered off the starboard.`,
     REMOVE_REACTIONS: "If reactions should get removed if a user reacts wrongly, such as reacting on a blacklisted user's message.",
-    NO_LEADERBOARD: (_p, _prm, name) => !name ? "If leaderboard related commands should be disabled for the server." : "If leaderboard stats should not be recorded for this channel.",
+    NO_LEADERBOARD: (_p, _prm, name) => !name || name === "server" ? "If leaderboard related commands should be disabled for the server." : "If leaderboard stats should not be recorded for this channel.",
     KEEP_ROLES: "If users should keep old reward roles upon getting a new one.",
     MENTION_AUTHOR: "If the author of a message should be pinged on their starboard messages.",
     QUICK_ACTIONS: `With this enabled, users can perform actions on a starred message by reacting on the starboard message with specific emojis.

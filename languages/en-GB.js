@@ -854,7 +854,7 @@ module.exports = {
       REGEX_SAME: "The regex/strings to match and not match cannot be the same.",
       MEDIA_REQUIRED_MAX: "You cannot make media required when the maximum attachments is 0.",
       REQUIRED_MAX: "Content cannot be required if the maximum characters is 0.",
-      MIN_MAX_CONTENT: min => `The ${min ? "min" : "max"}imum character length cannot be greater than 2000.`,
+      MIN_MAX_CONTENT: min => `The ${min ? "min" : "max"}imum character length cannot be greater than 4000.`,
       MIN_MAX_ATTACHMENTS: min => `The ${min ? "min" : "max"}imum amount of attachments cannot be greater than 50.`,
       MIN_MAX_AGE: min => `The ${min ? "min" : "max"}imum age cannot be greater than 5 years.`,
       INVALID_REGEX: (t, e) => `An invalid regex was provided for **${t}**: ${e}`,

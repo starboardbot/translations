@@ -82,6 +82,7 @@ if (typeof String.prototype.stripIndents !== "function") Object.defineProperties
     "lt-LT",
     "tr-TR",
     "fuwwy",
+    "fr-FR",
   ]}
  */
 const codes = readDirectory(
@@ -159,6 +160,9 @@ module.exports = {
         case "FURRY":
         case "OWO":
           a = "fuwwy"
+        case "FRENCH":
+        case "FR":
+          [a, b] = ["fr", "FR"]
       }
 
     code = `${a.toLowerCase()}${b && `-${b}`}`

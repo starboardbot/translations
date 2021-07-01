@@ -1140,5 +1140,6 @@ module.exports = {
     LT_LT: "Lithuanian",
     TR_TR: "Turkish",
     FUWWY: "Fuwwy",
+    FR_FR: "French",
   }
 }

@@ -98,7 +98,7 @@ function convertString(str) {
   let arr = str.split("");
   arr.forEach((letter, index) => {
     arr[index] =
-      flipped[letter] ?? flipped[letter.toLowerCase()] ?? flipped[letter.toUpperCase] ?? letter;
+      flipped[letter] ?? flipped[letter.toLowerCase()] ?? flipped[letter.toUpperCase()] ?? letter;
   });
   return arr.reverse().join("");
 }

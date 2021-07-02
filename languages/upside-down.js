@@ -28,6 +28,7 @@ const flipped = {
   v: "\u028C",
   w: "\u028D",
   y: "\u028E",
+  p: "d",
   A: "\u2200",
 	B: "q",
   C: "\u0186",
@@ -97,9 +98,7 @@ function convertString(str) {
   let arr = str.split("");
   arr.forEach((letter, index) => {
     arr[index] =
-      flipped[letter] === undefined
-        ? letter
-        : flipped[letter];
+      flipped[letter] ?? flipped[letter.toLowerCase()] ?? flipped[letter.toUpperCase] ?? letter;
   });
   return arr.reverse().join("");
 }

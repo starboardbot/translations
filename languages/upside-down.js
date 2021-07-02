@@ -78,7 +78,6 @@ const flipped = {
 module.exports = convertObject(langExports);
 module.exports.__TIME = Date.now() - timestamp;
 
-console.log(module.exports);
 
 /**
  * Converts a function to returning upside down text

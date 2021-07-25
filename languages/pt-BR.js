@@ -30,6 +30,13 @@ module.exports = {
     REQUIRED: 'Essa é a quantia de estrelas necessárias para uma mensagem ser postada no starboard.',
     REQUIRED_TO_REMOVE: 'Quanto uma mensagem estrelada perder estrelas e chegue nesse número, ela será removida do starboard.',
     PERMISSION: 'Essa é a permissão que usuários precisam ter para executar várias ações, como deletar mensagens, mudar configurações e adicionar outros usuários à lista negra. \n' +
-      'Para executar essa configuração, você pode usar permissões como `MANAGE_MESSAGES`, `Manage Messages`, `Manage-Messages` ou `8192` (precisa ser em inglês). Se você optar por usar mais de uma permissão, use uma calculadora de permissões.'
+      'Para executar essa configuração, você pode usar permissões como `MANAGE_MESSAGES`, `Manage Messages`, `Manage-Messages` ou `8192` (precisa ser em inglês). Se você optar por usar mais de uma permissão, use uma calculadora de permissões.',
+    ON_DELETION: 'Isso é o que deveria acontecer quando um moderador deleta uma mensagem no starboard. A configuração "repost" faz que mensagens estreladas sejam repostadas automaticamente, enquanto a configuração "freeze" faz que as mensagens estreladas ficam congeladas. A configuração "trash" faz que as mensagens estreladas sejam deletadas.',
+    LINK_DELETES: 'Se mensagem original for deletada, a mensage correspondente no starboard também será deletada automaticamente.',
+    FILTER_BOTS: 'Determina se as mensagens de um bot serão filtradas (ignoradas) ou não.',
+    STAR_SELF: 'Determina se um usuário pode dar uma estrela para uma mensagem que ele mesmo mandou.',
+    WATCHING: 'Ative isso se você quiser que o Starboard funcione normalmente mas sem realmente postar mensagens em um quadro de starboard.\n' +
+      'Eu acho que isso é útil se você tem um servidor com um segundo bot de Starboard, mas essa opção foi feita principalmente para o servidor Discord Bot List, no qual esse bot não está mais. Ela pode ser removida no futuro.',
+    CLEAN: 'Com isso habilitado, [Clique e pule para a mensagem!](https://youtu.be/KvxteMk0e84) e outros links/mídia não vão aparecer no fim das mensagens do starboard.'
   }
 }

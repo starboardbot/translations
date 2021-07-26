@@ -37,6 +37,48 @@ module.exports = {
     STAR_SELF: 'Determina se um usuário pode dar uma estrela para uma mensagem que ele mesmo mandou.',
     WATCHING: 'Ative isso se você quiser que o Starboard funcione normalmente mas sem realmente postar mensagens em um quadro de starboard.\n' +
       'Eu acho que isso é útil se você tem um servidor com um segundo bot de Starboard, mas essa opção foi feita principalmente para o servidor Discord Bot List, no qual esse bot não está mais. Ela pode ser removida no futuro.',
-    CLEAN: 'Com isso habilitado, [Clique e pule para a mensagem!](https://youtu.be/KvxteMk0e84) e outros links/mídia não vão aparecer no fim das mensagens do starboard.'
+    CLEAN: 'Com isso habilitado, [Clique e pule para a mensagem!](https://youtu.be/KvxteMk0e84) e outros links/mídia não vão aparecer no fim das mensagens do starboard.',
+    DOWNVOTE: 'Determina se usuários podem dar votos negativos nas mensagens estreladas. Quando uma mensagem é tirada do starboard por votos negativos, ela é automaticamente congelada e não pode mais voltar pra lá.',
+    BOTS_ON_LB: 'Determina se bots podem aparecer no leaderboard.',
+    ATTACHMENTS: 'Determina se mídias, tipo vídeos, devem ser anexadas à mensagem do starboard ao invés de apenas adicionadas como links.',
+    NO_EXPLORE: p => `Determina se o comando \`${p}explore\` deve ser desativado para o servidor. Suas mensagens ainda vão aparecer nesse comando se a opção **Visible** estiver ativada.`,
+    FILTER_BLACKLISTED: 'Determina se usuários na lista negra devem ser retirados do starboard.',
+    REMOVE_REACTIONS: 'Determina se reações devem ser removidas caso sejam inválidas. Por exemplo, reações em mensagens de usuários na lista negra.',
+    KEEP_ROLES: 'Determina se usuários devem ficar com os cargos de recompensa antigos ao conseguir um novo.',
+    MENTION_AUTHOR: 'Determina se o autor de uma mensagem deve ser mencionado (notificado) em suas mensagens do starboard.',
+    QUICK_ACTIONS: 'Com isso habilitado, usuários podem fazer ações em uma mensagem estrelada reagindo na mensagem do starboard com emojis específicos.\n' +
+      '__Moderadores:__\n' +
+      '**Descartar**: 🗑️\n' +
+      '**Travar**: 🔒\n' +
+      '**Destravar**: 🔓\n' +
+      '**Congelar**: 🧊 ou ❄️\n' +
+      '**Descongelar**: 🔥\n' +
+      '**Recarregar**: 🔄 ou 🔁\n' +
+      '**Incluir no Hall da Fama**: 🏆 ou 🏅\n' +
+      '**Forçar**: 📌 ou 📍 - somente na mensagem original\n' +
+      '__Todos__:\n' +
+      '**Salvar**: 📥 ou 💾\n' +
+      '**Deletar**: ❌ ou 🇽 - somente em suas próprias mensagens estreladas',
+    LINK_EDITS: 'Se uma mensagem for editada, a mensagem do starboard também será atualizada.',
+    DISPLAY_NICKNAME: 'Determina se o apelido do autor deve ser mostrado no lugar de sua Discord tag.',
+    NO_COMMANDS: 'Determina se os comandos devem ser desativados para membros (exceto moderadores), fazendo o bot "funcionar em segundo plano".',
+    AUTO_STAR: 'Determina se o bot deve automaticamente dar estrelas nas mensagens desses canais.',
+    DELETE_INVALID: 'Determina se o bot deve deletar mensagens em um canal com AutoStar que não passem dos filtros ou que tenham sido enviadas por um usuário na lista negra.',
+    DOWNVOTE_EMOJI: 'O emoji usado para dar voto negativo em mensagens estreladas.',
+    STAR_REQUIREMENTS: {
+      FIRST: 'A quantidade de estrelas que uma mensagem precisa conseguir antes que o emoji do lado do contador mude da primeira estrela para a segunda estrela.',
+      SECOND: 'A quantidade de estrelas que uma mensagem precisa conseguir antes que o emoji do lado do contador mude da segunda estrela para a terceira estrela.',
+      THIRD: 'A quantidade de estrelas que uma mensagem precisa conseguir antes que o emoji do lado do contador mude da terceira estrela para a quarta estrela.'
+    },
+    TYPES: {
+      NOT_SET: 'Não Definido',
+      NONE: 'Nenhum',
+      STARS: 'estrelas',
+      CHANNEL: 'canal',
+      NUMBER: 'número',
+      LANGUAGE: 'idioma',
+      PERMISSION: 'permissão',
+      EMOJI: 'emoji'
+    }
   }
 }

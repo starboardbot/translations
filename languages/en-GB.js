@@ -452,7 +452,7 @@ module.exports = {
         blsb 
           ? " Blacklisted users can still get on the starboard."
           : ""
-      }${nothing ? `\n**Nothing has been blacklisted yet**\nTo add/remove to the list, do \`${prefix}blacklist <add/remove> <[user/role${c ? "" : "/channel"}]>\`.` : ""}`,
+      }${nothing ? `\n**Nothing has been blacklisted yet**\nTo add/remove to the list, run \`${prefix}blacklist <add/remove> <[user/role${c ? "" : "/channel"}]>\`.` : ""}`,
       USERS: "Users",
       ROLES: "Roles",
       CHANNELS: "Channels",
@@ -472,7 +472,7 @@ module.exports = {
       WHITELIST: "Whitelist",
       EMBED_DESCRIPTION: (c, nothing, prefix) => `The following users and roles are whitelisted and bypass the blacklist ${c ? "in this channel " : ""}if on it.${
         nothing
-          ? `\n**Nothing has been whitelisted yet**\nTo add/remove to the list, do \`${prefix}whitelist <add/remove> <[user/role]>.\``
+          ? `\n**Nothing has been whitelisted yet**\nTo add/remove to the list, run \`${prefix}whitelist <add/remove> <[user/role]>.\``
           : ""
         }`,
       USERS: "Users",
@@ -502,7 +502,7 @@ module.exports = {
         : ""}
       Here are the current reward roles set for this ${c ? "channel" : "server"}:`.stripIndents(),
       NO_REWARD_ROLES: (p, c) => `**There are no reward roles set for this ${c ? "channel" : "server"}.**
-      To add a reward role, do ${p}rewardroles add <[role]> ([stars])`.stripIndents(),
+      To add a reward role, run \`${p}rewardroles add <[role]> ([stars])\``.stripIndents(),
       RR_FEAT: "customise reward roles",
       ROLE_NOT_FOUND: "That was not a valid role.",
       HIGHER_POSITION: "That role is higher than my highest role, so I cannot give this role to users.",
@@ -577,24 +577,29 @@ module.exports = {
       WORTHY: p => `That message is ${p}% star worthy.`
     },
     CHANNELSETTINGS: {
-      DESCRIPTION: "View info about channel settings, or create/clone channel settings for a set of channels.",
+      DESCRIPTION: "View info about Channel Settings, or create/clone sets of channel settings.",
       USAGE: "channelsettings (list/create/edit/delete) ([name]) (...[channels]) --channel ([channelSettings])",
       NO_CHANNEL_SETTINGS: (prefix, guide) => `**This server has no channel settings.**
-      To create channel settings, do \`${prefix}channnelsettings create ([name]) <...[channels]>\`
+      To create a new set of channel settings, run \`${prefix}channnelsettings create ([name]) <...[channels]>\`
+
+      Channel Settings are settings that only apply to a group of channels.
+      They can have their own starboard, emojis, reward roles, filters, and almost everything else the server settings can have.
       
       **[Learn More](${guide})**`.stripIndents(),
       EMBED_DESCRIPTION: (p, guide, help) => 
         `Here are the channel settings for this server.
-        ${ // ew
+        ${
           help
             ? `
-              • If you want to clone one of these, you can do \`${p}channelsettings create ([name]) <...[channels]> --channel ([channelSettings])\` where \`([channelSettings])\` is the channel settings to clone from.
+              Note: When providing the \`[channelSettings]\` argument for commands, you can either provide the name of the channel settings if the name has no spaces, or a channel from the list of channels.
 
-              • If you want to edit channel settings to add/remove channels or change the name, you can do \`${p}channelsettings edit ([channel]) ([name]) (...[channels])\` where \`([channel])\` is the channel settings to edit. Prefix the channels with + or - to add or remove them from the list (e.g. \`+#general\`, \`-#memes\`).
+              • If you want to clone one of these, you can run \`${p}channelsettings create ([name]) <...[channels]> --channel ([channelSettings])\` where \`([channelSettings])\` is the channel settings to clone from.
 
-              • If you need to delete channel settings, you can do \`${p}channelsettings delete <[name]>\`
+              • If you want to edit a set of channel settings to add/remove channels or change the name, you can run \`${p}channelsettings edit ([channelSettings]) ([name]) (...[channels])\` where \`([channelSettings])\` is the channel settings to edit. Prefix the channels with + or - to add or remove them from the list (e.g. \`+#general\`, \`-#memes\`).
 
-              • To edit the settings of channel settings, do \`${p}changesetting <[setting]> <[value]> --channel ([channelSettings])\`
+              • If you need to delete a set of channel settings, you can run \`${p}channelsettings delete <[name]>\`
+
+              • To edit one's settings, run \`${p}changesetting ([channelSettings]) <[setting]> <[value]>\`
               \n`
             : `Run \`${p}channelsettings --help\` for more info, or `
         }**[Learn More](${guide})**`.stripIndents(),
@@ -603,21 +608,21 @@ module.exports = {
       STARBOARD: "Starboard",
       AUTO_STAR: "AutoStar",
       NONE: "Not Set",
-      NAME_TOO_LONG: "Channel setting names cannot be more than 64 characters long.",
+      NAME_TOO_LONG: "The name cannot be more than 64 characters long.",
       HIT_MAX: "You have hit the maximum amount of channel settings for one server.",
-      PROVIDE_CHANNELS: "Please provide channels for which these channel settings apply for.",
+      PROVIDE_CHANNELS: "Please provide some channels for this set of channel settings.",
       INVALID_CHANNELS: "You did not provide valid channels.",
-      DUPLICATE_CHANNELS: "The channels provided must not already have channel settings. A channel may only have one channel settings.",
+      DUPLICATE_CHANNELS: "The channels provided must not already have channel settings. A channel may only have one set of channel settings.",
       ARE_YOU_SURE: "Are you sure?",
       CONFIRMATION_EMBED: name => `Are you sure you want to delete the **${name}** channel settings?
       You will lose all saved reward roles, blacklists/whitelists, filters and other saved configurations, and they will be gone forever.
       Say **yes** to continue.`.stripIndents(),
       NOT_DELETED: "The settings will not be deleted.",
       SUCCESS_CREATE: (n, size) => `Successfully created a new set of channel settings for ${size} channel${size !== 1 ? "s" : ""}: **${n}**.`,
-      NOTHING_PROVIDED: "Please provide channel settings.",
+      NOTHING_PROVIDED: "Please provide the name of a set of channel settings.",
       NOTHING_MODIFIED: "Please provide edits to make.",
       MODIFIED_NAME: n => `changed the name to **${n}**`,
-      MODIFIED_CHANNELS: n => `changed the channels which these channel settings apply for to ${n} channel${n !== 1 ? "s" : ""}`,
+      MODIFIED_CHANNELS: n => `changed the channels that these channel settings apply for to ${n} channel${n !== 1 ? "s" : ""}`,
       MODIFIED: modifications => `Successfully ${modifications.join(" and ")}.`,
       SUCCESS_DELETE: n => `Successfully deleted **${n}**.`
     },
@@ -636,7 +641,7 @@ module.exports = {
       STARS: "Stars",
       REQUIREMENTS: "Requirements",
       COLORS: "Colours",
-      EMBED_FOOTER: prefix => `To view info about a specific setting, do ${prefix}settings <setting>`,
+      EMBED_FOOTER: prefix => `To view info about a specific setting, run ${prefix}settings <setting>`,
       INVALID_SETTING: s => `**${s}** was not a valid setting.`,
       INVALID_CHANNEL_SETTING: s => `**${s}** is not a valid setting for channels, it is only available as a server setting.`,
       INVALID_GUILD_SETTING: s => `**${s}** is not a valid setting for servers, it is only available as a channel setting.`,
@@ -887,11 +892,11 @@ module.exports = {
       - NewerThan [time]
       - OlderThan [time]
       
-      To create a filter, do \`${p}filters add <content/attachments/age> <...[options]>\`
+      To create a filter, run \`${p}filters add <content/attachments/age> <...[options]>\`
       
       **[Learn More](${guide})**`.stripIndents(),
       VIEW_OPTIONS: (p, ex, guide) => `You can view all the options for creating filters with \`${p}filters --options\`, or edit an existing filter with \`${p}filters edit <[number]> <...[options]>\`
-      ${!ex ? `If you want an explanation for all your filters, do \`${p}filters --explain\`\n` : ""}
+      ${!ex ? `If you want an explanation for all your filters, run \`${p}filters --explain\`\n` : ""}
       **[Learn More](${guide})**`.stripIndents(),
       DESCRIBE: "In order for a message to be starred, it must:",
       REQUIRED_CONTENT: "have content",
@@ -1075,7 +1080,7 @@ module.exports = {
       - Claim a Premium role in our support server.
       *And in one server of your choice...*
       - Have up to 5 emojis.
-      - Have up to 25 channel settings.
+      - Have up to 25 sets of channel settings.
       - Have the ability to **downvote** starboard messages.
       - Have all command responses that have embeds to be the colour set for starboard messages.
       `.stripIndents()
@@ -1120,7 +1125,7 @@ module.exports = {
       **Note**: The 📌/📍 force QuickAction has to be used on the original message.
       **Tip**: If you don't want users to be using the QuickActions for everyone, you can disable their \`Add Reactions\` permission.
 
-      To enable/disable QuickActions, do \`${prefix}changesetting quickActions <true/false/yes/no>\``.stripIndents()
+      To enable/disable QuickActions, run \`${prefix}changesetting quickActions <true/false/yes/no>\``.stripIndents()
     },
     SAVE: {
       DESCRIPTION: "Save a starred message or a normal message to your dms.",

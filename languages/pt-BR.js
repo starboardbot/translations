@@ -78,7 +78,157 @@ module.exports = {
       NUMBER: 'número',
       LANGUAGE: 'idioma',
       PERMISSION: 'permissão',
-      EMOJI: 'emoji'
+      EMOJI: 'emoji',
+      COLOR: 'role/random/[cor]',
+      RANDOM: 'aleatório',
+      ROLE: 'a cor do cargo mais alto do autor'
+    }
+  },
+  COMMANDS: {
+    COOLDOWN_MESSAGE: time => `Você está usando esse comando muito rápido! Por favor espere ${time} antes de usá-lo novamente.`,
+    COOLDOWN: 'Cooldown',
+    COMMAND_HELP_EMBED: (command, Embed, prefix, color, cooldown, requiredPermissions) => `// todo`,
+    EVAL: {
+      DESCRIPTION: 'Avalia um pedaço de código.',
+      USAGE: 'eval <código>'
+    },
+    HELP: {
+      DESCRIPTION: 'Veja todos os comandos que o bot tem a oferecer, ou veja informações sobre um comando específico.',
+      USAGE: 'help ([comando])',
+      EMBED_FOOTER: '() = opcional, <> = obrigatório, [] = espaço reservado, -- = flags opcionais - não inclua esses caracteres ao usar os comandos.'
+    },
+    PING: {
+      DESCRIPTION: 'Verifica o ping, tempo de resposta e velocidade de edição do bot.',
+      USAGE: 'ping',
+      PINGING: 'Pingando...',
+      CLUSTER: n => `Cluster ${n}`,
+      SHARD: n => `Shard ${n}`,
+      PING: 'Ping',
+      LATENCY: 'Latência',
+      EDIT: 'Edição'
+    },
+    RELOAD: {
+      DESCRIPTION: 'Recarrega comandos, eventos ou um arquivo.',
+      USAGE: 'reload <[comando]/event/file> ([evento]/[arquivo])'
+    },
+    CHANGESETTING: {
+      DESCRIPTION: 'Altera uma configuração para o canal ou para o servidor, como, por exemplo, o número de estrelas necessário para chegar no starboard. Todas as configurações estão no comando settings, então você pode ver as suas opções lá.',
+      USAGE: 'changesetting ([canal]) <[configuração]> <[valor]>',
+      UPDATED_SETTINGS: 'Configurações Atualizadas',
+      ERRORS: 'Erros',
+      CHANNEL_SETTINGS: 'Configurações de Canal',
+      NONE: 'Nenhum',
+      INVALID_CHANNEL_SETTING: s => `**${s}** não é uma configuração válida para canais, ela só está disponível como configuração de servidor.`,
+      INVALID_GUILD_SETTING: s => `**${s}** não é uma configuração válida para servidores, ela só está disponível como configuração de canal.`,
+      INVALID_LANGUAGE: l => `**${l}** não é um idioma válido.`,
+      LANGUAGE_SET: l => `Idioma ${l} selecionado com sucesso.`,
+      INVALID_CHANNEL: 'Esse canal não existe.',
+      INVALID_CHANNEL_TYPE: 'O canal precisa ser de texto ou de anúncio.',
+      NOT_NSFW: 'O starboard NSFW precisa ser configurado como canal NSFW (Canal de conteúdo adulto).',
+      MISSING_PERMISSIONS: 'O bot não tem a permissão `Gerenciar Canais`, necessária para criar canais.',
+      CREATE_STARBOARD_FAIL: 'Algo deu errado ao tentar criar um canal de starboard.',
+      REQUIRED_TOO_BIG: 'A quantidade de estrelas necessárias para chegar no starboard não pode ser tão grande.',
+      REQUIRED_TOO_SMALL: 'A quantidade de estrelas necessárias para chegar no starboard tem que ser maior que 0.',
+      RTR_TOO_BIG: 'A quantidade de estrelas necessárias para ser removido do starboard não pode ser tão grande.',
+      RTR_TOO_SMALL: 'A quantidade de estrelas necessárias para ser removido do starboard tem que ser maior ou igual a 0.',
+      INVALID_PERMISSIONS: 'As permissões fornecidas não foram válidas.',
+      PERMISSIONS_SET: p => `Permissões necessárias para realizar várias ações a ${p} definidas com sucesso.`,
+      COLOR_SET: (c, r) => `Cor ${c} definida com sucesso para mensagens do starboard com mais de ${r} estrelas.`,
+      REQUIREMENT_TOO_HIGH: t => `O requisito **${t}** não pode ser tão alto.`,
+      REQUIREMENT_TOO_LOW: t => `O requisito **${t}** tem que ser um número maior que 0.`,
+      EMOJI_NOT_FOUND: 'Esse emoji não foi encontrado, ou é inválido.',
+      CANNOT_USE_EMOJI: 'Eu não posso usar esse emoji, tem que ser um emoji de um servidor em que eu estou.',
+      EMOJIS_SAME: 'Os emojis de voto positivo e voto negativo em mensagens estreladas não podem ser o mesmo emoji.',
+      RESERVED_EMOJI: 'Desculpe, esse emoji não pode ser usado.',
+      MAX_EMOJIS: 'Você atingiu a quantidade máxima de emojis permitida para 1 servidor.',
+      ALREADY_AN_EMOJI: 'Seu emoji já está salvo como um da lista de emojis.',
+      NOT_AN_EMOJI: 'Seu emoji não está salvo como um da lista de emojis.',
+      EMOJI_ADD_SET: e => `${e} adicionado com sucesso à lista de emojis.`,
+      EMOJI_REMOVE_SET: e => `${e} removido com sucesso da lista de emojis.`,
+      EMOJI_SET: e => `Emoji ${e} definido com sucesso para reagir a mensagens.`,
+      STAR_SET: (e, type) => `Estrela **${type}** mudada para ${e} com sucesso.`,
+      DV_EMOJI_SET: e => `Emoji ${e} definido como emoji de voto negativo com sucesso.`,
+      ON_DELETION_NOTHING: 'Mensagens do starboard não vão mais ser repostadas, congeladas ou descartadas ao serem deletadas.',
+      ON_DELETION_REPOST: 'Mensagens do starboard agora serão automaticamente repostadas quando forem deletadas por um moderador.',
+      ON_DELETION_FREEZE: 'Mensagens estreladas agora serão automaticamente congeladas se a mensagem do starboard for deletada por um moderador.',
+      ON_DELETION_TRASH: 'Mensagens estreladas agora serão automaticamente descartadas se a mensagem do starboard for deletada por um moderador.'
+    },
+    LOCK: {
+      DESCRIPTION: 'Trava uma mensagem estrelada no starboard, assim ela vai ficar lá até mesmo se chegar a 0 estrelas.',
+      USAGE: 'lock <[ID da mensagem]>',
+      SUCCESS: 'Mensagem travada no starboard com sucesso.',
+      FAILED: 'Essa mensagem já está travada.'
+    },
+    UNLOCK: {
+      DESCRIPTION: 'Destrava uma mensagem estrelada do starboard, assim ela pode ser removida normalmente.',
+      USAGE: 'unlock <[ID da mensagem]>',
+      SUCCESS: 'Mensagem destravada do starboard com sucesso.',
+      FAILED: 'Essa mensagem não está travada.'
+    },
+    FREEZE: {
+      DESCRIPTION: 'Congela uma mensagem estrelada, assim ninguém pode adicionar ou remover estrelas.',
+      USAGE: 'freeze <[ID da mensagem]>',
+      SUCCESS: 'Mensagem congelada com sucesso.',
+      FAILED: 'Essa mensagem já está congelada.'
+    },
+    UNFREEZE: {
+      DESCRIPTION: 'Descongela uma mensagem estrelada, assim todos podem adicionar ou remover estrelas normalmente.',
+      USAGE: 'unfreeze <[ID da mensagem]>',
+      SUCCESS: 'Mensagem descongelada com sucesso.',
+      FAILED: 'Essa mensagem não está congelada.'
+    },
+    PREFIXES: {
+      DESCRIPTION: 'Adiciona ou remove prefixos para o servidor, ou vê uma lista deles.',
+      USAGE: 'prefixes (add/remove) ([prefixo])',
+      ALREADY_PREFIX: 'Esse já é um prefixo desse servidor.',
+      TOO_MANY_PREFIXES: 'Há prefixos demais definidos para esse servidor.',
+      PREFIX_TOO_LONG: 'Esse prefixo é longo demais.',
+      NOT_PREFIX: 'Esse não é um prefixo desse servidor.',
+      PREFIX_ADD: p => `Prefixo \`${p}\` adicionado com sucesso à lista de prefixos.`,
+      PREFIX_REMOVE: p => `Prefixo \`${p}\` removido com sucesso da lista de prefixos.`,
+      PREFIX_SET: p => `Prefixo do servidor definido como \`${p}\` com sucesso.`,
+      FOOTER: 'Me mencionar também funciona como prefixo.'
+    },
+    LINKS: {
+      DESCRIPTION: 'Envia os links relacionados ao bot, como, por exemplo, o link de convite dele.',
+      USAGE: 'links',
+      LINKS: 'Links',
+      DONATION: 'Doação',
+      OTHER: 'Outros',
+      DISCORD_LINKS: (i, s) => `**Convide-me!**\n**Servidor de Suporte**`,
+      PATREON_LINK: p => `**Vire um Apoiador!**`,
+      OTHER_LINKS: (v, gh, g) => `**Vote no bot!**\n**GitHub Issues**\n**Guia do Starboard**`
+    },
+    BLACKLIST: {
+      DESCRIPTION: 'Vê informações sobre usuários, cargos ou canais na lista negra, ou modifica a lista.',
+      USAGE: 'blacklist (add/remove) ([usuário/cargo/canal]) --channel ([configuraçõesDeCanal])',
+      BLACKLIST: 'Lista negra',
+      USERS: 'Usuários',
+      ROLES: 'Cargos',
+      CHANNELS: 'Canais',
+      ALREADY_BLACKLISTED: s => `**${s}** já está na lista negra.`,
+      NOT_BLACKLISTED: s => `**${s}** não está na lista negra.`,
+      TOO_MANY_BLACKLISTED: 'Há itens demais na lista negra.',
+      NOTHING_BLACKLISTED: 'Não há nada na lista negra.',
+      BLACKLIST_ADD: s => `**${s}** adicionado à lista negra com sucesso.`,
+      BLACKLIST_ADD_CHANNELS: n => `${n} canais adicionados à lista negra com sucesso.`,
+      REMOVE_ALL: 'Tudo foi removido da lista negra com sucesso.',
+      BLACKLIST_REMOVE: s => `**${s}** removido da lista negra com sucesso.`
+    },
+    WHITELIST: {
+      DESCRIPTION: 'Vê informações sobre usuários ou cargos na lista branca, ou modifica a lista.',
+      USAGE: 'whitelist (add/remove) ([usuário/cargo]) --channel ([configuraçõesDeCanal])',
+      WHITELIST: 'Lista branca',
+      USERS: 'Usuários',
+      ROLES: 'Cargos',
+      NOT_FOUND: 'Eu não encontrei esse usuário ou cargo.',
+      ALREADY_WHITELISTED: s => `**${s}** já está na lista branca.`,
+      NOT_WHITELISTED: s => `**${s}** não está na lista branca.`,
+      TOO_MANY_WHITELISTED: 'Há itens demais na lista branca.',
+      NOTHING_WHITELISTED: 'Não há nada na lista branca.',
+      WHITELIST_ADD: s => `**${s}** adicionado à lista branca com sucesso.`,
+      REMOVE_ALL: 'Tudo foi removido da lista branca com sucesso.',
+      WHITELIST_REMOVE: s => `**${s}** removido da lista branca com sucesso.`
     }
   }
 }

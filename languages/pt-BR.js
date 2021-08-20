@@ -39,7 +39,7 @@ module.exports = {
       'Eu acho que isso é útil se você tem um servidor com um segundo bot de Starboard, mas essa opção foi feita principalmente para o servidor Discord Bot List, no qual esse bot não está mais. Ela pode ser removida no futuro.',
     CLEAN: 'Com isso habilitado, [Clique e pule para a mensagem!](https://youtu.be/KvxteMk0e84) e outros links/mídia não vão aparecer no fim das mensagens do starboard.',
     DOWNVOTE: 'Determina se usuários podem dar votos negativos nas mensagens estreladas. Quando uma mensagem é tirada do starboard por votos negativos, ela é automaticamente congelada e não pode mais voltar pra lá.',
-    BOTS_ON_LB: 'Determina se bots podem aparecer no leaderboard.',
+    BOTS_ON_LB: 'Determina se bots podem aparecer no placar de líderes.',
     ATTACHMENTS: 'Determina se mídias, tipo vídeos, devem ser anexadas à mensagem do starboard ao invés de apenas adicionadas como links.',
     NO_EXPLORE: p => `Determina se o comando \`${p}explore\` deve ser desativado para o servidor. Suas mensagens ainda vão aparecer nesse comando se a opção **Visible** estiver ativada.`,
     FILTER_BLACKLISTED: 'Determina se usuários na lista negra devem ser retirados do starboard.',
@@ -221,7 +221,7 @@ module.exports = {
       WHITELIST: 'Lista branca',
       USERS: 'Usuários',
       ROLES: 'Cargos',
-      NOT_FOUND: 'Eu não encontrei esse usuário ou cargo.',
+      NOT_FOUND: 'Eu não consegui encontrar esse usuário ou cargo.',
       ALREADY_WHITELISTED: s => `**${s}** já está na lista branca.`,
       NOT_WHITELISTED: s => `**${s}** não está na lista branca.`,
       TOO_MANY_WHITELISTED: 'Há itens demais na lista branca.',
@@ -229,6 +229,49 @@ module.exports = {
       WHITELIST_ADD: s => `**${s}** adicionado à lista branca com sucesso.`,
       REMOVE_ALL: 'Tudo foi removido da lista branca com sucesso.',
       WHITELIST_REMOVE: s => `**${s}** removido da lista branca com sucesso.`
+    },
+    REWARDROLES: {
+      DESCRIPTION: 'Visualiza as informações ou adiciona/remove cargos de recompensa, ou seja, cargos dados à usuários após conseguirem um número específico de estrelas.',
+      USAGE: 'rewardroles ([configuraçõesDeCanal]) (add/remove) ([cargo]) ([estrelas])',
+      NO_LEADERBOARD: 'O placar de líderes está desabilitado nesse servidor e, consequentemente, os cargos de recompensa.',
+      REWARD_ROLES: 'Cargos de Recompensa',
+      ROLE: 'Cargo',
+      STARS_NEEDED: 'Estrelas Necessárias',
+      RR_FEAT: 'customizar cargos de recompensa',
+      ROLE_NOT_FOUND: 'Esse não é um cargo válido.',
+      HIGHER_POSITION: 'Esse cargo é maior do que o meu maior cargo, então eu não consigo adicioná-lo a usuários.',
+      ROLE_MANAGED: 'Esse cargo é gerenciado automaticamente por uma integração e não pode ser adicionado manualmente a membros.',
+      HIGHER_THAN_USER: 'Você não pode adicionar esse cargo já que ele é maior ou igual ao seu maior cargo.',
+      TOO_HIGH: 'Esse número é grande demais.',
+      TOO_LOW: 'Esse número é pequeno demais.',
+      NOT_A_NUMBER: 'A quantidade de estrelas precisa ser um número.',
+      ADD_TOO_MANY: 'Você está adicionando estrelas demais a esse cargo de recompensa.',
+      SUBTRACT_TOO_MANY: 'Você está subtraindo estrelas demais desse cargo de recompensa.',
+      NOT_RR: 'Esse cargo não está definido como cargo de recompensa.'
+    },
+    FORCE: {
+      DESCRIPTION: 'Força ou recarrega uma mensagem no starboard.',
+      USAGE: 'force ([canal]) <[ID da mensagem]>',
+      NO_MESSAGE_ID: 'Por favor forneça um ID de mensagem. Se você não sabe como conseguir o ID de uma mensagem, você tem que habilitar o **Modo Desenvolvedor** nas configurações, clicar nos 3 pontos em uma mensagem e clicar em **Copiar ID**.',
+      INVALID_TYPE: 'O canal precisa ser de texto.',
+      TRASHED: 'Essa mensagem foi descartada e não pode ser forçada.',
+      FROZEN: 'Essa mensagem está congelada e não pode ser forçada ou recarregada até ser descongelada.',
+      NOT_FOUND: 'Eu não consegui encontrar essa mensagem.',
+      IS_STARBOARD_MESSAGE: 'Essa mensagem aparenta ser uma mensagem do starboard, então ela não pode ser forçada.',
+      IS_EXPLORE_MESSAGE: 'Essa mensagem aparenta ser uma mensagem do comando explore, então ela não pode ser forçada.',
+      CHANNEL_BLACKLISTED: 'Esse canal está na lista negra, então essa mensagem não pode ser forçada.',
+      FORCE_SUCCESS: 'Mensagem forçada no starboard com sucesso!',
+      POST_SUCCESS: 'Mensagem postada no starboard com sucesso!'
+    },
+    PURGE: {
+      DESCRIPTION: 'Limpa e congela um número de mensagens do starboard.',
+      USAGE: 'purge ([canal]) <[mensagens]> --before <[ID da mensagem]> --after <[ID da mensagem]>',
+      NOT_STARBOARD: 'Esse canal não é um canal de starboard.',
+      MISSING_PERMISSIONS: sb => `Eu não tenho permissão para excluir mensagens em massa no ${sb}.`,
+      MIGRATING: 'Eu não consigo limpar mensagens dos starboards no momento.',
+      ARE_YOU_SURE: 'Tem certeza?',
+      NOT_PURGED: 'Cancelando a limpeza do starboard.',
+      SUCCESS: (n, sb) => `${n} mensagens de ${sb} removidas e congeladas com sucesso.`
     }
   }
 }

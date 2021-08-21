@@ -9,7 +9,7 @@ module.exports = {
   GET_STARTED_EMBED: (req, prefix) => `Eu detectei um chat com o nome \`starboard\`, então será para lá que todas as mensagens estreladas irão de agora em diante. Você pode mudar depois, se quiser. 
   Nesse momento nesse servidor, as mensagens precisam de ${req} reação(ões) para serem postadas nesse chat, mas isso também pode ser mudado depois. 
   Você pode começar a me configurar nesse servidor com o comando \`${prefix}setup\`. Esse comando vai passar por todos as minhas configurações.
-  E o mais importante, divirta-se!`,
+  E o mais importante, divirta-se!`.stripIndents(),
   GET_STARTED_FOOTER: 'Agradecemos por usar o Starboard!',
   CANT_SPEAK: 'Eu não consigo falar nesse chat! Por favor, peça a um moderador para mudar minha permissão naquele chat, ou tente me usar em outro chat.',
   HELP: 'Ajuda',
@@ -24,7 +24,7 @@ module.exports = {
   FIND_USER_MORE_SPECIFIC: users => `Por favor, seja mais específico. Eu achei ${users} usuários disponíveis para a sua ação.`,
   FIND_USER_PROMPT: list => `Eu achei vários usuários disponíveis para a sua ação:
   ${list}
-  Por favor, responda com o número correspondente que você deseja.`,
+  Por favor, responda com o número correspondente que você deseja.`.stripIndents(),
   SETTINGS: {
     NSFW_STARBOARD_ID: 'Aqui é onde as mensagens estreladas de chats +18 irão. Se não estiver configurado, as mensagens desses chats irão para o starboard normal, com as imagens censuradas pela ferramenta de spoiler.',
     REQUIRED: 'Essa é a quantia de estrelas necessárias para uma mensagem ser postada no starboard.',
@@ -87,15 +87,16 @@ module.exports = {
   COMMANDS: {
     COOLDOWN_MESSAGE: time => `Você está usando esse comando muito rápido! Por favor espere ${time} antes de usá-lo novamente.`,
     COOLDOWN: 'Cooldown',
-    COMMAND_HELP_EMBED: (command, Embed, prefix, color, cooldown, requiredPermissions) => `// todo`,
     EVAL: {
       DESCRIPTION: 'Avalia um pedaço de código.',
-      USAGE: 'eval <código>'
+      USAGE: 'eval <código>',
+      NAME: 'eval'
     },
     HELP: {
       DESCRIPTION: 'Veja todos os comandos que o bot tem a oferecer, ou veja informações sobre um comando específico.',
       USAGE: 'help ([comando])',
-      EMBED_FOOTER: '() = opcional, <> = obrigatório, [] = espaço reservado, -- = flags opcionais - não inclua esses caracteres ao usar os comandos.'
+      EMBED_FOOTER: '() = opcional, <> = obrigatório, [] = espaço reservado, -- = flags opcionais - não inclua esses caracteres ao usar os comandos.',
+      NAME: 'ajuda'
     },
     PING: {
       DESCRIPTION: 'Verifica o ping, tempo de resposta e velocidade de edição do bot.',
@@ -105,11 +106,13 @@ module.exports = {
       SHARD: n => `Shard ${n}`,
       PING: 'Ping',
       LATENCY: 'Latência',
-      EDIT: 'Edição'
+      EDIT: 'Edição',
+      NAME: 'ping'
     },
     RELOAD: {
       DESCRIPTION: 'Recarrega comandos, eventos ou um arquivo.',
-      USAGE: 'reload <[comando]/event/file> ([evento]/[arquivo])'
+      USAGE: 'reload <[comando]/event/file> ([evento]/[arquivo])',
+      NAME: 'recarregar'
     },
     CHANGESETTING: {
       DESCRIPTION: 'Altera uma configuração para o canal ou para o servidor, como, por exemplo, o número de estrelas necessário para chegar no starboard. Todas as configurações estão no comando settings, então você pode ver as suas opções lá.',
@@ -151,31 +154,36 @@ module.exports = {
       ON_DELETION_NOTHING: 'Mensagens do starboard não vão mais ser repostadas, congeladas ou descartadas ao serem deletadas.',
       ON_DELETION_REPOST: 'Mensagens do starboard agora serão automaticamente repostadas quando forem deletadas por um moderador.',
       ON_DELETION_FREEZE: 'Mensagens estreladas agora serão automaticamente congeladas se a mensagem do starboard for deletada por um moderador.',
-      ON_DELETION_TRASH: 'Mensagens estreladas agora serão automaticamente descartadas se a mensagem do starboard for deletada por um moderador.'
+      ON_DELETION_TRASH: 'Mensagens estreladas agora serão automaticamente descartadas se a mensagem do starboard for deletada por um moderador.',
+      NAME: 'configurar'
     },
     LOCK: {
       DESCRIPTION: 'Trava uma mensagem estrelada no starboard, assim ela vai ficar lá até mesmo se chegar a 0 estrelas.',
       USAGE: 'lock <[ID da mensagem]>',
       SUCCESS: 'Mensagem travada no starboard com sucesso.',
-      FAILED: 'Essa mensagem já está travada.'
+      FAILED: 'Essa mensagem já está travada.',
+      NAME: 'travar'
     },
     UNLOCK: {
       DESCRIPTION: 'Destrava uma mensagem estrelada do starboard, assim ela pode ser removida normalmente.',
       USAGE: 'unlock <[ID da mensagem]>',
       SUCCESS: 'Mensagem destravada do starboard com sucesso.',
-      FAILED: 'Essa mensagem não está travada.'
+      FAILED: 'Essa mensagem não está travada.',
+      NAME: 'destravar'
     },
     FREEZE: {
       DESCRIPTION: 'Congela uma mensagem estrelada, assim ninguém pode adicionar ou remover estrelas.',
       USAGE: 'freeze <[ID da mensagem]>',
       SUCCESS: 'Mensagem congelada com sucesso.',
-      FAILED: 'Essa mensagem já está congelada.'
+      FAILED: 'Essa mensagem já está congelada.',
+      NAME: 'congelar'
     },
     UNFREEZE: {
       DESCRIPTION: 'Descongela uma mensagem estrelada, assim todos podem adicionar ou remover estrelas normalmente.',
       USAGE: 'unfreeze <[ID da mensagem]>',
       SUCCESS: 'Mensagem descongelada com sucesso.',
-      FAILED: 'Essa mensagem não está congelada.'
+      FAILED: 'Essa mensagem não está congelada.',
+      NAME: 'descongelar'
     },
     PREFIXES: {
       DESCRIPTION: 'Adiciona ou remove prefixos para o servidor, ou vê uma lista deles.',
@@ -187,7 +195,8 @@ module.exports = {
       PREFIX_ADD: p => `Prefixo \`${p}\` adicionado com sucesso à lista de prefixos.`,
       PREFIX_REMOVE: p => `Prefixo \`${p}\` removido com sucesso da lista de prefixos.`,
       PREFIX_SET: p => `Prefixo do servidor definido como \`${p}\` com sucesso.`,
-      FOOTER: 'Me mencionar também funciona como prefixo.'
+      FOOTER: 'Me mencionar também funciona como prefixo.',
+      NAME: 'prefixos'
     },
     LINKS: {
       DESCRIPTION: 'Envia os links relacionados ao bot, como, por exemplo, o link de convite dele.',
@@ -197,7 +206,8 @@ module.exports = {
       OTHER: 'Outros',
       DISCORD_LINKS: (i, s) => `**Convide-me!**\n**Servidor de Suporte**`,
       PATREON_LINK: p => `**Vire um Apoiador!**`,
-      OTHER_LINKS: (v, gh, g) => `**Vote no bot!**\n**GitHub Issues**\n**Guia do Starboard**`
+      OTHER_LINKS: (v, gh, g) => `**Vote no bot!**\n**GitHub Issues**\n**Guia do Starboard**`,
+      NAME: 'links'
     },
     BLACKLIST: {
       DESCRIPTION: 'Vê informações sobre usuários, cargos ou canais na lista negra, ou modifica a lista.',
@@ -213,7 +223,8 @@ module.exports = {
       BLACKLIST_ADD: s => `**${s}** adicionado à lista negra com sucesso.`,
       BLACKLIST_ADD_CHANNELS: n => `${n} canais adicionados à lista negra com sucesso.`,
       REMOVE_ALL: 'Tudo foi removido da lista negra com sucesso.',
-      BLACKLIST_REMOVE: s => `**${s}** removido da lista negra com sucesso.`
+      BLACKLIST_REMOVE: s => `**${s}** removido da lista negra com sucesso.`,
+      NAME: 'listanegra'
     },
     WHITELIST: {
       DESCRIPTION: 'Vê informações sobre usuários ou cargos na lista branca, ou modifica a lista.',
@@ -228,7 +239,8 @@ module.exports = {
       NOTHING_WHITELISTED: 'Não há nada na lista branca.',
       WHITELIST_ADD: s => `**${s}** adicionado à lista branca com sucesso.`,
       REMOVE_ALL: 'Tudo foi removido da lista branca com sucesso.',
-      WHITELIST_REMOVE: s => `**${s}** removido da lista branca com sucesso.`
+      WHITELIST_REMOVE: s => `**${s}** removido da lista branca com sucesso.`,
+      NAME: 'listabranca'
     },
     REWARDROLES: {
       DESCRIPTION: 'Visualiza as informações ou adiciona/remove cargos de recompensa, ou seja, cargos dados à usuários após conseguirem um número específico de estrelas.',
@@ -247,7 +259,8 @@ module.exports = {
       NOT_A_NUMBER: 'A quantidade de estrelas precisa ser um número.',
       ADD_TOO_MANY: 'Você está adicionando estrelas demais a esse cargo de recompensa.',
       SUBTRACT_TOO_MANY: 'Você está subtraindo estrelas demais desse cargo de recompensa.',
-      NOT_RR: 'Esse cargo não está definido como cargo de recompensa.'
+      NOT_RR: 'Esse cargo não está definido como cargo de recompensa.',
+      NAME: 'cargosderecompensa'
     },
     FORCE: {
       DESCRIPTION: 'Força ou recarrega uma mensagem no starboard.',
@@ -261,7 +274,8 @@ module.exports = {
       IS_EXPLORE_MESSAGE: 'Essa mensagem aparenta ser uma mensagem do comando explore, então ela não pode ser forçada.',
       CHANNEL_BLACKLISTED: 'Esse canal está na lista negra, então essa mensagem não pode ser forçada.',
       FORCE_SUCCESS: 'Mensagem forçada no starboard com sucesso!',
-      POST_SUCCESS: 'Mensagem postada no starboard com sucesso!'
+      POST_SUCCESS: 'Mensagem postada no starboard com sucesso!',
+      NAME: 'forçar'
     },
     PURGE: {
       DESCRIPTION: 'Limpa e congela um número de mensagens do starboard.',
@@ -271,7 +285,24 @@ module.exports = {
       MIGRATING: 'Eu não consigo limpar mensagens dos starboards no momento.',
       ARE_YOU_SURE: 'Tem certeza?',
       NOT_PURGED: 'Cancelando a limpeza do starboard.',
-      SUCCESS: (n, sb) => `${n} mensagens de ${sb} removidas e congeladas com sucesso.`
+      SUCCESS: (n, sb) => `${n} mensagens de ${sb} removidas e congeladas com sucesso.`,
+      NAME: 'limpar'
+    },
+    TRASH: {
+      DESCRIPTION: 'Descarta uma mensagem do starboard e mostra as primeiras 5 pessoas que reagiram a ela, checa se uma mensagem está na lista de mensagens descartadas, remove uma mensagem da lista de mensagens descartadas, limpa a lista ou vê os 100 primeiros IDs de mensagens da lista.',
+      USAGE: 'lixeira (add/remove/exists/clear/list) ([ID da mensagem])',
+      REASON_TOO_LONG: 'Seu motivo é longo demais.',
+      NOT_MESSAGE_ID: 'Por favor forneça um ID de mensagem.',
+      NOT_FOUND: 'Eu não consegui encontrar essa mensagem estrelada.',
+      ALREADY_TRASHED: 'Essa mensagem já foi descartada.',
+      NOT_TRASHED: 'Essa mensagem não foi descartada.',
+      TRASHED_MESSAGES: 'Mensagens Descartadas.',
+      AND_MORE: n => `\n\n...E mais ${n}.`,
+      NO_TRASHED: 'Não há nenhuma mensagem descartada.',
+      TRASH_SUCCESS: 'Mensagem descartada com sucesso.',
+      UNTRASH_SUCCESS: 'Mensagem removida da lixeira com sucesso. Agora ela pode ser estrelada de novo.',
+      CLEAR_TRASH: n => `${n} itens removidos da lixeira com sucesso.`,
+      NAME: 'lixeira'
     }
   }
 }

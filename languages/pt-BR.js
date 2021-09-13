@@ -303,6 +303,69 @@ module.exports = {
       UNTRASH_SUCCESS: 'Mensagem removida da lixeira com sucesso. Agora ela pode ser estrelada de novo.',
       CLEAR_TRASH: n => `${n} itens removidos da lixeira com sucesso.`,
       NAME: 'lixeira'
+    },
+    STARWORTHY: {
+      NAME: 'dignodeestrela',
+      DESCRIPTION: 'Checa se uma mensagem é digna de ser estrelada ou não :)',
+      USAGE: 'dignodeestrela <[ID da mensagem]>',
+      NOT_ID: 'Por favor forneça um ID de mensagem válido.'
+    },
+    CHANNELSETTINGS: {
+      NAME: 'configscanal',
+      DESCRIPTION: 'Vê informações sobre Configurações de Canal, ou cria/clona conjuntos de configurações de canal.',
+      USAGE: 'configscanal (list/create/edit/delete) ([nome]) (...[canais]) --channel ([configuraçõesDeCanal])',
+      NO_CHANNEL_SETTINGS: (prefix, guide) => `**Esse servidor não tem nenhuma configuração de canal.**
+      Para criar um novo conjunto de configurações de canal, execute \`${prefix}configscanal create ([nome]) <...[canais]>\`
+      
+      Configurações de Canal são configurações que só se aplicam a um grupo de canais.
+      Elas podem ter seus próprios starboard, emojis, cargos de recompensa, filtros e quase todo o resto que as configurações de servidor podem ter.
+      
+      **Saiba Mais**`.stripIndents(),
+      CHANNEL_SETTINGS: 'Configurações de Canal',
+      CHANNELS: 'Canais',
+      STARBOARD: 'Starboard',
+      AUTO_STAR: 'AutoEstrela',
+      NONE: 'Não Definido',
+      NAME_TOO_LONG: 'O nome não pode ter mais de 64 caracteres.',
+      HIT_MAX: 'Você atingiu a quantidade máxima de configurações para um servidor.',
+      PROVIDE_CHANNELS: 'Por favor forneça alguns canais para esse conjunto de configurações de canal.',
+      INVALID_CHANNELS: 'Você não forneceu canais válidos.',
+      DUPLICATE_CHANNELS: 'Os canais a serem fornecidos não podem já ter configurações de canal. Um canal pode estar em apenas um conjunto de configurações de canal.',
+      ARE_YOU_SURE: 'Tem certeza?',
+      CONFIRMATION_EMBED: name => `Tem certeza que quer deletar o conjunto **${name}** de configurações de canal?
+      Você vai perder todos os cargos de recompensa, lista negra/branca, filtros e outras configurações salvas desse conjunto, e elas serão perdidas para sempre.
+      Diga **yes** para continuar.`.stripIndents(),
+      NOT_DELETED: 'As configurações não serão deletadas.',
+      NOTHING_PROVIDED: 'Por favor forneça o nome de um conjunto de configurações de canal.',
+      NOTHING_MODIFIED: 'Por favor forneça edições a fazer.',
+      MODIFIED_NAME: n => `nome mudado para **${n}**`,
+      SUCCESS_DELETE: n => `**${n}** deletado com sucesso.`
+    },
+    SETTINGS: {
+      NAME: 'configs',
+      DESCRIPTION: 'Vê as configurações do servidor/canal, ou vê informações sobre uma configuração específica.',
+      USAGE: 'configs ([configuraçõesDeCanal]) ([configuração])',
+      SETTINGS: 'Configurações',
+      CHANNEL_SETTINGS: 'Configurações de Canal',
+      MAIN: 'Configurações Principais',
+      FILTERING: 'Filtros',
+      CUSTOMISATION: 'Customização',
+      EVENTS: 'Eventos',
+      DOWNVOTING: 'Votos Negativos',
+      AUTO_STAR: 'Auto Estrelar',
+      MISCELLANEOUS: 'Diversos',
+      STARS: 'Estrelas',
+      REQUIREMENTS: 'Requisitos',
+      COLORS: 'Cores',
+      EMBED_FOOTER: prefix => `Para ver informações sobre uma configuração específica, execute ${prefix}configs <configuração>`,
+      INVALID_SETTING: s => `**${s}** não é uma configuração válida.`,
+      INVALID_CHANNEL_SETTING: s => `**${s}** não é uma configuração válida para canais, ela só está disponível como configuração de servidor.`,
+      INVALID_GUILD_SETTING: s => `**${s}** não é uma configuração válida para servidores, ela só está disponível como configuração de canal.`,
+      EMBED_DESCRIPTION: (lock, name, desc) => `${lock} **Configuração**: ${name}\n${desc}`,
+      DATA: 'Dados',
+      VALUE: 'Valor',
+      DEFAULT: 'Padrão',
+      PERMISSION: 'Permissão'
     }
   }
 }

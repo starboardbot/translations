@@ -365,7 +365,24 @@ module.exports = {
       DATA: 'Dados',
       VALUE: 'Valor',
       DEFAULT: 'Padrão',
-      PERMISSION: 'Permissão'
+      PERMISSION: 'Permissão',
+      SETTING_ALIASES: 'Outros nomes',
+      NONE: 'Nenhum',
+      MISSING_PERMISSIONS: p => `Você precisa ter as permissões ${p} para alterar configurações.`,
+      CANT_CHANGE: reason => `Você não pode alterar essa configuração: ${reason}`,
+      USE_ALIASES: 'Você também pode usar qualquer um desses nomes para alterar/ver essa configuração.'
+    },
+    SETUP: {
+      NAME: 'setup',
+      DESCRIPTION: 'Configura o bot em um servidor ou canal, guiando você pelas configurações básicas.',
+      USAGE: 'setup ([canal])',
+      SETUP: 'Setup',
+      EMBED_FOOTER: (n, total) => `Você pode parar, pular ou pular para o fim a qualquer momento. Configuração ${n}/${total}`,
+      SETTING: 'Configuração',
+      SETTING_SKIPPED: 'Pulou a configuração.',
+      MISSING_PERMISSIONS: 'O bot não tem a permissão `Gerenciar Canais`, necessária para criar canais.',
+      CREATE_CHANNEL_FAIL: 'Algo deu errado ao tentar criar um canal de starboard.',
+      CREATE_CHANNEL_SUCCESS: c => `Canal de starboard criado com sucesso: ${c}`
     }
   }
 }

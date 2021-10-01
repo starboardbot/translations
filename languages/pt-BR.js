@@ -465,6 +465,135 @@ module.exports = {
         'Diga **yes** para continuar.',
       NOT_RESET: 'Reset do placar de líderes cancelado.',
       SUCCESS_RESET: 'Placar de líderes resetado com sucesso.'
+    },
+    HALLOFFAME: {
+      NAME: 'halldafama',
+      DESCRIPTION: 'Mostra o Hall da Fama desse servidor, ou adiciona/remove mensagens dele. Você também pode adicionar mensagens reagindo com o atalho 🏆.',
+      USAGE: 'halldafama (add/remove/[página]) ([ID da mensagem])',
+      TITLE: 'Hall da Fama',
+      NOTHING: p => `Nada para exibir.\nModeradores podem adicionar uma mensagem ao hall da fama usando \`${p}halldafama add <[ID da mensagem]>\`, ou reagindo com o atalho 🏆.`,
+      EMBED_DESCRIPTION: 'Este é o Hall da Fama, mensagens que "pertencem a um museu" - as melhores mensagens no servidor. Essas mensagens foram escolhidas por vários moderadores, então aparecer aqui é uma grande conquista. Aqui está a lista:',
+      PAGE: (p, t) => `Página ${p}/${t}`,
+      NOT_FOUND: 'Eu não consegui encontrar essa mensagem estrelada.',
+      ALREADY_ON: 'Essa mensagem já está no Hall da Fama.',
+      MAX: 'Você atingiu o máximo de 100 mensagens no Hall da Fama.',
+      NOT_ON: 'Essa mensagem não está no Hall da Fama.',
+      ARE_YOU_SURE: 'Tem certeza?',
+      CONFIRMATION_EMBED: 'Tem certeza que você quer remover todas as mensagens do Hall da Fama?\n' +
+        'Diga **yes** para continuar.',
+      CANCELLED: 'Remoção de todas as mensagens do Hall da Fama cancelada.',
+      SUCCESS_ADD: 'Mensagem adicionada ao Hall da Fama com sucesso.',
+      SUCCESS_REMOVE: 'Mensagem removida do Hall da Fama com sucesso.',
+      SUCCESS_REMOVE_ALL: 'Tudo foi removido do Hall da Fama com sucesso.'
+    },
+    STATS: {
+      NAME: 'stats',
+      DESCRIPTION: 'Veja as estatísticas de um usuário, ou resete-as.',
+      USAGE: 'stats ([usuário]) --reset',
+      SUCCESS_RESET: u => `Estatísticas de **${u}** no placar de líderes resetadas com sucesso. Note que apenas o primeiro conjunto de estatísticas (Estrelas, Vezes no Starboard, Pontos Globais etc) pode ser resetado.`,
+      STARS: 'Estrelas',
+      STARBOARDED: 'Vezes No Starboard',
+      GLOBAL_POINTS: 'Pontos Globais',
+      DOWNVOTES: 'Votos Negativos',
+      TRASHED: 'Descartadas',
+      MESSAGES_STARRED: 'Mensagens Estreladas',
+      LOCKED: 'Mensagens Travadas',
+      FROZEN: 'Mensagens Congeladas',
+      CURRENTLY_TRASHED: 'Mensagens Na Lixeira Agora',
+      ON_STARBOARD_BEFORE: 'Mensagens Que Estiveram No Starboard',
+      AVG_STARS_PER_MESSAGE: 'Média De Estrelas Por Mensagem',
+      STARRED_CHANNEL: 'Mais Estrelas Ganhas Em',
+      MOST_STARRED: 'Pico De Estrelas Em Uma Mensagem',
+      PERCENT_LOCKED: '% Travado',
+      PERCENT_FROZEN: '% Congelado',
+      PERCENT_TRASHED: '% Descartado',
+      STARRED_MESSAGES_BY_YOU: '% De Mensagens Estreladas Por Você',
+      CHANCE_ON_STARBOARD: 'Chance No Starboard',
+      WORLDWIDE: 'Estatísticas Globais',
+      TOTAL_STARS: 'Total De Estrelas',
+      HALL_OF_FAME: 'Mensagens No Hall Da Fama',
+      HALL_OF_FAME_BY_YOU: 'Entradas Do Hall Da Fama Por Você',
+      NONE: 'Nenhum'
+    },
+    FILTERS: {
+      NAME: 'filtros',
+      DESCRIPTION: 'Veja, crie ou edite filtros usados para filtrar mensagens de serem estreladas.',
+      USAGE: 'filtros ([configuraçõesDeCanal]) (add/remove/list/edit) (content/attachments/age/[númeroDoFiltro]) (...[opções]) --explain --options',
+      SUCCESS_REMOVE: n => `Filtro ${n} removido com sucesso.`,
+      SUCCESS_REMOVE_ALL: 'Todos os filtros removidos com sucesso.',
+      REGEX_SAME: 'As regex/strings para filtrar e para não filtrar não podem ser iguais.',
+      MEDIA_REQUIRED_MAX: 'Você não pode tornar mídia obrigatória quando o máximo de anexos é 0.',
+      REQUIRED_MAX: 'Conteúdo não pode ser obrigatório quando o máximo de caracteres é 0.',
+      AGE_RELATIVE: 'Um filtro de idade não pode ter tempo relativo (x dias x horas x minutos) e tempo estático (uma data, isto é, dd/mm/aaaa) simultaneamente.',
+      INVALID_REGEX: (t, e) => `Uma regex inválida foi fornecida para **${t}**: ${e}`,
+      REGEX_TOO_LONG: 'Essa regex é muito longa.',
+      AUTO_STAR_AGE: 'A opção **AutoStar** não pode ser usada para filtros de idade.',
+      FILTERS: 'Filtros',
+      OPTIONS: (p, guide) => `Os tipos de filtro disponíveis no momento são **Content** (Conteúdo), **Attachments** (Anexos) e **Age** (Idade).
+      As opções disponíveis são:
+      **__Content__**
+      - Required yes/no
+      - Minimum [número]
+      - Maximum [número]
+      - IsReply yes/no/none
+      - Match [texto/regex]
+      - NotMatch [texto/regex]
+      - AutoStar yes/no/none
+      
+      **__Attachments__**
+      - Required yes/no
+      - Minimum [número]
+      - Maximum [número]
+      - MediaRequired yes/no
+      - AutoStar yes/no/none
+      
+      **__Age__**
+      - NewerThan [tempo/data]
+      - OlderThan [tempo/data]
+      
+      Para criar um filtro, execute \`${p}filters add <content/attachments/age> <...[opções]>\`
+      
+      **Saiba Mais**`.stripIndents(),
+      DESCRIBE: 'Para que uma mensagem seja estrelada, ela precisa:',
+      REQUIRED_CONTENT: 'ter conteúdo',
+      MIN_CONTENT: n => `ter conteúdo maior ou igual a **${n}** caracteres`,
+      MAX_CONTENT: n => `ter conteúdo menor ou igual a **${n}** caracteres`,
+      MATCH_REGEX: (rgx, flags) => `corresponder à regex \`/${rgx}/${flags}\``,
+      INCLUDES: str => `incluir \`${str}\``,
+      NOT_MATCH_REGEX: (rgx, flags) => `não corresponder à regex \`/${rgx}/${flags}\``,
+      NOT_INCLUDES: str => `não incluir \`${str}\``,
+      REQUIRED_ATTACHMENT: 'ter pelo menos **um** anexo/embed',
+      MIN_ATTACHMENTS: n => `não ter menos que **${n}** anexos`,
+      MAX_ATTACHMENTS: n => `não ter mais que **${n}** anexos`,
+      MEDIA_REQUIRED: 'ter pelo menos **uma** imagem, vídeo ou outras formas de mídia',
+      MIN_AGE: t => `ser mais velha que \`${t}\``,
+      SENT_BEFORE: t => `ser enviada antes de \`${t}\``,
+      MAX_AGE: t => `ser mais nova que \`${t}\``,
+      SENT_AFTER: t => `ser enviada depois de \`${t}\``,
+      APPLIES_TO: list => `Esse filtro se aplica a ${list}`,
+      DOES_NOT_APPLY_TO: list => `Esse filtro não se aplica a ${list}`,
+      NOT_SET: 'Não definido',
+      REQUIRED_NAME: 'Obrigatório',
+      MIN_NAME: 'Mínimo',
+      MAX_NAME: 'Máximo',
+      IS_REPLY_NAME: 'É Reply',
+      MATCH_NAME: 'Regex a Combinar',
+      INCLUDES_NAME: 'Inclui',
+      NOT_MATCH_NAME: 'Regex a Não Combinar',
+      NOT_INCLUDES_NAME: 'Exclui',
+      MEDIA_REQUIRED_NAME: 'Mídia Obrigatória',
+      MIN_AGE_NAME: 'Mais Velha Que',
+      AFTER_NAME: 'Enviada Após',
+      MAX_AGE_NAME: 'Mais Nova Que',
+      BEFORE_NAME: 'Enviada Antes De',
+      APPLIES_TO_NAME: 'Se Aplica a',
+      DOES_NOT_APPLY_TO_NAME: 'Não Se Aplica a',
+      AUTO_STAR_NAME: 'Mensagens Estreladas Automaticamente',
+      NOONE: 'ninguém',
+      CONTENT: 'Filtro De Conteúdo Da Mensagem',
+      ATTACHMENTS: 'Filtro De Anexos Da Mensagem',
+      AGE: 'Filtro De Idade Da Mensagem',
+      FILTER_PAGE: (n, t) => `Filtro ${n}/${t}`
     }
   }
 }

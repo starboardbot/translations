@@ -308,7 +308,8 @@ module.exports = {
       NAME: 'dignodeestrela',
       DESCRIPTION: 'Checa se uma mensagem é digna de ser estrelada ou não :)',
       USAGE: 'dignodeestrela <[ID da mensagem]>',
-      NOT_ID: 'Por favor forneça um ID de mensagem válido.'
+      NOT_ID: 'Por favor forneça um ID de mensagem válido.',
+      WORTHY: p => `Essa mensagem é ${p}% digna de estrela.`
     },
     CHANNELSETTINGS: {
       NAME: 'configscanal',
@@ -594,6 +595,40 @@ module.exports = {
       ATTACHMENTS: 'Filtro De Anexos Da Mensagem',
       AGE: 'Filtro De Idade Da Mensagem',
       FILTER_PAGE: (n, t) => `Filtro ${n}/${t}`
+    },
+    DEBUG: {
+      NAME: 'depurar',
+      DESCRIPTION: 'Depure e ache o porquê de uma mensagem, mensagens em um canal específico, ou todas as mensagens não estarem sendo estreladas.',
+      USAGE: 'depurar ([canal]) ([IDdeMensagem]) --autoStar',
+      DEBUG: 'Depuração',
+      NO_STARBOARDS: 'Não há nenhum starboard definido para esse servidor.',
+      MISSING_READ: c => `Eu não posso ver ${c}, por favor ative a permissão \`Ver Canal\`.`,
+      MISSING_HISTORY: c => `Eu não posso ler o histórico de mensagens em ${c}, por favor ative a permissão \`Ver Histórico de Mensagens\`.`,
+      MISSING_EMBEDS: c => `Eu não posso enviar embeds em ${c}, por favor ative a permissão \`Inserir Links\`.`,
+      MISSING_FILES: c => `Eu não posso anexar arquivos em ${c}, então arquivos não serão anexados na mensagem do starboard mas sim enviados como links. Por favor ative a permissão \`Anexar Arquivos\` se você quer anexos.`,
+      MESSAGE_NOT_EXISTS: (id, c) => `Não foi encontrada uma mensagem com o ID \`${id}\` em ${c}`,
+      TRASHED: 'Essa mensagem está descartada.',
+      FROZEN: 'Essa mensagem está congelada e não pode ganhar ou perder nenhuma estrela.',
+      FILTER_BOTS: 'Mensagens enviadas por bots não podem ser estreladas porque a configuração **FilterBots** está ativada.',
+      CONTENT_REQUIRED: 'Essa mensagem não tem conteúdo, e conteúdo é obrigatório.',
+      CONTENT_MIN: (n, l) => `O comprimento dessa mensagem precisa ser de ${n} ou mais caracteres, e no momento é ${l}.`,
+      CONTENT_MAX: (n, l) => `O comprimento dessa mensagem excede o limite de ${n} caracteres. (${l})`,
+      ATTACHMENT_REQUIRED: 'Um anexo ou embed é obrigatório e essa mensagem não tem nenhum.',
+      ATTACHMENT_MIN: (m, n) => `Essa mensagem precisa ter ${m} ou mais anexos/embeds, e no momento tem ${n}.`,
+      MEDIA_REQUIRED: 'Essa mensagem não tem nenhuma mídia, e mídia é obrigatória. (Imagens, GIFs, vídeos, etc)',
+      OLDER_THAN: (t, curr) => `Essa mensagem precisa ser mais velha que ${t} para ser estrelada, e no momento tem ${curr} de idade.`,
+      SENT_BEFORE: (t, sent) => `Essa mensagem precisa ter sido enviada antes de ${t} para ser estrelada, e ela foi enviada em ${sent}.`,
+      NEWER_THAN: (t, curr) => `Essa mensagem precisa ser mais nova que ${t} para ser estrelada, e no momento tem ${curr} de idade.`,
+      SENT_AFTER: (t, sent) => `Essa mensagem precisa ter sido enviada depois de ${t} para ser estrelada, e ela foi enviada em ${sent}.`,
+      REQUIRED_STARS: (r, s, emojis) => `Essa mensagem precisa de ${r} estrelas (${emojis}) para chegar no starboard, e no momento ela só tem ${s}.`,
+      CHANNEL_SETTINGS: 'Configurações de Canal',
+      STARBOARD: 'Starboard',
+      REQUIRED: 'Necessárias',
+      EMOJI: 'Emoji',
+      STAR_SELF: 'StarSelf',
+      BLACKLISTED_ITEMS: 'Itens na Lista Negra',
+      FILTERS: 'Filtros',
+      NOT_SET: 'não definido'
     }
   }
 }

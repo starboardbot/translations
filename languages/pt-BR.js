@@ -629,6 +629,109 @@ module.exports = {
       BLACKLISTED_ITEMS: 'Itens na Lista Negra',
       FILTERS: 'Filtros',
       NOT_SET: 'não definido'
+    },
+    BOTINFO: {
+      NAME: 'botinfo',
+      DESCRIPTION: 'Veja informações sobre o bot.',
+      USAGE: 'botinfo (bot/star)',
+      BOT_STATS: 'Estatísticas do Bot',
+      STARRED_STATS: 'Estatísticas de Mensagens Estreladas',
+      SYSTEM_STATS: 'Estatísticas do Sistema',
+      SERVERS: 'Servidores',
+      USERS: 'Usuários',
+      MESSAGES: 'Mensagens',
+      CHANNELS: 'Canais',
+      COMMANDS_RUN: 'Comandos Executados',
+      PING: 'Ping',
+      UPTIME: 'Tempo de Atividade',
+      CREATED_AT: 'Criação do Bot',
+      JOINED_AT: 'Entrou no Servidor',
+      COMMANDS: 'Comandos',
+      VERSION: 'Versão',
+      STARRED_MESSAGES: 'Mensagens Estreladas',
+      LIFETIME_STARRED_MESSAGES: 'Total de Mensagens Estreladas',
+      MOST_STARS: 'Maior Quantidade de Estrelas em uma Mensagem',
+      TOTAL_STARS: 'Total de Estrelas',
+      UPVOTES: 'Estrelas Registradas',
+      GLOBAL: 'Pontos Globais Registrados',
+      TRASHED: 'Mensagens Descartadas',
+      POSTED_MESSAGES: 'Mensagens Postadas',
+      EDITED_MESSAGES: 'Mensagens Editadas',
+      REWARD_ROLES: 'Cargos de Recompensa Concedidos',
+      LOCKED: 'Mensagens Travadas',
+      FROZEN: 'Mensagens Congeladas',
+      SAVED: 'Mensagens Enviadas a DMs',
+      QUICK_ACTIONS: 'Atalhos Executados',
+      CPU: 'CPU',
+      DISK_USAGE: 'Uso de Disco',
+      MEMORY_USAGE: 'Uso de Memória',
+      PROCESS_UPTIME: 'Tempo de Atividade do Processo',
+      PLATFORM: 'Plataforma',
+      LIBRARY: 'Biblioteca'
+    },
+    SHOW: {
+      NAME: 'mostrar',
+      DESCRIPTION: 'Visualize qualquer mensagem estrelada, ou a mensagem mais estrelada.',
+      USAGE: 'mostrar <moststarred/[IDdeMensagem]>',
+      NOT_FOUND: 'Eu não consegui encontrar essa mensagem estrelada.',
+      STARRED_MESSAGE: 'Mensagem Estrelada',
+      COULD_NOT_OBTAIN: 'Eu não consegui obter essa mensagem estrelada. A razão provável é de que ambas as mensagens foram deletadas, o canal foi deletado ou eu não posso mais ver o canal. Mas de qualquer forma, aqui estão algumas informações sobre isso:',
+      STARS: 'Estrelas',
+      GLOBAL: 'Pontos Globais',
+      AUTHOR: 'Autor',
+      CHANNEL: 'Canal'
+    },
+    SHARDS: {
+      NAME: 'shards',
+      DESCRIPTION: 'Informações sobre os shards',
+      USAGE: 'shards'
+    },
+    SUGGEST: {
+      NAME: 'sugerir',
+      DESCRIPTION: 'Sugira qualquer coisa que você acha que esse bot deveria ter/mudar.',
+      USAGE: 'sugerir <[sugestão]>',
+      NEED_VOTE: (vote, support) => `A fim de reduzir spam, você tem que **votar para o bot** para fazer sugestões fora do **servidor de suporte**.`,
+      NO_INPUT: 'Por favor forneça uma sugestão a fazer.',
+      ATTACHMENTS_NSFW: 'Anexos não podem ser usados em sugestões se feitas em um canal de conteúdo adulto.',
+      SUGGESTION: 'Sugestão',
+      THANK_YOU: link => `Muito obrigado pela sua sugestão, elas realmente ajudam bastante o desenvolvimento desse bot. Você pode ver a sua sugestão **aqui**, onde pessoas votam nela.`
+    },
+    GENERATE: {
+      NAME: 'gerar',
+      DESCRIPTION: 'Gera um código premium',
+      USAGE: 'gerar ([código])'
+    },
+    REDEEM: {
+      NAME: 'resgatar',
+      DESCRIPTION: 'Resgata um código premium',
+      USAGE: 'resgatar <[código]>',
+      SUPPORT: 'Por favor resgate códigos do Starboard Premium no servidor que você realmente quer que tenha o Starboard Premium.',
+      CODE_USED: 'Esse código já foi resgatado.',
+      CODE_INVALID: 'Desculpe, esse não é um código válido.',
+      ALREADY_PREMIUM: 'Esse servidor já tem premium vitalício, então um código não pode ser resgatado.',
+      EXTRA_PREMIUM: months => `O código foi resgatado com sucesso. Esse servidor agora tem Starboard Premium por um mês extra, para um total de ${months} meses.`
+    },
+    PREMIUM: {
+      NAME: 'premium',
+      DESCRIPTION: 'Veja informações sobre premium, ou seu status premium.',
+      USAGE: 'premium',
+      PREMIUM: 'Starboard Premium',
+      HAVE_PREMIUM: n => `No momento, você tem premium ativo em ${n} servidores.`,
+      SINCE: 'Desde',
+      EXPIRES: 'Expira em',
+      NEVER: 'Nunca',
+      DONATED: 'Obrigado por doar e apoiar o desenvolvimento do Starboard!',
+      PREMIUM_INFO: idonated => `__**Doando**, você ganha (permanentemente):__
+      - Um cargo de Doador e um chat exclusivo para doadores no nosso servidor de suporte.
+      - Um emblema ${idonated} que aparece em todas as suas mensagens no starboard.
+      
+      __Obtendo **Starboard Premium**, você pode:__
+      - Reivindicar um cargo de Premium no nosso servidor de suporte.
+      *E em um servidor de sua escolha...*
+      - Ter até 5 emojis.
+      - Ter até 25 conjuntos de configurações de canal.
+      - Ter a capacidade de **votar negativamente** em mensagens do starboard.
+      - Ter todas as embeds em respostas de comando configuradas para ser a mesma cor definida para mensagens do starboard.`.stripIndents()
     }
   }
 }

@@ -732,6 +732,58 @@ module.exports = {
       - Ter até 25 conjuntos de configurações de canal.
       - Ter a capacidade de **votar negativamente** em mensagens do starboard.
       - Ter todas as embeds em respostas de comando configuradas para ser a mesma cor definida para mensagens do starboard.`.stripIndents()
+    },
+    LANGUAGES: {
+      NAME: 'idioma',
+      DESCRIPTION: 'Veja uma lista de todos os idiomas, ou defina o idioma para o servidor.',
+      USAGE: 'idioma ([idioma])',
+      LANGUAGES: 'Idiomas',
+      SUCCESS: l => `Idioma do servidor definido como **${l}** com sucesso.`
+    },
+    QUICKACTIONS: {
+      NAME: 'atalhos',
+      DESCRIPTION: 'Veja mais informações sobre Atalhos.',
+      USAGE: 'atalhos',
+      QUICK_ACTIONS: 'Atalhos',
+      EMBED_DESCRIPTION: (enabled, prefix) => `**Enabled**: ${enabled}
+      
+      Atalhos permitem que usuários realizem ações rapidamente em mensagens do starboard, como travar, congelar, deletar ou salvar, apenas reagindo na mensagem do starboard com emojis específicos.
+      __Aqui está a lista de Atalhos para moderadores:__
+      🗑️: Descarta a mensagem
+      🔒: Trava a mensagem
+      🔓: Destrava a mensagem
+      🧊/❄️: Congela a mensagem
+      🔥: Descongela a mensagem
+      🔄/🔁: Reconta as estrelas da mensagem
+      🏆/🏅: Inclui no Hall da Fama
+      ❌/🇽: Deleta a mensagem do starboard
+      📌/📍: Força no starboard
+      
+      __E para todos:__
+      📥/💾: Salva a mensagem estrelada na DM
+      ❌/🇽: Deleta uma mensagem do starboard que lhes pertence.
+      
+      **Nota**: O atalho forçar 📌/📍 tem que ser usado na mensagem original.
+      **Dica**: Se você não quer que usuários usem os Atalhos para todos, você pode desativar a permissão \`Adicionar Reações\` deles.
+      
+      Para ativar/desativar Atalhos, execute \`${prefix}configurar quickActions <true/false/yes/no>\``.stripIndents()
+    },
+    SAVE: {
+      NAME: 'salvar',
+      DESCRIPTION: 'Salva uma mensagem estrelada ou uma mensagem normal na sua DM.',
+      USAGE: 'salvar ([canal]) <[IDdeMensagem]>',
+      RECENTLY_SAVED: 'Essa mensagem já foi salva recentemente.',
+      DMS_CLOSED: 'Eu não posso te mandar essa mensagem porque sua DM está fechada.',
+      SUCCESS: 'Essa mensagem foi enviada à sua DM com sucesso.',
+      FAIL: 'Algo deu errado ao tentar te enviar essa mensagem.',
+      NO_MESSAGE_ID: 'Por favor forneça um ID de mensagem.'
     }
+  },
+  LANGUAGES: {
+    EN_GB: 'Inglês (GB)',
+    EN_US: 'Inglês (US)',
+    LT_LT: 'Lituano',
+    TR_TR: 'Turco',
+    FUWWY: 'Fuwwy'
   }
 }

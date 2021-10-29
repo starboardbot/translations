@@ -159,28 +159,28 @@ module.exports = {
     },
     LOCK: {
       DESCRIPTION: 'Trava uma mensagem estrelada no starboard, assim ela vai ficar lá até mesmo se chegar a 0 estrelas.',
-      USAGE: 'lock <[ID da mensagem]>',
+      USAGE: 'lock <[IDdeMensagem]>',
       SUCCESS: 'Mensagem travada no starboard com sucesso.',
       FAILED: 'Essa mensagem já está travada.',
       NAME: 'travar'
     },
     UNLOCK: {
       DESCRIPTION: 'Destrava uma mensagem estrelada do starboard, assim ela pode ser removida normalmente.',
-      USAGE: 'unlock <[ID da mensagem]>',
+      USAGE: 'unlock <[IDdeMensagem]>',
       SUCCESS: 'Mensagem destravada do starboard com sucesso.',
       FAILED: 'Essa mensagem não está travada.',
       NAME: 'destravar'
     },
     FREEZE: {
       DESCRIPTION: 'Congela uma mensagem estrelada, assim ninguém pode adicionar ou remover estrelas.',
-      USAGE: 'freeze <[ID da mensagem]>',
+      USAGE: 'freeze <[IDdeMensagem]>',
       SUCCESS: 'Mensagem congelada com sucesso.',
       FAILED: 'Essa mensagem já está congelada.',
       NAME: 'congelar'
     },
     UNFREEZE: {
       DESCRIPTION: 'Descongela uma mensagem estrelada, assim todos podem adicionar ou remover estrelas normalmente.',
-      USAGE: 'unfreeze <[ID da mensagem]>',
+      USAGE: 'unfreeze <[IDdeMensagem]>',
       SUCCESS: 'Mensagem descongelada com sucesso.',
       FAILED: 'Essa mensagem não está congelada.',
       NAME: 'descongelar'
@@ -264,7 +264,7 @@ module.exports = {
     },
     FORCE: {
       DESCRIPTION: 'Força ou recarrega uma mensagem no starboard.',
-      USAGE: 'force ([canal]) <[ID da mensagem]>',
+      USAGE: 'force ([canal]) <[IDdeMensagem]>',
       NO_MESSAGE_ID: 'Por favor forneça um ID de mensagem. Se você não sabe como conseguir o ID de uma mensagem, você tem que habilitar o **Modo Desenvolvedor** nas configurações, clicar nos 3 pontos em uma mensagem e clicar em **Copiar ID**.',
       INVALID_TYPE: 'O canal precisa ser de texto.',
       TRASHED: 'Essa mensagem foi descartada e não pode ser forçada.',
@@ -279,7 +279,7 @@ module.exports = {
     },
     PURGE: {
       DESCRIPTION: 'Limpa e congela um número de mensagens do starboard.',
-      USAGE: 'purge ([canal]) <[mensagens]> --before <[ID da mensagem]> --after <[ID da mensagem]>',
+      USAGE: 'purge ([canal]) <[mensagens]> --before <[IDdeMensagem]> --after <[IDdeMensagem]>',
       NOT_STARBOARD: 'Esse canal não é um canal de starboard.',
       MISSING_PERMISSIONS: sb => `Eu não tenho permissão para excluir mensagens em massa no ${sb}.`,
       MIGRATING: 'Eu não consigo limpar mensagens dos starboards no momento.',
@@ -290,7 +290,7 @@ module.exports = {
     },
     TRASH: {
       DESCRIPTION: 'Descarta uma mensagem do starboard e mostra as primeiras 5 pessoas que reagiram a ela, checa se uma mensagem está na lista de mensagens descartadas, remove uma mensagem da lista de mensagens descartadas, limpa a lista ou vê os 100 primeiros IDs de mensagens da lista.',
-      USAGE: 'lixeira (add/remove/exists/clear/list) ([ID da mensagem])',
+      USAGE: 'lixeira (add/remove/exists/clear/list) ([IDdeMensagem])',
       REASON_TOO_LONG: 'Seu motivo é longo demais.',
       NOT_MESSAGE_ID: 'Por favor forneça um ID de mensagem.',
       NOT_FOUND: 'Eu não consegui encontrar essa mensagem estrelada.',
@@ -307,7 +307,7 @@ module.exports = {
     STARWORTHY: {
       NAME: 'dignodeestrela',
       DESCRIPTION: 'Checa se uma mensagem é digna de ser estrelada ou não :)',
-      USAGE: 'dignodeestrela <[ID da mensagem]>',
+      USAGE: 'dignodeestrela <[IDdeMensagem]>',
       NOT_ID: 'Por favor forneça um ID de mensagem válido.',
       WORTHY: p => `Essa mensagem é ${p}% digna de estrela.`
     },
@@ -400,7 +400,7 @@ module.exports = {
     MESSAGEINFO: {
       NAME: 'sobremensagem',
       DESCRIPTION: 'Vê informações sobre uma mensagem estrelada.',
-      USAGE: 'sobremensagem <[ID da mensagem]>',
+      USAGE: 'sobremensagem <[IDdeMensagem]>',
       NO_MESSAGE_ID: 'Por favor forneça um ID de mensagem.',
       NOT_FOUND: 'Eu não consegui achar essa mensagem estrelada.',
       STARRED_MESSAGE_INFO: 'Sobre a Mensagem Estrelada',
@@ -431,7 +431,7 @@ module.exports = {
     MIGRATE: {
       NAME: 'migrar',
       DESCRIPTION: 'Escaneia até as últimas 1000 mensagens no starboard procurando por postagens de outros bots de starboard e converte elas em mensagens estreladas desse bot. Opcionalmente, você também pode fornecer um ID de mensagem como referência para o starboard escanear antes ou depois.',
-      USAGE: 'migrar ([starboard]) ([limite]) --after <[ID de mensagem]> --before <[ID de mensagem]>',
+      USAGE: 'migrar ([starboard]) ([limite]) --after <[IDdeMensagem]> --before <[IDdeMensagem]>',
       NO_STARBOARD: 'Não há nenhum starboard definido para esse servidor.',
       MISSING_PERMISSIONS: sb => `Eu não tenho permissão para deletar mensagens em ${sb}. Note que eu não vou deletar uma mensagem antes que ela seja migrada com sucesso.`,
       MIGRATE: 'Migrar',
@@ -470,9 +470,9 @@ module.exports = {
     HALLOFFAME: {
       NAME: 'halldafama',
       DESCRIPTION: 'Mostra o Hall da Fama desse servidor, ou adiciona/remove mensagens dele. Você também pode adicionar mensagens reagindo com o atalho 🏆.',
-      USAGE: 'halldafama (add/remove/[página]) ([ID da mensagem])',
+      USAGE: 'halldafama (add/remove/[página]) ([IDdeMensagem])',
       TITLE: 'Hall da Fama',
-      NOTHING: p => `Nada para exibir.\nModeradores podem adicionar uma mensagem ao hall da fama usando \`${p}halldafama add <[ID da mensagem]>\`, ou reagindo com o atalho 🏆.`,
+      NOTHING: p => `Nada para exibir.\nModeradores podem adicionar uma mensagem ao hall da fama usando \`${p}halldafama add <[IDdeMensagem]>\`, ou reagindo com o atalho 🏆.`,
       EMBED_DESCRIPTION: 'Este é o Hall da Fama, mensagens que "pertencem a um museu" - as melhores mensagens no servidor. Essas mensagens foram escolhidas por vários moderadores, então aparecer aqui é uma grande conquista. Aqui está a lista:',
       PAGE: (p, t) => `Página ${p}/${t}`,
       NOT_FOUND: 'Eu não consegui encontrar essa mensagem estrelada.',

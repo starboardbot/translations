@@ -1142,6 +1142,7 @@ module.exports = {
   LANGUAGES: {
     EN_GB: "English (GB)",
     EN_US: "English (US)",
+    ES: "Spanish",
     LT_LT: "Lithuanian",
     TR_TR: "Turkish",
     FUWWY: "Fuwwy",

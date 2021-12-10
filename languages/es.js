@@ -143,6 +143,65 @@ module.exports = {
     }
   },
 
+  COMMANDS: {
+    COOLDOWN_MESSAGE: time => `¡Estás usando este comando muy seguido! Por favor espera ${time} antes de usarlo de nuevo.`,
+    WAIT_SUGGESTIONS: (hasVoted) => {
+      return [
+        "**[únete al servidor de soporte](https://discord.gg/rZgxfbH)** y diviértete hablándonos, participa en encuestas las cuales considerablemente  determinan que se agrega al bot, posibles sorteos y mucho más",
+        `**[vota por el bot](https://top.gg/bot/655390915325591629/vote)** ${hasVoted ? "por puntos extra de facha" : "para acabar con este tiempo de espera por la mitad"}`,
+        "**[vuélvete un patron](https://patreon.com/TheNoob27)** y desbloquea algunas maravillosas características exclusivas para donadores, y un rol exclusivo de donador en nuestro servidor de discord",
+        "**[sígueme en twitter](https://twitter.com/DaNoob27)** por ninguna razón alguna",
+        "échale un vistazo a la **[página de Github](https://github.com/TheNoob27/starboard-issues/issues)** de Starboard en donde puedes publicar bugs/sugerencias en vez de usar los comandos"
+      ]
+    },
+    COOLDOWN: "Tiempo de espera",
+    COOLDOWN_EMBED: (cooldownMessage, cooldown, waitSuggestions) => 
+    `${cooldownMessage}
+    El tiempo de espera de este comando es **${cooldown}**. 
+    Mientras esperas, porque no ${waitSuggestions.join(" o ")}!`
+    .stripIndents(),
+    /** @param {import("../../classes/Command")} command @param {import("../../classes/Embed")} Embed */
+    COMMAND_HELP_EMBED: (command, Embed, prefix, color, cooldown, requiredPermissions) => {
+      const l = LOCALE
+      const c = command.language(l).get()
+      const embed = Embed
+        .setTitle("Ayuda")
+        .setColor(command.enabled ? color : command.client.colors.error)
+        .addField(
+          `Comando: ${prefix}${command.language(l).name.get() || command.name}`,
+          `**Alias**: ${(command.language(l).aliases.get() || command.aliases).join(", ") || "ningún"}
+          **Descripción**: ${command.language(l).description || "ninguna"}
+          **Uso**: ${prefix}${command.language(l).usage}
+          ${command.example ? `**Ejemplo${Array.isArray(command.example) ? "s" : ""}**: ${Array.isArray(command.example) ? `\n\`${command.example.map(c => `${prefix}${c}`).join("`\n`")}\`` : `${prefix}${command.example}`}` : ""}`
+          .stripIndents()
+        )
+        .addField(
+          "Extra",
+          `**Categoría**: ${command.language(l).base.categories(command.category).get() || command.category}
+          **Tiempo de espera**: ${cooldown}
+          **Habilitado**: ${command.client.config.emojis[command.enabled ? "sí" : "no"]}
+          **Permisos Necesarios del Bot**: ${command.client.util.readablePermissions(command.botPermissions || 0)}
+          **Permisos Necesarios del Usuario**: ${command.client.util.readablePermissions(requiredPermissions || 0)}`
+          .stripIndents()
+        )
+        .setFooter("() = argumentos opcionales, <> = argumentos necesarios, [] un valor provisional, – = marcador opcional")
+      if (command.notices) embed.addField(
+        "Avisos",
+        `${
+          command.errorMessage
+            ? `Algo anda mal actualmente con este comando: **${command.errorMessage}**.\n`
+            : ""
+        }${
+          command.disableMessage
+            ? `Este comando está deshabilitado: **${command.disableMessage}**`
+            : ""
+        }`
+      )
+
+      return embed
+    },
+
+
   // languages
   LANGUAGES: {
     EN_GB: "Inglés (Reino Unido)",

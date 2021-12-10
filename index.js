@@ -61,7 +61,14 @@
  */
 
 const { readdirSync: readDirectory } = require("fs")
-const { get } = require("lodash")
+const get = (object, path, defaultValue) => {
+  path = path.split(".")
+  for (const p of path) {
+    object = object[p]
+    if (object == null) return defaultValue
+  }
+  return object
+}
 
 // used in languages and code formatting and stuff
 if (typeof String.prototype.stripIndents !== "function") Object.defineProperties(String.prototype, "stripIndents", {

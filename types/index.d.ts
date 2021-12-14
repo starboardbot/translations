@@ -48,7 +48,7 @@ export type LanguageCode = "en-GB" | "en-US" | "lt-LT" | "tr-TR" | "fuwwy"
 export const codes: LanguageCode & { default: "en-GB" }
 
 // TODO: type language files
-export declare const languages: Record<LanguageCode, unknown>
+export declare const languages: Record<LanguageCode, LanguageDeclaration>
 
 /**
  * Get a message in a specific language.
@@ -71,3 +71,11 @@ export declare function _parseLocale(code: string, returnNull?: boolean): Langua
 export declare function _fixCase(key: string): Key
 
 export declare const languageNames: string[]
+
+export interface LanguageDeclaration extends Translations {
+  name: string
+}
+
+type Translations = {
+  [key: string]: string | Translations | ((...args: unknown) => unknown)
+}

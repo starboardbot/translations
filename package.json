@@ -1,0 +1,27 @@
+{
+  "name": "starboard-languages",
+  "main": "./index.js",
+  "types": "./types/index.d.ts",
+  "author": "TheNoob27",
+  "contributors": [
+    "Ghostoblivion",
+    "PlatinBae",
+    "doinkythederp"
+  ],
+  "dependencies": {
+    "@types/node": "^16.11.12"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4"
+  },
+  "scripts": {
+    "test": "tsc"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "endOfLine": "lf",
+    "arrowParens": "avoid",
+    "semi": false,
+    "printWidth": 120
+  }
+}

@@ -272,6 +272,84 @@ module.exports = {
      .addField("Uso", `\`${command.language(LOCALE).usage}\``)
      .setColor(command.client.colors.error)
  },
+ MISSING_PERMISSIONS: (perms, bot) => `${bot ? "Al bot le" : "Te"} faltan los permisos ${perms}, necesarios para ejecutar este comando.`,
+ NO_CHANNEL_SETTINGS: (c) => `No hay ajustes específicos para ${c ? c : "este canal"}.`,
+
+ EVAL: {
+   DESCRIPTION: "Analiza un poco de código.",
+   USAGE: "eval <código>"
+ },
+ HELP: {
+   DESCRIPTION: "Mira todos los comandos que ofrece el bot, o mira información específica de un comando.",
+   USAGE: "help ([comando])",
+   EMBED_DESCRIPTION: (command, owner, categories, prefix, guide) => `Comandos: ${
+       owner
+         ? command.client.commands.size
+         : Object.values(categories) // { "Categoría": "...\n..." }
+           .reduce((p, c) => c.split("\n").length + p, 0)
+     }
+     Si es tu primera vez usando el bot, puedes configurar usando \`${prefix}setup\`.
+     Para obtener más información de una variedad de características, puedes leer la **[guia](${guide})**.
+     Si aún necesitas ayuda, porfavor unete a nuestro **[servidor de soporte](${command.client.config.links.support})**.`.stripIndents(),
+   EMBED_FOOTER: "() = opcional, <> = necesario, [] provisional, -- = marcadores opcionales - no los incluyas al usar comandos."
+ },
+ PING: {
+   DESCRIPTION: "Revisa el ping, tiempo de respuesta y velocidad de edición del bot.",
+   USAGE: "ping",
+   PINGING: "Calculando…",
+   CLUSTER: n => `Cluster ${n}`,
+   SHARD: n => `Shard ${n}`,
+   PING: "Ping",
+   LATENCY: "Latencia",
+   EDIT: "Editar"
+ },
+ RELOAD: {
+   DESCRIPTION: "Recarga comandos, eventos o un archivo.",
+   USAGE: "reload <[comando]/evento/archivo> ([evento]/[archivo])"
+ },
+ CHANGESETTING: {
+   DESCRIPTION: "Cambia un ajuste del canal o servidor, como la cantidad de estrellas necesarias para alcanzar el starboard. Todos los ajustes están en el comando de ajustes, así puedes ver tus opciones allí.",
+   USAGE: "changesetting ([canal]) <[ajuste]> <[valor]>",
+   
+   UPDATED_SETTINGS: "Ajustes Actualizados.",
+   ERRORS: "Errores",
+   CHANNEL_SETTINGS: "Ajustes de Canal",
+   NONE: "Ninguno",
+
+   INVALID_CHANNEL_SETTING: s => `**${s}** no es un ajuste válido para canales, solo está disponible como un ajuste de servidor.`,
+   INVALID_GUILD_SETTING: s => `**${s}** no es un ajuste válido para servidores, solo está disponible como un ajuste de canal.`,
+   
+   INVALID_LANGUAGE: l => `**${l}** no es un idioma válido.`,
+   LANGUAGE_SET: l => `El idioma fue establecido con éxito a ${l}`, // passing l because other languages may not be finished and will use this translation
+
+   NO_STARBOARD: (c, nsfw) => `No hay un starboard ${nsfw ? "NSFW " : ""} establecido${c ? " para este canal" : ""}.`,
+   INVALID_CHANNEL: "Ese canal no existe.",
+   INVALID_CHANNEL_TYPE: "El canal debe ser un canal de texto o anuncios.",
+   CANT_SPEAK: embeds => `No puedo enviar ${embeds ? "embeds" : "mensajes"} en ese canal`,
+   NOT_NSFW: "El starboard NSFW debe ser establecido como un canal NSFW.",
+   MISSING_PERMISSIONS: "Al bot le falta el permiso `Gestionar Canales`, necesario para crear canales.",
+   CREATE_STARBOARD_FAIL: "Algo salió mal al crear un canal de starboard.",
+   CREATE_STARBOARD_SUCCESS: (c, nsfw) => `Se ha creado un canal de starboard ${nsfw ? "NSFW" : ""} con éxito: ${c}`,
+   STARBOARD_DELETE: (c, nsfw) => `Se ha removido el starboard ${nsfw ? "NSFW " : ""}establecido con éxito${c ? " para este canal" : ""}.`,
+   STARBOARD_SET: (c, channel, nsfw) => `Se ha establecido el starboard ${nsfw ? "NSFW " : ""}con éxito ${c ? "para este canal " : ""}a ${channel}.`,
+
+   REQUIRED_TOO_BIG: "La cantidad de estrellas necesarias para alcanzar el starboard no puede ser tan alta.",
+   REQUIRED_TOO_SMALL: "La cantidad de estrellas necesarias para alcanzar el starboard tiene que ser un número mayor a 0.",
+   REQUIRED_SET: (n, c) => `Se ha establecido la cantidad necesaria de estrellas para alcanzar el starboard con éxito ${c ? "para este canal " : ""}a ${n}.`,
+   REQUIRED_SET_BOTH: (n, c) => `Se ha establecido la cantidad necesaria de estrellas para alcanzar el starboard con éxito ${c ? "para este canal " : ""}a ${n}, y se ha disminuido **RequiredToRemove** a ${n - 1}.`,
+   RTR_TOO_BIG: "La cantidad de estrellas necesarias para ser eliminado del starboard no puede ser tan alta.",
+   RTR_TOO_SMALL: "La cantidad de estrellas necesarias para ser eliminado del starboard tiene que ser un número mayor a 0.",
+   RTR_SET: (n, c) => `Se ha establecido la cantidad necesaria de estrellas para ser eliminado del starboard con éxito ${c ? "para este canal " : ""}a ${n}.`,
+   RTR_SET_BOTH: (n, c) => `Se ha establecido la cantidad necesaria de estrellas para ser eliminado del starboard con éxito ${c ? "para este canal " : ""}a ${n}, y se ha aumentado **Required** a ${n + 2}.`,
+   
+   INVALID_PERMISSIONS: "Los permisos provistos no son válidos.",
+   PERMISSIONS_SET: p => `Se han establecido los permisos necesarios para ejecutar varias acciones con éxito a ${p}.`,
+   COLOR_SET: (c, r) => `Se ha establecido el color para los mensajes del starboard sobre ${r} estrellas con éxito a ${c}.`,
+
+   REQUIREMENT_TOO_HIGH: t => `El requisito **${t}** no puede ser tan alto.`,
+   REQUIREMENT_TOO_LOW: t => `El requisito **${t}** tiene que ser un número mayor a 0.`,
+   REQUIREMENT_BOUNDARY: (t, next, n, higher) => `El requisito **${t}** tiene que ser un número ${higher ? "mayor" : "menorq"} a ${n}, lo cual es lo que **${next}** está establecido actualmente.`,
+   REQUIREMENT_SET: (type, emoji, n) => `Se ha establecido con éxito la cantidad de estrellas necesarias para el **${type}** emoji${emoji ? ` (${emoji})` : ""} para aparecer en el starboard a ${n}.`,
 
   // languages
   LANGUAGES: {

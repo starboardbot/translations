@@ -487,7 +487,7 @@ module.exports = {
       WHITELIST_REMOVE: s => `Successfully removed **${s}** from the whitelist.`
     },
     REWARDROLES: {
-      DESCRIPTION: "View info about or add/remove reward roles, roles that get added to users once they surpass a certain amount of stars. ",
+      DESCRIPTION: "View info about or add/remove reward roles, roles that get added to users once they surpass a certain amount of stars.",
       USAGE: "rewardroles ([channelSettings]) (add/remove) ([role]) ([stars])",
       NO_LEADERBOARD: "The leaderboard is disabled for the server, which includes reward roles.",
       REWARD_ROLES: "Reward Roles",

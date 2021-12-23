@@ -161,7 +161,7 @@ module.exports = {
         case "LATINO":
         case "ES":
         case "ESP":
-          a = "es"
+          [a, b] = ["es", "ES"]
           break
         case "TURKISH":
         case "TR":

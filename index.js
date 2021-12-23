@@ -87,7 +87,7 @@ if (typeof String.prototype.stripIndents !== "function") Object.defineProperties
  * @type {[
     "en-GB",
     "en-US",
-    "es",
+    "es-ES",
     "lt-LT",
     "tr-TR",
     "fuwwy",

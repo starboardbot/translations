@@ -673,7 +673,7 @@ module.exports = {
       REQUIRED_NAN: "The required amount of stars to reach the starboard has to be a number.",
       RTR_NAN: "The amount of stars a message needs to have to be removed from the starboard has to be a number.",
       STARBOARD_ID: "If you want me to create a starboard channel for you, input `create`, optionally followed by the name of the channel, such as \`create message-museum\` (will be \"starboard\" by default).",
-      LANGUAGE: "Note that not all languages are completed, English is the only one completed.",
+      LANGUAGE: "Note that not all languages are completed, English and Spanish are the only ones completed.",
       REQUIRED: s => `Currently, if ${s.required} different people star a message, it will then be posted to the starboard.`,
       REQUIRED_TO_REMOVE: s => `Currently, if a message in the starboard drops below ${s.requiredToRemove} stars, it will then be removed from the starboard.`,
       EMOJIS: "This is the emoji users must react with to get a message on the starboard. You can also react to this message with the emoji you want.",

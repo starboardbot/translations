@@ -653,38 +653,478 @@ module.exports = {
       Di \`cancel\` o \`stop\` para cancelar el setup, \`skip\` o \`next\` para saltar al siguiente ajuste, y \`end\` para saltar al final.`.stripIndents(),
       EMBED_FOOTER: (n, total) => `Puedes parar, saltar o saltar al final en cualquier momento. Ajuste ${n}/${total}`,
       SETTING: "Ajuste",
-      PLEASE_INPUT: item => `Please input ${item.includes("/") ? "" : "a "}\`${item}\`.`,
-      SETTING_SKIPPED: "Skipped the setting.",
-      MISSING_PERMISSIONS: "The bot is missing the `Manage Channels` permission, required to create channels.",
-      CREATE_CHANNEL_FAIL: "Something went wrong when creating a starboard channel.",
-      CREATE_CHANNEL_SUCCESS: c => `Successfully created a starboard channel: ${c}`,
-      REQUIRED_NAN: "The required amount of stars to reach the starboard has to be a number.",
-      RTR_NAN: "The amount of stars a message needs to have to be removed from the starboard has to be a number.",
-      STARBOARD_ID: "If you want me to create a starboard channel for you, input `create`, optionally followed by the name of the channel, such as \`create message-museum\` (will be \"starboard\" by default).",
-      LANGUAGE: "Note that not all languages are completed, English is the only one completed.",
-      REQUIRED: s => `Currently, if ${s.required} different people star a message, it will then be posted to the starboard.`,
-      REQUIRED_TO_REMOVE: s => `Currently, if a message in the starboard drops below ${s.requiredToRemove} stars, it will then be removed from the starboard.`,
-      EMOJIS: "This is the emoji users must react with to get a message on the starboard. You can also react to this message with the emoji you want.",
-      FILTER_BOTS: "If you want bots to reach the starboard, don't enable this.",
-      VISIBLE: "If you star personal/private stuff, you should definitely disable this. If this is enabled, a 🌍 will appear on starred messages that have been found in the explore command, followed by the number of times it was found.",
-      CANCELLED_BY_MISTAKES: "Cancelled due to too many mistakes.",
-      WAS_INACTIVE: "Stopped due to inactivity.",
-      CANCELLED: "The setup has been cancelled, no settings have been changed.",
-      CONFIRMATION: del => `Are you happy with these results? Respond with yes or no. ${
+      PLEASE_INPUT: item => `Por favor introduce ${item.includes("/") ? "" : "un(a) "}\`${item}\`.`,
+      SETTING_SKIPPED: "Se saltó el ajuste.",
+      MISSING_PERMISSIONS: "Al bot le falta el permiso `Gestionar Canales`, necesario para crear canales.",
+      CREATE_CHANNEL_FAIL: "Algo salió mal al crear el canal de starboard.",
+      CREATE_CHANNEL_SUCCESS: c => `Se ha creado un canal de starboard: ${c}`,
+      REQUIRED_NAN: "La cantidad necesaria de estrellas para alcanzar el starboard tiene que ser un número.",
+      RTR_NAN: "La cantidad de estrellas que un mensaje necesita para ser eliminado del starboard tiene que ser un número.",
+      STARBOARD_ID: "Si deseas que cree un canal de starboard para ti, introduce `create`, opcionalmente seguido por el nombre del canal, como \`create museo-de-mensajes\` (será \"starboard\" por defecto).",
+      LANGUAGE: "Ten en cuenta que no todos los idiomas están completos, solo Inglés y Español lo están.",
+      REQUIRED: s => `Actualmente, si ${s.required} diferentes personas marcan con una estrella un mensaje, este será publicado en el starboard.`,
+      REQUIRED_TO_REMOVE: s => `Actualmente, si un mensaje del starboard baja a menos de ${s.requiredToRemove} estrellas, este será eliminado del starboard.`,
+      EMOJIS: "Este es el emoji el cual los usuarios deben reaccionar con a un mensaje del starboard. También puedes reaccionar a este mensaje con el emoji que quieras.",
+      FILTER_BOTS: "Si quieres que los bots puedan aparecer en el starboard, no habilites esto.",
+      VISIBLE: "Si marcas con una estrella a cosas personales/privadas, debes definitivamente deshabilitar esto. Si esto está habilitado, un 🌍 aparecerá en mensajes marcados con una estrella que han sido encontrados en el comando de explorar, seguido por el número de veces que se encontró.",
+      CANCELLED_BY_MISTAKES: "Cancelado debido a muchos errores.",
+      WAS_INACTIVE: "Detenido debido a inactividad.",
+      CANCELLED: "El setup fue cancelado, ningún ajuste fue cambiado.",
+      CONFIRMATION: del => `¿Estás feliz con estos resultados? Responde con yes o no. ${
         del
-          ? "You can also add `delete` at the end of your respond (like `yes delete`) to clear all embeds I have sent during this setup."
+          ? "También puedes agregar `delete` al final de tu respuesta (ej. yes delete`) para despejar todos los embeds que envíe durante este setup."
           : ""
       }`,
-      SOMETHING_WRONG: "Something went wrong.",
-      BULK_DELETE_FAIL: "Something went wrong when trying to delete my embeds.",
+      SOMETHING_WRONG: "Algo salió mal.",
+      BULK_DELETE_FAIL: "Algo salió mal al intentar eliminar mis embeds.",
       RESULT: (b, p, c, v) => `${
         b
-          ? `Successfully updated the settings for this ${c ? "channel" : "server"}`
-          : `The settings for this ${c ? "channel" : "server"} have not been updated`
-      }. If you want to change more settings, you can view them all with ${p}settings${
-        v ? "" : `, and if you want to change the emoji, you must vote for the bot first and then either run this command again or run \`${p}changesetting emoji <[emoji]>\``
+          ? `Se han actualizado los ajustes para este ${c ? "canal" : "servidor"}`
+          : `Los ajustes para este ${c ? "canal" : "servidor"} no fueron actualizados`
+      }. Si quieres cambiar más ajustes, puedes ver todos con ${p}settings${
+        v ? "" : `, y si deseas cambiar el emoji, debes primero votar por el bot y luego ejecutar este comando de nuevo o ejecutar \`${p}changesetting emoji <[emoji]>\``
       }.`
     },
+    MESSAGEINFO: {
+      DESCRIPTION: "Obtén más detalles sobre un mensaje marcado con una estrella.",
+      USAGE: "messageinfo <[ID del mensaje]>",
+      NO_MESSAGE_ID: "Por favor provee un ID de un mensaje.",
+      NOT_FOUND: "No logre encontrar un mensaje marcado con una estrella basado en tu entrada.",
+      STARRED_MESSAGE_INFO: "Detalles",
+
+      CONTEXT: "Contexto",
+      AUTHOR: "Autor",
+      CHANNEL: "Canal",
+      STARBOARD: "Starboard",
+      STARRED_AT: "Marcado",
+
+      STATS: "Estadísticas",
+      STARS: "Estrellas",
+      UPVOTES: "Votos a Favor",
+      DOWNVOTES: "Votos En Contra",
+      GLOBAL: "Puntos Globales",
+
+      OTHER: "Otro",
+      DELETED: "Mensaje Eliminado",
+      AT_DATE: d => `(${d})`,
+      SAVED: "Mensaje Guardado",
+      WILL_DELETE: d => `(será eliminado en ${d})`,
+      ON_STARBOARD: "En el Starboard",
+      ON_STARBOARD_BEFORE: "Estuvo en el Starboard Antes",
+      ATTRIBUTES: "Atributos",
+      NONE: "Ninguno",
+
+      LINKS: "Links",
+      MESSAGE: "Mensaje",
+      CONVERSATION: "Conversación",
+      STARBOARD_MESSAGE: "Mensaje del Starboard"
+    },
+    MIGRATE: {
+      DESCRIPTION: "Escanea hasta los últimos 1000 mensajes del starboard para buscar posts de otros bots de starboard y conviertelos en mensajes marcados con una estrella para este bot. Puedes opcionalmente proveer un ID para que starboard escanee antes o después.",
+      USAGE: "migrate ([starboard]) ([limite]) --after <[ID del mensaje]> --before <[ID del mensaje]>", // these usages are getting too long :( --Sí D:
+      NO_STARBOARD: "No hay starboards establecidos para este servidor.",
+      // NOT_STARBOARD: "Ese canal no es un canal de starboard.",
+      MISSING_PERMISSIONS: sb => `No tengo permiso de eliminar mensajes en ${sb}. Toma en cuenta que no eliminare un mensaje hasta que se haya migrado con éxito.`,
+      NOTHING_TO_MIGRATE: (sb, bots) => `No pude encontrar ningún mensaje para migrar en ${sb}. Actualmente, solo puedo migrar mensajes del starboard por <@${bots.join(">, <@")}>.`,
+      MIGRATE: "Migrar",
+      CONFIRMATION_EMBED: (n, bots, c, before, after) => `He encontrado ${n} mensajes${before ? ` antes ${before}${after ? " y" : ""}` : ""}${after ? ` después ${after}` : ""} por <@${bots.join(">, <@")}> en ${c} que puedan ser mensajes marcados con una estrella. ¿Quieres que continúe?
+      Intentaré convertir estos mensajes a mensajes marcados con una estrella para mi, y los publicaré al starboard. Mientras avanzo, eliminar los mensajes que he reemplazado con éxito, o aquellos que ya existen en el starboard.
+      • Al migrar ignora mensajes que fueron eliminados del starboard.
+      • Al migrar ignora mensajes que fueron enviados en un canal que no tiene starboard.
+      Di **yes** para continuar.`.stripIndents(),
+      ETA: t => `ETA: acerca de ${t}`,
+      CANCELLED: "Se ha cancelado la migración del starboard.",
+      ALREADY_MIGRATING: "Parece ser que este servidor está actualmente migrando mensajes.",
+      STATUS: (n, total, sb, typing) => `${typing} Migrando mensajes de ${sb} - ${n}/${total} \`[${"#".repeat((n / total) * 10).padEnd(10, " ")}]\``,
+      SUCCESS: n => `Se han migrado ${n} mensajes.`
+    },
+    EXPLORE: {
+      DESCRIPTION: "¡Muestra un mensaje del starboard random de un usuario, tu servidor o cualquier servidor! Para que un mensaje de cualquier servidor aparezca, debe tener 5+ estrellas y el servidor debe tener el ajuste **Visible** habilitado.",
+      USAGE: "explore ([estrellas]) (me/user/server/global) ([usuario])",
+      NOT_FOUND: "No se encontraron mensajes marcados con una estrella visibles. Los mensajes deben tener 5+ estrellas para aparecer, ¡así que ve y marca con una estrella mensajes graciosos!",
+      NOT_FOUND_STARS: stars => `No se encontraron mensajes marcados con ${stars}+ estrellas. Intenta buscar por una menor cantidad.`,
+      TYPE_NOT_FOUND: (stars, type) => `No se encontraron mensajes ${stars ? `con ${stars}+ estrellas` : ""} de ${type}.`,
+      COULD_NOT_FETCH: id => `No pude determinar un mensaje de un starboard con una entrada random con el ID \`${id}\``,
+      THIS_SERVER: "este servidor",
+      THIS_USER: "este usuario",
+      YOU: "tu"
+    },
+    LEADERBOARD: {
+      DESCRIPTION: "Muestra una lista de clasificaciones de las personas con las mejores estadísticas. Puedes insertar un usuario para ver su posición en la lista, o un canal para filtrar estadísticas de solo ese canal.",
+      USAGE: "leaderboard (messages/stars/starboarded/global/trashed/downvotes/channels/servers/reset) ([página]) ([usuario]) ([canal]) --before <[fecha]> --after <[fecha]>",
+      NO_LEADERBOARD: "La lista de clasificaciones está deshabilitada en este servidor.",
+      NOT_ON_LEADERBOARD: "No está en la lista de clasificaciones.",
+      TITLE: title => `Lista de Clasificaciones - ${title}`,
+      STARS: c => `Estrellas Totales ${c ? `en #${c}` : ""}`,
+      STARBOARDED: c => `Veces En El Starboard ${c ? `en #${c}` : ""}`,
+      TRASHED: c => `Mensajes en la Basura ${c ? `en #${c}` : ""}`,
+      DOWNVOTES: c => `Votos En Contra ${c ? `en #${c}` : ""}`,
+      GLOBAL: c => `Puntos Globales ${c ? `en #${c}` : ""}`,
+      MOST_STARRED_MESSAGES: (c, u) => `Mensajes con más Estrellas${u ? ` de ${u}` : ""}${c ? ` en #${c}` : ""}`,
+      CHANNELS: u => `Canal con más Estrellas${u ? ` de ${u}` : ""}`,
+      SERVERS: "Servidores",
+      STARS_LINE: (medal, isYou, place, name, stars, star) => `${isYou ? "**" : ""}${medal} ${place}: ${name} - Estrellas: ${stars.toLocaleString(LOCALE)} ${star}${isYou ? "**" : ""}`,
+      STARBOARDED_LINE: (medal, isYou, place, name, times) => `${isYou ? "**" : ""}${medal} ${place}: ${name} - Veces En El Starboard: ${times.toLocaleString(LOCALE)}${isYou ? "**" : ""}`,
+      TRASHED_LINE: (medal, isYou, place, name, trashed) => `${isYou ? "**" : ""}${medal} ${place}: ${name} - Mensajes en la Basura: ${trashed.toLocaleString(LOCALE)}${isYou ? "**" : ""}`,
+      DOWNVOTES_LINE: (medal, isYou, place, name, downvotes) => `${isYou ? "**" : ""}${medal} ${place}: ${name} - Votos En Contra: ${downvotes.toLocaleString(LOCALE)}${isYou ? "**" : ""}`,
+      GLOBAL_LINE: (medal, isYou, place, name, g) => `${isYou ? "**" : ""}${medal} ${place}: ${name} - Puntos Globales: ${g.toLocaleString(LOCALE)}${isYou ? "**" : ""}`,
+      CHANNEL_LEADERBOARD_LINE: (medal, isYou, place, channel, star, stars) =>
+        `${isYou ? "**" : ""}${medal} ${place}: ${channel} - ${stars.toLocaleString(LOCALE)} ${star}${isYou ? "**" : ""}`,
+      MESSAGE_LEADERBOARD_LINE: (medal, isYou, place, messageID, name, url, star, stars) =>
+        `${isYou ? "**" : ""}${medal} ${place}: ${isYou ? `[${messageID}](${url})` : `**[${messageID}](${url})**`}${name && ` de ${name}`} - ${stars.toLocaleString(LOCALE)} ${star}${isYou ? "**" : ""}`,
+      SERVER_LEADERBOARD_LINE: (isYou, medal, place, name, stars, star) =>
+        `${isYou ? "**" : ""}${medal} ${place}: ${isYou ? name : `**${name}**`} - Estellas: ${stars.toLocaleString(LOCALE)} ${star}${isYou ? "**" : ""}`,
+      NOTHING_TO_DISPLAY: "Nada para mostrar.",
+      EMBED_FOOTER: (user, place, page, totalPages) =>
+        `${user ? `El Lugar de ${user}` : "Tu Lugar"}: ${place} | Página ${page}/${totalPages}`,
+
+      ARE_YOU_SURE: "¿Estás seguro?",
+      CONFIRMATION_EMBED: `¿Estás seguro de que quieres borrar tu lista de clasificaciones?
+      Por favor ten en cuenta que esto no restablece todas las listas de clasificaciones, solo las listas del servidor de **Estrellas**, **Global**, **Basurero** y **Veces En El Starboard.
+      Para otras listas de clasificaciones como la de mensajes, puedes usar los flags --before o --after, ej. \`--after 14/09/2021\`.
+      Di **yes** para continuar.`.stripIndents(),
+      NOT_RESET: "Se ha cancelado el restablecimiento de la lista de clasificaciones.",
+      SUCCESS_RESET: "Se ha restablecido la lista de clasificaciones."
+    },
+    HALLOFFAME: {
+      DESCRIPTION: "Muestra el Salón de la Fama del servidor, o agrega/elimina mensajes de este. También puedes agregar mensajes usando la acción rápida 🏆.",
+      USAGE: "halloffame (add/remove/[página]) ([ID del mensaje])",
+      TITLE: "Salón de la Fama",
+      LINE: (id, url, name, stars, star) => `• **[${id}](${url})** de ${name} - ${star} ${stars.toLocaleString(LOCALE)}`,
+      NOTHING: p => `Nada para mostrar.\nLos moderadores pueden agregar un mensaje al salón de la fama usando \`${p}halloffame add <[ID del mensaje]>\`, o usando la acción rápida 🏆.`,
+      EMBED_DESCRIPTION: `Este es el Salón de la Fama, los mensajes que "pertenecen a un museo" -  los mejores mensajes en el servidor. Estos mensajes fueron escogidos por varios moderadores, así que aparecer aquí es un gran logro. Aquí está el listado:`,
+      PAGE: (p, t) => `Página ${p}/${t}`,
+      NOT_FOUND: "No logré encontrar un mensaje marcado con una estrella basado en tu entrada.",
+      ALREADY_ON: "Ese mensaje ya está en el Salón de la Fama.",
+      MAX: "Has llegado al máximo de 100 mensajes en el Salón de la Fama.",
+      NOT_ON: "Ese mensaje no está en el Salón de la Fama.",
+      ARE_YOU_SURE: "¿Estás seguro?",
+      CONFIRMATION_EMBED: "¿Estás seguro de que quieres eliminar cada mensaje del Salón de la Fama?\nDi **yes** para continuar.",
+      CANCELLED: "Se ha dejado de eliminar cada mensaje del Salón de la Fama.",
+      SUCCESS_ADD: "Se ha agregado ese mensaje al Salón de la Fama.",
+      SUCCESS_REMOVE: "Se ha eliminado ese mensaje del Salón de la Fama.",
+      SUCCESS_REMOVE_ALL: "Se ha eliminado todo del Salón de la Fama."
+    },
+    STATS: {
+      DESCRIPTION: "Mira las estadísticas de un usuario, o restablece las estadísticas de un usuario.",
+      USAGE: "stats ([usuario]) --reset",
+      SUCCESS_RESET: u => `Se han restablecido las estadísticas de la lista de clasificaciones de **${u}**. Ten en cuenta que solo el primer conjunto de estadísticas (Estrellas, Veces En El Starboard, Puntos Globales etc) puede ser restablecido.`,
+      STATS: u => `${u ? `Estadísticas de ${u}` : "Tus Estadísticas"}`,
+      STARS: "Estrellas",
+      STARBOARDED: "Veces En El Starboard",
+      GLOBAL_POINTS: "Puntos Globales",
+      DOWNVOTES: "Votos En Contra",
+      TRASHED: "Mensajes En La Basura",
+      MESSAGES_STARRED: "Mensajes Marcados Con Estrellas",
+      LOCKED: "Mensajes Bloqueados",
+      FROZEN: "Mensajes Congelados",
+      CURRENTLY_TRASHED: "Mensajes Actualmente En La Basura",
+      ON_STARBOARD_BEFORE: "Mensajes Que Estuvieron En El Starboard",
+      AVG_STARS_PER_MESSAGE: "Promedio De Estrellas Por Mensaje",
+      STARRED_CHANNEL: "Mayor Número De Estrellas Obtenidas En",
+      MOST_STARRED: "Mayor Número De Estrellas En Un Mensaje",
+      PERCENT_LOCKED: "% Bloqueado",
+      PERCENT_FROZEN: "% Congelado",
+      PERCENT_TRASHED: "% En la Basura",
+      STARRED_MESSAGES_BY_YOU: "% De Mensajes Marcados Con Estrellas Por Ti",
+      CHANCE_ON_STARBOARD: "Probabilidad En El Starboard",
+      WORLDWIDE: "Estadísticas Globales",
+      TOTAL_STARS: "Estrellas Totales",
+      HALL_OF_FAME: "Mensajes En El Salón De La Fama",
+      HALL_OF_FAME_BY_YOU: "Tus Entradas En El Salón De La Fama",
+      NONE: "Ninguna"
+    },
+    FILTERS: {
+      DESCRIPTION: "Mira, crea o edita filtros usados para filtrar mensajes de ser marcados con una estrella.",
+      USAGE: "filters ([channelSettings]) (add/remove/list/edit) (content/attachments/age/[filterNumber]) (...[opciones]) --explain --options",
+      MAX_FILTERS: c => `Has alcanzado la cantidad máxima de filtros permitidos para este ${c ? "canal" : "servidor"}.`,
+      SUCCESS_ADD: desc => `Se ha agregado un nuevo filtro${desc ? `:\n${desc}` : "."}`,
+      NO_FILTERS: c => `No hay filtros establecidos para este ${c ? "canal" : "servidor"}.`,
+      SUCCESS_EDIT: (n, desc) => `Se ha editado el filtro ${n}${desc ? `:\n${desc}` : "."}`,
+      SUCCESS_REMOVE: n => `Se ha eliminado el filtro ${n}.`,
+      SUCCESS_REMOVE_ALL: "Se han eliminado todos los filtros.",
+      MAX_MIN: age => `El máximo${age && " de edad"} no puede ser menor que el mínimo${age && " de edad"}.${age ? " (`olderThan` no puede ser mayor que `newerThan`)" : ""}`,
+      REGEX_SAME: "Las regex/strings para coincidir y no, no pueden ser la misma.",
+      MEDIA_REQUIRED_MAX: "No puedes hacer que la multimedia sea requerida cuando el máximo de archivos adjuntos es 0.",
+      REQUIRED_MAX: "El contenido no puede ser requerido si el máximo de caracteres es 0.",
+      MIN_MAX_CONTENT: min => `El número de caracteres ${min ? "mini" : "maxi"}mo no puede ser mayor a 4000.`,
+      MIN_MAX_ATTACHMENTS: min => `El número de archivos adjuntos ${min ? "mini" : "maxi"}mo no puede ser mayor a 50.`,
+      MIN_MAX_AGE: min => `La edad ${min ? "mini" : "maxi"}ma no puede ser mayor a 5 años.`,
+      AGE_RELATIVE: "Un filtro de edad no puede tener un tiempo relativo (x días x horas x minutos) y estático (una fecha, es decir. dd/mm/aaaa) simultáneamente.",
+      INVALID_REGEX: (t, e) => `Una regex fue proveída para **${t}**: ${e}`,
+      REGEX_TOO_LONG: "Esa regex es muy extensa.",
+      AUTO_STAR_AGE: "La opción **AutoStar** no puede ser usada para filtros de edad.",
+      FILTERS: "Filtros",
+      EMBED_DESCRIPTION: c => `${c ? `**Ajustes de Canales**: ${c}\n` : ""}
+      Estos son los filtros para este ${c ? "canal" : "servidor"}. Los mensajes no pueden ser marcados con estrellas si no pasan todos estos filtros.
+      Si un mensaje fue marcado con una estrella antes de que los filtros fueran hechos, o fue forzado al starboard, aún podrán obtener más estrellas.`.stripIndents(),
+      OPTIONS: (p, guide) => `Los tipos de filtros actuales son **Content**, **Attachments** y **Age**.
+      Las opciones disponibles son:
+      __**Content**__
+      - Required yes/no
+      - Minimum [número]
+      - Maximum [número]
+      - IsReply yes/no/none
+      - Match [texto/regex]
+      - NotMatch [texto/regex]
+      - AutoStar yes/no/none
+      
+      __**Attachments**__
+      - Required yes/no
+      - Minimum [número]
+      - Maximum [número]
+      - MediaRequired yes/no
+      - AutoStar yes/no/none
+      
+      __**Age**__
+      - NewerThan [tiempo]
+      - OlderThan [tiempo]
+      
+      Para crear un filtro, ejecuta \`${p}filters add <content/attachments/age> <...[opciones]>\`
+      
+      **[Aprender Más](${guide})**`.stripIndents(),
+      VIEW_OPTIONS: (p, ex, guide) => `Puedes ver todas las opciones para crear filtros con \`${p}filters --options\`, o editar un filtro existente con \`${p}filters edit <[número]> <...[opciones]>\`
+      ${!ex ? `Si quieres una explicación de todos tus filtros, ejecuta \`${p}filters --explain\`\n` : ""}
+      **[Aprender Más](${guide})**`.stripIndents(),
+      DESCRIBE: "Para que un mensaje sea marcado con una estrella, debe:",
+      REQUIRED_CONTENT: "tener contenido",
+      MIN_CONTENT: n => `tener contenido mayor o igual a **${n}** caracteres`,
+      MAX_CONTENT: n => `tener contenido menor o igual a **${n}** caracteres`,
+      IS_REPLY: is => `${is ? "" : "**no** "}ser una respuesta`,
+      MATCH_REGEX: (rgx, flags) => `coincidir la regex \`/${rgx}/${flags}\``,
+      INCLUDES: str => `incluir \`${str}\``,
+      NOT_MATCH_REGEX: (rgx, flags) => `no coincidir la regex \`/${rgx}/${flags}\``,
+      NOT_INCLUDES: str => `no incluir \`${str}\``,
+      REQUIRED_ATTACHMENT: "tener al menos **un** archivo adjunto/embed",
+      MIN_ATTACHMENTS: n => `tener no menos que **${n}** archivos adjuntos`,
+      MAX_ATTACHMENTS: n => `tener no más que **${n}** archivos adjuntos`,
+      MEDIA_REQUIRED: "tener al menos **una** imagen, video o otro tipo de multimedia",
+      MIN_AGE: t => `ser más viejo de \`${t}\``,
+      SENT_BEFORE: t => `haber sido enviado antes de \`${t}\``,
+      MAX_AGE: t => `ser más reciente que \`${t}\``,
+      SENT_AFTER: t => `haber sido enviado después de \`${t}\``,
+      APPLIES_TO: list => `Este filtro aplica a ${list}`,
+      DOES_NOT_APPLY_TO: list => `Este filtro no aplica a ${list}`,
+      AUTO_STAR: b => `Este filtro ${b ? "solo aplica" : "no aplica"} a mensajes que son marcados con estrellas automáticamente.`,
+      NOT_SET: "No establecido",
+      REQUIRED_NAME: "Necesario",
+      MIN_NAME: "Mínimo",
+      MAX_NAME: "Máximo",
+      IS_REPLY_NAME: "Es una Respuesta",
+      MATCH_NAME: "Coincide la Regex",
+      INCLUDES_NAME: "Incluye",
+      NOT_MATCH_NAME: "No Coincide la Regex",
+      NOT_INCLUDES_NAME: "Excluye",
+      MEDIA_REQUIRED_NAME: "Multimedia Necesaria",
+      MIN_AGE_NAME: "Publicada Antes de",
+      AFTER_NAME: "Enviada Después de",
+      MAX_AGE_NAME: "Publicada Después de",
+      BEFORE_NAME: "Enviada Antes de",
+      APPLIES_TO_NAME: "Aplica a",
+      DOES_NOT_APPLY_TO_NAME: "No Aplica a",
+      AUTO_STAR_NAME: "Mensajes Marcados Automáticamente",
+      NOONE: "ninguno",
+      CONTENT: "Filtro de Contenido de Mensaje",
+      ATTACHMENTS: "Filtro de Archivos Adjuntos de Mensaje",
+      AGE: "Filtro de Edad de Mensaje",
+      FILTER_PAGE: (n, t) => `Filtro ${n}/${t}`,
+      PLEASE_INPUT: more => `Por favor introduce ${more ? "algunas más " : ""}opciones para este filtro.`
+    },
+    DEBUG: {
+      DESCRIPTION: "Has un debug y obten razones del porque un mensaje, mensajes en un canal específico, y todos los mensajes no están siendo marcados con estrellas.",
+      USAGE: "debug ([canal]) ([ID del mensaje]) --autoStar",
+      DEBUG: "Debug",
+      NO_STARBOARD: c => `No hay actualmente un canal de starboard establecido en este ${c ? "canal" : "servidor"}.`,
+      NO_STARBOARDS: "No hay starboards establecidos para este servidor.",
+      MISSING_READ: c => `No puedo ver ${c}, por favor habilita el permiso \`Ver Canal\`.`,
+      MISSING_HISTORY: c => `No puedo leer el historial de mensajes en ${c}, por favor habilita el permiso \`Leer el Historial de Mensajes\`.`,
+      MISSING_EMBEDS: c => `No puedo enviar embeds en ${c}, por favor habilita el permiso \`Insertar Enlaces\`.`,
+      MISSING_FILES: c => `No puedo adjuntar archivo en ${c}, así que los archivos no serán adjuntados al mensaje del starboard y en cambio serán vinculados. Por favor habilita el permiso \`Adjuntar Archivos\` si quieres archivos adjuntos.`,
+      MESSAGE_NOT_EXISTS: (id, c) => `Un mensaje con ID \`${id}\` no fue encontrado en ${c}`,
+      TRASHED: "Este mensaje está en la basura.",
+      FROZEN: "Este mensaje está congelado y no puede conseguir o perder ninguna estrella más.",
+      FILTER_BOTS: "Los mensajes de bots no pueden ser marcados con estrellas porque el ajuste **FilterBots** está habilitado.",
+      BLACKLISTED: roles => `El autor de este mensaje está en la lista negra${roles && ` porque tiene los roles ${roles}`}.`,
+      CHANNEL_BLACKLISTED: c => `${c || "El canal en el cual este mensaje fue enviado"} está actualmente en la lista negra.`,
+      FILTER: (c, list) => `Este mensaje no pasa el ${list.length > 1 ? `${list.slice(0, -1).join(", ")} y ${list.slice(-1)} filtros` : `${list} filtro`} establecido para este ${c ? "canal" : "servidor"}.`,
+      CONTENT_REQUIRED: "Este mensaje no tiene contenido pero se necesita contenido.",
+      CONTENT_MIN: (n, l) => `El largo de este mensaje necesita ser ${n} caracteres o más, actualmente es ${l}.`,
+      CONTENT_MAX: (n, l) => `El largo de este mensaje excede el límite de ${n} caracteres. (${l})`,
+      IS_REPLY: b => `Este mensaje no puede ser marcado con estrellas porque este ${b ? "no es" : "es"} una respuesta.`,
+      MATCH_REGEX: r => `Este mensaje no coincide con la regex${r && ` \`${r}\``}.`,
+      CONTENT_INCLUDES: str => `Este mensaje no contiene${str ? `\`${str}\`` : "una frase"} y por esto no puede ser marcado con estrellas.`,
+      NOT_MATCH_REGEX: r => `Este mensaje coincide con la regex${r && ` \`${r}\``} así que no puede ser marcado con estrellas.`,
+      CONTENT_EXCLUDES: str => `Este mensaje contiene${str ? `\`${str}\`` : "una frase"} y por esto no puede ser marcado con estrellas.`,
+      ATTACHMENT_REQUIRED: "Un archivo o embed es necesario y este mensaje no tiene ninguno.",
+      ATTACHMENT_MIN: (m, n) => `Este mensaje necesita tener ${m} o más archivos/embeds, actualmente tiene ${n}.`,
+      ATTACHMENT_MAX: (m, n) => `Este mensaje debe tener menos de ${m + 1} archivos/embeds, actualmente tiene ${n}.`,
+      MEDIA_REQUIRED: "Este mensaje no tiene ninguna multimedia pero es necesario tener. (Imagenes, GIFs, video, etc)",
+      OLDER_THAN: (t, curr) => `Este mensaje necesita ser más viejo que ${t} para ser marcado con estrellas, actualmente es ${curr} viejo.`,
+      SENT_BEFORE: (t, sent) => `Este mensaje necesita haber sido enviado antes de ${t} para ser marcado con estrellas, fue enviado el ${sent}.`,
+      NEWER_THAN: (t, curr) => `Este mensaje necesita ser más reciente que ${t} para ser marcado con estrellas, actualmente es ${curr} viejo.`,
+      SENT_AFTER: (t, sent) => `Este mensaje necesita haber sido enviado después de ${t} para ser marcado con estrellas, fue enviado el ${sent}.`,
+      REQUIRED_STARS: (r, s, emojis) => `Este mensaje necesita ${r} estrellas (${emojis}) para llegar al starboard, ahora mismo tiene ${s}.`,
+      CHANNEL_SETTINGS: "Ajustes de Canales",
+      STARBOARD: "Starboard",
+      REQUIRED: "Necesario",
+      EMOJI: "Emoji",
+      STAR_SELF: "StarSelf",
+      BLACKLISTED_ITEMS: "Items En La Lista Negra",
+      FILTERS: "Filtros",
+      NOT_SET: "no establecido",
+      NOTHING_WRONG: (m, c, as) => `No parece que haya algo mal y ${m ? "este mensaje" : "todos los mensajes"} de ${c ? `${c} debería` : "los canales que puedo ver deberían"} poder ser marcado(s) ${as ? "automáticamente " : ""} con una estrella como usualmente. ${c ? "" : "Si quieres, puedes en cambio introducir un canal para hacer debug."}`
+    },
+    BOTINFO: {
+      DESCRIPTION: "Obtén detalles del bot.",
+      USAGE: "botinfo (bot/star)",
+      BOT_STATS: "Estadisticas del Bot",
+      STARRED_STATS: "Estadísticas de Mensajes con Estrellas",
+      SYSTEM_STATS: "Estadísticas del Sistema",
+      SERVERS: "Servidores",
+      USERS: "Usuarios",
+      MESSAGES: "Mensajes",
+      CHANNELS: "Canales",
+      COMMANDS_RUN: "Comandos Ejecutados",
+      PING: "Latencia",
+      UPTIME: "Tiempo de Funcionamiento",
+      CREATED_AT: "Creación del Bot",
+      JOINED_AT: "Se Unió al Servidor",
+      COMMANDS: "Comandos",
+      VERSION: "Versión",
+      STARRED_MESSAGES: "Mensajes Marcados con Estrellas",
+      LIFETIME_STARRED_MESSAGES: "Mensajes Marcados con Estrellas de Siempre",
+      MOST_STARS: "Mayor Número de Estrellas En Un Mensaje",
+      TOTAL_STARS: "Estrellas Totales",
+      UPVOTES: "Estrellas Guardadas",
+      GLOBAL: "Puntos Globales Guardados",
+      TRASHED: "Mensajes en la Basura",
+      POSTED_MESSAGES: "Mensajes Publicados",
+      EDITED_MESSAGES: "Mensajes Editados",
+      REWARD_ROLES: "Roles de Recompensa Dados",
+      LOCKED: "Mensajes Bloqueados",
+      FROZEN: "Mensajes Congelados",
+      SAVED: "Mensajes Enviados A MDs",
+      QUICK_ACTIONS: "Acciones Rápidas Efectuadas",
+      CPU: "CPU",
+      DISK_USAGE: "Uso del Disco",
+      MEMORY_USAGE: "Uso de Memoria",
+      PROCESS_UPTIME: "Tiempo de Funcionamiento del Proceso",
+      PLATFORM: "Platforma",
+      LIBRARY: "Libreria"
+    },
+    HOW: {
+      DESCRIPTION: "Muestra vista previa de cualquier mensaje marcado con estrellas, o el mensaje con más estrellas.",
+      USAGE: "show <moststarred/[ID del mensaje]>",
+      NOT_FOUND: "No pude encontrar un mensaje marcado con estrellas basado en tu entrada.",
+      STARRED_MESSAGE: "Mensaje Marcado con Estrellas",
+      COULD_NOT_OBTAIN: "No logre obtener este mensaje marcado con estrellas, esto puede ser debido a que ambos mensajes fueron eliminados, el canal fue eliminado o no puedo ver el canal. Pero sin embargo, aquí hay alguna información de este:",
+      STARS: "Estrellas",
+      GLOBAL: "Puntos Globales",
+      AUTHOR: "Autor",
+      CHANNEL: "Canal"
+    },
+    SHARDS: {
+      DESCRIPTION: "Información del Shard",
+      USAGE: "shards"
+    },
+    SUGGEST: {
+      DESCRIPTION: "Sugiere lo que sea que creas que este bot debe tener/cambiar.",
+      USAGE: "suggest <[sugerencia]>",
+      NEED_VOTE: (vote, support) => `Para reducir el spam, debes **[votar por el bot](${vote})** para hacer sugerencias fuera del **[servidor de soporte](${support})**.`,
+      NO_INPUT: "Por favor provee una sugerencia para hacer.",
+      ATTACHMENTS_NSFW: "Los archivos no pueden ser usados para hacer sugerencias en un canal NSFW.",
+      SUGGESTION: "Sugerencia",
+      THANK_YOU: link => `Muchas gracias por tu sugerencia, esto realmente ayuda mucho al desarrollo de este bot. Puedes ver tu sugerencia **[aquí](${link})**, en donde la gente puede votar por esta.`
+    },
+    GENERATE: {
+      DESCRIPTION: "Genera un código premium",
+      USAGE: "generate ([código])",
+    },
+    REDEEM: {
+      DESCRIPTION: "Reclama un código premium",
+      USAGE: "redeem <[código]>",
+      SUPPORT: "Por favor reclama códigos de Starboard Premium en un servidor en el cual realmente deseas tener Starboard Premium.",
+      CODE_USED: "Este código ya fue redimido.",
+      CODE_INVALID: "Perdón, ese no es un código válido.",
+      ALREADY_PREMIUM: "Este servidor ya tiene premium de por vida, así que un código no puede ser reclamado.",
+      EXTRA_PREMIUM: months => `Ese código fue reclamado. Este servidor ahora tiene Starboard Premium por un mes extra, para un total de ${months} meses.`,
+      SUCCESS_PREMIUM: expires => `¡Ese código fue reclamado. Este servidor ahora tiene Starboard Premium${expires ? " por un mes" : ""}!`,
+    },
+    PREMIUM: {
+      DESCRIPTION: "Obtén detalles de premium, o tu estado premium.",
+      USAGE: "premium",
+      PREMIUM: "Starboard Premium",
+      HAVE_PREMIUM: n => `Actualmente tienes premium activo en ${n} servidores.`,
+      SINCE: "Desde",
+      EXPIRES: "Expira En",
+      NEVER: "Nunca",
+      DONATED: "¡Gracias por donar y apoyar el desarrollo de Starboard!",
+      PREMIUM_INFO: idonated => `
+      __Al **donar**, obtienes (permanentemente):__
+      - Un rol de Donator y un chat exclusivo de donadores en nuestro servidor de soporte.
+      - Un emblema ${idonated} que aparece en todos tus mensajes del starboard.
+
+      __Al obtener **Starboard Premium**, puedes:__
+      - Reclamar un rol Premium en nuestro servidor de soporte.
+      *Y en un servidor de tu elección...*
+      - Tener hasta 5 emojis.
+      - Tener hasta 25 colecciones de ajustes de canales.
+      - Tener la habilidad de **votar en contra** de mensajes del starboard.
+      - Tener todas las respuestas a comandos que tienen embeds ser del color establecido para mensajes del starboard.
+      `.stripIndents()
+    },
+    LANGUAGES: {
+      DESCRIPTION: "Mira una lista de todos los idiomas, o establece un idioma para el servidor.",
+      USAGE: "languages ([idioma])",
+      LANGUAGES: "Idiomas",
+      EMBED_DESCRIPTION: (l, p) => `¡Ahora tienes la opción de establecer el idioma del bot! El bot responderá a todos los comandos en ese idioma, pero los comandos aún deben ser ejecutados en Inglés.
+      Toma en cuenta que Inglés es el único idioma que siempre estará completo al 100%, así que si una declaración no pudo ser encontrada en tu idioma, será enviada en Inglés por defecto.
+      Si quieres, puedes ayudar a agregar más idiomas en https://github.com/TheNoob27/starboard-languages, esto ayudaría bastante.
+
+      La lista actual de idiomas disponibles es:
+      - ${Object.values(module.exports.LANGUAGES).join("\n- ")}
+      
+      El idioma actualmente establecido es **${l}**. Puedes cambiarlo con \`${p}languages <[idioma]>\``.stripIndents(),
+      INVALID_LANGUAGE: l => `${l ? `**${l}**` : "Eso"} no es un idioma válido.`,
+      SUCCESS: l => `Se ha establecido el idioma del servidor a **${l}**.`
+    },
+    QUICKACTIONS: {
+      DESCRIPTION: "Obtén detalles de las Acciones Rápidas.",
+      USAGE: "quickactions",
+      QUICK_ACTIONS: "Acciones Rápidas",
+      EMBED_DESCRIPTION: (enabled, prefix) => `**Habilitadas**: ${enabled}
+
+      Las acciones rápidas permiten a los usuarios ejecutar acciones en mensajes del starboard, como bloquear, congelar, eliminar o guardar, al reaccionar en el mensaje del starboard con emojis específicos.
+      __Aquí hay una lista de las Acciones Rápidas para moderadores:__
+      🗑️: Agregar mensaje a la basura
+      🔒: Bloquear mensaje
+      🔓: Desbloquear mensaje
+      🧊/❄️: Congelar el mensaje
+      🔥: Descongelar el mensaje
+      🔄/🔁: Volver a contar las estrellas del mensaje
+      🏆/🏅: Agregar al Salón de la Fama
+      ❌/🇽: Elimina el mensaje del starboard
+      📌/📍: Forzar al starboard
+
+      __Y para todos:__
+      📥/💾: Guardar el mensaje a los MDs
+      ❌/🇽: Eliminar un mensaje del starboard que les pertenece
+      
+      **Nota**: La acción rápida 📌/📍 forzar tiene que ser usada en el mensaje original.
+      **Tip**: Si no quieres que los usuarios usen las Acciones Rápidas para todos puedes deshabilitar su permiso \`Añadir Reacciones\`.
+
+      Para habilitar/deshabilitar las Acciones Rápidas, ejecuta \`${prefix}changesetting quickActions <true/false/yes/no>\``.stripIndents()
+    },
+    SAVE: {
+      DESCRIPTION: "Guarda un mensaje marcado con estrellas o un mensaje normal en tus mds.",
+      USAGE: "save ([canal]) <[ID del mensaje]>",
+      RECENTLY_SAVED: "Este mensaje ya fue guardado recientemente.",
+      DMS_CLOSED: "No puedo enviarte este mensaje ya que tus MDs están cerrados.",
+      SUCCESS: "Ese mensaje ha sido enviado a tus MDs.",
+      FAIL: "Algo salió mal al enviarte ese mensaje.",
+      NO_MESSAGE_ID: "Por favor provee un ID de mensaje."
+    }
+  }, // might alphabetically order the commands one day -- not needed
 
     // languages
     LANGUAGES: {

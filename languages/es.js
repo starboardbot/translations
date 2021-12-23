@@ -1,4 +1,4 @@
-const LOCALE = "es"
+const LOCALE = "es-ES"
 
 module.exports = {
   name: "Español",

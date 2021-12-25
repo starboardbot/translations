@@ -217,7 +217,7 @@ module.exports = {
             : `Si esto persiste, por favor **[únete a nuestro servidor de soporte](${command.client.config.links.support})** y explica tu problema allí.`}
 
        **Error**: \`\`\`js
-       ${e[owner ? "pila" : "mensaje"]}
+       ${e[owner ? "stack" : "message"]}
        \`\`\``.stripIndents()
         )
         .setFooter(`No se logró ejecutar ${prefix}${command.name}.`)

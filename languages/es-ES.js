@@ -178,7 +178,7 @@ module.exports = {
           "Extra",
           `**Categoría**: ${command.language(l).base.categories(command.category).get() || command.category}
           **Tiempo de espera**: ${cooldown}
-          **Habilitado**: ${command.client.config.emojis[command.enabled ? "sí" : "no"]}
+          **Habilitado**: ${command.client.config.emojis[command.enabled ? "yes" : "no"]}
           **Permisos Necesarios del Bot**: ${command.client.util.readablePermissions(command.botPermissions || 0)}
           **Permisos Necesarios del Usuario**: ${command.client.util.readablePermissions(requiredPermissions || 0)}`
             .stripIndents()

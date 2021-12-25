@@ -54,9 +54,7 @@
  * @typedef {
     "en-GB" |
     "en-US" |
-    "es-ES"    |
-    "lt-LT" |
-    "tr-TR" |
+    "es-ES" |
     "fuwwy"
   } LanguageCode
  */
@@ -88,8 +86,6 @@ if (typeof String.prototype.stripIndents !== "function") Object.defineProperties
     "en-GB",
     "en-US",
     "es-ES",
-    "lt-LT",
-    "tr-TR",
     "fuwwy",
   ]}
  */
@@ -162,15 +158,6 @@ module.exports = {
         case "ES":
         case "ESP":
           [a, b] = ["es", "ES"]
-          break
-        case "TURKISH":
-        case "TR":
-        case "TURK":
-          [a, b] = ["tr", "TR"]
-          break
-        case "LITHUANIAN":
-        case "LT":
-          [a, b] = ["lt", "LT"]
           break
         case "FURRY":
         case "OWO":

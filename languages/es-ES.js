@@ -1131,8 +1131,6 @@ module.exports = {
       EN_GB: "Inglés (Reino Unido)",
       EN_US: "Inglés (Estados Unidos)",
       ES_ES: "Español",
-      LT_LT: "Lituano",
-      TR_TR: "Turco",
       FUWWY: "Fuwwy",
     }
   }

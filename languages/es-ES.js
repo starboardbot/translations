@@ -421,7 +421,7 @@ module.exports = {
       PREFIX_REMOVE: p => `Se ha eliminado \`${p}\` de la lista de prefijos.`,
       PREFIX_SET: p => `Se ha establecido el prefijo del servidor a \`${p}\``,
       LIST_PREFIXES: prefixes => `${prefixes.length > 1 ? `Los prefijos`: `El prefijo`} de este servidor
-      ${prefixes.length > 1 ? `son: \n\`${prefixes.join("`,\n`")}\``: `es \`${prefixes}\`.`}`,
+      ${prefixes.length > 1 ? `son: \n\`${prefixes.join("`,\n`")}\``: `es \`${prefixes}\`.`}`.stripIndents(),
       FOOTER: "Mi mención también funciona como prefijo."
     },
     LINKS: {

@@ -54,6 +54,7 @@
  * @typedef {
     "en-GB" |
     "en-US" |
+    "es-ES"    |
     "lt-LT" |
     "tr-TR" |
     "fuwwy"
@@ -86,6 +87,7 @@ if (typeof String.prototype.stripIndents !== "function") Object.defineProperties
  * @type {[
     "en-GB",
     "en-US",
+    "es-ES",
     "lt-LT",
     "tr-TR",
     "fuwwy",
@@ -153,6 +155,13 @@ module.exports = {
         case "US":
         case "EN":
           [a, b] = ["en", "US"]
+          break
+        case "SPANISH":
+        case "SPAIN":
+        case "LATINO":
+        case "ES":
+        case "ESP":
+          [a, b] = ["es", "ES"]
           break
         case "TURKISH":
         case "TR":

@@ -1012,7 +1012,7 @@ module.exports = {
       PLATFORM: "Platforma",
       LIBRARY: "Libreria"
     },
-    HOW: {
+    SHOW: {
       DESCRIPTION: "Muestra vista previa de cualquier mensaje marcado con estrellas, o el mensaje con más estrellas.",
       USAGE: "show <moststarred/[ID del mensaje]>",
       NOT_FOUND: "No pude encontrar un mensaje marcado con estrellas basado en tu entrada.",

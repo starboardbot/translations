@@ -232,28 +232,28 @@ module.exports = {
             }tiene que ser parte de \`${en.join("`, `")}\`.`
           break
         }
-        case "IGUALDAD": {
+        case "MATCH": {
           const [, name, raw, match] = e
           m = `El argumento **${name}** ${raw ? `(provisto: \`${esc(raw).replace(/([^]{20}).+/, "$1...")}\`) ` : ""
             }tiene que ser igual a la expresión regular (regex) \`${match.toString().split("/")[1] || match}\`.`
           break
         }
-        case "FALTA": {
+        case "MISSING": {
           const [, name] = e
           m = `El argumento necesario **${name}** falta.`
           break
         }
-        case "ANALIZAR": {
+        case "PARSE": {
           const [, raw, toParse] = e
           m = `No se logró analizar un ${toParse} ${typeof raw === "number" ? "para el argumento" : "del argumento proporcionado"} \`${esc(String(raw || "")).replace(/([^]{20}).+/, "$1...")}\``
           break
         }
-        case "RANGO": {
+        case "RANGE": {
           const [, raw, greater, boundary] = e
           m = `El argumento proporcionado \`${esc(raw).replace(/([^]{20}).+/, "$1...")}\` no puede ser ${greater ? "mayor" : "menor"} que \`${boundary.toLocaleString(LOCALE)}\`.`
           break
         }
-        case "TIPO": {
+        case "TYPE": {
           const [, name, raw, type] = e
           m = `El argumento **${name}** ${raw ? `(provisto: \`${esc(raw).replace(/([^]{20}).+/, "$1...")}\`) ` : ""
             }tiene que ser \`${type}\`.`

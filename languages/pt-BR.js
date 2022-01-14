@@ -243,7 +243,7 @@ module.exports = {
       NAME: 'listabranca'
     },
     REWARDROLES: {
-      DESCRIPTION: 'Visualiza as informações ou adiciona/remove cargos de recompensa, ou seja, cargos dados à usuários após conseguirem um número específico de estrelas.',
+      DESCRIPTION: 'Vê informações sobre ou adiciona/remove cargos de recompensa, cargos que são adicionados a usuários assim que eles ultrapassam uma certa quantidade de estrelas.',
       USAGE: 'rewardroles ([configuraçõesDeCanal]) (add/remove) ([cargo]) ([estrelas])',
       NO_LEADERBOARD: 'O placar de líderes está desabilitado nesse servidor e, consequentemente, os cargos de recompensa.',
       REWARD_ROLES: 'Cargos de Recompensa',
@@ -387,7 +387,7 @@ module.exports = {
       REQUIRED_NAN: 'A quantidade de estrelas necessárias para chegar no starboard tem que ser um número.',
       RTR_NAN: 'A quantidade de estrelas que uma mensagem precisa ter para ser removida do starboard tem que ser um número.',
       STARBOARD_ID: 'Se você quer que eu crie um canal de starboard para você, digite `create`. Por padrão ele será nomeado "starboard", mas você também pode especificar o nome, por exemplo `create museu-de-mensagens`.',
-      LANGUAGE: 'Note que nem todos os idiomas estão completos ainda, Inglês é o único completo.',
+      LANGUAGE: 'Note que nem todos os idiomas estão completos, Inglês e Espanhol são os únicos completos.',
       EMOJIS: 'Esse é o emoji que usuários devem usar para reagir em mensagens que eles querem colocar no starboard. Você também pode reagir a essa mensagem com o emoji que você quer.',
       FILTER_BOTS: 'Se você quer que os bots também cheguem no starboard, não habilite isso.',
       VISIBLE: 'Se você pretende estrelar coisas pessoais/privadas, você definitivamente deve desativar isso. Se isso estiver ativado, um 🌍 vai aparecer em mensagens estreladas que forem encontradas no comando explorar, seguido pelo número de vezes que foi encontrada.',
@@ -782,8 +782,7 @@ module.exports = {
   LANGUAGES: {
     EN_GB: 'Inglês (GB)',
     EN_US: 'Inglês (US)',
-    LT_LT: 'Lituano',
-    TR_TR: 'Turco',
-    FUWWY: 'Fuwwy'
+    FUWWY: 'Fuwwy',
+    ES_ES: 'Espanhol'
   }
 }

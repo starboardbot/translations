@@ -54,14 +54,20 @@
  * @typedef {
     "en-GB" |
     "en-US" |
-    "lt-LT" |
-    "tr-TR" |
+    "es-ES" |
     "fuwwy"
   } LanguageCode
  */
 
 const { readdirSync: readDirectory } = require("fs")
-const { get } = require("lodash")
+const get = (object, path, defaultValue) => {
+  path = path.split(".")
+  for (const p of path) {
+    object = object[p]
+    if (object == null) return defaultValue
+  }
+  return object
+}
 
 // used in languages and code formatting and stuff
 if (typeof String.prototype.stripIndents !== "function") Object.defineProperties(String.prototype, "stripIndents", {
@@ -79,8 +85,7 @@ if (typeof String.prototype.stripIndents !== "function") Object.defineProperties
  * @type {[
     "en-GB",
     "en-US",
-    "lt-LT",
-    "tr-TR",
+    "es-ES",
     "fuwwy",
   ]}
  */
@@ -147,14 +152,12 @@ module.exports = {
         case "EN":
           [a, b] = ["en", "US"]
           break
-        case "TURKISH":
-        case "TR":
-        case "TURK":
-          [a, b] = ["tr", "TR"]
-          break
-        case "LITHUANIAN":
-        case "LT":
-          [a, b] = ["lt", "LT"]
+        case "SPANISH":
+        case "SPAIN":
+        case "LATINO":
+        case "ES":
+        case "ESP":
+          [a, b] = ["es", "ES"]
           break
         case "FURRY":
         case "OWO":

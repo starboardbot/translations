@@ -722,8 +722,7 @@ module.exports = {
   LANGUAGES: {
     EN_GB: "Engwish (GB)",
     EN_US: "Engwish (US)",
-    LT_LT: "Withuanian",
-    TR_TR: "Tuwkish",
+    ES_ES: "Spawnish",
     FUWWY: "Fuwwy",
   }
 }

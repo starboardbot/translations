@@ -274,8 +274,9 @@ module.exports = {
       USAGE: "eval <código>"
     },
     HELP: {
+      NAME: 'ayuda',
       DESCRIPTION: "Mira todos los comandos que ofrece el bot, o mira información específica de un comando.",
-      USAGE: "help ([comando])",
+      USAGE: "**help ([comando])** o **ayuda ([comando])**",
       EMBED_DESCRIPTION: (command, owner, categories, prefix, guide) => `Comandos: ${owner
           ? command.client.commands.size
           : Object.values(categories) // { "Categoría": "...\n..." }

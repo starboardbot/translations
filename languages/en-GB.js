@@ -950,6 +950,7 @@ module.exports = {
       NO_STARBOARDS: "There are no starboards set for this server.",
       MISSING_READ: c => `I cannot view ${c}, please enable the \`View Channel\` permission.`,
       MISSING_HISTORY: c => `I cannot read message history in ${c}, please enable the \`Read Message History\` permission.`,
+      MISSING_SEND: c => `I cannot send starboard messages in ${c}, please enable the \`Send Messages\` permission.`,
       MISSING_EMBEDS: c => `I cannot send embeds in ${c}, please enable the \`Embed Links\` permission.`,
       MISSING_FILES: c => `I cannot attach files in ${c}, so attachments will not be attached to the starboard message and will instead be linked. Please enable the \`Attach Files\` permission if you want attachments.`,
       MESSAGE_NOT_EXISTS: (id, c) => `A message with ID \`${id}\` was not found in ${c}`,
@@ -1135,6 +1136,24 @@ module.exports = {
       SUCCESS: "That message has successfully been sent to your DMs.",
       FAIL: "Something went wrong when sending you that message.",
       NO_MESSAGE_ID: "Please provide a message ID."
+    },
+    RECOVER: {
+      DESCRIPTION: "Recover messages from a starboard that have been lost in the dataloss. You can also specify a message ID to recover messages before that specific starboard message.",
+      USAGE: "migrate ([channel]) ([messageID])",
+      NO_STARBOARD: "There are no starboards set for this server.\nThe channel you're recovering from must be a starboard channel - make sure you set up your server again before attempting to recover messages.",
+      NOT_STARBOARD: "This channel is not a starboard channel. Make sure you set up your server again before attempting to recover messages.",
+      NOTHING_TO_RECOVER: (sb) => `I could not find any potential starboard messages to recover in ${sb}.`,
+      MISSING_PERMISSIONS: sb => `I cannot read messages and read message history in ${sb}.`,
+      RECOVER: "Recover Starred Messages",
+      CONFIRMATION_EMBED: (n, c, before) => `I've found ${n} messages${before ? ` before ${before}` : ""} in ${c} that are probably lost starred messages. Do you want me to continue?
+      I will scan through these messages and try to recover old starred messages, giving users their stats on the way too.
+      • Duplicated starboard messages will be ignored, not deleted.
+      Say **yes** to continue.`.stripIndents(),
+      ETA: t => `ETA: about ${t}`,
+      CANCELLED: sb => `Cancelled the recovery of starboard messages in ${sb}.`,
+      ALREADY_RECOVERING: "It seems this server is currently already recovering or migrating messages.",
+      STATUS: (n, total, sb, typing) => `${typing} Recovering messages from ${sb} - ${n}/${total} \`[${"#".repeat((n / total) * 10).padEnd(10, " ")}]\``,
+      SUCCESS: (n, msgs) => `Successfully recovered ${n} messages, saving ${msgs} new messages.`
     }
   }, // might alphabetically order the commands one day
 
@@ -1143,8 +1162,6 @@ module.exports = {
     EN_GB: "English (GB)",
     EN_US: "English (US)",
     ES_ES: "Spanish",
-    LT_LT: "Lithuanian",
-    TR_TR: "Turkish",
     FUWWY: "Fuwwy",
   }
 }

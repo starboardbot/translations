@@ -1135,7 +1135,8 @@ module.exports = {
       DMS_CLOSED: "I cannot send you this message because your DMs are closed.",
       SUCCESS: "That message has successfully been sent to your DMs.",
       FAIL: "Something went wrong when sending you that message.",
-      NO_MESSAGE_ID: "Please provide a message ID."
+      NO_MESSAGE_ID: "Please provide a message ID.",
+      NOT_FOUND: "I couldn't find a message with that ID."
     },
     RECOVER: {
       DESCRIPTION: "Recover messages from a starboard that have been lost in the dataloss. You can also specify a message ID to recover messages before that specific starboard message.",

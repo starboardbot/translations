@@ -42,7 +42,7 @@ module.exports = {
 
   // message event
   CANT_SPEAK: "I cannot speak in that channel! Please get a moderator to change my permissions for that channel, or try using me in a different channel.",
-  PREFIX_INFO: (prefixes = ["star "]) => `My prefix for this server is${prefixes.length > 1 ? " any one of" : ""} \`${prefixes.join("`, `")}\`, but my mention also works as a prefix.`,
+  PREFIX_INFO: (prefixes) => prefixes.length ? `My prefix for this server is${prefixes.length > 1 ? " any one of" : ""} \`${prefixes.join("`, `")}\`, but my mention also works as a prefix.` : "I don't have any prefixes in this server, but you can still use my mention.",
   HELP: "Help",
 
   NEED_VOTE: doThis => `To ${doThis}, you need to **[vote for the bot](https://top.gg/bot/655390915325591629/vote)**. Once you have voted, you have to wait a few minutes for me to recieve your vote.`,

@@ -1154,7 +1154,7 @@ module.exports = {
       CANCELLED: sb => `Cancelled the recovery of starboard messages in ${sb}.`,
       ALREADY_RECOVERING: "It seems this server is currently already recovering or migrating messages.",
       STATUS: (n, total, sb, typing) => `${typing} Recovering messages from ${sb} - ${n}/${total} \`[${"#".repeat((n / total) * 10).padEnd(10, " ")}]\``,
-      SUCCESS: (n, msgs) => `Successfully recovered ${n} messages, saving ${msgs} new messages.`
+      SUCCESS: (n, msgs, oldest) => `Successfully recovered ${n} messages, saving ${msgs} new messages.\nThe ID of the oldest message scanned is ${oldest}, meaning you can migrate messages older than this.`
     }
   }, // might alphabetically order the commands one day
 

@@ -274,8 +274,9 @@ module.exports = {
       USAGE: "eval <código>"
     },
     HELP: {
+      NAME: 'ayuda',
       DESCRIPTION: "Mira todos los comandos que ofrece el bot, o mira información específica de un comando.",
-      USAGE: "help ([comando])",
+      USAGE: "**help ([comando])** o **ayuda ([comando])**",
       EMBED_DESCRIPTION: (command, owner, categories, prefix, guide) => `Comandos: ${owner
           ? command.client.commands.size
           : Object.values(categories) // { "Categoría": "...\n..." }
@@ -1123,6 +1124,24 @@ module.exports = {
       SUCCESS: "Ese mensaje ha sido enviado a tus MDs.",
       FAIL: "Algo salió mal al enviarte ese mensaje.",
       NO_MESSAGE_ID: "Por favor provee un ID de mensaje."
+    },
+    RECOVER: {
+      DESCRIPTION: "Recupera mensajes de un starboard que han sido perdidos en la pérdida de datos. También puedes especificar el ID de un mensaje para recuperar mensajes antes de ese mensaje específico del starboard.",
+      USAGE: "migrate ([canal]) ([ID del mensaje])",
+      NO_STARBOARD: "No hay ningún starboard establecido en este servidor.\nEl canal que estás recuperando debe ser un canal de starboard - asegúrate de nuevo que hayas configurado tu servidor antes de intentar recuperar mensajes.",
+      NOT_STARBOARD: "Este canal no es un canal de starboard. Asegúrate de nuevo que hayas configurado tu servidor antes de intentar recuperar mensajes.",
+      NOTHING_TO_RECOVER: (sb) => `No logré encontrar algún mensaje del starboard potencial para recuperar en ${sb}.`,
+      MISSING_PERMISSIONS: sb => `No puedo leer mensajes y el historial de mensajes en ${sb}.`,
+      RECOVER: "Recuperar Mensajes Marcados con una Estrella ",
+      CONFIRMATION_EMBED: (n, c, before) => `He encontrado ${n} mensajes${before ? ` antes ${before}` : ""} en ${c} que son probables de ser mensajes marcados con una estrella perdidos. ¿Quieres que proceda?
+      Escanearé a través de estos mensajes e intentaré recuperar mensajes marcados con una estrella antiguos, asignando a los usuarios sus estadísticas en el proceso.
+      • Los mensajes duplicados del starboard serán ignorados, no eliminados.
+      Di *yes** para continuar.`.stripIndents(),
+      ETA: t => `ETA: acerca de ${t}`,
+      CANCELLED: sb => `Se ha cancelado la recuperación de mensajes del starboard en ${sb}.`,
+      ALREADY_RECOVERING: "Parece que este servidor ya se encuentra recuperando o migrando mensajes.",
+      STATUS: (n, total, sb, typing) => `${typing} Recuperando mensajes de ${sb} - ${n}/${total} \`[${"#".repeat((n / total) * 10).padEnd(10, " ")}]\``,
+      SUCCESS: (n, msgs) => `Se han recuperado ${n} mensajes con éxito, guardando ${msgs} nuevos mensajes.`
     }
   }, // might alphabetically order the commands one day -- not needed
 

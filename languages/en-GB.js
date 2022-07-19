@@ -4,24 +4,30 @@ module.exports = {
   name: "English (GB)",
   HELLO_WORLD: "Hello world!",
 
-  // miscellaneous - could be used anywhere
-  IMAGE: num => `Image${typeof num === "number" && num ? ` ${num}` : ""}`,
-  GIF_VIDEO: num => `GIF Video${typeof num === "number" && num ? ` ${num}` : ""}`,
-  VIDEO: num => `Video${typeof num === "number" && num ? ` ${num}` : ""}`,
-  MEDIA: num => `Media${typeof num === "number" && num ? ` ${num}` : ""}`,
-  FILE: num => `File${typeof num === "number" && num ? ` ${num}` : ""}`,
-  
-  // starred message embed - stuff that shows up in starboard message embeds
+  // starboard message stuff
+  IMAGE: (num, prov) => `${prov ? `${prov} ` : ""}Image${typeof num === "number" && num ? ` ${num}` : ""}`,
+  GIF_VIDEO: (num, prov) => `${prov ? `${prov} ` : ""}GIF Video${typeof num === "number" && num ? ` ${num}` : ""}`,
+  VIDEO: (num, prov) => `${prov ? `${prov} ` : ""}Video${typeof num === "number" && num ? ` ${num}` : ""}`,
+  MEDIA: (num, prov) => `${prov ? `${prov} ` : ""}Media${typeof num === "number" && num ? ` ${num}` : ""}`,
+  FILE: (num, prov) => `${prov ? `${prov} ` : ""}File${typeof num === "number" && num ? ` ${num}` : ""}`,
+  LINK: (num, prov) => `${prov ? `${prov} ` : ""}Link${typeof num === "number" && num ? ` ${num}` : ""}`,
+  TWEET: authorName => `Tweet from ${authorName}`,
+  SPOILER: content => `(SPOILER) ${content}`,
+  NSFW: content => `(NSFW) ${content}`,
+
   CLICK_TO_JUMP: deleted =>
     !deleted ? "Click to jump to message!" : "Context (message was deleted)",
   SHORT_CLICK_TO_JUMP: deleted =>
     // if for whatever reason there are 25 fields and content over 1928 and less than 1947 chars
     !deleted ? "Click!" : "Context",
+  ORIGINAL_MESSAGE: "Original Message",
   REFERENCED_MESSAGE: (isReply, deleted, user) =>
     isReply ? `Replying to ${user || "this message"}${deleted ? " (deleted)" : ""}` : "Referenced Message",
-  TWEET: authorName => `Tweet from ${authorName}`,
   UNKNOWN: tag => `Unknown${tag ? "#0000" : ""}`,
   FROM_SERVER: server => `From ${server}`,
+  SENT_STICKER: name => `Sent a sticker: ${name}`,
+  EXTRA_IMAGES: n => `+${n} images`,
+  REPORT: "Report",
   TRASH_EMBED: (reason, userList, removeTrashCommand) => 
   `This message has been trashed/removed by a moderator.
   ${reason ? `**Reason**: ${reason}\n` : ""}

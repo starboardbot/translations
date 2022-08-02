@@ -446,9 +446,11 @@ module.exports = {
       LINKS: "Links",
       DONATION: "Donation",
       OTHER: "Other",
+      LEGAL: "Legal",
       DISCORD_LINKS: (i, s) => `**[Invite me!](${i})**\n**[Support Server](${s})**`,
       PATREON_LINK: p => `**[Become a Patron!](${p})**`,
-      OTHER_LINKS: (v, gh, g) => `**[Vote for the bot!](${v})**\n**[GitHub Issues](${gh})**\n**[Starboard Guide](${g})**`
+      OTHER_LINKS: (v, gh, g) => `**[Vote for the bot!](${v})**\n**[GitHub Issues](${gh})**\n**[Starboard Guide](${g})**`,
+      LEGAL_LINKS: p => `**[Privacy](${p})**`
     },
     BLACKLIST: {
       DESCRIPTION: "View info about blacklisted users, roles or channels, or modify the list.",

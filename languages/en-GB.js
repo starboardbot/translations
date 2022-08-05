@@ -4,24 +4,30 @@ module.exports = {
   name: "English (GB)",
   HELLO_WORLD: "Hello world!",
 
-  // miscellaneous - could be used anywhere
-  IMAGE: num => `Image${typeof num === "number" && num ? ` ${num}` : ""}`,
-  GIF_VIDEO: num => `GIF Video${typeof num === "number" && num ? ` ${num}` : ""}`,
-  VIDEO: num => `Video${typeof num === "number" && num ? ` ${num}` : ""}`,
-  MEDIA: num => `Media${typeof num === "number" && num ? ` ${num}` : ""}`,
-  FILE: num => `File${typeof num === "number" && num ? ` ${num}` : ""}`,
-  
-  // starred message embed - stuff that shows up in starboard message embeds
+  // starboard message stuff
+  IMAGE: (num, prov) => `${prov ? `${prov} ` : ""}Image${typeof num === "number" && num ? ` ${num}` : ""}`,
+  GIF_VIDEO: (num, prov) => `${prov ? `${prov} ` : ""}GIF Video${typeof num === "number" && num ? ` ${num}` : ""}`,
+  VIDEO: (num, prov) => `${prov ? `${prov} ` : ""}Video${typeof num === "number" && num ? ` ${num}` : ""}`,
+  MEDIA: (num, prov) => `${prov ? `${prov} ` : ""}Media${typeof num === "number" && num ? ` ${num}` : ""}`,
+  FILE: (num, prov) => `${prov ? `${prov} ` : ""}File${typeof num === "number" && num ? ` ${num}` : ""}`,
+  LINK: (num, prov) => `${prov ? `${prov} ` : ""}Link${typeof num === "number" && num ? ` ${num}` : ""}`,
+  TWEET: authorName => `Tweet from ${authorName}`,
+  SPOILER: content => `(SPOILER) ${content}`,
+  NSFW: content => `(NSFW) ${content}`,
+
   CLICK_TO_JUMP: deleted =>
     !deleted ? "Click to jump to message!" : "Context (message was deleted)",
   SHORT_CLICK_TO_JUMP: deleted =>
     // if for whatever reason there are 25 fields and content over 1928 and less than 1947 chars
     !deleted ? "Click!" : "Context",
+  ORIGINAL_MESSAGE: "Original Message",
   REFERENCED_MESSAGE: (isReply, deleted, user) =>
     isReply ? `Replying to ${user || "this message"}${deleted ? " (deleted)" : ""}` : "Referenced Message",
-  TWEET: authorName => `Tweet from ${authorName}`,
   UNKNOWN: tag => `Unknown${tag ? "#0000" : ""}`,
   FROM_SERVER: server => `From ${server}`,
+  SENT_STICKER: name => `Sent a sticker: ${name}`,
+  EXTRA_IMAGES: n => `+${n} images`,
+  REPORT: "Report",
   TRASH_EMBED: (reason, userList, removeTrashCommand) => 
   `This message has been trashed/removed by a moderator.
   ${reason ? `**Reason**: ${reason}\n` : ""}
@@ -42,7 +48,7 @@ module.exports = {
 
   // message event
   CANT_SPEAK: "I cannot speak in that channel! Please get a moderator to change my permissions for that channel, or try using me in a different channel.",
-  PREFIX_INFO: (prefixes = ["star "]) => `My prefix for this server is${prefixes.length > 1 ? " any one of" : ""} \`${prefixes.join("`, `")}\`, but my mention also works as a prefix.`,
+  PREFIX_INFO: (prefixes = []) => prefixes.length ? `My prefix for this server is${prefixes.length > 1 ? " any one of" : ""} \`${prefixes.join("`, `")}\`, but my mention also works as a prefix.` : "I don't have any prefixes set for this server, but you can still use my mention as one.",
   HELP: "Help",
 
   NEED_VOTE: doThis => `To ${doThis}, you need to **[vote for the bot](https://top.gg/bot/655390915325591629/vote)**. Once you have voted, you have to wait a few minutes for me to recieve your vote.`,
@@ -487,7 +493,7 @@ module.exports = {
       WHITELIST_REMOVE: s => `Successfully removed **${s}** from the whitelist.`
     },
     REWARDROLES: {
-      DESCRIPTION: "View info about or add/remove reward roles, roles that get added to users once they surpass a certain amount of stars. ",
+      DESCRIPTION: "View info about or add/remove reward roles, roles that get added to users once they surpass a certain amount of stars.",
       USAGE: "rewardroles ([channelSettings]) (add/remove) ([role]) ([stars])",
       NO_LEADERBOARD: "The leaderboard is disabled for the server, which includes reward roles.",
       REWARD_ROLES: "Reward Roles",
@@ -673,7 +679,7 @@ module.exports = {
       REQUIRED_NAN: "The required amount of stars to reach the starboard has to be a number.",
       RTR_NAN: "The amount of stars a message needs to have to be removed from the starboard has to be a number.",
       STARBOARD_ID: "If you want me to create a starboard channel for you, input `create`, optionally followed by the name of the channel, such as \`create message-museum\` (will be \"starboard\" by default).",
-      LANGUAGE: "Note that not all languages are completed, English is the only one completed.",
+      LANGUAGE: "Note that not all languages are completed, English and Spanish are the only ones completed.",
       REQUIRED: s => `Currently, if ${s.required} different people star a message, it will then be posted to the starboard.`,
       REQUIRED_TO_REMOVE: s => `Currently, if a message in the starboard drops below ${s.requiredToRemove} stars, it will then be removed from the starboard.`,
       EMOJIS: "This is the emoji users must react with to get a message on the starboard. You can also react to this message with the emoji you want.",
@@ -950,6 +956,7 @@ module.exports = {
       NO_STARBOARDS: "There are no starboards set for this server.",
       MISSING_READ: c => `I cannot view ${c}, please enable the \`View Channel\` permission.`,
       MISSING_HISTORY: c => `I cannot read message history in ${c}, please enable the \`Read Message History\` permission.`,
+      MISSING_SEND: c => `I cannot send starboard messages in ${c}, please enable the \`Send Messages\` permission.`,
       MISSING_EMBEDS: c => `I cannot send embeds in ${c}, please enable the \`Embed Links\` permission.`,
       MISSING_FILES: c => `I cannot attach files in ${c}, so attachments will not be attached to the starboard message and will instead be linked. Please enable the \`Attach Files\` permission if you want attachments.`,
       MESSAGE_NOT_EXISTS: (id, c) => `A message with ID \`${id}\` was not found in ${c}`,
@@ -1134,7 +1141,26 @@ module.exports = {
       DMS_CLOSED: "I cannot send you this message because your DMs are closed.",
       SUCCESS: "That message has successfully been sent to your DMs.",
       FAIL: "Something went wrong when sending you that message.",
-      NO_MESSAGE_ID: "Please provide a message ID."
+      NO_MESSAGE_ID: "Please provide a message ID.",
+      NOT_FOUND: "I couldn't find a message with that ID."
+    },
+    RECOVER: {
+      DESCRIPTION: "Recover messages from a starboard that have been lost in the dataloss. You can also specify a message ID to recover messages before that specific starboard message.",
+      USAGE: "migrate ([channel]) ([messageID])",
+      NO_STARBOARD: "There are no starboards set for this server.\nThe channel you're recovering from must be a starboard channel - make sure you set up your server again before attempting to recover messages.",
+      NOT_STARBOARD: "This channel is not a starboard channel. Make sure you set up your server again before attempting to recover messages.",
+      NOTHING_TO_RECOVER: (sb) => `I could not find any potential starboard messages to recover in ${sb}.`,
+      MISSING_PERMISSIONS: sb => `I cannot read messages and read message history in ${sb}.`,
+      RECOVER: "Recover Starred Messages",
+      CONFIRMATION_EMBED: (n, c, before) => `I've found ${n} messages${before ? ` before ${before}` : ""} in ${c} that are probably lost starred messages. Do you want me to continue?
+      I will scan through these messages and try to recover old starred messages, giving users their stats on the way too.
+      • Duplicated starboard messages will be ignored, not deleted.
+      Say **yes** to continue.`.stripIndents(),
+      ETA: t => `ETA: about ${t}`,
+      CANCELLED: sb => `Cancelled the recovery of starboard messages in ${sb}.`,
+      ALREADY_RECOVERING: "It seems this server is currently already recovering or migrating messages.",
+      STATUS: (n, total, sb, typing) => `${typing} Recovering messages from ${sb} - ${n}/${total} \`[${"#".repeat((n / total) * 10).padEnd(10, " ")}]\``,
+      SUCCESS: (n, msgs, oldest) => `Successfully recovered ${n} messages, saving ${msgs} new messages.\nThe ID of the oldest message scanned is ${oldest}, meaning you can migrate messages older than this.`
     }
   }, // might alphabetically order the commands one day
 
@@ -1142,9 +1168,7 @@ module.exports = {
   LANGUAGES: {
     EN_GB: "English (GB)",
     EN_US: "English (US)",
-    ES: "Spanish",
-    LT_LT: "Lithuanian",
-    TR_TR: "Turkish",
+    ES_ES: "Spanish",
     FUWWY: "Fuwwy",
   }
 }

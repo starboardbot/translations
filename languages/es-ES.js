@@ -5,11 +5,14 @@ module.exports = {
   HELLO_WORLD: "¡Hola Mundo!",
 
   // miscellaneous - could be used anywhere
-  IMAGE: num => `Imagen${typeof num === "number" && num ? ` ${num}` : ""}`,
-  GIF_VIDEO: num => `Vídeo GIF${typeof num === "number" && num ? ` ${num}` : ""}`,
-  VIDEO: num => `Vídeo${typeof num === "number" && num ? ` ${num}` : ""}`,
-  MEDIA: num => `Multimedia${typeof num === "number" && num ? ` ${num}` : ""}`,
-  FILE: num => `Archivo${typeof num === "number" && num ? ` ${num}` : ""}`,
+  IMAGE: (num, prov) => `${prov ? `${prov} ` : ""}Imagen${typeof num === "number" && num ? ` ${num}` : ""}`,
+  GIF_VIDEO: (num, prov) => `${prov ? `${prov} ` : ""}Vídeo GIF${typeof num === "number" && num ? ` ${num}` : ""}`,
+  VIDEO: (num, prov) => `${prov ? `${prov} ` : ""}Vídeo${typeof num === "number" && num ? ` ${num}` : ""}`,
+  MEDIA: (num, prov) => `${prov ? `${prov} ` : ""}Multimedia${typeof num === "number" && num ? ` ${num}` : ""}`,
+  FILE: (num, prov) => `${prov ? `${prov} ` : ""}Archivo${typeof num === "number" && num ? ` ${num}` : ""}`,
+  TWEET: authorName => `Tweet de ${authorName}`,
+  SPOILER: content => `(SPOILER) ${content}`,
+  NSFW: content => `(CON RESTRICCIÓN DE EDAD) ${content}`,
 
   // starred message embed - stuff that shows up in starboard message embeds
   CLICK_TO_JUMP: deleted =>
@@ -17,11 +20,14 @@ module.exports = {
   SHORT_CLICK_TO_JUMP: deleted =>
     // if for whatever reason there are 25 fields and content over 1928 and less than 1947 chars
     !deleted ? "¡Haz clic!" : "Contexto",
+  ORIGINAL_MESSAGE: "Mensaje Original",
   REFERENCED_MESSAGE: (isReply, deleted, user) =>
     isReply ? `Respondiendo a ${user || "este mensaje"}${deleted ? " (eliminado)" : ""}` : "Mensaje Referenciado",
-  TWEET: authorName => `Tweet from ${authorName}`,
   UNKNOWN: tag => `Desconocido${tag ? "#0000" : ""}`,
   FROM_SERVER: server => `De ${server}`,
+  SENT_STICKER: name => `Envió una pegatina: ${name}`,
+  EXTRA_IMAGES: n => `+${n} imagenes`,
+  REPORT: "Reportar",
   TRASH_EMBED: (reason, userList, removeTrashCommand) =>
     `Este mensaje fue eliminado/agregado a la basura por un moderador..
   ${reason ? `**Razón**: ${reason}\n` : ""}
@@ -42,7 +48,7 @@ module.exports = {
 
   // message event
   CANT_SPEAK: "¡No puedo hablar en ese canal! Por favor haz que un moderador cambie mis permisos en ese canal, o intenta usarme en otro canal.",
-  PREFIX_INFO: (prefixes = ["star "]) => `Mi prefijo en este servidor es${prefixes.length > 1 ? " cualquiera de" : ""} \`${prefixes.join("`, `")}\`, pero mi mención también funciona como un prefijo.`,
+  PREFIX_INFO: (prefixes = []) => prefixes.length ? `Mi prefijo en este servidor es${prefixes.length > 1 ? " cualquiera de" : ""} \`${prefixes.join("`, `")}\`, pero mi mención también funciona como un prefijo.` : "No tengo ningún prefijo establecido para este servidor, pero puedes usar mi mención como prefijo.",
   HELP: "Ayuda",
 
   NEED_VOTE: doThis => `Para ${doThis}, debes **[votar por el bot](https://top.gg/bot/655390915325591629/vote)**. Una vez hayas votado, debes esperar unos minutos para que reciba tu voto.`,
@@ -1123,7 +1129,8 @@ module.exports = {
       DMS_CLOSED: "No puedo enviarte este mensaje ya que tus MDs están cerrados.",
       SUCCESS: "Ese mensaje ha sido enviado a tus MDs.",
       FAIL: "Algo salió mal al enviarte ese mensaje.",
-      NO_MESSAGE_ID: "Por favor provee un ID de mensaje."
+      NO_MESSAGE_ID: "Por favor provee un ID de mensaje.",
+      NOT_FOUND: "No pude encontrar un mensaje con esa ID.",
     },
     RECOVER: {
       DESCRIPTION: "Recupera mensajes de un starboard que han sido perdidos en la pérdida de datos. También puedes especificar el ID de un mensaje para recuperar mensajes antes de ese mensaje específico del starboard.",
@@ -1141,7 +1148,7 @@ module.exports = {
       CANCELLED: sb => `Se ha cancelado la recuperación de mensajes del starboard en ${sb}.`,
       ALREADY_RECOVERING: "Parece que este servidor ya se encuentra recuperando o migrando mensajes.",
       STATUS: (n, total, sb, typing) => `${typing} Recuperando mensajes de ${sb} - ${n}/${total} \`[${"#".repeat((n / total) * 10).padEnd(10, " ")}]\``,
-      SUCCESS: (n, msgs) => `Se han recuperado ${n} mensajes con éxito, guardando ${msgs} nuevos mensajes.`
+      SUCCESS: (n, msgs, oldest) => `Se han recuperado ${n} mensajes con éxito, guardando ${msgs} nuevos mensajes.\nLa ID del último mensaje escaneado es ${oldest}, esto quiere decir que puedes migrar mensajes previos a este.`
     }
   }, // might alphabetically order the commands one day -- not needed
 

@@ -55,9 +55,9 @@ module.exports = {
   AUTO_STAR_FEAT: "habilitar marcado automatico con una estrella",
 
   FIND_USER_MORE_SPECIFIC: users => `Por favor sea más específico, encontré ${users} usuarios correspondientes a su entrada.`,
-  FIND_USER_PROMPT: list => `Encontré múltiples usuarios correspondientes a su entrada:
-  ${list}
-  Por favor responda con el número del usuario que desea.`.stripIndents(),
+  FIND_USER_PROMPT: size => `Encontré ${size} usuarios que coinciden con tu solicitud - por favor selecciona al usuario que buscas.`,
+  SELECT_USER: "Selecciona un Usuario",
+  CANCEL: "Cancelar",
 
   SETTINGS: { // prefix, isPremium, channelSettingName
     STARBOARD_ID: (p, _prm, name) => `Aquí es donde aparecen los mensajes marcados con una estrella irán. Si deseas eliminar el starboard establecido, ejecuta \`${p}changesetting${name && ` ${name}`} ningún starboard\`.`,

@@ -61,9 +61,9 @@ module.exports = {
   AUTO_STAR_FEAT: "enable auto starring",
 
   FIND_USER_MORE_SPECIFIC: users => `Please be more specific, I found ${users} users matching your input.`,
-  FIND_USER_PROMPT: list => `I found multiple users matching your input:
-  ${list}
-  Please respond with the number of the user you want.`.stripIndents(),
+  FIND_USER_PROMPT: size => `I found ${size} users matching your input - please select the user you're looking for.`,
+  SELECT_USER: "Select a User",
+  CANCEL: "Cancel",
 
   SETTINGS: { // prefix, isPremium, channelSettingName
     STARBOARD_ID: (p, _prm, name) => `This is where starred messages will go. If you wish to unset the starboard, run \`${p}changesetting${name && ` ${name}`} starboard none\`.`,

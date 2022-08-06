@@ -75,7 +75,7 @@ module.exports = {
     When setting the permission, you can input something like \`MANAGE_MESSAGES\`, \`Manage Messages\`, \`Manage-Messages\` or \`8192\`. For multiple permissions, use a permissions calculator.`.stripIndents(),
     ON_DELETION: "This is what should happen when a moderator deletes a starboard message. Repost means the starboard message automatically gets reposted, freeze means the starred message gets frozen and trash means the starred message gets trashed.",
 
-    LINK_DELETES: "If a message is deleted, the starboard message will automatically be deleted.",
+    LINK_DELETES: p => `If a message is deleted, the starboard message will automatically be deleted.\nWhen this setting is disabled, messages will be encrypted and saved for a maximum of 30 days once deleted so the bot and server members can still see the content of the message when needed, such as when reposting the starboard message or using the show or save commands. For more information, check the Privacy page of the bot's guide - \`${p}links\`.`,
     FILTER_BOTS: "Whether or not bots should be filtered off the starboard.",
     STAR_SELF: "If users are able to star their own messages.",
     WATCHING: `This is if you want the full functionality of Starboard without actually posting messages to a starboard.

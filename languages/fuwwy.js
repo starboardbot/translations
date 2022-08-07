@@ -722,7 +722,7 @@ module.exports = {
   LANGUAGES: {
     EN_GB: "Engwish (GB)",
     EN_US: "Engwish (US)",
-    ES_ES: "Spawnish",
+    ES_ES: "Spwanish",
     FUWWY: "Fuwwy",
   }
 }

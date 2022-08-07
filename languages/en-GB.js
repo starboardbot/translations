@@ -65,6 +65,10 @@ module.exports = {
   SELECT_USER: "Select a User",
   CANCEL: "Cancel",
 
+  WARN_UNKNOWN_LINK: "Sorry, but it looks like I've misplaced the link you're looking for.",
+  WARN_LINK_PROMPT: ext => `This link leads to a file with a \`${ext}\` extension. These type of files can be malicious, or contain malicious content, especially because you don't know who it's from. Are you sure you want to open this link?`,
+  WARN_LINK_CONFIRM: "Yes, open this link.",
+
   SETTINGS: { // prefix, isPremium, channelSettingName
     STARBOARD_ID: (p, _prm, name) => `This is where starred messages will go. If you wish to unset the starboard, run \`${p}changesetting${name && ` ${name}`} starboard none\`.`,
     NSFW_STARBOARD_ID: "This is where starred messages from NSFW channels will go. If this isn't set, messages from NSFW channels will go to the normal starboard, with images spoilered.",

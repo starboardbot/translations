@@ -1,5 +1,10 @@
 /**
- * @typedef {keyof import("./languages/en-GB")} Key
+ * @template {Record<string, unknown>} T
+ * @template [Key=keyof T]
+ * @typedef {Key extends string ? T[Key] extends Record<string, unknown> ? `${Key}.${Flatten<T[Key]>}` : `${Key}` : never} Flatten
+ */
+/**
+ * @typedef {Flatten<import("./languages/en-GB")>} Key
  */
 /**
  * @typedef {
@@ -130,6 +135,7 @@ module.exports = {
       .replace(/_?\._?/g, ".") // replace _._ with .
       .toUpperCase()
   },
+  languageNames: []
 }
 
-module.exports.languageNames = codes.map(c => module.exports.languages[c].name)
+module.exports.languageNames.push(...codes.map(c => module.exports.languages[c].name))

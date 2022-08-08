@@ -1,54 +1,10 @@
 /**
- * @typedef {
-    "HELLO_WORLD"          |
-
-    "IMAGE"                |
-    "GIF_VIDEO"            |
-    "VIDEO"                |
-    "MEDIA"                |
-
-    "SHORT_CLICK_TO_JUMP"  |
-    "CLICK_TO_JUMP"        |
-    "REFERENCED_MESSAGE"   |
-    "TWEET"                |
-    "UNKNOWN_TAG"          |
-    "FROM_SERVER"          |
-    "TRASH_EMBED"          |
-
-    "GET_STARTED"          |
-    "GET_STARTED_EMBED"    |
-    "GET_STARTED_FOOTER"   |
-
-    "CANT_SPEAK"           |
-    "PREFIX_INFO"          |
-    "HELP"                 |
-
-    "NEED_VOTE"             |
-    "NEED_PREMIUM"          |
-    "STAR_REQ_FEAT"         |
-    "EMOJIS_FEAT"           |
-    "DOWNVOTE_FEAT"         |
-    "MULTIPLE_EMOJIS_FEAT"  |
-    "CHANNEL_SETTINGS_FEAT" |
-    "AUTO_STAR_FEAT"        |
-
-    "FIND_USER_MORE_SPECIFIC" |
-    "FIND_USER_PROMPT"        |
-
-    "COMMANDS"                        |
-    "COMMANDS.COOLDOWN_MESSAGE"       |
-    "COMMANDS.WAIT_SUGGESTIONS"       |
-    "COMMANDS.COOLDOWN"               |
-    "COMMANDS.COOLDOWN_EMBED"         |
-    "COMMANDS.COMMAND_HELP_EMBED"     |
-    "COMMANDS.COMMAND_DISABLED_EMBED" |
-    "COMMANDS.COMMAND_ERROR_EMBED"    |
-    "COMMANDS.COMMAND_INVALID_ARGS"   |
-    "COMMANDS.MISSING_PERMISSIONS"    |
-
-    "LANGUAGES" |
-    "SETTINGS"
-  } Key
+ * @template {Record<string, unknown>} T
+ * @template [Key=keyof T]
+ * @typedef {Key extends string ? T[Key] extends Record<string, unknown> ? `${Key}.${Flatten<T[Key]>}` : `${Key}` : never} Flatten
+ */
+/**
+ * @typedef {Flatten<import("./languages/en-GB")>} Key
  */
 /**
  * @typedef {
@@ -184,6 +140,7 @@ module.exports = {
       .replace(/_?\._?/g, ".") // replace _._ with .
       .toUpperCase()
   },
+  languageNames: []
 }
 
-module.exports.languageNames = codes.map(c => module.exports.languages[c].name)
+module.exports.languageNames.push(...codes.map(c => module.exports.languages[c].name))

@@ -61,9 +61,9 @@ module.exports = {
   AUTO_STAR_FEAT: "enable auto starring",
 
   FIND_USER_MORE_SPECIFIC: users => `Please be more specific, I found ${users} users matching your input.`,
-  FIND_USER_PROMPT: list => `I found multiple users matching your input:
-  ${list}
-  Please respond with the number of the user you want.`.stripIndents(),
+  FIND_USER_PROMPT: size => `I found ${size} users matching your input - please select the user you're looking for.`,
+  SELECT_USER: "Select a User",
+  CANCEL: "Cancel",
 
   SETTINGS: { // prefix, isPremium, channelSettingName
     STARBOARD_ID: (p, _prm, name) => `This is where starred messages will go. If you wish to unset the starboard, run \`${p}changesetting${name && ` ${name}`} starboard none\`.`,
@@ -75,7 +75,7 @@ module.exports = {
     When setting the permission, you can input something like \`MANAGE_MESSAGES\`, \`Manage Messages\`, \`Manage-Messages\` or \`8192\`. For multiple permissions, use a permissions calculator.`.stripIndents(),
     ON_DELETION: "This is what should happen when a moderator deletes a starboard message. Repost means the starboard message automatically gets reposted, freeze means the starred message gets frozen and trash means the starred message gets trashed.",
 
-    LINK_DELETES: "If a message is deleted, the starboard message will automatically be deleted.",
+    LINK_DELETES: p => `If a message is deleted, the starboard message will automatically be deleted.\nWhen this setting is disabled, messages will be encrypted and saved for a maximum of 30 days once deleted so the bot and server members can still see the content of the message when needed, such as when reposting the starboard message or using the show or save commands. For more information, check the Privacy page of the bot's guide - \`${p}links\`.`,
     FILTER_BOTS: "Whether or not bots should be filtered off the starboard.",
     STAR_SELF: "If users are able to star their own messages.",
     WATCHING: `This is if you want the full functionality of Starboard without actually posting messages to a starboard.
@@ -380,7 +380,7 @@ module.exports = {
       STAR_SELF: b => `Users can ${b ? "now" : "no longer"} star their own messages.`,
       WATCHING: b => b ? "Nothing now goes on the starboard, but stats are still being recorded." : "The starboard will now be used along with recording of stats.",
       VISIBLE: b => `People can ${b ? "now" : "no longer"} find this server's messages in the explore command.`,
-      CLEAN: b => `The **Click to jump to message!** and other links will ${!b ? "now" : "no longer"} show on starboard messages.`,
+      CLEAN: b => `~~The **Click to jump to message!** and other links will ${!b ? "now" : "no longer"} show on starboard messages.~~ This setting no longer does anything. A similar setting will be made to replace this very soon.`,
       DOWNVOTE: b => `Users can ${b ? "now" : "no longer"} downvote starred messages.`,
       BOTS_ON_LB: b => `Bots will ${b ? "now" : "no longer"} show on the leaderboard.`,
       ATTACHMENTS: b => `Attachments will ${b ? "now" : "no longer"} be attached onto the starboard message.`,
@@ -446,23 +446,26 @@ module.exports = {
       LINKS: "Links",
       DONATION: "Donation",
       OTHER: "Other",
+      LEGAL: "Legal",
       DISCORD_LINKS: (i, s) => `**[Invite me!](${i})**\n**[Support Server](${s})**`,
       PATREON_LINK: p => `**[Become a Patron!](${p})**`,
-      OTHER_LINKS: (v, gh, g) => `**[Vote for the bot!](${v})**\n**[GitHub Issues](${gh})**\n**[Starboard Guide](${g})**`
+      OTHER_LINKS: (v, gh, g) => `**[Vote for the bot!](${v})**\n**[GitHub Issues](${gh})**\n**[Starboard Guide](${g})**`,
+      LEGAL_LINKS: p => `**[Privacy](${p})**`
     },
     BLACKLIST: {
       DESCRIPTION: "View info about blacklisted users, roles or channels, or modify the list.",
       USAGE: "blacklist (add/remove) ([user/role/channel]) --channel ([channelSettings])",
       BLACKLIST: "Blacklist",
-      EMBED_DESCRIPTION: (blsb, c, nothing, prefix) => `The following ${c ? `users and roles` : `users, roles and channels`} are blacklisted and cannot interact with the starboard${c ? " in this channel" : ""}.${
+      EMBED_DESCRIPTION: (blsb, c, nothing, prefix) => `The following ${c ? `users, roles and threads` : `users, roles and channels`} are blacklisted${c ? " in this channel" : ""}.${
         blsb 
-          ? " Blacklisted users can still get on the starboard."
-          : ""
-      }${nothing ? `\n**Nothing has been blacklisted yet**\nTo add/remove to the list, run \`${prefix}blacklist <add/remove> <[user/role${c ? "" : "/channel"}]>\`.` : ""}`,
+          ? " Blacklisted users cannot star messages but their messages can still get on the starboard, and"
+          : " Blacklisted users cannot star messages and"
+      } messages cannot be starred if from a blacklisted ${c ? "thread" : "channel"}. ${nothing ? `\n**Nothing has been blacklisted yet**\nTo add/remove to the list, run \`${prefix}blacklist <add/remove> <[user/role${c ? "/thread" : "/channel"}]>\`.` : ""}`,
       USERS: "Users",
       ROLES: "Roles",
       CHANNELS: "Channels",
-      NOT_FOUND: c => `I could not find a ${c ? "user or role" : "user, role or channel"} from your input.`,
+      THREADS: "Threads",
+      NOT_FOUND: c => `I could not find a user, role or ${c ? "thread" : "channel"} from your input.`,
       ALREADY_BLACKLISTED: s => `**${s}** is already blacklisted.`,
       NOT_BLACKLISTED: s => `**${s}** is not blacklisted.`,
       TOO_MANY_BLACKLISTED: "There are too many items on the blacklist.",
@@ -473,17 +476,18 @@ module.exports = {
       BLACKLIST_REMOVE: s => `Successfully removed **${s}** from the blacklist.`
     },
     WHITELIST: {
-      DESCRIPTION: "View info about whitelisted users or roles, or modify the list.",
-      USAGE: "whitelist (add/remove) ([user/role]) --channel ([channelSettings])",
+      DESCRIPTION: "View info about whitelisted users, roles or threads, or modify the list.",
+      USAGE: "whitelist (add/remove) ([user/role/thread]) --channel ([channelSettings])",
       WHITELIST: "Whitelist",
-      EMBED_DESCRIPTION: (c, nothing, prefix) => `The following users and roles are whitelisted and bypass the blacklist ${c ? "in this channel " : ""}if on it.${
+      EMBED_DESCRIPTION: (c, nothing, prefix) => `The following ${c ? "users and roles" : "users, roles and threads"} are whitelisted and won't be affected by the blacklist${c ? " in this channel" : ""}.${
         nothing
-          ? `\n**Nothing has been whitelisted yet**\nTo add/remove to the list, run \`${prefix}whitelist <add/remove> <[user/role]>.\``
+          ? `\n**Nothing has been whitelisted yet**\nTo add/remove to the list, run \`${prefix}whitelist <add/remove> <[user/role${c ? "" : "/thread"}]>.\``
           : ""
         }`,
       USERS: "Users",
       ROLES: "Roles",
-      NOT_FOUND: "I could not find a user or role from your input.",
+      THREADS: "Threads",
+      NOT_FOUND: c => `I could not find a ${c ? "user or role" : "user, role or thread"} from your input.`,
       ALREADY_WHITELISTED: s => `**${s}** is already whitelisted.`,
       NOT_WHITELISTED: s => `**${s}** is not whitelisted.`,
       TOO_MANY_WHITELISTED: "There are too many items on the whitelist.",
@@ -536,8 +540,9 @@ module.exports = {
       FROZEN: "That message is frozen and cannot be forced or refreshed until unfrozen.",
       NOT_FOUND: "I couldn't find a message from your input.",
       MISSING_PERMISSIONS: c => `I am missing permissions to read messages in ${c || "this channel"}.`,
-      IS_STARBOARD_MESSAGE: "This message seems to be a starboard message, so it can't be forced.",
+      IS_STARBOARD_MESSAGE: "This message seems to be a starboard message, so it can't be forced. Try forcing the original message instead.",
       IS_EXPLORE_MESSAGE: "This message seems to be a message from the explore command, so it can't be forced.",
+      IS_LIKE_STARBOARD_MESSAGE: "This message seems to be a starboard message or something similar, of another message, so it can't be forced.",
       CHANNEL_BLACKLISTED: "That channel is blacklisted, so this message can't be forced.",
       STARS_RECOUNTED: url => `Successfully recounted the stars for this message${url ? `, the starboard message is **[here](${url})**` : ""}.`,
       FORCE_SUCCESS: "Successfully forced this message to the starboard!",

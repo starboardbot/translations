@@ -69,6 +69,12 @@ module.exports = {
   WARN_LINK_PROMPT: ext => `This link leads to a file with a \`${ext}\` extension. These type of files can be malicious, or contain malicious content, especially because you don't know who it's from. Are you sure you want to open this link?`,
   WARN_LINK_CONFIRM: "Yes, open this link.",
 
+  ARE_YOU_SURE: "Are you sure?",
+  ARE_YOU_SURE_PROMPT: destructive => `Are you sure you want to perform this action?${destructive ? " This action cannot be reversed." : ""}`,
+  YES: "Yes",
+  DELETE: "Delete",
+  NO: "No",
+
   CONTEXT_MENUS: {
     QUICK_ACTIONS: {
       NAME: "Quick Actions",
@@ -612,10 +618,8 @@ module.exports = {
       NOT_STARBOARD: "That channel is not a starboard channel.",
       MISSING_PERMISSIONS: sb => `I do not have permission to bulk delete messages in ${sb}.`,
       MIGRATING: "I cannot purge messages from starboards right now.",
-      ARE_YOU_SURE: "Are you sure?",
       CONFIRMATION_EMBED: (n, starboard, before, after) =>
-      `Are you sure you want to purge and freeze the last ${n} of starboard messages${before ? ` before ${before}${after ? " and" : ""}` : ""}${after ? ` after ${after}` : ""} from ${starboard}? I can only purge starboard messages sent in the last 14 days. If the original messages are deleted, they may be lost forever.
-      Say **yes** to continue.`.stripIndents(),
+      `Are you sure you want to purge and freeze the last ${n} of starboard messages${before ? ` before ${before}${after ? " and" : ""}` : ""}${after ? ` after ${after}` : ""} from ${starboard}? I can only purge starboard messages sent in the last 14 days. If the original messages are deleted, they may be lost forever.`,
       NOT_PURGED: "Cancelled the purging of the starboard.",
       NOTHING_TO_DELETE: (before, after) => `There are no starboard messages${before ? ` before ${before}${after ? " and" : ""}` : ""}${after ? ` after ${after}` : ""} to delete.`,
       SUCCESS: (n, sb) => `Successfully removed and froze ${n} messages from ${sb}.`
@@ -682,10 +686,8 @@ module.exports = {
       PROVIDE_CHANNELS: "Please provide some channels for this set of channel settings.",
       INVALID_CHANNELS: "You did not provide valid channels.",
       DUPLICATE_CHANNELS: "The channels provided must not already have channel settings. A channel may only have one set of channel settings.",
-      ARE_YOU_SURE: "Are you sure?",
       CONFIRMATION_EMBED: name => `Are you sure you want to delete the **${name}** channel settings?
-      You will lose all saved reward roles, blacklists/whitelists, filters and other saved configurations, and they will be gone forever.
-      Say **yes** to continue.`.stripIndents(),
+      You will lose all saved reward roles, blacklists/whitelists, filters and other saved configurations, and they will be gone forever.`.stripIndents(),
       NOT_DELETED: "The settings will not be deleted.",
       SUCCESS_CREATE: (n, size) => `Successfully created a new set of channel settings for ${size} channel${size !== 1 ? "s" : ""}: **${n}**.`,
       NOTHING_PROVIDED: "Please provide the name of a set of channel settings.",
@@ -811,8 +813,7 @@ module.exports = {
       CONFIRMATION_EMBED: (n, bots, c, before, after) => `I've found ${n} messages${before ? ` before ${before}${after ? " and" : ""}` : ""}${after ? ` after ${after}` : ""} by <@${bots.join(">, <@")}> in ${c} that could be starred messages. Do you want me to continue?
       I will attempt to turn these messages into starred messages for me, and post them all to the starboard. As I go, I will delete the messages I have successfully replaced, or ones that already exist as starred messages.
       • Starboard messages for messages that are deleted can not be migrated and will be ignored.
-      • Starboard messages for messages sent in a channel that does not have a starboard will be ignored.
-      Say **yes** to continue.`.stripIndents(),
+      • Starboard messages for messages sent in a channel that does not have a starboard will be ignored.`.stripIndents(),
       ETA: t => `ETA: about ${t}`,
       CANCELLED: "Cancelled the migrating of the starboard.",
       ALREADY_MIGRATING: "It seems this server is currently already migrating messages.",
@@ -859,11 +860,9 @@ module.exports = {
       EMBED_FOOTER: (user, place, page, totalPages) =>
         `${user ? `${user}'s` : "Your"} Place: ${place} | Page ${page}/${totalPages}`,
 
-      ARE_YOU_SURE: "Are you sure?",
       CONFIRMATION_EMBED: `Are you sure you want to erase the leaderboard?
       Please note that this doesn't reset all leaderboards, just the server-wide **Stars**, **Global**, **Trashed** and **Times On Starboard** leaderboards.
-      For other leaderboards such as the message leaderboard, you can use the --before or --after flags, e.g. \`--after 14/09/2021\`.
-      Say **yes** to continue.`.stripIndents(),
+      For other leaderboards such as the message leaderboard, you can use the --before or --after flags, e.g. \`--after 14/09/2021\`.`.stripIndents(),
       NOT_RESET: "Cancelled resetting the leaderboard.",
       SUCCESS_RESET: "Successfully reset the leaderboard."
     },
@@ -879,8 +878,7 @@ module.exports = {
       ALREADY_ON: "That message is already on the Hall of Fame.",
       MAX: "You have hit the maximum of 100 messages on the Hall of Fame.",
       NOT_ON: "That message is not on the Hall of Fame.",
-      ARE_YOU_SURE: "Are you sure?",
-      CONFIRMATION_EMBED: "Are you sure you want to remove every message from the Hall of Fame?\nSay **yes** to continue.",
+      CONFIRMATION_EMBED: "Are you sure you want to remove every message from the Hall of Fame?",
       CANCELLED: "Cancelled removing every message from the Hall of Fame.",
       SUCCESS_ADD: "Successfully added that message to the Hall of Fame.",
       SUCCESS_REMOVE: "Successfully removed that message from the Hall of Fame.",
@@ -1217,8 +1215,7 @@ module.exports = {
       RECOVER: "Recover Starred Messages",
       CONFIRMATION_EMBED: (n, c, before) => `I've found ${n} messages${before ? ` before ${before}` : ""} in ${c} that are probably lost starred messages. Do you want me to continue?
       I will scan through these messages and try to recover old starred messages, giving users their stats on the way too.
-      • Duplicated starboard messages will be ignored, not deleted.
-      Say **yes** to continue.`.stripIndents(),
+      • Duplicated starboard messages will be ignored, not deleted.`.stripIndents(),
       ETA: t => `ETA: about ${t}`,
       CANCELLED: sb => `Cancelled the recovery of starboard messages in ${sb}.`,
       ALREADY_RECOVERING: "It seems this server is currently already recovering or migrating messages.",

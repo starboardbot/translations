@@ -551,6 +551,7 @@ module.exports = {
     PURGE: {
       DESCRIPTION: "Purge and freeze a number of messages off a starboard.",
       USAGE: "purge ([channel]) <[messages]> --before <[messageID]> --after <[messageID]>",
+      NO_STARBOARD: "There are no starboards set for this server.",
       NOT_STARBOARD: "That channel is not a starboard channel.",
       MISSING_PERMISSIONS: sb => `I do not have permission to bulk delete messages in ${sb}.`,
       MIGRATING: "I cannot purge messages from starboards right now.",

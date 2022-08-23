@@ -155,7 +155,7 @@ module.exports = {
     NO_LEADERBOARD: (_p, _prm, name) => !name || name === "server" ? "If leaderboard related commands should be disabled for the server." : "If leaderboard stats should not be recorded for this channel.",
     KEEP_ROLES: "If users should keep old reward roles upon getting a new one.",
     MENTION_AUTHOR: "If the author of a message should be pinged on their starboard messages.",
-    QUICK_ACTIONS: `With this enabled, users can perform actions on a starred message by reacting on the starboard message with specific emojis.
+    QUICK_ACTIONS: p => `Users can perform actions on a starred message by performing the **Quick Actions** message context menu command. With this setting enabled, users will also be able to perform actions by reacting on the starboard message with specific emojis. For more info, run \`${p}quickactions\`.
     __Moderators:__
     **Trashing**: 🗑️
     **Locking**: 🔒
@@ -1084,7 +1084,7 @@ module.exports = {
       LOCKED: "Messages Locked",
       FROZEN: "Messages Frozen",
       SAVED: "Messages Sent To DMs",
-      QUICK_ACTIONS: "QuickActions Performed",
+      QUICK_ACTIONS: "Quick Actions Performed",
       CPU: "CPU",
       DISK_USAGE: "Disk Usage",
       MEMORY_USAGE: "Memory Usage",
@@ -1172,10 +1172,10 @@ module.exports = {
       DESCRIPTION: "View more info about Quick Actions.",
       USAGE: "quickactions",
       QUICK_ACTIONS: "Quick Actions",
-      EMBED_DESCRIPTION: (enabled, prefix) => `**Enabled**: ${enabled}
+      EMBED_DESCRIPTION: (enabled, prefix) => `**React to perform Quick Actions**: ${enabled}
 
-      QuickActions allow users to quickly perform actions on starboard messages, such as locking, freezing, deleting or saving, by reacting on the starboard message with specific emojis.
-      __Here's the list of QuickActions for moderators:__
+      Quick Actions allow users to quickly perform actions on starboard messages, such as locking, freezing, deleting or saving, by performing the **Quick Actions** message context menu command or reacting on the starboard message with specific emojis.
+      __Here's the list of Quick Actions for moderators:__
       🗑️: Trash the message
       🔒: Lock the message
       🔓: Unlock the message
@@ -1184,16 +1184,13 @@ module.exports = {
       🔄/🔁: Recount the stars of the message
       🏆/🏅: Add to Hall of Fame
       ❌/🇽: Delete the starboard message
-      📌/📍: Force to the starboard
+      📌/📍: Force to the starboard (used on the original message)
 
       __And for everyone:__
       📥/💾: Save the starred message to DMs
       ❌/🇽: Delete a starboard message belonging to them
-      
-      **Note**: The 📌/📍 force QuickAction has to be used on the original message.
-      **Tip**: If you don't want users to be using the QuickActions for everyone, you can disable their \`Add Reactions\` permission.
 
-      To enable/disable QuickActions, run \`${prefix}changesetting quickActions <true/false/yes/no>\``.stripIndents()
+      To enable/disable reacting to perform Quick Actions, run \`${prefix}changesetting quickActions <true/false/yes/no>\``.stripIndents()
     },
     SAVE: {
       DESCRIPTION: "Save a starred message or a normal message to your dms.",

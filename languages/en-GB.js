@@ -100,6 +100,7 @@ module.exports = {
       FORCE_TITLE: "Force Message",
       FORCE_DESCRIPTION: "Force this message to the starboard, ignoring all barriers.",
       DELETE_TITLE: "Delete Message",
+      REASON: "Reason",
       DELETE_DESCRIPTION: "Delete this message from the starboard.",
       UNABLE_TO_PERFORM: "This action could not be performed right now, please try again.",
       NOT_STARRED: "This action cannot be performed because this message is not a starred message.",

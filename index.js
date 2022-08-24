@@ -38,12 +38,7 @@ if (typeof String.prototype.stripIndents !== "function") Object.defineProperties
 
 /**
  * Every lanuage code available - [ "en-GB", "en-US", ... ]
- * @type {[
-    "en-GB",
-    "en-US",
-    "es-ES",
-    "fuwwy",
-  ]}
+ * @type {LanguageCode[]}
  */
 const codes = readDirectory(
   require("path").resolve(__dirname, "./languages")

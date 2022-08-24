@@ -65,6 +65,70 @@ module.exports = {
   SELECT_USER: "Select a User",
   CANCEL: "Cancel",
 
+  WARN_UNKNOWN_LINK: "Sorry, but it looks like I've misplaced the link you're looking for.",
+  WARN_LINK_PROMPT: ext => `This link leads to a file with a \`${ext}\` extension. These type of files can be malicious, or contain malicious content, especially because you don't know who it's from. Are you sure you want to open this link?`,
+  WARN_LINK_CONFIRM: "Yes, open this link.",
+
+  ARE_YOU_SURE: "Are you sure?",
+  ARE_YOU_SURE_PROMPT: destructive => `Are you sure you want to perform this action?${destructive ? " This action cannot be reversed." : ""}`,
+  YES: "Yes",
+  DELETE: "Delete",
+  NO: "No",
+
+  CONTEXT_MENUS: {
+    QUICK_ACTIONS: {
+      NAME: "Quick Actions",
+      DEFAULT_MESSAGE: link => `Here are the actions you can take on [this message](<${link}>).`,
+      NO_ACTIONS: link => `It seems you cannot perform any Quick Actions on [this message](<${link}>).`,
+      SELECT_PROMPT: "Select a Quick Action",
+      LOCK_TITLE: "Lock Message",
+      LOCK_DESCRIPTION: "Keep the message on the starboard, even when at 0 stars.",
+      UNLOCK_TITLE: "Unlock Message",
+      UNLOCK_DESCRIPTION: "Allow the message to be removed from the starboard.",
+      FREEZE_TITLE: "Freeze Message",
+      FREEZE_DESCRIPTION: "Disallow adding or removing stars to this message.",
+      UNFREEZE_TITLE: "Unfreeze Message",
+      UNFREEZE_DESCRIPTION: "Enable adding and removing stars to this message.",
+      REFRESH_TITLE: "Refresh Message",
+      REFRESH_DESCRIPTION: "Recount the stars of this message.",
+      TRASH_TITLE: "Trash Message",
+      TRASH_DESCRIPTION: "Trash this message so it can't be starred.",
+      SAVE_TITLE: "Save Message",
+      SAVE_DESCRIPTION: "Send this message to your DMs.",
+      HALL_OF_FAME_TITLE: "Add to Hall of Fame",
+      HALL_OF_FAME_DESCRIPTION: "Add this message to the server's Hall of Fame.",
+      FORCE_TITLE: "Force Message",
+      FORCE_DESCRIPTION: "Force this message to the starboard, ignoring all barriers.",
+      DELETE_TITLE: "Delete Message",
+      DELETE_DESCRIPTION: "Delete this message from the starboard.",
+      UNABLE_TO_PERFORM: "This action could not be performed right now, please try again.",
+      NOT_STARRED: "This action cannot be performed because this message is not a starred message.",
+      CANNOT_FETCH_MESSAGE: "Sorry, but this starred message could not be obtained. This is likely because it is trashed, the original message's channel was deleted or the bot can't see the starboard channel.",
+      ALREADY_LOCKED: "This message is already locked.",
+      NOT_LOCKED: "This message is not currently locked.",
+      ALREADY_FROZEN: "This message is already frozen.",
+      NOT_FROZEN: "This message is not currently frozen.",
+      HALL_OF_FAME_MAX: "This server has hit the limit of 100 messages on the Hall of Fame.",
+      NOTHING_TO_DELETE: "This message has no starboard message to delete.",
+      UNKNOWN_MESSAGGE: "It seems like the starred message you're taking action on can no longer be found.",
+      MESSAGE_TRASHED: "This message cannot be forced because it is trashed.",
+      ALREADY_POSTED: "This message is already posted on the starboard.",
+      RECENTLY_SAVED: "This message seems to have been recently saved.",
+      DMS_CLOSED: "I could not send you that starred message because your DMs are closed.",
+      LOCK_SUCCESS: "Successfully locked that message.",
+      UNLOCK_SUCCESS: "Successfully unlocked that message.",
+      FREEZE_SUCCESS: "Successfully froze that message.",
+      UNFREEZE_SUCCESS: "Successfully unfroze that message.",
+      REFRESH_SUCCESS: "Successfully recounted stars for that message.",
+      TRASH_SUCCESS: "Successfully trashed that message.",
+      SAVE_SUCCESS: "Successfully saved that message.",
+      HALL_OF_FAME_SUCCESS: "Successfully added that message to the server's Hall of Fame.",
+      FORCE_SUCCESS: "Successfully forced that message.",
+      DELETE_SUCCESS: "Successfully deleted that message.",
+      TRASH_SUCCESS: "Successfully trashed that message."
+    }
+  },
+
   SETTINGS: { // prefix, isPremium, channelSettingName
     STARBOARD_ID: (p, _prm, name) => `This is where starred messages will go. If you wish to unset the starboard, run \`${p}changesetting${name && ` ${name}`} starboard none\`.`,
     NSFW_STARBOARD_ID: "This is where starred messages from NSFW channels will go. If this isn't set, messages from NSFW channels will go to the normal starboard, with images spoilered.",
@@ -91,7 +155,7 @@ module.exports = {
     NO_LEADERBOARD: (_p, _prm, name) => !name || name === "server" ? "If leaderboard related commands should be disabled for the server." : "If leaderboard stats should not be recorded for this channel.",
     KEEP_ROLES: "If users should keep old reward roles upon getting a new one.",
     MENTION_AUTHOR: "If the author of a message should be pinged on their starboard messages.",
-    QUICK_ACTIONS: `With this enabled, users can perform actions on a starred message by reacting on the starboard message with specific emojis.
+    QUICK_ACTIONS: p => `Users can perform actions on a starred message by performing the **Quick Actions** message context menu command. With this setting enabled, users will also be able to perform actions by reacting on the starboard message with specific emojis. For more info, run \`${p}quickactions\`.
     __Moderators:__
     **Trashing**: 🗑️
     **Locking**: 🔒
@@ -555,10 +619,8 @@ module.exports = {
       NOT_STARBOARD: "That channel is not a starboard channel.",
       MISSING_PERMISSIONS: sb => `I do not have permission to bulk delete messages in ${sb}.`,
       MIGRATING: "I cannot purge messages from starboards right now.",
-      ARE_YOU_SURE: "Are you sure?",
       CONFIRMATION_EMBED: (n, starboard, before, after) =>
-      `Are you sure you want to purge and freeze the last ${n} of starboard messages${before ? ` before ${before}${after ? " and" : ""}` : ""}${after ? ` after ${after}` : ""} from ${starboard}? I can only purge starboard messages sent in the last 14 days. If the original messages are deleted, they may be lost forever.
-      Say **yes** to continue.`.stripIndents(),
+      `Are you sure you want to purge and freeze the last ${n} of starboard messages${before ? ` before ${before}${after ? " and" : ""}` : ""}${after ? ` after ${after}` : ""} from ${starboard}? I can only purge starboard messages sent in the last 14 days. If the original messages are deleted, they may be lost forever.`,
       NOT_PURGED: "Cancelled the purging of the starboard.",
       NOTHING_TO_DELETE: (before, after) => `There are no starboard messages${before ? ` before ${before}${after ? " and" : ""}` : ""}${after ? ` after ${after}` : ""} to delete.`,
       SUCCESS: (n, sb) => `Successfully removed and froze ${n} messages from ${sb}.`
@@ -625,10 +687,8 @@ module.exports = {
       PROVIDE_CHANNELS: "Please provide some channels for this set of channel settings.",
       INVALID_CHANNELS: "You did not provide valid channels.",
       DUPLICATE_CHANNELS: "The channels provided must not already have channel settings. A channel may only have one set of channel settings.",
-      ARE_YOU_SURE: "Are you sure?",
       CONFIRMATION_EMBED: name => `Are you sure you want to delete the **${name}** channel settings?
-      You will lose all saved reward roles, blacklists/whitelists, filters and other saved configurations, and they will be gone forever.
-      Say **yes** to continue.`.stripIndents(),
+      You will lose all saved reward roles, blacklists/whitelists, filters and other saved configurations, and they will be gone forever.`.stripIndents(),
       NOT_DELETED: "The settings will not be deleted.",
       SUCCESS_CREATE: (n, size) => `Successfully created a new set of channel settings for ${size} channel${size !== 1 ? "s" : ""}: **${n}**.`,
       NOTHING_PROVIDED: "Please provide the name of a set of channel settings.",
@@ -754,8 +814,7 @@ module.exports = {
       CONFIRMATION_EMBED: (n, bots, c, before, after) => `I've found ${n} messages${before ? ` before ${before}${after ? " and" : ""}` : ""}${after ? ` after ${after}` : ""} by <@${bots.join(">, <@")}> in ${c} that could be starred messages. Do you want me to continue?
       I will attempt to turn these messages into starred messages for me, and post them all to the starboard. As I go, I will delete the messages I have successfully replaced, or ones that already exist as starred messages.
       • Starboard messages for messages that are deleted can not be migrated and will be ignored.
-      • Starboard messages for messages sent in a channel that does not have a starboard will be ignored.
-      Say **yes** to continue.`.stripIndents(),
+      • Starboard messages for messages sent in a channel that does not have a starboard will be ignored.`.stripIndents(),
       ETA: t => `ETA: about ${t}`,
       CANCELLED: "Cancelled the migrating of the starboard.",
       ALREADY_MIGRATING: "It seems this server is currently already migrating messages.",
@@ -802,11 +861,9 @@ module.exports = {
       EMBED_FOOTER: (user, place, page, totalPages) =>
         `${user ? `${user}'s` : "Your"} Place: ${place} | Page ${page}/${totalPages}`,
 
-      ARE_YOU_SURE: "Are you sure?",
       CONFIRMATION_EMBED: `Are you sure you want to erase the leaderboard?
       Please note that this doesn't reset all leaderboards, just the server-wide **Stars**, **Global**, **Trashed** and **Times On Starboard** leaderboards.
-      For other leaderboards such as the message leaderboard, you can use the --before or --after flags, e.g. \`--after 14/09/2021\`.
-      Say **yes** to continue.`.stripIndents(),
+      For other leaderboards such as the message leaderboard, you can use the --before or --after flags, e.g. \`--after 14/09/2021\`.`.stripIndents(),
       NOT_RESET: "Cancelled resetting the leaderboard.",
       SUCCESS_RESET: "Successfully reset the leaderboard."
     },
@@ -822,8 +879,7 @@ module.exports = {
       ALREADY_ON: "That message is already on the Hall of Fame.",
       MAX: "You have hit the maximum of 100 messages on the Hall of Fame.",
       NOT_ON: "That message is not on the Hall of Fame.",
-      ARE_YOU_SURE: "Are you sure?",
-      CONFIRMATION_EMBED: "Are you sure you want to remove every message from the Hall of Fame?\nSay **yes** to continue.",
+      CONFIRMATION_EMBED: "Are you sure you want to remove every message from the Hall of Fame?",
       CANCELLED: "Cancelled removing every message from the Hall of Fame.",
       SUCCESS_ADD: "Successfully added that message to the Hall of Fame.",
       SUCCESS_REMOVE: "Successfully removed that message from the Hall of Fame.",
@@ -1029,7 +1085,7 @@ module.exports = {
       LOCKED: "Messages Locked",
       FROZEN: "Messages Frozen",
       SAVED: "Messages Sent To DMs",
-      QUICK_ACTIONS: "QuickActions Performed",
+      QUICK_ACTIONS: "Quick Actions Performed",
       CPU: "CPU",
       DISK_USAGE: "Disk Usage",
       MEMORY_USAGE: "Memory Usage",
@@ -1117,10 +1173,10 @@ module.exports = {
       DESCRIPTION: "View more info about Quick Actions.",
       USAGE: "quickactions",
       QUICK_ACTIONS: "Quick Actions",
-      EMBED_DESCRIPTION: (enabled, prefix) => `**Enabled**: ${enabled}
+      EMBED_DESCRIPTION: (enabled, prefix) => `**React to perform Quick Actions**: ${enabled}
 
-      QuickActions allow users to quickly perform actions on starboard messages, such as locking, freezing, deleting or saving, by reacting on the starboard message with specific emojis.
-      __Here's the list of QuickActions for moderators:__
+      Quick Actions allow users to quickly perform actions on starboard messages, such as locking, freezing, deleting or saving, by performing the **Quick Actions** message context menu command or reacting on the starboard message with specific emojis.
+      __Here's the list of Quick Actions for moderators:__
       🗑️: Trash the message
       🔒: Lock the message
       🔓: Unlock the message
@@ -1129,16 +1185,13 @@ module.exports = {
       🔄/🔁: Recount the stars of the message
       🏆/🏅: Add to Hall of Fame
       ❌/🇽: Delete the starboard message
-      📌/📍: Force to the starboard
+      📌/📍: Force to the starboard (used on the original message)
 
       __And for everyone:__
       📥/💾: Save the starred message to DMs
       ❌/🇽: Delete a starboard message belonging to them
-      
-      **Note**: The 📌/📍 force QuickAction has to be used on the original message.
-      **Tip**: If you don't want users to be using the QuickActions for everyone, you can disable their \`Add Reactions\` permission.
 
-      To enable/disable QuickActions, run \`${prefix}changesetting quickActions <true/false/yes/no>\``.stripIndents()
+      To enable/disable reacting to perform Quick Actions, run \`${prefix}changesetting quickActions <true/false/yes/no>\``.stripIndents()
     },
     SAVE: {
       DESCRIPTION: "Save a starred message or a normal message to your dms.",
@@ -1160,8 +1213,7 @@ module.exports = {
       RECOVER: "Recover Starred Messages",
       CONFIRMATION_EMBED: (n, c, before) => `I've found ${n} messages${before ? ` before ${before}` : ""} in ${c} that are probably lost starred messages. Do you want me to continue?
       I will scan through these messages and try to recover old starred messages, giving users their stats on the way too.
-      • Duplicated starboard messages will be ignored, not deleted.
-      Say **yes** to continue.`.stripIndents(),
+      • Duplicated starboard messages will be ignored, not deleted.`.stripIndents(),
       ETA: t => `ETA: about ${t}`,
       CANCELLED: sb => `Cancelled the recovery of starboard messages in ${sb}.`,
       ALREADY_RECOVERING: "It seems this server is currently already recovering or migrating messages.",

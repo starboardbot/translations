@@ -1018,6 +1018,7 @@ module.exports = {
       NO_STARBOARD: c => `There is currently no starboard channel set for this ${c ? "channel" : "server"}.`,
       NO_STARBOARDS: "There are no starboards set for this server.",
       MISSING_READ: c => `I cannot view ${c}, please enable the \`View Channel\` permission.`,
+      MISSING_CONNECT: c => `For the text chat of ${c}, you also need to enable the \`Connect\` permission for me to view messages.`,
       MISSING_HISTORY: c => `I cannot read message history in ${c}, please enable the \`Read Message History\` permission.`,
       MISSING_SEND: c => `I cannot send starboard messages in ${c}, please enable the \`Send Messages\` permission.`,
       MISSING_EMBEDS: c => `I cannot send embeds in ${c}, please enable the \`Embed Links\` permission.`,

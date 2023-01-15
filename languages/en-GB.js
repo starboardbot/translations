@@ -80,6 +80,7 @@ module.exports = {
       NAME: "Quick Actions",
       DEFAULT_MESSAGE: link => `Here are the actions you can take on [this message](<${link}>).`,
       NO_ACTIONS: link => `It seems you cannot perform any Quick Actions on [this message](<${link}>).`,
+      NO_STARBOARDS: "It seems there are no starboards set for this server so no Quick Actions can be performed.",
       SELECT_PROMPT: "Select a Quick Action",
       LOCK_TITLE: "Lock Message",
       LOCK_DESCRIPTION: "Keep the message on the starboard, even when at 0 stars.",

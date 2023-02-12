@@ -1,3 +1,5 @@
+const { readdirSync: readDirectory } = require("fs")
+const IntlMessageFormat = require("intl-messageformat").IntlMessageFormat
 /**
  * @template {Record<string, unknown>} T
  * @template [Key=keyof T]
@@ -12,10 +14,9 @@
     "en-US" |
     "es-ES" |
     "fuwwy"
-  } LanguageCode
+  } Locale
  */
 
-const { readdirSync: readDirectory } = require("fs")
 const get = (object, path, defaultValue) => {
   path = path.split(".")
   for (const p of path) {
@@ -26,7 +27,7 @@ const get = (object, path, defaultValue) => {
 }
 
 // used in languages and code formatting and stuff
-if (typeof String.prototype.stripIndents !== "function") Object.defineProperties(String.prototype, "stripIndents", {
+if (typeof String.prototype.stripIndents !== "function") Object.defineProperty(String.prototype, "stripIndents", {
   value: function(tabSize) {
     if (!tabSize || typeof tabSize !== "number" || tabSize < 1)
       return this.trim().replace(/^[\t ]+/gm, "")
@@ -37,56 +38,59 @@ if (typeof String.prototype.stripIndents !== "function") Object.defineProperties
 })
 
 /**
- * Every lanuage code available - [ "en-GB", "en-US", ... ]
- * @type {LanguageCode[]}
+ * Every locale available - [ "en-GB", "en-US", ... ]
+ * @type {Locale[]}
  */
-const codes = readDirectory(
+const locales = readDirectory(
   require("path").resolve(__dirname, "./languages")
 ).map(c =>
   c.endsWith(".js") ? c.slice(0, -3) : c
 )
 
-codes.default = "en-GB"
+locales.default = "en-GB"
 
 module.exports = {
-  codes,
-  languages: Object.assign(...
-    codes.map(c => ({
-      [c]: require(`./languages/${c}`)
+  locales,
+  messages: Object.assign(...
+    locales.map(locale => ({
+      [locale]: require(`./languages/${locale}`)
     }))
   ),
 
   /**
    * Get a message in a specific language.
    * @param {Key} key The key of the message
-   * @param {LanguageCode} code The code of the language
-   * @param {...*} args Arguments for the function to retrieve the message, if any.
-   * @returns {string} The message in a specific language, defaulting to english if not found.
+   * @param {Locale} locale The locale
+   * @param {any?} options Object of parameters used in the translation.
+   * @returns {string} The message in a specific language, defaulting to English (GB) if not found.
    */
-  get(key, code, ...args) {
-    key = this._fixCase(Array.isArray(key) ? key.join(".") : key)
-    code = this._parseLocale(code)
-    
-    const msg = get(
-      this.languages,
-      `${code}.${key}`,
-      get(this.languages, `${this.codes.default}.${key}`)
+  get(key, locale, options) {
+    key = this._fixCase(key)
+    locale = this._parseLocale(locale)
+
+    let msg = get(
+      this.messages,
+      `${locale}.${key}`,
+      get(this.messages, `${this.locales.default}.${key}`)
     )
     if (!msg) return null
 
-    return typeof msg === "function" ? msg(...args) : msg
+    // message with input
+    if (msg.includes("{")) msg = new IntlMessageFormat(msg, [locale, this.locales.default, "en-GB"], null, { ignoreTag: true }).format(options)
+    if (msg.includes("  ")) msg = msg.stripIndents()
+    return msg
   },
 
   /**
    * Parse a string into a valid locale, defaulting to "en-GB".
-   * @param {string} code
+   * @param {string} str
    * @param {boolean} returnNull Return null instead of defaulting
-   * @returns {LanguageCode}
+   * @returns {Locale}
    */
-  _parseLocale(code, returnNull) {
-    if (this.codes.includes(code)) return code
-    let [a, b = ""] = this._fixCase(code).split(/[-_]/) // "EN_US" -> ["EN", "US"]
-    if (!a) return returnNull ? null : this.codes.default
+  _parseLocale(str, returnNull) {
+    if (this.locales.includes(str)) return str
+    let [a, b = ""] = this._fixCase(str).split(/[-_]/) // "EN_US" -> ["EN", "US"]
+    if (!a) return returnNull ? null : this.locales.default
     if (b === "(GB)" || b === "(US)") [a, b] = ["en", b.slice(1, -1)]
     if (!b)
       switch (a) { // parses "english" to "en-US", "spanish" to "es" etc
@@ -94,9 +98,9 @@ module.exports = {
         case "NONE":
         case "GB":
         case "UK":
+        case "ENGLISH":
           [a, b] = ["en", "GB"]
           break
-        case "ENGLISH":
         case "AMERICAN":
         case "USA":
         case "US":
@@ -105,7 +109,6 @@ module.exports = {
           break
         case "SPANISH":
         case "SPAIN":
-        case "LATINO":
         case "ES":
         case "ESP":
           [a, b] = ["es", "ES"]
@@ -115,9 +118,9 @@ module.exports = {
           a = "fuwwy"
       }
 
-    code = `${a.toLowerCase()}${b && `-${b}`}`
-    if (!this.codes.includes(code)) return returnNull ? null : this.codes.default
-    return code
+    str = `${a.toLowerCase()}${b && `-${b}`}`
+    if (!this.locales.includes(str)) return returnNull ? null : this.locales.default
+    return str
   },
 
   /**
@@ -135,7 +138,4 @@ module.exports = {
       .replace(/_?\._?/g, ".") // replace _._ with .
       .toUpperCase()
   },
-  languageNames: []
 }
-
-module.exports.languageNames.push(...codes.map(c => module.exports.languages[c].name))

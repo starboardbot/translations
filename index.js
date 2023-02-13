@@ -76,8 +76,19 @@ module.exports = {
     if (!msg) return null
 
     // message with input
-    if (msg.includes("{")) msg = new IntlMessageFormat(msg, [locale, this.locales.default, "en-GB"], null, { ignoreTag: true }).format(options)
-    if (msg.includes("  ")) msg = msg.stripIndents()
+    if (Array.isArray(msg))
+      msg = msg.map(m =>
+        !m.includes("{")
+          ? m
+          : new IntlMessageFormat(m, [locale, this.locales.default, "en-GB"], null, { ignoreTag: true }).format(options)
+      )
+    else {
+      if (msg.includes("{"))
+        msg = new IntlMessageFormat(msg, [locale, this.locales.default, "en-GB"], null, { ignoreTag: true }).format(
+          options
+        )
+      if (msg.includes("  ")) msg = msg.stripIndents()
+    }
     return msg
   },
 

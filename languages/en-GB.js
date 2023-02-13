@@ -830,6 +830,7 @@ module.exports = {
       NOT_FOUND_STARS: stars => `No visible starred messages with ${stars}+ stars have been found. Try searching for a smaller amount.`,
       TYPE_NOT_FOUND: (stars, type) => `No messages ${stars ? `with ${stars}+ stars ` : ""}have been found from ${type}.`,
       COULD_NOT_FETCH: id => `I couldn't resolve a starred message from a random entry with ID \`${id}\``,
+      GLOBAL_EXPLORE_DISABLED: prefix => `Exploring global messages has been temporarily disabled, due to the TOS-breaking type of content that began to pop up over time. Until a moderation system for global messages gets implemented, only the server/me subcommands will be functional.\nYou can explore your messages or the server's messages with \`${prefix}explore server/me\`.`,
       THIS_SERVER: "this server",
       THIS_USER: "this user",
       YOU: "you"

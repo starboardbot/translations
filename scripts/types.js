@@ -64,7 +64,8 @@ const iterate = (obj, key = "") => {
 iterate(messages)
 
 writeFileSync("./types.d.ts", `
-export = {
+declare type MessageParameters = {
   ${res.join("\n  ")}
 }
+export = MessageParameters
 `.trim())

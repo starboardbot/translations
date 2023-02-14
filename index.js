@@ -59,9 +59,10 @@ module.exports = {
 
   /**
    * Get a message in a specific language.
-   * @param {Key} key The key of the message
+   * @template {Key} K
+   * @param {K} key The key of the message
    * @param {Locale} locale The locale
-   * @param {any?} options Object of parameters used in the translation.
+   * @param {import("./types")[K]?} options Object of parameters used in the translation.
    * @returns {string} The message in a specific language, defaulting to English (GB) if not found.
    */
   get(key, locale, options) {

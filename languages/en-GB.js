@@ -71,11 +71,13 @@ module.exports = {
     EMOJIS {change the emojis}
     AUTO_STAR {enable auto starring}
     REWARD_ROLES {customise reward roles}
+    other {{feat}}
   }, you need to **[vote for the bot]({voteLink})**. Once you have voted, you have to wait a few minutes for me to recieve your vote.`,
   NEED_PREMIUM: `To {feat, select,
     DOWNVOTE {downvote starred messages}
     MULTIPLE_EMOJIS {have multiple emojis at once}
     CHANNEL_SETTINGS {have more than 10 sets of channel settings}
+    other {{feat}}
   }, your server needs to be a **[Premium Server]({patreonLink})**.`,
 
   COOLDOWN_MESSAGE: "You're using this command too frequently! Please wait {time} before using it again.",
@@ -86,6 +88,9 @@ module.exports = {
     "check out Starboard's **[Github Issues page]({guide})** where you can post bugs/suggestions instead of using the commands",
   ],
   OR: "{a} or {b}",
+  AND: "{a} and {b}",
+  BY: "{something} by {someone}",
+  ORDINAL: "{number, selectordinal, one {#st} two {#nd} few {#rd} other {#th}}",
   HELP: "Help",
   COMMAND: "Command",
   ALIASES: "Aliases",
@@ -104,7 +109,7 @@ module.exports = {
   COMMAND_NOTICE_DISABLED: "This command is disabled: **{disableMessage}**",
   COMMAND_HELP_ARGS_INFO: "() = optional arguments, <> = required arguments, [] = a placeholder, -- = optional flag",
   COMMAND_DISABLED: "Command Disabled",
-  COMMAND_DISABLED_EMBED: `This command is currently disabled. {disableMessage, select
+  COMMAND_DISABLED_EMBED: `This command is currently disabled. {disableMessage, select,
     null {It was probably disabled because something wasn't functioning properly, otherwise another reason.}
     other {The reason for that is: **{disableMessage}**.}
   }
@@ -186,11 +191,14 @@ module.exports = {
   STARRED_MESSAGES: "Starred Messages",
   LOCKED_MESSAGES: "Locked Messages",
   FROZEN_MESSAGES: "Frozen Messages",
+  MESSAGES_TRASHED: "Messages Trashed",
   MESSAGES_CURRENTLY_TRASHED: "Messages Currently Trashed",
   MESSAGES_ON_STARBOARD_BEFORE: "Messages On Starboard Before",
   AVG_STARS_PER_MESSAGE: "Average Stars Per Message",
   MOST_STARS_EARNED_IN: "Most Stars Earned In",
   MOST_STARS_ON_MESSAGE: "Most Stars on a Message",
+  MOST_STARRED_MESSAGES: "Most Starred Messages",
+  MOST_STARRED_CHANNEL: "Most Starred Channel",
   PERCENT_LOCKED: "% Locked",
   PERCENT_FROZEN: "% Frozen",
   PERCENT_TRASHED: "% Trashed",
@@ -257,180 +265,671 @@ module.exports = {
   NEVER: "Never",
   LANGUAGES: "Languages",
   STARBOARD_PREMIUM: "Starboard Premium",
-
+  HALL_OF_FAME: "Hall of Fame",
   NOTHING_TO_DISPLAY: "Nothing to display.",
+  PAGE: "Page {page, number}/{pages, number}",
+  STARRED_MESSAGE_INFO: "Starred Message Info",
+  CLUSTER_ID: "Cluster {id}",
+  SHARD_ID: "Shard {id}",
+  STARS_NEEDED: "Stars Needed",
+  PROGRESS: "{user}'s Progress",
+  YOUR_PROGRESS: "Your Progress",
 
+  CANNOT_SEND_MESSAGES_IN_CHANNEL: "I cannot send messages in {channel}, please enable the `Send Messages` permission.",
+  CANNOT_SEND_EMBEDS_IN_CHANNEL: "I cannot send embeds in {channel}, please enable the `Embed Links` permission.",
+  CANNOT_VIEW_CHANNEL: "I cannot view {channel}, please enable the `View Channel` permission.",
+  CANNOT_VIEW_VOICE_CHANNEL: "I cannot view {channel}, please enable the `View Channel` and `Connect` permissions.",
+  CANNOT_READ_HISTORY_IN_CHANNEL:
+    "I cannot read message history in {channel}, please enable the `Read Message History` permission.",
+  CANNOT_CONNECT_IN_VOICE_CHANNEL:
+    "For the text chat of {channel}, you also need to enable the `Connect` permission for me to view messages.",
+
+  INVALID_CHANNEL_SETTING:
+    "**{setting}** is not a valid setting for channels, it is only available as a server setting.",
+  INVALID_GUILD_SETTING: "**{setting}** is not a valid setting for servers, it is only available as a channel setting.",
+  INVALID_LANGUAGE: "**{language}** was not a valid language.",
+  LANGUAGE_SET: "Successfully set the language to **{language}**.", // instead of hardcoding this file's language
+  NO_STARBOARD_SET: "There is no starboard set for this server.",
+  NO_STARBOARDS_SET: "There are no starboards set for this server.",
+  NO_NSFW_STARBOARD_SET: "There is no NSFW starboard set for this server.",
+  NO_STARBOARD_SET_CHANNEL: "There is no starboard set for the channels these channel settings apply to.",
+  NO_NSFW_STARBOARD_SET_CHANNEL: "There is no NSFW starboard set for the channels these channel settings apply to.",
+  CHANNEL_NOT_EXIST: "That channel does not exist.",
+  CHANNEL_MUST_BE_TEXT_OR_ANNOUNCEMENT: "The channel must be either a text or announcement channel.",
+  CHANNEL_MUST_BE_TEXT_BASED: "The channel must be a text-based channel.",
+
+  NSFW_STARBOARD_INVALID_TYPE: "The NSFW starboard can only be set to an NSFW channel.",
+  MISSING_PERMISSION_CREATE_CHANNELS:
+    "The bot is missing the `Manage Channels` permission, required to create channels.",
+  CREATE_STARBOARD_FAIL: "Something went wrong when creating a starboard channel.",
+  CREATE_STARBOARD_SUCCESS: "Successfully created a starboard channel: {channel}",
+  CREATE_NSFW_STARBOARD_SUCCESS: "Successfully created an NSFW starboard channel: {channel}",
+  STARBOARD_SET_SUCCESS:
+    "Successfully set the starboard for {settingsType, select, channel {the channels these channel settings apply to} other {this server}} to {channel}.",
+  STARBOARD_UNSET_SUCCESS:
+    "Successfully unset the starboard for {settingsType, select, channel {the channels these channel settings apply to} other {this server}}.",
+  NSFW_STARBOARD_SET_SUCCESS: "Successfully set the NSFW starboard for this server's NSFW channels to {channel}.",
+  NSFW_STARBOARD_UNSET_SUCCESS: "Successfully unset the starboard for this server.",
+  REQUIRED_STARS_TOO_BIG: "The required amount of stars to reach the starboard cannot be that high.",
+  REQUIRED_STARS_TOO_SMALL: "The required amount of stars to reach the starboard has to be a number greater than 0.",
+  REQUIRED_STARS_SET:
+    "Successfully set the required amount of stars to reach the starboard {settingsType, select, channel {for the channels these channel settings apply to } other {}}to {number, number}",
+  REQUIRED_STARS_SET_BOTH:
+    "Successfully set the required amount of stars to reach the starboard {settingsType, select, channel {for the channels these channel settings apply to } other {}}to {required, number}, and lowered **RequiredToRemove** to {requiredToRemove, number}.",
+  RTR_TOO_BIG: "The required amount of stars to be removed from the starboard cannot be that high.",
+  RTR_TOO_SMALL:
+    "The required amount of stars to be removed from the starboard has to be a number greater than or equal to 0.",
+  RTR_SET:
+    "Successfully set the required amount of stars to be removed from the starboard {settingsType, select, channel {for the channels these channel settings apply to } other {}}to {number, number}",
+  RTR_SET_BOTH:
+    "Successfully set the required amount of stars to be removed from the starboard {settingsType, select, channel {for the channels these channel settings apply to } other {}}to {requiredToRemove, number}, and raised **Required** to {required, number}.",
+  PERMISSIONS_PROVIDED_NOT_VALID: "The permissions provided were not valid.",
+  PERMISSIONS_SET_SUCCESS: "Successfully set the permissions required to perform various actions to {permission}.",
+  COLOR_SET_SUCCESS: "Successfully set the colour for starboard messages above {above, number} stars to {color}.",
+  STAR_REQUIREMENT_TOO_HIGH: "The **{ordinal}** requirement cannot be that high.",
+  STAR_REQUIREMENT_TOO_LOW: "The **{ordinal}** requirement has to be a number greater than 0.",
+  STAR_REQUIREMENT_BOUNDARY_HIGHER:
+    "The **{ordinal}** requirement has to be a number higher than {number, number}, which is what **{nextOrdinal}** is currently set as.",
+  STAR_REQUIREMENT_BOUNDARY_LOWER:
+    "The **{ordinal}** requirement has to be a number lower than {number, number}, which is what **{nextOrdinal}** is currently set as.",
+  STAR_REQUIREMENT_SET:
+    "Successfully set the required amount of stars for the **{ordinal}** colour and emoji{emoji} to show up on the starboard to {number, number}.",
+  EMOJI_NOT_FOUND: "That emoji could not be found, or was invalid.",
+  CANNOT_USE_EMOJI: "I cannot use that emoji, it has to be an emoji from a server I am in.",
+  UPVOTE_DOWNVOTE_EMOJIS_SAME:
+    "The emoji to upvote starred messages and the emoji to downvote starred messages cannot be the same.",
+  CANNOT_USE_RESERVED_EMOJI: "Sorry, but this emoji cannot be used.",
+  MAX_EMOJIS_REACHED: "You have reached the maximum amount of emojis allowed for 1 server.",
+  ALREADY_AN_EMOJI_SAVED: "Your emoji is already saved as one in the list of emojis.",
+  NOT_AN_EMOJI_SAVED: "Your emoji is not saved as one in the list of emojis.",
+  EMOJI_ADD_SUCCESS: "Successfully added {emoji} to the list of emojis.",
+  EMOJI_REMOVE_SUCCESS: "Successfully removed {emoji} from the list of emojis.",
+  EMOJI_SET_SUCCESS: "Successfully set the emoji to react on messages with to {emoji}.",
+  STAR_SET_SUCCESS: "Successfully changed the **{ordinal}** star to {emoji}.",
+  DOWNVOTE_EMOJI_SET: "Successfully set the emoji to downvote messages with to {emoji}.",
+  ON_DELETION_NOTHING: "Starboard message will no longer be reposted, frozen or trashed when they get deleted.",
+  ON_DELETION_REPOST: "Starboard messages will now be automatically reposted when they get deleted by a moderator.",
+  ON_DELETION_FREEZE:
+    "Starred messages will now be automatically frozen if the starboard message gets deleted by a moderator.",
+  ON_DELETION_TRASH:
+    "Starred messages will now be automatically trashed if the starboard message gets deleted by a moderator.",
+  LINK_DELETES_ENABLED: "When a message is deleted, the starboard message will now be deleted.",
+  LINK_DELETES_DISABLED: "When a message is deleted, the starboard message will no longer be deleted.",
+  FILTER_BOTS_ENABLED: "Bots can no longer get on the starboard.",
+  FILTER_BOTS_DISABLED: "Bots can now get on the starboard.",
+  STAR_SELF_ENABLED: "Users can now star their own messages.",
+  STAR_SELF_DISABLED: "Users can no longer star their own messages.",
+  VISIBLE_ENABLED: "People can now find this server's messages in the explore command.",
+  VISIBLE_DISABLED: "People can no longer find this server's messages in the explore command.",
+  CLEAN_ENABLED:
+    "~~The **Click to jump to message!** and other links will no longer show on starboard messages.~~ This setting no longer does anything. A similar setting will be made to replace this very soon.",
+  CLEAN_DISABLED:
+    "~~The **Click to jump to message!** and other links will now show on starboard messages.~~ This setting no longer does anything. A similar setting will be made to replace this very soon.",
+  DOWNVOTE_ENABLED: "Users can now downvote starred messages.",
+  DOWNVOTE_DISABLED: "Users can no longer downvote starred messages.",
+  BOTS_ON_LB_ENABLED: "Bots will now show on the leaderboard.",
+  BOTS_ON_LB_DISABLED: "Bots will no longer show on the leaderboard.",
+  ATTACHMENTS_ENABLED: "Attachments will now be attached onto the starboard message.",
+  ATTACHMENTS_DISABLED: "Attachments will no longer be attached onto the starboard message.",
+  NO_EXPLORE_ENABLED: "Users can no longer use the explore command",
+  NO_EXPLORE_DISABLED: "Users can now use the explore command.",
+  FILTER_BLACKLISTED_ENABLED: "Blacklisted users will now be filtered off the starboard",
+  FILTER_BLACKLISTED_DISABLED: "Blacklisted users will no longer be filtered off the starboard.",
+  REMOVE_REACTIONS_ENABLED: "Reactions will now be removed if a user reacts wrongly, such as in a blacklisted channel",
+  REMOVE_REACTIONS_DISABLED:
+    "Reactions will no longer be removed if a user reacts wrongly, such as in a blacklisted channel.",
+  NO_LEADERBOARD_ENABLED_SERVER: "The leaderboard and leaderboard related commands have been disabled",
+  NO_LEADERBOARD_DISABLED_SERVER: "The leaderboard and leaderboard related commands have been enabled.",
+  NO_LEADERBOARD_ENABLED: "The leaderboard for this channel will no longer be recorded.",
+  NO_LEADERBOARD_DISABLED: "The leaderboard for this channel will now be recorded.",
+  KEEP_ROLES_ENABLED: "Users will now keep old reward roles upon getting a new one",
+  KEEP_ROLES_DISABLED: "Users will no longer keep old reward roles upon getting a new one.",
+  MENTION_AUTHOR_ENABLED: "Users will now be pinged on their starboard messages",
+  MENTION_AUTHOR_DISABLED: "Users will no longer be pinged on their starboard messages.",
+  QUICK_ACTIONS_ENABLED: "You can now react on starboard messages to quickly perform actions on them",
+  QUICK_ACTIONS_DISABLED: "You can no longer react on starboard messages to quickly perform actions on them.",
+  LINK_EDITS_ENABLED: "Starboard messages will now be updated when its original message is edited",
+  LINK_EDITS_DISABLED: "Starboard messages will no longer be updated when its original message is edited.",
+  DISPLAY_NICKNAME_ENABLED: "Starboard messages will now display the message author's server nickname",
+  DISPLAY_NICKNAME_DISABLED: "Starboard messages will now display the message author's Discord tag.",
+  NO_COMMANDS_ENABLED: "Commands will now only work for moderators",
+  NO_COMMANDS_DISABLED: "Commands will no longer only work for moderators.",
+  AUTO_STAR_ENABLED: "Messages from these channels will now be automatically starred by me",
+  AUTO_STAR_DISABLED: "Messages from these channels will no longer be automatically starred by me.",
+  DELETE_INVALID_ENABLED:
+    "Messages sent while auto starring is enabled that either don't pass the filters or were sent by blacklisted users will now be deleted",
+  DELETE_INVALID_DISABLED:
+    "Messages sent while auto starring is enabled that either don't pass the filters or were sent by blacklisted users will no longer be deleted.",
+  CHANNEL_SETTINGS_NAME_TOO_LONG: "The name of these channel settings cannot be more than 64 characters long.",
+  TOO_HIGH: "That number is too high.",
+  TOO_LOW: "That number is too low.",
+
+  UNKOWN_MESSAGE: "A message with ID `{id}` was not found in {channel}.",
+  MESSAGE_NOT_FOUND: "I could not find a message from your input.",
+  STARRED_MESSAGE_NOT_FOUND: "I could not find a starred message from your input.",
+  PLEASE_PROVIDE_MESSAGE: "Please provide a link to a message or a message ID.",
+  ROLE_NOT_FOUND: "I could not find a role from your input.",
+  CANNOT_OBTAIN_STARRED_MESSAGE:
+    "Sorry, but this starred message could not be obtained. This is likely because it is trashed, the original message's channel was deleted or the bot can't see the starboard channel.",
+
+  MESSAGE_ALREADY_LOCKED: "This message is already locked.",
+  MESSAGE_NOT_LOCKED: "This message is not currently locked.",
+  MESSAGE_ALREADY_FROZEN: "This message is already frozen.",
+  MESSAGE_NOT_FROZEN: "This message is not currently frozen.",
+  ALREADY_ON_HALL_OF_FAME: "This message is already on the Hall of Fame.",
+  NOT_ON_HALL_OF_FAME: "That message is not on the Hall of Fame.",
+  HALL_OF_FAME_HIT_MAX: "This server has hit the limit of 100 messages on the Hall of Fame.",
+  MESSAGE_HAS_NO_STARBOARD_MESSAGE_TO_DELETE: "This message has no starboard message to delete.",
+  CANNOT_FORCE_MESSAGE_TRASHED: "This message cannot be forced because it is trashed.",
+
+  ALREADY_POSTED: "This message is already posted on the starboard.",
+  MESSAGE_RECENTLY_SAVED: "This message seems to have been recently saved.",
+  DMS_CLOSED: "I cannot send you this message because your DMs are closed.",
+  LOCK_SUCCESS: "Successfully locked that message.",
+  UNLOCK_SUCCESS: "Successfully unlocked that message.",
+  FREEZE_SUCCESS: "Successfully froze that message.",
+  UNFREEZE_SUCCESS: "Successfully unfroze that message.",
+  REFRESH_SUCCESS:
+    "Successfully recounted stars for that message.{url, select, null {} other { The starboard message is **[here]({url})**.}}",
+  TRASH_SUCCESS: "Successfully trashed that message.",
+  SAVE_SUCCESS: "Successfully sent that message to your DMs.",
+  HALL_OF_FAME_SUCCESS: "Successfully added that message to the server's Hall of Fame.",
+  HALL_OF_FAME_REMOVE_SUCCESS: "Successfully removed that message from the server's Hall of Fame.",
+
+  FORCE_SUCCESS:
+    "Successfully forced that message to the starboard!{url, select, null {} other { The starboard message is **[here]({url})**.}}",
+  POST_SUCCESS:
+    "Successfully posted that message to the starboard!{url, select, null {} other { The starboard message is **[here]({url})**.}}",
+  DELETE_SUCCESS: "Successfully deleted that message.",
+
+  // ? might still keep these nested translations for command responses that are super specific and 100% only used once - in that command
   COMMANDS: {
     BLACKLIST: {
+      NAME: "blacklist",
       DESCRIPTION: "View info about blacklisted users, roles or channels, or modify the list.",
       USAGE: "blacklist (add/remove) ([user/role/channel]) --channel ([channelSettings])",
+      // embed descriptions may always be complicated
+      EMBED_DESCRIPTION: `{settingsType, select,
+        channel {The following users, roles and threads are blacklisted in the channels these channel settings apply to.}
+        other {The following users, roles and channels are blacklisted.}
+      }{blacklistedOnStarboard, select,
+        true {Blacklisted users cannot star messages but their messages can still get on the starboard,}
+        other {Blacklisted users cannot star messages}
+      } and messages cannot be starred if from a blacklisted {settingsType, select, channel {thread} other {channel}}.
+      {nothing, select, true {**Nothing has been blacklisted yet.**\n} other {}}To add/remove to the list, run \`{prefix}blacklist <add/remove> <[user/role/{settingsType, select,
+        channel {thread}
+        other {channel}
+      }]>\`.`,
+      NOT_FOUND:
+        "I could not find a user, role or {settingsType, select, channel {thread} other {channel}} from your input.",
+      ALREADY_BLACKLISTED: "**{item}** is already blacklisted.",
+      NOT_BLACKLISTED: "**{item}** is not blacklisted.",
+      TOO_MANY_BLACKLISTED: "There are too many items on the blacklist.",
+      NOTHING_BLACKLISTED: "There is nothing blacklisted.",
+      BLACKLIST_ADD: `Successfully blacklisted **{item}**.`,
+      BLACKLIST_ADD_CHANNELS: `Successfully blacklisted {number, number} channels.`,
+      REMOVE_ALL: "Successfully removed everything from the blacklist.",
+      BLACKLIST_REMOVE: `Successfully removed **{item}** from the blacklist.`,
     },
     BOTINFO: {
+      NAME: "botinfo",
       DESCRIPTION: "View info about the bot.",
       USAGE: "botinfo (bot/star)",
     },
     CHANGESETTING: {
+      NAME: "changesetting",
       DESCRIPTION:
         "Change a setting for the current channel or the server, such as the required amount of stars needed to reach the starboard. All the settings are in the settings command, so you can view your options there.",
       USAGE: "changesetting ([channel]) <[setting]> <[value]>",
     },
     CHANNELSETTINGS: {
+      NAME: "channel-settings",
       DESCRIPTION: "View info about Channel Settings, or create/clone sets of channel settings.",
       USAGE: "channelsettings (list/create/edit/delete) ([name]) (...[channels]) --channel ([channelSettings])",
+      NO_CHANNEL_SETTINGS: `**This server has no channel settings.**
+      To create a new set of channel settings, run \`{prefix}channnelsettings create ([name]) <...[channels]>\`
+
+      Channel Settings are settings that only apply to a group of channels.
+      They can have their own starboard, emojis, reward roles, filters, and almost everything else the server settings can have.
+
+      **[Learn More]({guide})**`,
+      EMBED_DESCRIPTION: `Here are the channel settings for this server.
+      Run \`{prefix}channelsettings --help\` for more info, or **[Learn More]({guide})**`,
+      EMBED_DESCRIPTION_GUIDE: `Here are the channel settings for this server.
+      Note: When providing the \`[channelSettings]\` argument for commands, you can either provide the name of the channel settings if the name has no spaces, or a channel from the list of channels.
+
+      • If you want to clone one of these, you can run \`{prefix}channelsettings create ([name]) <...[channels]> --channel ([channelSettings])\` where \`([channelSettings])\` is the channel settings to clone from.
+
+      • If you want to edit a set of channel settings to add/remove channels or change the name, you can run \`{prefix}channelsettings edit ([channelSettings]) ([name]) (...[channels])\` where \`([channelSettings])\` is the channel settings to edit. Prefix the channels with + or - to add or remove them from the list (e.g. \`+#general\`, \`-#memes\`).
+
+      • If you need to delete a set of channel settings, you can run \`{prefix}channelsettings delete <[name]>\`
+
+      • To edit one's settings, run \`{prefix}changesetting ([channelSettings]) <[setting]> <[value]>\`
+
+      **[Learn More]({guide})**`,
+      HIT_MAX: "You have hit the maximum amount of channel settings for one server.",
+      PROVIDE_CHANNELS: "Please provide some channels for this set of channel settings.",
+      INVALID_CHANNELS: "You did not provide valid channels.",
+      DUPLICATE_CHANNELS:
+        "The channels provided must not already have channel settings. A channel may only have one set of channel settings.",
+      CONFIRMATION_EMBED:
+        "Are you sure you want to delete the **{name}** channel settings?\nYou will lose all saved reward roles, blacklists/whitelists, filters and other saved configurations, and they will be gone forever.",
+      NOT_DELETED: "The settings will not be deleted.",
+      SUCCESS_CREATE:
+        "Successfully created a new set of channel settings for {size, plural, =1 {one channel} other {# channels}}: **{name}**.",
+      NOTHING_PROVIDED: "Please provide the name of a set of channel settings.",
+      NOTHING_MODIFIED: "Please provide edits to make.",
+      MODIFIED_NAME: `Successfully changed the name to **{name}**.`,
+      MODIFIED_CHANNELS: `Successfully changed the channels that these channel settings apply for to {size, plural, =1 {one channel} other {# channels}}.`,
+      MODIFIED_BOTH:
+        "Successfully changed the name to **{name}** and changed the channels that these channel settings apply for to {size, plural, =1 {one channel} other {# channels}}.",
+      SUCCESS_DELETE: "Successfully deleted **{name}**.",
     },
     DEBUG: {
+      NAME: "debug",
       DESCRIPTION:
         "Debug and get reasons for why a message, messages in a specific channel, or all messages aren't being starred.",
       USAGE: "debug ([channel]) ([messageID]) --autoStar",
+      MISSING_FILES:
+        "I cannot attach files in {channel}, so attachments will not be attached to the starboard message and will instead be linked. Please enable the `Attach Files` permission if you want attachments.",
+      TRASHED: "This message is trashed.",
+      FROZEN: "This message is frozen and cannot get or lose any more stars.",
+      FILTER_BOTS: "Messages by bots cannot be starred because the **FilterBots** setting is enabled.",
+      BLACKLISTED: "The author of this message is blacklisted.",
+      BLACKLISTED_ROLES: "The author of this message is blacklisted because they have the roles {roles}.",
+      CHANNEL_BLACKLISTED: "{channel} is currently blacklisted.",
+      MESSAGE_CHANNEL_BLACKLISTED: "The channel where this message was sent in is currently blacklisted.",
+      // FILTER: "This message doesn't pass the {list} set for this ${c ? "channel" : "server"}.`,
+      // todo - the 1st, 2nd and 6th filters set for
+      CONTENT_REQUIRED: "This message has no content but content is required.",
+      CONTENT_MIN:
+        "The length of this message needs to be {limit, number} characters or greater, it is currently {length, number}.",
+      CONTENT_MAX: "The length of this message exceeds the limit of {limit, number} characters. ({length, number})",
+      IS_REPLY: `This message cannot be starred because it is a reply.`,
+      IS_NOT_REPLY: "This message cannot be starred because it isn't a reply.",
+      MATCH_REGEX: "This message doesn't match the regex `{regex}`.",
+      CONTENT_INCLUDES: "This message does not contain `{text}` and therefor cannot be starred.",
+      NOT_MATCH_REGEX: "This message matches the regex `{regex}` so it cannot be starred.",
+      CONTENT_EXCLUDES: "This message contains `{text}` and therefor cannot be starred.",
+      ATTACHMENT_REQUIRED: "An attachment or embed is required and this message has none.",
+      ATTACHMENT_MIN:
+        "This message needs to have {min, number} or more attachments/embeds, it currently has {size, number}.",
+      ATTACHMENT_MAX:
+        "This message needs to have less than {max, number} attachments/embeds, it currently has {size, number}.",
+      MEDIA_REQUIRED: "This message does not have any media but media is required. (Images, GIFs, video, etc)",
+      OLDER_THAN: "This message needs to be older than {time} to be starred, it is currently {age} old.",
+      SENT_BEFORE:
+        "This message needs to have been sent before {date, date, ::ddMy} to be starred, it was sent on {sent, date, ::ddMy}.",
+      NEWER_THAN: "This message needs to be newer than {time} to be starred, it is currently {age} old.",
+      SENT_AFTER:
+        "This message needs to have been sent after {date, date, ::ddMy} to be starred, it was sent on {sent, date, ::ddMy}.",
+      REQUIRED_STARS:
+        "This message needs {required, number} stars ({emojis}) to reach the starboard, right now it only has {stars}.",
     },
     EVAL: {
+      NAME: "eval",
       DESCRIPTION: "Evaluates a bit of code.",
       USAGE: "eval <code>",
     },
     EXPLORE: {
+      NAME: "explore",
       DESCRIPTION:
         "Bring up a random starred message from a user, your server or from any server! For a message to be brought up from any server, it has to have 5+ stars and the server has to have the **Visible** setting enabled.",
       USAGE: "explore ([stars]) (me/user/server/global) ([user])",
+      NOT_FOUND:
+        "No visible starred messages have been found. Messages need to have 5+ stars to show up, so go on and star any funny messages!",
+      NOT_FOUND_STARS:
+        "No visible starred messages with {stars, number}+ stars have been found. Try searching for a smaller amount.",
+      TYPE_NOT_FOUND: `No messages{stars, select, null {} other { with {stars}+ stars}} have been found from {type, select,
+        server {this server}
+        user {this user}
+        you {you}
+        other {}
+      }.`,
+      COULD_NOT_FETCH: "I couldn't resolve a starred message from a random entry with ID `{id}`",
     },
     FILTERS: {
+      NAME: "filters",
       DESCRIPTION: "View, create or edit filters used to filter messages from being starred.",
       USAGE:
         "filters ([channelSettings]) (add/remove/list/edit) (content/attachments/age/[filterNumber]) (...[options]) --explain --options",
+      // todo
     },
     FORCE: {
+      NAME: "force",
       DESCRIPTION: "Force or refresh a message on the starboard.",
       USAGE: "force ([channel]) <[messageID]>",
+      IS_EXPLORE_MESSAGE: "This message seems to be a message from the explore command, so it can't be forced.",
+      IS_LIKE_STARBOARD_MESSAGE:
+        "This message seems to be a starboard message or something similar, of another message, so it can't be forced.",
     },
     FREEZE: {
+      NAME: "freeze",
       DESCRIPTION: "Freezes a starred message, so no-one can add or remove stars.",
       USAGE: "freeze <[messageID]>",
     },
-    GENERATE: { // todo: may delete translations for owner commands, useless
+    GENERATE: {
+      NAME: "generate",
+      // todo: may delete translations for owner commands, useless
       DESCRIPTION: "Generate a premium code",
       USAGE: "generate ([code])",
     },
     HALLOFFAME: {
+      NAME: "hall-of-fame",
       DESCRIPTION:
-        "Shows the server's Hall of Fame, or add/remove messages from it. You can also add messages by using the 🏆 quick action.",
+        "Shows the server's Hall of Fame, or add/remove messages from it. You can also add messages by using the 🏆 Quick Action.",
       USAGE: "halloffame (add/remove/[page]) ([messageID])",
+      LINE: "• {message} by {author} - {star} {stars, number}",
+      NOTHING:
+        "Moderators can add a message to the Hall of Fame by using `{prefix}halloffame add <[messageID]>`, or using the 🏆 Quick Action.",
+      EMBED_DESCRIPTION: `This is the Hall of Fame, messages that "belong in a museum" - the best messages on the server. These messages were picked by various moderators, so appearing here is a great achievement. Here's the list:`,
+      CONFIRMATION_EMBED: "Are you sure you want to remove every message from the Hall of Fame?",
+      CANCELLED: "Cancelled removing every message from the Hall of Fame.",
+      SUCCESS_REMOVE_ALL: "Successfully removed everything from the Hall of Fame.",
     },
     HELP: {
+      NAME: "help",
       DESCRIPTION: "View all the commands the bot has to offer, or view info about a specific command.",
       USAGE: "help ([command])",
+      EMBED_DESCRIPTION: `Commands: {commands, number}
+      If you're new to the bot, you can set up your server using \`{prefix}setup\`.
+      For more info on various features, you could read the **[guide]({guideLink})**.
+      If you still need help, please join our **[support server]({supportLink})**.`,
     },
     LANGUAGES: {
+      NAME: "languages",
       DESCRIPTION: "View a list of all languages, or set the language for the server.",
       USAGE: "languages ([language])",
+      EMBED_DESCRIPTION: `You now have the option to set the language for the bot! The bot will respond to all commands in that language, but commands still have to be inputted in English.
+      Please note that English is the only language that will always be 100% complete, so if a statement cannot be found in your language, it'll be sent in English by default.
+      If you want, you can help add more languages at https://github.com/TheNoob27/starboard-languages, it'd help a lot.
+
+      The current list of available languages is:
+      - {languagesList}
+
+      The language that is currently being used is **{language}**. You can set the language with \`{prefix}languages <[language]>\``,
     },
     LEADERBOARD: {
+      NAME: "leaderboard",
       DESCRIPTION:
         "Show a leaderboard for people with the most stats. You can input a user to jump to their position on the leaderboard, or a channel to filter stats for starred messages only in that channel.",
       USAGE:
         "leaderboard (messages/stars/starboarded/global/trashed/downvotes/channels/servers/reset) ([page]) ([user]) ([channel]) --before <[date]> --after <[date]>",
+      NO_LEADERBOARD: "The leaderboard is disabled for this server.",
+      NOT_ON_LEADERBOARD: "Not on the leaderboard.",
+      TITLE: "Leaderboard - {title}",
+      TOTAL_STARS_IN: "Total Stars in #{channel}",
+      DOWNVOTES_IN: "Downvotes in #{channel}",
+      GLOBAL_POINTS_IN: "Global Points in #{channel}",
+      STARBOARDED_IN: "Times On Starboard in #{channel}",
+      MESSAGES_TRASHED_IN: "Messages Trashed in #{channel}",
+      MOST_STARRED_MESSAGES_BY: "Most Starred Messages by {user}",
+      MOST_STARRED_MESSAGES_IN: "Most Starred Messages in #{channel}",
+      MOST_STARRED_MESSAGES_BY_IN: "Most Starred Messages by {user} in #{channel}",
+      MOST_STARRED_CHANNEL_USER: "{user}'s Most Starred Channel",
+      CONFIRMATION_EMBED: `Are you sure you want to erase the leaderboard?
+      Please note that this doesn't reset all leaderboards, just the server-wide **Stars**, **Global**, **Trashed** and **Times On Starboard** leaderboards.
+      For other leaderboards such as the message leaderboard, you can use the --before or --after flags, e.g. \`--after 14/09/2021\`.`,
+      NOT_RESET: "Cancelled resetting the leaderboard.",
+      SUCCESS_RESET: "Successfully reset the leaderboard.",
+      EMBED_FOOTER:
+        "{user, select, null {Your} other {{user}'s}} Place: #{place} | Page {page, number}/{pages, number}",
     },
     LINKS: {
+      NAME: "links",
       DESCRIPTION: "Get the links related to the bot, such as the bot's invite link.",
       USAGE: "links",
+      DISCORD_LINKS: "**[Invite me!]({invite})**\n**[Support Server]({support})**",
+      PATREON_LINK: "**Become a Patron!]({patreon})**",
+      OTHER_LINKS: "**[Vote for the bot!]({vote})**\n**[GitHub Issues]({github})**\n**[Starboard Guide]({guide})**",
+      LEGAL_LINKS: "**[Privacy]({privacy})**",
     },
     LOCK: {
+      NAME: "lock",
       DESCRIPTION: "Locks a starred message to the starboard, so it'll stay there even if it reaches 0 stars.",
       USAGE: "lock <[messageID]>",
     },
     MESSAGEINFO: {
+      NAME: "message-info",
       DESCRIPTION: "View info about a starred message.",
       USAGE: "messageinfo <[messageID]>",
+      AT_DATE: "(at {date})",
+      WILL_DELETE: "(will delete {time})",
     },
     MIGRATE: {
+      NAME: "migrate",
       DESCRIPTION:
         "Scan up to the last 1000 messages in the starboard for posts by other starboard bots and convert them to starred messages for this bot. You can optionally provide an ID for starboard to scan before or after.",
-      USAGE: "migrate ([starboard]) ([limit]) --after <[messageID]> --before <[messageID]>", // these usages are getting too long :(
+      USAGE: "migrate ([starboard]) ([limit]) --after <[messageID]> --before <[messageID]>",
+      // todo
     },
     PING: {
+      NAME: "ping",
       DESCRIPTION: "Check the bot's ping, response times and edit speed.",
       USAGE: "ping",
+      PINGING: "Pinging...",
     },
     PREFIXES: {
+      NAME: "prefixes",
       DESCRIPTION: "Add or remove prefixes for the server, or view a list of them.",
       USAGE: "prefixes (add/remove) ([prefix])",
+      ALREADY_PREFIX: "That is already a prefix for this server.",
+      NOT_PREFIX: "That is not a prefix for this server.",
+      TOO_MANY_PREFIXES: "There are too many prefixes set for this server.",
+      PREFIX_TOO_LONG: "That prefix is too long.",
+      PREFIX_ADD: "Successfully added `{prefix}` to the list of prefixes.",
+      PREFIX_REMOVE: "Successfully removed `{prefix}` from the list of prefixes.",
+      PREFIX_SET: "Successfully set the server's prefix to `{prefix}`",
+      LIST_PREFIXES:
+        "The prefixes for this server {prefixCount, plural, one {are: \n{prefixes}} other {is {prefixes}}}.",
+      FOOTER: "My mention also works as a prefix.",
     },
     PREMIUM: {
+      NAME: "premium",
       DESCRIPTION: "View info about premium, or your premium status.",
       USAGE: "premium",
-    },
-    PURGE: {
-      DESCRIPTION: "Purge and freeze a number of messages off a starboard.",
-      USAGE: "purge ([channel]) <[messages]> --before <[messageID]> --after <[messageID]>",
+      HAVE_PREMIUM: "You currently have premium active on {servers} servers.",
+      PREMIUM_INFO: `
+      __By **donating**, you get (permanently):__
+      - A Donator role and donator-only chat in our support server.
+
+      __By getting **Starboard Premium**, you can:__
+      - Claim a Premium role in our support server.
+      *And in one server of your choice...*
+      - Have up to 5 emojis to use to star messages.
+      - Have up to 25 sets of channel settings.
+      - Have the ability to **downvote** starboard messages.
+      - Have all command responses that have embeds to be the colour set for starboard messages.
+      `,
     },
     QUICKACTIONS: {
+      NAME: "quick-actions",
       DESCRIPTION: "View more info about Quick Actions.",
       USAGE: "quickactions",
+      EMBED_DESCRIPTION: `**React to perform Quick Actions**: {enabledEmoji}
+
+      Quick Actions allow users to quickly perform actions on starboard messages, such as locking, freezing, deleting or saving, by performing the **Quick Actions** message context menu command or reacting on the starboard message with specific emojis.
+      __Here's the list of Quick Actions for moderators:__
+      🗑️: Trash the message
+      🔒: Lock the message
+      🔓: Unlock the message
+      🧊/❄️: Freeze the message
+      🔥: Unfreeze the message
+      🔄/🔁: Recount the stars of the message
+      🏆/🏅: Add to Hall of Fame
+      ❌/🇽: Delete the starboard message
+      📌/📍: Force to the starboard (used on the original message)
+
+      __And for everyone:__
+      📥/💾: Save the starred message to DMs
+      ❌/🇽: Delete a starboard message belonging to them
+
+      To enable/disable reacting to perform Quick Actions, run \`{prefix}changesetting quickActions <true/false/yes/no>\``,
     },
     RECOVER: {
+      NAME: "recover",
       DESCRIPTION:
         "Recover messages from a starboard that have been lost in the dataloss. You can also specify a message ID to recover messages before that specific starboard message.",
       USAGE: "migrate ([channel]) ([messageID])",
+      // todo
     },
     REDEEM: {
+      NAME: "redeem",
       DESCRIPTION: "Redeem a premium code",
       USAGE: "redeem <[code]>",
+      SUPPORT: "Please redeem Starboard Premium codes in the server you actually want Starboard Premium in.",
+      CODE_USED: "This code has already been redeemed.",
+      CODE_INVALID: "Sorry, that was not a valid code.",
+      ALREADY_PREMIUM: "This server already has renewable premium, so a code cannot be redeemed.",
+      EXTRA_PREMIUM:
+        "That code has been successfully redeemed. This server now has Starboard Premium for an extra month, for a total of {months} months.",
+      SUCCESS_PREMIUM: "That code has been successfully redeemed. This server now has Starboard Premium!",
+      SUCCESS_PREMIUM_MONTH:
+        "That code has been successfully redeemed. This server now has Starboard Premium for a month!",
     },
     RELOAD: {
+      NAME: "reload",
       DESCRIPTION: "Reload commands, events or a file.",
       USAGE: "reload <[command]/event/file> ([event]/[file])",
     },
     REWARDROLES: {
+      NAME: "rewardroles",
       DESCRIPTION:
         "View info about or add/remove reward roles, roles that get added to users once they surpass a certain amount of stars.",
       USAGE: "rewardroles ([channelSettings]) (add/remove) ([role]) ([stars])",
+      NO_LEADERBOARD: "The leaderboard is disabled for the server, which includes reward roles.",
+      EMBED_DESCRIPTION: `Reward roles are a fun way to reward users for getting their messages starred. Users will be given a role based on the amount of stars they have gotten in {settingsType, select,
+        channel {the channels these channel settings apply to}
+        other {this server}
+      }.
+      {hasPerms, select,
+        true {You can add/subtract to the amount of stars needed for an existing reward role by creating it again, but putting a +/- before the stars argument. (+50, -50 etc)
+          When viewing reward roles, you can optionally **ping a user** to see their progress.
+          If you wish for users to only have **one reward role at a time**, disable the **KeepRoles** setting.\n}
+        other {}
+      }
+      Here are the current reward roles set for {settingType, select, channel {the channels these channel settings apply to} other {the server}}:`,
+      NO_REWARD_ROLES: `**There are no reward roles set for {settingType, select, channel {the channels these channel settings apply to} other {the server}}.**
+      To add a reward role, run \`{prefix}rewardroles add <[role]> ([stars])\``,
+      HIGHER_POSITION: "That role is higher than my highest role, so I cannot give this role to members.",
+      ROLE_MANAGED: "This role is automatically managed by an integration and cannot be manually assigned to members.",
+      HIGHER_THAN_USER: "You cannot add this role as a reward role as it is higher than or equal to your highest role.",
+      NOT_A_NUMBER: "The amount of stars needs to be a number.",
+      ADD_TOO_MANY: "You are adding too many stars to this reward role.",
+      SUBTRACT_TOO_MANY: "You are subtracting too many stars from this reward role.",
+      HIT_MAX_SERVER: "The server has hit the max of 25 reward roles.",
+      HIT_MAX: "These channel settings have hit the max of 25 reward roles.",
+      NOT_RR: "That role is not set as a reward role.",
+      RR_SET: "Successfully set the stars needed for the reward role **{name}** to {stars, number}",
+      RR_ADD:
+        "Successfully added the role **{name}** as a reward role, awarded to users after getting a total of **{stars, number}** stars{settingsType, select, other {} channel { in the channels these channel settings apply to}}.",
+      RR_REMOVE_ALL:
+        "Successfully removed all reward roles{settingsType, select, other {} channel { for the channels these channel settings apply to}}.",
+      RR_REMOVE:
+        "Successfully removed the reward role **{name}** from {settingsType, select, channel {the channels these channel settings apply to} other {the server}}'s reward roles.",
     },
     SAVE: {
-      DESCRIPTION: "Save a starred message or a normal message to your dms.",
+      NAME: "save",
+      DESCRIPTION: "Save a starred message or a normal message to your DMs.",
       USAGE: "save ([channel]) <[messageID]>",
     },
     SETTINGS: {
+      NAME: "settings",
       DESCRIPTION: "View the server/channel's settings, or view info about a specific setting.",
       USAGE: "settings ([channelSettings]) ([setting])",
+      // CAN_CHANGE: (prefix, name, sub, value) =>
+      //   `You can change this setting with \`${prefix}changesetting ${name}${sub && ` ${sub}`} <${
+      //     value.includes("/") ? value : `[${value}]`
+      //   }>\`.`,
+      // todo
+      MISSING_PERMISSIONS_CHANGE_SETTINGS: "You need to have the {permission} permissions to change settings.",
+      CANT_CHANGE: "You cannot change this setting: {reason}",
+      USE_ALIASES: "You can also use any of these to change/view the setting.",
     },
     SETUP: {
+      NAME: "setup",
       DESCRIPTION: "Set up the bot in a server or channel by walking you through basic settings.",
       USAGE: "setup ([channel])",
+      // todo
     },
     SHARDS: {
+      NAME: "shards",
       DESCRIPTION: "Shard info",
       USAGE: "shards",
     },
     SHOW: {
+      NAME: "show",
       DESCRIPTION: "Preview any starred message, or the most starred message.",
       USAGE: "show <moststarred/[messageID]>",
+      COULD_NOT_OBTAIN:
+        "I couldn't obtain this starred message, this is most likely because both messages were deleted, the channel was deleted or I can no longer see the channel. But, here's some info about it anyway:",
     },
     STARWORTHY: {
+      NAME: "starworthy",
       DESCRIPTION: "Check if a message is worthy of being starred or not :)",
       USAGE: "starworthy <[messageID]>",
+      WORTHY: "That message is {percent, number, ::percent} star-worthy.",
     },
     STATS: {
+      NAME: "stats",
       DESCRIPTION: "View stats about a user, or reset a user's stats.",
       USAGE: "stats ([user]) --reset",
     },
     SUGGEST: {
+      NAME: "suggest",
       DESCRIPTION: "Suggest anything you think this bot should have/change.",
       USAGE: "suggest <[suggestion]>",
+      NEED_VOTE:
+        "In order to reduce spam, you have to **[vote for the bot]({voteLink})** to make suggestions outside the **[support server]({supportLink})**.",
+      NO_INPUT: "Please provide a suggestion to make.",
+      ATTACHMENTS_NSFW: "Attachments cannot be used for suggestions when in a NSFW channel.",
+      THANK_YOU:
+        "Thank you so much for your suggestion, these really help the development of this bot a lot. You can view your suggestion **[here]({inviteLink})**, where people vote on it.",
     },
     TRASH: {
+      NAME: "trash",
       DESCRIPTION:
         "Trash a message from the starboard and show the first 5 people to react to it, check if a message exists in the list of trashed messages, remove a message from the list of trashed messages, clear the list, or view the first 100 message IDs on the list.",
       USAGE: "trash (add/remove/exists/clear/list) ([messageID])",
+      REASON_TOO_LONG: "Your reason is too long.",
+      NOT_TRASHED: "That message is not trashed.",
+      UNTRASH_SUCCESS: "Successfully untrashed that message. It can now be starred again.",
+      IS_TRASHED:
+        "Your message with ID `{id}` is currently in the list of trashed messages. You can remove it from the trash with `${prefix}trash remove ${id}`.",
+      IS_NOT_TRASHED: "Your message with ID `{id}` is not currently trashed.",
+      CLEAR_TRASH: "Successfully removed {number, number} items from the trash.",
     },
     UNFREEZE: {
+      NAME: "unfreeze",
       DESCRIPTION: "Unfreezes a starred message, so everyone can add or remove stars as normal.",
       USAGE: "unfreeze <[messageID]>",
     },
     UNLOCK: {
+      NAME: "unlock",
       DESCRIPTION: "Unlocks a starred message from the starboard, so it can be removed as normal.",
       USAGE: "unlock <[messageID]>",
     },
     WHITELIST: {
+      NAME: "whitelist",
       DESCRIPTION: "View info about whitelisted users, roles or threads, or modify the list.",
       USAGE: "whitelist (add/remove) ([user/role/thread]) --channel ([channelSettings])",
+      EMBED_DESCRIPTION: `{settingsType, select,
+        channel {The following users and roles are whitelisted and won't be affected by the blacklist in the channels these channel settings apply to.}
+        other {The following users, roles and threads are whitelisted and won't be affected by the blacklist.}
+      }
+      {nothing, select, true {**Nothing has been whitelisted yet.**\n} other {}}To add/remove to the list, run \`{prefix}whitelist <add/remove> <[user/role/{settingsType, select,
+        channel {}
+        other {thread}
+      }]>\`.`,
+      NOT_FOUND:
+        "I could not find a {settingsType, select, channel {user or role} other {user, role or thread}} from your input.",
+      ALREADY_WHITELISTED: "**{item}** is already whitelisted.",
+      NOT_WHITELISTED: "**{item}** is not whitelisted.",
+      TOO_MANY_WHITELISTED: "There are too many items on the whitelist.",
+      NOTHING_WHITELISTED: "There is nothing whitelisted.",
+      WHITELIST_ADD: `Successfully whitelisted **{item}**.`,
+      REMOVE_ALL: "Successfully removed everything from the whitelist.",
+      WHITELIST_REMOVE: `Successfully removed **{item}** from the whitelist.`,
     },
   },
 }

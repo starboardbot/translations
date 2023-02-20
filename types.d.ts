@@ -142,15 +142,14 @@ declare type MessageParameters = {
   "RUN_COMMAND_MISSING_PERMISSIONS_USER": {
     permissions: string,
   },
+  "PERFORM_ACTIONS_MISSING_PERMISSIONS_USER": {
+    permissions: string,
+  },
   "RUN_COMMAND_MISSING_PERMISSIONS_BOT": {
     permissions: string,
   },
   "NO_CHANNEL_SETTINGS_FOR_ARG": {
     channel: string | null,
-  },
-  "PAGE": {
-    page: number,
-    pages: number,
   },
   "CLUSTER_ID": {
     id: string,
@@ -158,7 +157,14 @@ declare type MessageParameters = {
   "SHARD_ID": {
     id: string,
   },
-  "PROGRESS": {
+  "PAGE": {
+    page: number,
+    pages: number,
+  },
+  "USER_PROGRESS": {
+    user: string,
+  },
+  "USER_PLACE": {
     user: string,
   },
   "CANNOT_SEND_MESSAGES_IN_CHANNEL": {
@@ -283,10 +289,10 @@ declare type MessageParameters = {
     url: string | null,
   },
   "COMMANDS.BLACKLIST.EMBED_DESCRIPTION": {
-    settingsType: "channel" | "server",
     blacklistedOnStarboard: boolean,
-    nothing: boolean,
+    settingsType: "channel" | "server",
     prefix: string,
+    nothing: boolean,
   },
   "COMMANDS.BLACKLIST.NOT_FOUND": {
     settingsType: "channel" | "server",
@@ -297,13 +303,13 @@ declare type MessageParameters = {
   "COMMANDS.BLACKLIST.NOT_BLACKLISTED": {
     item: string,
   },
-  "COMMANDS.BLACKLIST.BLACKLIST_ADD": {
+  "COMMANDS.BLACKLIST.BLACKLIST_ADD_SUCCESS": {
     item: string,
   },
-  "COMMANDS.BLACKLIST.BLACKLIST_ADD_CHANNELS": {
+  "COMMANDS.BLACKLIST.BLACKLIST_ADD_CHANNELS_SUCCESS": {
     number: number,
   },
-  "COMMANDS.BLACKLIST.BLACKLIST_REMOVE": {
+  "COMMANDS.BLACKLIST.BLACKLIST_REMOVE_SUCCESS": {
     item: string,
   },
   "COMMANDS.CHANNELSETTINGS.NO_CHANNEL_SETTINGS": {

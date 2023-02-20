@@ -69,10 +69,11 @@ module.exports = {
     key = this._fixCase(key)
     locale = this._parseLocale(locale)
 
+    const defaultValue = get(this.messages, `${this.locales.default}.${key}`)
     let msg = get(
       this.messages,
       `${locale}.${key}`,
-      get(this.messages, `${this.locales.default}.${key}`)
+      defaultValue
     )
     if (!msg) return null
 
@@ -81,11 +82,11 @@ module.exports = {
       msg = msg.map(m =>
         !m.includes("{")
           ? m
-          : new IntlMessageFormat(m, [locale, this.locales.default, "en-GB"], null, { ignoreTag: true }).format(options)
+          : new IntlMessageFormat(m, msg === defaultValue ? "en-GB" : [locale, this.locales.default, "en-GB"], null, { ignoreTag: true }).format(options)
       )
     else {
       if (msg.includes("{"))
-        msg = new IntlMessageFormat(msg, [locale, this.locales.default, "en-GB"], null, { ignoreTag: true }).format(
+        msg = new IntlMessageFormat(msg, msg === defaultValue ? "en-GB" : [locale, this.locales.default, "en-GB"], null, { ignoreTag: true }).format(
           options
         )
       if (msg.includes("  ")) msg = msg.stripIndents()

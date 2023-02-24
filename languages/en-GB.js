@@ -459,6 +459,75 @@ module.exports = {
       NAME: "blacklist",
       DESCRIPTION: "View info about blacklisted users, roles or channels, or modify the list.",
       USAGE: "blacklist (add/remove) ([user/role/channel]) --channel ([channelSettings])",
+      SETTINGS_OPTION: "The settings of which you're modifying the blacklist for.",
+      ADD: {
+        NAME: "add",
+        DESCRIPTION: "Add a user, role or channel to the blacklist.",
+        USER: {
+          NAME: "user",
+          DESCRIPTION: "Add a user to the blacklist.",
+          OPTIONS: {
+            USER: "The user to add to the blacklist.",
+          },
+        },
+        ROLE: {
+          NAME: "role",
+          DESCRIPTION: "Add a role to the blacklist.",
+          OPTIONS: {
+            ROLE: "The role to add to the blacklist.",
+          },
+        },
+        CHANNEL: {
+          NAME: "channel",
+          DESCRIPTION: "Add a channel to the blacklist.",
+          OPTIONS: {
+            CHANNEL: "The channel to add to the blacklist.",
+          },
+        },
+      },
+      REMOVE: {
+        NAME: "remove",
+        DESCRIPTION: "Remove a user, role or channel from the blacklist.",
+        USER: {
+          NAME: "user",
+          DESCRIPTION: "Remove a user from the blacklist.",
+          OPTIONS: {
+            USER: "The user to remove from the blacklist.",
+          },
+        },
+        ROLE: {
+          NAME: "role",
+          DESCRIPTION: "Remove a role from the blacklist.",
+          OPTIONS: {
+            ROLE: "The role to remove from the blacklist.",
+          },
+        },
+        CHANNEL: {
+          NAME: "channel",
+          DESCRIPTION: "Remove a channel from the blacklist.",
+          OPTIONS: {
+            CHANNEL: "The channel to remove from the blacklist.",
+          },
+        },
+        ID: {
+          NAME: "id",
+          DESCRIPTION: "Remove a specific ID from the blacklist.",
+          OPTIONS: {
+            ID: "The ID to remove from the blacklist.",
+          },
+        },
+      },
+      CLEAR: {
+        NAME: "clear",
+        DESCRIPTION: "Clear all users, roles and channels from the blacklist.",
+      },
+      VIEW: {
+        NAME: "view",
+        DESCRIPTION: "View all users, roles and channels currently on the blacklist.",
+        OPTIONS: {
+          SETTINGS: "The settings of which you're viewing the blacklist of.",
+        },
+      },
       // embed descriptions may always be complicated
       EMBED_DESCRIPTION: `{blacklistedOnStarboard, select,
         true {Blacklisted users cannot star messages but their messages can still get on the starboard}

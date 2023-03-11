@@ -72,7 +72,7 @@ module.exports = {
   PREFIX_INFO: `My prefix for this server {prefixCount, plural, =1 {is} other {is any one of}} {prefixes}, but my mention also works as a prefix.`,
   NEED_VOTE: `To {feat, select,
     STAR_REQ {change the requirements for different star emojis to appear}
-    EMOJIS {change the emojis}
+    EMOJIS {change the star emojis and display stars}
     AUTO_STAR {enable auto starring}
     REWARD_ROLES {customise reward roles}
     other {{feat}}
@@ -151,6 +151,7 @@ module.exports = {
   ROLE: "Role",
   ROLES: "Roles",
   EMOJI: "Emoji",
+  EMOJIS: "Emojis",
   AUTHOR: "Author",
   CHANNEL: "Channel",
   CHANNELS: "Channels",
@@ -158,6 +159,8 @@ module.exports = {
   PERMISSION: "Permission",
   SERVERS: "Servers",
   STARBOARD: "Starboard",
+  NSFW_STARBOARD: "NSFW Starboard",
+  REACTION: "Reaction",
   MESSAGE: "Message",
   MESSAGES: "Messages",
   STARRED_MESSAGES: "Starred Messages",
@@ -202,7 +205,7 @@ module.exports = {
   GLOBAL_POINTS: "Global Points",
   BLACKLIST: "Blacklist",
   WHITELIST: "Whitelist",
-  AUTO_STAR: "AutoStar",
+  AUTO_STAR: "Auto Star",
   SETTING: "Setting",
   SETTINGS: "Settings",
   CHANNEL_SETTINGS: "Channel Settings",
@@ -214,9 +217,13 @@ module.exports = {
   DOWNVOTING: "Downvoting",
   AUTO_STARRING: "Auto Starring",
   MISCELLANEOUS: "Miscellaneous",
+  STAR: "Star",
   STARS: "Stars",
+  THRESHOLD: "Threshold",
   REQUIREMENTS: "Requirements",
+  COLOR: "Colour",
   COLORS: "Colours",
+  LANGUAGE: "Language",
   DATA: "Data",
   VALUE: "Value",
   DEFAULT: "Default",
@@ -230,6 +237,8 @@ module.exports = {
   MIGRATE: "Migrate",
   FILTERS: "Filters",
   REQUIRED: "Required",
+  REQUIRED_STARS: "Required Stars",
+  REQUIRED_TO_REMOVE: "Required To Remove",
   MINIMUM: "Minimum",
   MAXIMUM: "Maximum",
   IS_REPLY: "Is Reply",
@@ -250,7 +259,7 @@ module.exports = {
   MESSAGE_ATTACHMENTS_FILTER: "Message Attachments Filter",
   MESSAGE_AGE_FILTER: "Message Age Filter",
   DEBUG: "Debug",
-  STAR_SELF: "StarSelf",
+  STAR_SELF: "Star Self",
   BLACKLISTED_ITEMS: "Blacklisted Items",
   BOT_STATS: "Bot Stats",
   STARRED_MESSAGE_STATS: "Starred Message Stats",
@@ -285,6 +294,9 @@ module.exports = {
   USER_PLACE: "{user}'s Place",
   YOUR_PLACE: "Your Place",
   OTHER: "Other",
+  NUMBER_STARS: `{number, number} stars`,
+  UPDATED_SETTINGS: "Updated Settings",
+  ERRORS: "Errors",
 
   CANNOT_SEND_MESSAGES_IN_CHANNEL: "I cannot send messages in {channel}, please enable the `Send Messages` permission.",
   CANNOT_SEND_EMBEDS_IN_CHANNEL: "I cannot send embeds in {channel}, please enable the `Embed Links` permission.",
@@ -336,33 +348,42 @@ module.exports = {
     "Successfully set the required amount of stars to be removed from the starboard {settingsType, select, channel {for the channels these channel settings apply to } other {}}to {requiredToRemove, number}, and raised **Required** to {required, number}.",
   PERMISSIONS_PROVIDED_NOT_VALID: "The permissions provided were not valid.",
   PERMISSIONS_SET_SUCCESS: "Successfully set the permissions required to perform various actions to {permission}.",
-  COLOR_SET_SUCCESS: "Successfully set the colour for starboard messages above {above, number} stars to {color}.",
-  STAR_REQUIREMENT_TOO_HIGH: "The **{ordinal}** requirement cannot be that high.",
-  STAR_REQUIREMENT_TOO_LOW: "The **{ordinal}** requirement has to be a number greater than 0.",
+  COLOR_INVALID_COLOUR: "Could not parse a colour from `{input}`. Try inputting a hex code (`#ecd558`) or RGB values (`236, 213, 88`).",
+  COLOR_SET_SUCCESS: `Successfully set the colour for starboard messages above {above, number} stars to {color, select,
+    role {the author's highest role colour}
+    random {random}
+    other {\`{color}\`}
+  }.`,
+  STAR_REQUIREMENT_TOO_HIGH:
+    "The **{ordinal, select, first {first} second {second} third {third} fourth {fourth} other {}}** threshold cannot be that high.",
+  STAR_REQUIREMENT_TOO_LOW:
+    "The **{ordinal, select, first {first} second {second} third {third} fourth {fourth} other {}}** threshold has to be a number greater than 0.",
   STAR_REQUIREMENT_BOUNDARY_HIGHER:
-    "The **{ordinal}** requirement has to be a number higher than {number, number}, which is what **{nextOrdinal}** is currently set as.",
+    "The **{ordinal, select, first {first} second {second} third {third} fourth {fourth} other {}}** threshold has to be a number higher than {number, number}, which is what the **{prevOrdinal, select, first {first} second {second} third {third} fourth {fourth} other {}}** threshold is currently set as.",
   STAR_REQUIREMENT_BOUNDARY_LOWER:
-    "The **{ordinal}** requirement has to be a number lower than {number, number}, which is what **{nextOrdinal}** is currently set as.",
+    "The **{ordinal, select, first {first} second {second} third {third} fourth {fourth} other {}}** threshold has to be a number lower than {number, number}, which is what the **{nextOrdinal, select, first {first} second {second} third {third} fourth {fourth} other {}}** threshold is currently set as.",
   STAR_REQUIREMENT_SET:
-    "Successfully set the required amount of stars for the **{ordinal}** colour and emoji{emoji} to show up on the starboard to {number, number}.",
+    "Successfully set the threshold for the **{ordinal, select, first {first} second {second} third {third} fourth {fourth} other {}}** tier's star and colour to show up on the starboard to {number, number}.",
   EMOJI_NOT_FOUND: "That emoji could not be found, or was invalid.",
-  CANNOT_USE_EMOJI: "I cannot use that emoji, it has to be an emoji from a server I am in.",
+  CANNOT_USE_EMOJI: "I cannot use that emoji, I can only use emojis from servers I'm in.",
   UPVOTE_DOWNVOTE_EMOJIS_SAME:
     "The emoji to upvote starred messages and the emoji to downvote starred messages cannot be the same.",
   CANNOT_USE_RESERVED_EMOJI: "Sorry, but this emoji cannot be used.",
   MAX_EMOJIS_REACHED: "You have reached the maximum amount of emojis allowed for 1 server.",
+  TOO_MANY_EMOJIS: "You cannot have that many emojis set to use for starring messages.",
   ALREADY_AN_EMOJI_SAVED: "Your emoji is already saved as one in the list of emojis.",
   NOT_AN_EMOJI_SAVED: "Your emoji is not saved as one in the list of emojis.",
   EMOJI_ADD_SUCCESS: "Successfully added {emoji} to the list of emojis.",
   EMOJI_REMOVE_SUCCESS: "Successfully removed {emoji} from the list of emojis.",
   EMOJI_SET_SUCCESS: "Successfully set the emoji to react on messages with to {emoji}.",
-  STAR_SET_SUCCESS: "Successfully changed the **{ordinal}** star to {emoji}.",
+  STAR_SET_SUCCESS:
+    "Successfully changed the **{ordinal, select, first {first} second {second} third {third} fourth {fourth} other {}}** display star to {emoji}.",
   DOWNVOTE_EMOJI_SET: "Successfully set the emoji to downvote messages with to {emoji}.",
-  ON_DELETION_NOTHING: "Starboard message will no longer be reposted, frozen or trashed when they get deleted.",
-  ON_DELETION_REPOST: "Starboard messages will now be automatically reposted when they get deleted by a moderator.",
-  ON_DELETION_FREEZE:
+  ON_DELETION_NOTHING_SET: "Starboard message will no longer be reposted, frozen or trashed when they get deleted.",
+  ON_DELETION_REPOST_SET: "Starboard messages will now be automatically reposted when they get deleted by a moderator.",
+  ON_DELETION_FREEZE_SET:
     "Starred messages will now be automatically frozen if the starboard message gets deleted by a moderator.",
-  ON_DELETION_TRASH:
+  ON_DELETION_TRASH_SET:
     "Starred messages will now be automatically trashed if the starboard message gets deleted by a moderator.",
   LINK_DELETES_ENABLED: "When a message is deleted, the starboard message will now be deleted.",
   LINK_DELETES_DISABLED: "When a message is deleted, the starboard message will no longer be deleted.",
@@ -382,33 +403,33 @@ module.exports = {
   BOTS_ON_LB_DISABLED: "Bots will no longer show on the leaderboard.",
   ATTACHMENTS_ENABLED: "Attachments will now be attached onto the starboard message.",
   ATTACHMENTS_DISABLED: "Attachments will no longer be attached onto the starboard message.",
-  NO_EXPLORE_ENABLED: "Users can no longer use the explore command",
+  NO_EXPLORE_ENABLED: "Users can no longer use the explore command.",
   NO_EXPLORE_DISABLED: "Users can now use the explore command.",
-  FILTER_BLACKLISTED_ENABLED: "Blacklisted users will now be filtered off the starboard",
+  FILTER_BLACKLISTED_ENABLED: "Blacklisted users will now be filtered off the starboard.",
   FILTER_BLACKLISTED_DISABLED: "Blacklisted users will no longer be filtered off the starboard.",
-  REMOVE_REACTIONS_ENABLED: "Reactions will now be removed if a user reacts wrongly, such as in a blacklisted channel",
+  REMOVE_REACTIONS_ENABLED: "Reactions will now be removed if a user reacts wrongly, such as in a blacklisted channel.",
   REMOVE_REACTIONS_DISABLED:
     "Reactions will no longer be removed if a user reacts wrongly, such as in a blacklisted channel.",
-  NO_LEADERBOARD_ENABLED_SERVER: "The leaderboard and leaderboard related commands have been disabled",
+  NO_LEADERBOARD_ENABLED_SERVER: "The leaderboard and leaderboard related commands have been disabled.",
   NO_LEADERBOARD_DISABLED_SERVER: "The leaderboard and leaderboard related commands have been enabled.",
   NO_LEADERBOARD_ENABLED: "The leaderboard for this channel will no longer be recorded.",
   NO_LEADERBOARD_DISABLED: "The leaderboard for this channel will now be recorded.",
-  KEEP_ROLES_ENABLED: "Users will now keep old reward roles upon getting a new one",
+  KEEP_ROLES_ENABLED: "Users will now keep old reward roles upon getting a new one.",
   KEEP_ROLES_DISABLED: "Users will no longer keep old reward roles upon getting a new one.",
-  MENTION_AUTHOR_ENABLED: "Users will now be pinged on their starboard messages",
+  MENTION_AUTHOR_ENABLED: "Users will now be pinged on their starboard messages.",
   MENTION_AUTHOR_DISABLED: "Users will no longer be pinged on their starboard messages.",
-  QUICK_ACTIONS_ENABLED: "You can now react on starboard messages to quickly perform actions on them",
+  QUICK_ACTIONS_ENABLED: "You can now react on starboard messages to quickly perform actions on them.",
   QUICK_ACTIONS_DISABLED: "You can no longer react on starboard messages to quickly perform actions on them.",
-  LINK_EDITS_ENABLED: "Starboard messages will now be updated when its original message is edited",
+  LINK_EDITS_ENABLED: "Starboard messages will now be updated when its original message is edited.",
   LINK_EDITS_DISABLED: "Starboard messages will no longer be updated when its original message is edited.",
-  DISPLAY_NICKNAME_ENABLED: "Starboard messages will now display the message author's server nickname",
+  DISPLAY_NICKNAME_ENABLED: "Starboard messages will now display the message author's server nickname.",
   DISPLAY_NICKNAME_DISABLED: "Starboard messages will now display the message author's Discord tag.",
-  NO_COMMANDS_ENABLED: "Commands will now only work for moderators",
+  NO_COMMANDS_ENABLED: "Commands will now only work for moderators.",
   NO_COMMANDS_DISABLED: "Commands will no longer only work for moderators.",
-  AUTO_STAR_ENABLED: "Messages from these channels will now be automatically starred by me",
+  AUTO_STAR_ENABLED: "Messages from these channels will now be automatically starred by me.",
   AUTO_STAR_DISABLED: "Messages from these channels will no longer be automatically starred by me.",
   DELETE_INVALID_ENABLED:
-    "Messages sent while auto starring is enabled that either don't pass the filters or were sent by blacklisted users will now be deleted",
+    "Messages sent while auto starring is enabled that either don't pass the filters or were sent by blacklisted users will now be deleted.",
   DELETE_INVALID_DISABLED:
     "Messages sent while auto starring is enabled that either don't pass the filters or were sent by blacklisted users will no longer be deleted.",
   CHANNEL_SETTINGS_NAME_TOO_LONG: "The name of these channel settings cannot be more than 64 characters long.",
@@ -452,6 +473,52 @@ module.exports = {
   POST_SUCCESS:
     "Successfully posted that message to the starboard!{url, select, null {} other { The starboard message is **[here]({url})**.}}",
   DELETE_SUCCESS: "Successfully deleted that message.",
+
+  DOWNVOTE_REACTION: "Downvote Reaction",
+  LINK_DELETES: "Link Deletes",
+  FILTER_BOTS: "Filter Bots",
+  VISIBLE: "Visible",
+  REUPLOAD_ATTACHMENTS: "Reupload Attachments",
+  FILTER_BLACKLISTED_USERS: "Filter Blacklisted Users",
+  REMOVE_REACTIONS: "Remove Invalid Reactions",
+  KEEP_ROLES: "Keep Roles",
+  MENTION_AUTHOR: "Mention Author",
+  QUICK_ACTIONS: "Quick Actions",
+  LINK_EDITS: "Link Edits",
+  DISPLAY_NICKNAME: "Display Nickname",
+  DELETE_INVALID: "Delete Invalid Messages",
+  WHEN_DELETED: "When Deleted",
+  ON_DELETION_NOTHING: "Do Nothing",
+  ON_DELETION_REPOST: "Repost Message",
+  ON_DELETION_FREEZE: "Freeze Message",
+  ON_DELETION_TRASH: "Trash Message",
+  LANGUAGE_SETTING_DESCRIPTION: "The language of the bot's messages.",
+  STARBOARD_ID_SETTING_DESCRIPTION: "Where all starred messages will go.",
+  NSFW_STARBOARD_ID_SETTING_DESCRIPTION: "Where all starred messages from NSFW channels will go.",
+  REQUIRED_SETTING_DESCRIPTION: "Stars required to reach the starboard.",
+  REQUIRED_TO_REMOVE_SETTING_DESCRIPTION: "Drop below this and get removed from the starboard.",
+  PERMISSION_SETTING_DESCRIPTION:
+    "The permissions one must have to be considered a moderator and perform various actions.",
+  EMOJIS_SETTING_DESCRIPTION: "The emojis used to add stars to messages.",
+  DOWNVOTE_EMOJI_SETTING_DESCRIPTION: "The emoji used to downvote messages.",
+  LINK_DELETES_SETTING_DESCRIPTION: "Delete the starboard message when the original is deleted.",
+  FILTER_BOTS_SETTING_DESCRIPTION: "Filter messages by bots off the starboard.",
+  STAR_SELF_SETTING_DESCRIPTION: "Allow users to star their own messages.",
+  VISIBLE_SETTING_DESCRIPTION: "Allow this server to be visible in global listings (explore, top servers leaderboard).",
+  DOWNVOTE_SETTING_DESCRIPTION: "Allow downvoting messages with the downvote emoji.",
+  ATTACHMENTS_SETTING_DESCRIPTION:
+    "Reupload videos and files to the starboard message instead of just appending as links.",
+  FILTER_BLACKLISTED_SETTING_DESCRIPTION: "Filter messages by blacklisted users off the starboard.",
+  REMOVE_REACTIONS_SETTING_DESCRIPTION: "Remove invalid reactions - ones on messages that shouldn't be starred.",
+  KEEP_ROLES_SETTING_DESCRIPTION: "Keep old reward roles when achieving a newer one.",
+  MENTION_AUTHOR_SETTING_DESCRIPTION: "Mention users on their starboard messages.",
+  QUICK_ACTIONS_SETTING_DESCRIPTION: "Allow reacting with specific emojis to perform Quick Actions.",
+  LINK_EDITS_SETTING_DESCRIPTION: "Update the starboard message when the original is edited.",
+  DISPLAY_NICKNAME_SETTING_DESCRIPTION: "Display a user's nickname instead of their Discord tag.",
+  AUTO_STAR_SETTING_DESCRIPTION: "Automatically star new messages.",
+  DELETE_INVALID_SETTING_DESCRIPTION:
+    "When auto-starring, delete new messages that don't meet the conditions for getting starred.",
+  ON_DELETION_SETTING_DESCRIPTION: "What to do when a moderator deletes a starboard message.",
 
   // ? might still keep these nested translations for command responses that are super specific and 100% only used once - in that command
   COMMANDS: {
@@ -559,9 +626,50 @@ module.exports = {
     },
     CHANGESETTING: {
       NAME: "changesetting",
-      DESCRIPTION:
-        "Change a setting for the current channel or the server, such as the required amount of stars needed to reach the starboard. All the settings are in the settings command, so you can view your options there.",
+      // DESCRIPTION:
+      //   "Change a setting for the current channel or the server, such as the required amount of stars needed to reach the starboard. All the settings are in the settings command, so you can view your options there.",
+      DESCRIPTION: "Change the settings for starring messages.",
       USAGE: "changesetting ([channel]) <[setting]> <[value]>",
+      SETTINGS_OPTION: "The settings of which you're mofifying.",
+      MAIN: {
+        NAME: "main",
+        DESCRIPTION: "Change the main settings, such as the starboard or the required stars.",
+      },
+      FILTERING: {
+        NAME: "filtering",
+        DESCRIPTION: "Change the settings related to filtering star reactions, such as allowing self stars.",
+      },
+      STYLE: {
+        NAME: "style",
+        DESCRIPTION: "Change the settings related to how the starboard message looks.",
+      },
+      MISC: {
+        NAME: "misc",
+        DESCRIPTION: "Change miscellaneous settings.",
+      },
+      TIERS: {
+        NAME: "tiers",
+        DESCRIPTION: "Different tiers for displaying colours and stars on the starboard message.",
+        FIRST: {
+          NAME: "first",
+          DESCRIPTION: "The first star/colour display tier.",
+        },
+        SECOND: {
+          NAME: "second",
+          DESCRIPTION: "The second star/colour display tier.",
+        },
+        THIRD: {
+          NAME: "third",
+          DESCRIPTION: "The third star/colour display tier.",
+        },
+        FOURTH: {
+          NAME: "fourth",
+          DESCRIPTION: "The fourth star/colour display tier.",
+        },
+        COLOR_OPTION: "The colour starboard messages should display past this tier's treshold.",
+        STAR_OPTION: "The star emoji starboard messages should display past this tier's treshold.",
+        THRESHOLD_OPTION: "This tier's treshold - this tier will take effect once this number of stars has been achieved.",
+      },
     },
     CHANNELSETTINGS: {
       NAME: "channel-settings",
@@ -856,7 +964,7 @@ module.exports = {
     },
     REDEEM: {
       NAME: "redeem",
-      DESCRIPTION: "Redeem a premium code",
+      DESCRIPTION: "Redeem a premium code.",
       USAGE: "redeem <[code]>",
       SUPPORT: "Please redeem Starboard Premium codes in the server you actually want Starboard Premium in.",
       CODE_USED: "This code has already been redeemed.",

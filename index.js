@@ -1,3 +1,4 @@
+const { Base } = require("discord.js")
 const { readdirSync: readDirectory } = require("fs")
 const IntlMessageFormat = require("intl-messageformat").IntlMessageFormat
 /**
@@ -68,6 +69,10 @@ module.exports = {
   get(key, locale, options) {
     key = this._fixCase(key)
     locale = this._parseLocale(locale)
+    if (options)
+      for (const key in options)
+        if (typeof options[key] === "object" && options[key] instanceof Base)
+          options[key] = options[key].toString()
 
     const defaultValue = get(this.messages, `${this.locales.default}.${key}`)
     let msg = get(

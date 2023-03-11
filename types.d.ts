@@ -167,6 +167,9 @@ declare type MessageParameters = {
   "USER_PLACE": {
     user: string,
   },
+  "NUMBER_STARS": {
+    number: number,
+  },
   "CANNOT_SEND_MESSAGES_IN_CHANNEL": {
     channel: string,
   },
@@ -234,29 +237,31 @@ declare type MessageParameters = {
   "PERMISSIONS_SET_SUCCESS": {
     permission: string,
   },
+  "COLOR_INVALID_COLOUR": {
+    input: string,
+  },
   "COLOR_SET_SUCCESS": {
     above: number,
-    color: string,
+    color: "role" | "random",
   },
   "STAR_REQUIREMENT_TOO_HIGH": {
-    ordinal: string,
+    ordinal: "first" | "second" | "third" | "fourth",
   },
   "STAR_REQUIREMENT_TOO_LOW": {
-    ordinal: string,
+    ordinal: "first" | "second" | "third" | "fourth",
   },
   "STAR_REQUIREMENT_BOUNDARY_HIGHER": {
-    ordinal: string,
+    ordinal: "first" | "second" | "third" | "fourth",
     number: number,
-    nextOrdinal: string,
+    prevOrdinal: "first" | "second" | "third" | "fourth",
   },
   "STAR_REQUIREMENT_BOUNDARY_LOWER": {
-    ordinal: string,
+    ordinal: "first" | "second" | "third" | "fourth",
     number: number,
-    nextOrdinal: string,
+    nextOrdinal: "first" | "second" | "third" | "fourth",
   },
   "STAR_REQUIREMENT_SET": {
-    ordinal: string,
-    emoji: string,
+    ordinal: "first" | "second" | "third" | "fourth",
     number: number,
   },
   "EMOJI_ADD_SUCCESS": {
@@ -269,7 +274,7 @@ declare type MessageParameters = {
     emoji: string,
   },
   "STAR_SET_SUCCESS": {
-    ordinal: string,
+    ordinal: "first" | "second" | "third" | "fourth",
     emoji: string,
   },
   "DOWNVOTE_EMOJI_SET": {

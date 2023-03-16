@@ -12,6 +12,12 @@ module.exports = {
   NO: "No",
   DELETE: "Delete",
   CANCEL: "Cancel",
+  BACK: "Back",
+  SKIP: "Skip",
+  CONTINUE: "Continue",
+  NEXT: "Next",
+  END: "End",
+
   NONE: "None",
   NOT_SET: "Not set",
   UNKNOWN: "Unknown",
@@ -297,6 +303,10 @@ module.exports = {
   NUMBER_STARS: `{number, number} stars`,
   UPDATED_SETTINGS: "Updated Settings",
   ERRORS: "Errors",
+  ENABLE: "Enable",
+  DISABLE: "Disable",
+  VOTE: "Vote",
+  VOTE_LATER: "Vote Later",
 
   CANNOT_SEND_MESSAGES_IN_CHANNEL: "I cannot send messages in {channel}, please enable the `Send Messages` permission.",
   CANNOT_SEND_EMBEDS_IN_CHANNEL: "I cannot send embeds in {channel}, please enable the `Embed Links` permission.",
@@ -348,7 +358,8 @@ module.exports = {
     "Successfully set the required amount of stars to be removed from the starboard {settingsType, select, channel {for the channels these channel settings apply to } other {}}to {requiredToRemove, number}, and raised **Required** to {required, number}.",
   PERMISSIONS_PROVIDED_NOT_VALID: "The permissions provided were not valid.",
   PERMISSIONS_SET_SUCCESS: "Successfully set the permissions required to perform various actions to {permission}.",
-  COLOR_INVALID_COLOUR: "Could not parse a colour from `{input}`. Try inputting a hex code (`#ecd558`) or RGB values (`236, 213, 88`).",
+  COLOR_INVALID_COLOUR:
+    "Could not parse a colour from `{input}`. Try inputting a hex code (`#ecd558`) or RGB values (`236, 213, 88`).",
   COLOR_SET_SUCCESS: `Successfully set the colour for starboard messages above {above, number} stars to {color, select,
     role {the author's highest role colour}
     random {random}
@@ -435,6 +446,8 @@ module.exports = {
   CHANNEL_SETTINGS_NAME_TOO_LONG: "The name of these channel settings cannot be more than 64 characters long.",
   TOO_HIGH: "That number is too high.",
   TOO_LOW: "That number is too low.",
+  ENTER_NUMBER: "Enter Number",
+  ENTER_PERMISSIONS: "Enter Permissions",
 
   UNKOWN_MESSAGE: "A message with ID `{id}` was not found in {channel}.",
   MESSAGE_NOT_FOUND: "I could not find a message from your input.",
@@ -492,7 +505,7 @@ module.exports = {
   ON_DELETION_REPOST: "Repost Message",
   ON_DELETION_FREEZE: "Freeze Message",
   ON_DELETION_TRASH: "Trash Message",
-  LANGUAGE_SETTING_DESCRIPTION: "The language of the bot's messages.",
+  LANGUAGE_SETTING_DESCRIPTION: "The language that the bot's messages will be sent in.",
   STARBOARD_ID_SETTING_DESCRIPTION: "Where all starred messages will go.",
   NSFW_STARBOARD_ID_SETTING_DESCRIPTION: "Where all starred messages from NSFW channels will go.",
   REQUIRED_SETTING_DESCRIPTION: "Stars required to reach the starboard.",
@@ -668,7 +681,8 @@ module.exports = {
         },
         COLOR_OPTION: "The colour starboard messages should display past this tier's treshold.",
         STAR_OPTION: "The star emoji starboard messages should display past this tier's treshold.",
-        THRESHOLD_OPTION: "This tier's treshold - this tier will take effect once this number of stars has been achieved.",
+        THRESHOLD_OPTION:
+          "This tier's treshold - this tier will take effect once this number of stars has been achieved.",
       },
     },
     CHANNELSETTINGS: {
@@ -1037,9 +1051,40 @@ module.exports = {
     },
     SETUP: {
       NAME: "setup",
-      DESCRIPTION: "Set up the bot in a server or channel by walking you through basic settings.",
+      DESCRIPTION: "Set up the bot by walking you through basic settings.",
       USAGE: "setup ([channel])",
-      // todo
+      OPTIONS: {
+        SETTINGS: "The settings that we're setting up.",
+      },
+      EMBED_DESCRIPTION: `During this setup, I will walk you through **some** of the settings, the ones that would be relevant to most users, to help you get the starboard up and running for {settingsType, select,
+        server {this server}
+        channel {the channels these channel settings apply to}
+        other {}
+      }.`,
+      RESULT_EMBED: "Successfully finished setting up these settings.",
+      RESULT_COMPLETE:
+        "The starboard should be up and running now. Messages will be send to {starboard} once they get **{required, number}** stars ({emoji}).\nYou can change even more settings with the changesetting command.",
+      RESULT_INCOMPLETE:
+        "All that's left is to set up the starboard channel. You can use the changesetting command to set the starboard, and change a lot of other settings too.",
+      CANCEL_EMBED: "Cancelled the setup. No settings have been changed.",
+      PERMISSIONS_EXAMPLE: "Manage Messages, Manage Server",
+      EXTRA_INFO_LANGUAGE:
+        "Right now the languages we have are limited but we hope to add more in the future.\nYou can join the support server if you wish to help translate the bot into your language!",
+      EXTRA_INFO_REQUIRED:
+        "Currently, if {required, number} different people star a message, it will then be posted to the starboard.",
+      EXTRA_INFO_REQUIRED_TO_REMOVE:
+        "Currently, if a message in the starboard drops below {requiredToRemove, number} stars, it will then be removed from the starboard.",
+      EXTRA_INFO_PERMISSION: "By default this is set to `Manage Messages`.",
+      EXTRA_INFO_EMOJIS: "React on this message with the emoji you want to use to star messages, then press Continue.",
+      EXTRA_INFO_AUTO_STAR: "If you want to customise what messages get auto-starred, check out the filters command.",
+      EXTRA_INFO_VISIBLE:
+        "If you star personal/private stuff, you should probably keep this disabled. If this is enabled, a 🌍 will appear on starred messages that have been found in the explore command, followed by the number of times it was found.",
+      NOTICE_NSFW_STARBOARD_ID:
+        "It seems you have a few NSFW channels in this server; would you like to set a NSFW starboard for starred messages from NSFW channels to be sent to? If none is set, they'll just go to the normal starboard with media spoilered.",
+      REACT_BEFORE_CONTINUE: "Please react with your emoji before pressing the Continue button.",
+      NEED_VOTE:
+        "Before you can change this setting, you have to vote for the bot. Once you have voted, press Continue to resume the setup, or you can vote later.",
+      NOT_YET_VOTE: "I haven't yet received your vote, try waiting a few more seconds, or just skip and come back to it later.",
     },
     SHARDS: {
       NAME: "shards",

@@ -549,6 +549,20 @@ declare type MessageParameters = {
   "COMMANDS.SETTINGS.CANT_CHANGE": {
     reason: string,
   },
+  "COMMANDS.SETUP.EMBED_DESCRIPTION": {
+    settingsType: "server" | "channel",
+  },
+  "COMMANDS.SETUP.RESULT_COMPLETE": {
+    starboard: string,
+    required: number,
+    emoji: string,
+  },
+  "COMMANDS.SETUP.EXTRA_INFO_REQUIRED": {
+    required: number,
+  },
+  "COMMANDS.SETUP.EXTRA_INFO_REQUIRED_TO_REMOVE": {
+    requiredToRemove: number,
+  },
   "COMMANDS.STARWORTHY.WORTHY": {
     percent: number,
   },

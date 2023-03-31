@@ -170,6 +170,34 @@ declare type MessageParameters = {
   "NUMBER_STARS": {
     number: number,
   },
+  "TOTAL_STARS_IN_CHANNEL": {
+    channel: string,
+  },
+  "DOWNVOTES_IN_CHANNEL": {
+    channel: string,
+  },
+  "GLOBAL_POINTS_IN_CHANNEL": {
+    channel: string,
+  },
+  "STARBOARDED_IN_CHANNEL": {
+    channel: string,
+  },
+  "MESSAGES_TRASHED_IN_CHANNEL": {
+    channel: string,
+  },
+  "MOST_STARRED_MESSAGES_BY_USER": {
+    user: string,
+  },
+  "MOST_STARRED_MESSAGES_IN_CHANNEL": {
+    channel: string,
+  },
+  "MOST_STARRED_MESSAGES_BY_USER_IN_CHANNEL": {
+    user: string,
+    channel: string,
+  },
+  "MOST_STARRED_CHANNEL_USER": {
+    user: string,
+  },
   "CANNOT_SEND_MESSAGES_IN_CHANNEL": {
     channel: string,
   },
@@ -440,39 +468,9 @@ declare type MessageParameters = {
   "COMMANDS.LEADERBOARD.TITLE": {
     title: string,
   },
-  "COMMANDS.LEADERBOARD.TOTAL_STARS_IN": {
-    channel: string,
-  },
-  "COMMANDS.LEADERBOARD.DOWNVOTES_IN": {
-    channel: string,
-  },
-  "COMMANDS.LEADERBOARD.GLOBAL_POINTS_IN": {
-    channel: string,
-  },
-  "COMMANDS.LEADERBOARD.STARBOARDED_IN": {
-    channel: string,
-  },
-  "COMMANDS.LEADERBOARD.MESSAGES_TRASHED_IN": {
-    channel: string,
-  },
-  "COMMANDS.LEADERBOARD.MOST_STARRED_MESSAGES_BY": {
-    user: string,
-  },
-  "COMMANDS.LEADERBOARD.MOST_STARRED_MESSAGES_IN": {
-    channel: string,
-  },
-  "COMMANDS.LEADERBOARD.MOST_STARRED_MESSAGES_BY_IN": {
-    user: string,
-    channel: string,
-  },
-  "COMMANDS.LEADERBOARD.MOST_STARRED_CHANNEL_USER": {
-    user: string,
-  },
-  "COMMANDS.LEADERBOARD.EMBED_FOOTER": {
-    user: string | null,
-    place: string,
-    page: number,
-    pages: number,
+  "COMMANDS.LEADERBOARD.YOUR_PLACE": {
+    item: string | null,
+    place: number,
   },
   "COMMANDS.LINKS.DISCORD_LINKS": {
     invite: string,

@@ -307,6 +307,16 @@ module.exports = {
   DISABLE: "Disable",
   VOTE: "Vote",
   VOTE_LATER: "Vote Later",
+  TOTAL_STARS_IN_CHANNEL: "Total Stars in #{channel}",
+  DOWNVOTES_IN_CHANNEL: "Downvotes in #{channel}",
+  GLOBAL_POINTS_IN_CHANNEL: "Global Points in #{channel}",
+  STARBOARDED_IN_CHANNEL: "Times On Starboard in #{channel}",
+  MESSAGES_TRASHED_IN_CHANNEL: "Messages Trashed in #{channel}",
+  MOST_STARRED_MESSAGES_BY_USER: "Most Starred Messages by {user}",
+  MOST_STARRED_MESSAGES_IN_CHANNEL: "Most Starred Messages in #{channel}",
+  MOST_STARRED_MESSAGES_BY_USER_IN_CHANNEL: "Most Starred Messages by {user} in #{channel}",
+  MOST_STARRED_CHANNEL_USER: "{user}'s Most Starred Channel",
+  NOT_ON_THE_LEADERBOARD: "Not on the leaderboard.",
 
   CANNOT_SEND_MESSAGES_IN_CHANNEL: "I cannot send messages in {channel}, please enable the `Send Messages` permission.",
   CANNOT_SEND_EMBEDS_IN_CHANNEL: "I cannot send embeds in {channel}, please enable the `Embed Links` permission.",
@@ -854,29 +864,56 @@ module.exports = {
     },
     LEADERBOARD: {
       NAME: "leaderboard",
-      DESCRIPTION:
-        "Show a leaderboard for people with the most stats. You can input a user to jump to their position on the leaderboard, or a channel to filter stats for starred messages only in that channel.",
+      // DESCRIPTION:
+      //   "Show a leaderboard for people with the most stats. You can input a user to jump to their position on the leaderboard, or a channel to filter stats for starred messages only in that channel.",
+      DESCRIPTION: "Browse through various leaderboards.",
       USAGE:
         "leaderboard (messages/stars/starboarded/global/trashed/downvotes/channels/servers/reset) ([page]) ([user]) ([channel]) --before <[date]> --after <[date]>",
+      PAGE_NAME: "page",
+      PAGE_OPTION: "The page of the leaderboard to start on.",
+      JUMP_USER_OPTION: "Jump to this user's position.",
+      CHANNEL_OPTION: "Only show info based on messages from this channel.",
+      STARS: {
+        NAME: "stars",
+        DESCRIPTION: "View the leaderboard for the most stars gotten.",
+      },
+      TIMES: {
+        NAME: "times",
+        DESCRIPTION: "View the leaderboard for the users who have gotten on the starboard the most.",
+      },
+      DOWNVOTES: {
+        NAME: "downvotes",
+        DESCRIPTION: "View the leaderboard for the users who have gotten downvoted the most.",
+      },
+      MESSAGES: {
+        NAME: "messages",
+        DESCRIPTION: "View the leaderboard for the most starred messages.",
+        OPTIONS: {
+          USER: "Show the most starred messages by this user.",
+          CHANNEL: "Show the most starred messages in this channel.",
+        }
+      },
+      CHANNELS: {
+        NAME: "channels",
+        DESCRIPTION: "View the leaderboard for the channels with the most stars.",
+        OPTIONS: {
+          USER: "Show this user's most starred channel.",
+          CHANNEL: "Jump to this channel's position on the leaderboard.",
+        }
+      },
+      SERVERS: {
+        NAME: "servers",
+        DESCRIPTION: "View the leaderboard for the most starred servers.",
+      },
       NO_LEADERBOARD: "The leaderboard is disabled for this server.",
-      NOT_ON_LEADERBOARD: "Not on the leaderboard.",
       TITLE: "Leaderboard - {title}",
-      TOTAL_STARS_IN: "Total Stars in #{channel}",
-      DOWNVOTES_IN: "Downvotes in #{channel}",
-      GLOBAL_POINTS_IN: "Global Points in #{channel}",
-      STARBOARDED_IN: "Times On Starboard in #{channel}",
-      MESSAGES_TRASHED_IN: "Messages Trashed in #{channel}",
-      MOST_STARRED_MESSAGES_BY: "Most Starred Messages by {user}",
-      MOST_STARRED_MESSAGES_IN: "Most Starred Messages in #{channel}",
-      MOST_STARRED_MESSAGES_BY_IN: "Most Starred Messages by {user} in #{channel}",
-      MOST_STARRED_CHANNEL_USER: "{user}'s Most Starred Channel",
       CONFIRMATION_EMBED: `Are you sure you want to erase the leaderboard?
       Please note that this doesn't reset all leaderboards, just the server-wide **Stars**, **Global**, **Trashed** and **Times On Starboard** leaderboards.
       For other leaderboards such as the message leaderboard, you can use the --before or --after flags, e.g. \`--after 14/09/2021\`.`,
       NOT_RESET: "Cancelled resetting the leaderboard.",
       SUCCESS_RESET: "Successfully reset the leaderboard.",
-      EMBED_FOOTER:
-        "{user, select, null {Your} other {{user}'s}} Place: #{place} | Page {page, number}/{pages, number}",
+      YOUR_PLACE:
+        "{item, select, null {Your} other {{item}'s}} Place: {place, plural, =0 {Not on the leaderboard.} other {'#'#}}",
     },
     LINKS: {
       NAME: "links",
@@ -1084,7 +1121,8 @@ module.exports = {
       REACT_BEFORE_CONTINUE: "Please react with your emoji before pressing the Continue button.",
       NEED_VOTE:
         "Before you can change this setting, you have to vote for the bot. Once you have voted, press Continue to resume the setup, or you can vote later.",
-      NOT_YET_VOTE: "I haven't yet received your vote, try waiting a few more seconds, or just skip and come back to it later.",
+      NOT_YET_VOTE:
+        "I haven't yet received your vote, try waiting a few more seconds, or just skip and come back to it later.",
     },
     SHARDS: {
       NAME: "shards",

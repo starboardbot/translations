@@ -218,6 +218,7 @@ module.exports = {
   SERVER_SETTINGS: "Server Settings",
   MAIN_SETTINGS: "Main Settings",
   FILTERING: "Filtering",
+  STYLE: "Style",
   CUSTOMISATION: "Customisation",
   EVENTS: "Events",
   DOWNVOTING: "Downvoting",
@@ -305,6 +306,8 @@ module.exports = {
   ERRORS: "Errors",
   ENABLE: "Enable",
   DISABLE: "Disable",
+  DISABLED: "Disabled",
+  UNSET: "Unset",
   VOTE: "Vote",
   VOTE_LATER: "Vote Later",
   TOTAL_STARS_IN_CHANNEL: "Total Stars in #{channel}",
@@ -317,6 +320,13 @@ module.exports = {
   MOST_STARRED_MESSAGES_BY_USER_IN_CHANNEL: "Most Starred Messages by {user} in #{channel}",
   MOST_STARRED_CHANNEL_USER: "{user}'s Most Starred Channel",
   NOT_ON_THE_LEADERBOARD: "Not on the leaderboard.",
+  FIRST: "First",
+  SECOND: "Second",
+  THIRD: "Third",
+  FOURTH: "Fourth",
+  ROLE_COLOR: "role colour",
+  RANDOM_COLOR: "random colour",
+  TIER_AFTER: "{style} after **{stars, number}** stars",
 
   CANNOT_SEND_MESSAGES_IN_CHANNEL: "I cannot send messages in {channel}, please enable the `Send Messages` permission.",
   CANNOT_SEND_EMBEDS_IN_CHANNEL: "I cannot send embeds in {channel}, please enable the `Embed Links` permission.",
@@ -327,9 +337,11 @@ module.exports = {
   CANNOT_CONNECT_IN_VOICE_CHANNEL:
     "For the text chat of {channel}, you also need to enable the `Connect` permission for me to view messages.",
 
+  MISSING_PERMISSIONS_CHANGE_SETTINGS: "You need to have the {permission} permissions to change settings.",
   INVALID_CHANNEL_SETTING:
     "**{setting}** is not a valid setting for channels, it is only available as a server setting.",
   INVALID_GUILD_SETTING: "**{setting}** is not a valid setting for servers, it is only available as a channel setting.",
+  INVALID_SETTING: "**{setting}** was not a valid setting.",
   INVALID_LANGUAGE: "**{language}** was not a valid language.",
   LANGUAGE_SET: "Successfully set the language to **{language}**.", // instead of hardcoding this file's language
   NO_STARBOARD_SET: "There is no starboard set for this server.",
@@ -497,7 +509,7 @@ module.exports = {
     "Successfully posted that message to the starboard!{url, select, null {} other { The starboard message is **[here]({url})**.}}",
   DELETE_SUCCESS: "Successfully deleted that message.",
 
-  DOWNVOTE_REACTION: "Downvote Reaction",
+  DOWNVOTE_EMOJI: "Downvote Emoji",
   LINK_DELETES: "Link Deletes",
   FILTER_BOTS: "Filter Bots",
   VISIBLE: "Visible",
@@ -515,16 +527,28 @@ module.exports = {
   ON_DELETION_REPOST: "Repost Message",
   ON_DELETION_FREEZE: "Freeze Message",
   ON_DELETION_TRASH: "Trash Message",
+  DISPLAY_TIERS: "Display Tiers",
+  FIRST_DISPLAY_TIER: "First Display Tier",
+  SECOND_DISPLAY_TIER: "Second Display Tier",
+  THIRD_DISPLAY_TIER: "Third Display Tier",
+  FOURTH_DISPLAY_TIER: "Fourth Display Tier",
   LANGUAGE_SETTING_DESCRIPTION: "The language that the bot's messages will be sent in.",
   STARBOARD_ID_SETTING_DESCRIPTION: "Where all starred messages will go.",
   NSFW_STARBOARD_ID_SETTING_DESCRIPTION: "Where all starred messages from NSFW channels will go.",
+  NSFW_STARBOARD_ID_SETTING_DESCRIPTION_LONG:
+    "{extend} If this isn't set, messages from NSFW channels will go to the normal starboard, with media spoilered.",
   REQUIRED_SETTING_DESCRIPTION: "Stars required to reach the starboard.",
   REQUIRED_TO_REMOVE_SETTING_DESCRIPTION: "Drop below this and get removed from the starboard.",
   PERMISSION_SETTING_DESCRIPTION:
     "The permissions one must have to be considered a moderator and perform various actions.",
+  PERMISSION_SETTING_DESCRIPTION_LONG:
+    "This is the permission users need to have to be considered a moderator and be able to perform various actions, such as trashing messages, changing settings and blacklisting users.",
   EMOJIS_SETTING_DESCRIPTION: "The emojis used to add stars to messages.",
   DOWNVOTE_EMOJI_SETTING_DESCRIPTION: "The emoji used to downvote messages.",
   LINK_DELETES_SETTING_DESCRIPTION: "Delete the starboard message when the original is deleted.",
+  LINK_DELETES_SETTING_DESCRIPTION_LONG:
+    "{extend}\nWhen this setting is disabled and deletions are not linked, messages will be encrypted and saved for a maximum of 30 days once deleted so the bot and server members can" +
+    " still see the content of the message when needed, such as when reposting the starboard message or using the show or save commands. For more information, check the Privacy page on the bot's guide.",
   FILTER_BOTS_SETTING_DESCRIPTION: "Filter messages by bots off the starboard.",
   STAR_SELF_SETTING_DESCRIPTION: "Allow users to star their own messages.",
   VISIBLE_SETTING_DESCRIPTION: "Allow this server to be visible in global listings (explore, top servers leaderboard).",
@@ -533,6 +557,8 @@ module.exports = {
     "Reupload videos and files to the starboard message instead of just appending as links.",
   FILTER_BLACKLISTED_SETTING_DESCRIPTION: "Filter messages by blacklisted users off the starboard.",
   REMOVE_REACTIONS_SETTING_DESCRIPTION: "Remove invalid reactions - ones on messages that shouldn't be starred.",
+  REMOVE_REACTIONS_SETTING_DESCRIPTION_LONG:
+    "Remove reactions on messages that shouldn't be starred, such as messages that don't pass filters or messages that are by blacklisted users.",
   KEEP_ROLES_SETTING_DESCRIPTION: "Keep old reward roles when achieving a newer one.",
   MENTION_AUTHOR_SETTING_DESCRIPTION: "Mention users on their starboard messages.",
   QUICK_ACTIONS_SETTING_DESCRIPTION: "Allow reacting with specific emojis to perform Quick Actions.",
@@ -542,6 +568,10 @@ module.exports = {
   DELETE_INVALID_SETTING_DESCRIPTION:
     "When auto-starring, delete new messages that don't meet the conditions for getting starred.",
   ON_DELETION_SETTING_DESCRIPTION: "What to do when a moderator deletes a starboard message.",
+  TIERS_SETTING_DESCRIPTION:
+    "Different stars and colours the starboard message will display when it gets more and more stars.",
+  TIERS_SETTING_DESCRIPTION_LONG: "{extend}\nNote: The default values of colours are ignored when you change any one of the tiers' colours.",
+  // TIERS_SETTING_DESCRIPTION_TIER: "The star and colour that will be displayed on the starboard message when ",
 
   // ? might still keep these nested translations for command responses that are super specific and 100% only used once - in that command
   COMMANDS: {
@@ -891,7 +921,7 @@ module.exports = {
         OPTIONS: {
           USER: "Show the most starred messages by this user.",
           CHANNEL: "Show the most starred messages in this channel.",
-        }
+        },
       },
       CHANNELS: {
         NAME: "channels",
@@ -899,7 +929,7 @@ module.exports = {
         OPTIONS: {
           USER: "Show this user's most starred channel.",
           CHANNEL: "Jump to this channel's position on the leaderboard.",
-        }
+        },
       },
       SERVERS: {
         NAME: "servers",
@@ -1075,16 +1105,23 @@ module.exports = {
     },
     SETTINGS: {
       NAME: "settings",
-      DESCRIPTION: "View the server/channel's settings, or view info about a specific setting.",
+      DESCRIPTION: "View all available settings, or view info about a specific setting.",
       USAGE: "settings ([channelSettings]) ([setting])",
+      VIEW: {
+        NAME: "view",
+        DESCRIPTION: "View all available settings, or view info about a specific setting.",
+        OPTIONS: {
+          SETTINGS: "The settings to view",
+          SETTING: "A specific setting to view info about.",
+        },
+      },
       // CAN_CHANGE: (prefix, name, sub, value) =>
       //   `You can change this setting with \`${prefix}changesetting ${name}${sub && ` ${sub}`} <${
       //     value.includes("/") ? value : `[${value}]`
       //   }>\`.`,
       // todo
-      MISSING_PERMISSIONS_CHANGE_SETTINGS: "You need to have the {permission} permissions to change settings.",
+      CAN_CHANGE: "You can change this setting with {command}.",
       CANT_CHANGE: "You cannot change this setting: {reason}",
-      USE_ALIASES: "You can also use any of these to change/view the setting.",
     },
     SETUP: {
       NAME: "setup",

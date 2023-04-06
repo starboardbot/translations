@@ -198,6 +198,10 @@ declare type MessageParameters = {
   "MOST_STARRED_CHANNEL_USER": {
     user: string,
   },
+  "TIER_AFTER": {
+    style: string,
+    stars: number,
+  },
   "CANNOT_SEND_MESSAGES_IN_CHANNEL": {
     channel: string,
   },
@@ -216,10 +220,16 @@ declare type MessageParameters = {
   "CANNOT_CONNECT_IN_VOICE_CHANNEL": {
     channel: string,
   },
+  "MISSING_PERMISSIONS_CHANGE_SETTINGS": {
+    permission: string,
+  },
   "INVALID_CHANNEL_SETTING": {
     setting: string,
   },
   "INVALID_GUILD_SETTING": {
+    setting: string,
+  },
+  "INVALID_SETTING": {
     setting: string,
   },
   "INVALID_LANGUAGE": {
@@ -320,6 +330,15 @@ declare type MessageParameters = {
   },
   "POST_SUCCESS": {
     url: string | null,
+  },
+  "NSFW_STARBOARD_ID_SETTING_DESCRIPTION_LONG": {
+    extend: string,
+  },
+  "LINK_DELETES_SETTING_DESCRIPTION_LONG": {
+    extend: string,
+  },
+  "TIERS_SETTING_DESCRIPTION_LONG": {
+    extend: string,
   },
   "COMMANDS.BLACKLIST.EMBED_DESCRIPTION": {
     blacklistedOnStarboard: boolean,
@@ -541,8 +560,8 @@ declare type MessageParameters = {
     name: string,
     settingsType: "channel" | "server",
   },
-  "COMMANDS.SETTINGS.MISSING_PERMISSIONS_CHANGE_SETTINGS": {
-    permission: string,
+  "COMMANDS.SETTINGS.CAN_CHANGE": {
+    command: string,
   },
   "COMMANDS.SETTINGS.CANT_CHANGE": {
     reason: string,

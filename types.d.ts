@@ -202,6 +202,9 @@ declare type MessageParameters = {
     style: string,
     stars: number,
   },
+  "NUMBER_CHANNELS": {
+    channels: number,
+  },
   "CANNOT_SEND_MESSAGES_IN_CHANNEL": {
     channel: string,
   },
@@ -565,6 +568,23 @@ declare type MessageParameters = {
   },
   "COMMANDS.SETTINGS.CANT_CHANGE": {
     reason: string,
+  },
+  "COMMANDS.SETTINGS.SETTINGS_APPLY": {
+    channels: string,
+  },
+  "COMMANDS.SETTINGS.SETTINGS_APPLY_OTHER": {
+    channels: string,
+    other: number,
+  },
+  "COMMANDS.SETTINGS.SETTINGS_LIST_DESCRIPTION_NO_SETTINGS": {
+    command: string,
+  },
+  "COMMANDS.SETTINGS.CONFIRMATION_EMBED": {
+    name: string,
+  },
+  "COMMANDS.SETTINGS.SUCCESS_CREATE": {
+    size: number,
+    name: string,
   },
   "COMMANDS.SETUP.EMBED_DESCRIPTION": {
     settingsType: "server" | "channel",

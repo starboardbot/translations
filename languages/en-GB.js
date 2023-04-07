@@ -327,6 +327,11 @@ module.exports = {
   ROLE_COLOR: "role colour",
   RANDOM_COLOR: "random colour",
   TIER_AFTER: "{style} after **{stars, number}** stars",
+  NUMBER_CHANNELS: "{channels, number} channels",
+  LEARN_MORE: "Learn More",
+  NAME: "Name",
+  CLONE: "Clone",
+  SYNC: "Sync",
 
   CANNOT_SEND_MESSAGES_IN_CHANNEL: "I cannot send messages in {channel}, please enable the `Send Messages` permission.",
   CANNOT_SEND_EMBEDS_IN_CHANNEL: "I cannot send embeds in {channel}, please enable the `Embed Links` permission.",
@@ -570,7 +575,8 @@ module.exports = {
   ON_DELETION_SETTING_DESCRIPTION: "What to do when a moderator deletes a starboard message.",
   TIERS_SETTING_DESCRIPTION:
     "Different stars and colours the starboard message will display when it gets more and more stars.",
-  TIERS_SETTING_DESCRIPTION_LONG: "{extend}\nNote: The default values of colours are ignored when you change any one of the tiers' colours.",
+  TIERS_SETTING_DESCRIPTION_LONG:
+    "{extend}\nNote: The default values of colours are ignored when you change any one of the tiers' colours.",
   // TIERS_SETTING_DESCRIPTION_TIER: "The star and colour that will be displayed on the starboard message when ",
 
   // ? might still keep these nested translations for command responses that are super specific and 100% only used once - in that command
@@ -1115,13 +1121,35 @@ module.exports = {
           SETTING: "A specific setting to view info about.",
         },
       },
-      // CAN_CHANGE: (prefix, name, sub, value) =>
-      //   `You can change this setting with \`${prefix}changesetting ${name}${sub && ` ${sub}`} <${
-      //     value.includes("/") ? value : `[${value}]`
-      //   }>\`.`,
-      // todo
+      LIST: {
+        NAME: "list",
+        DESCRIPTION: "List all settings made for this server.",
+      },
+      CREATE: {
+        NAME: "create",
+        DESCRIPTION: "Create new settings that only apply to a group of channels.",
+        OPTIONS: {
+          NAME: "The name to use to identify these settings.",
+          CHANNELS: "The list of channels these settings should apply to.",
+          CLONE: "The settings to clone and use as the base for these new settings.",
+        },
+      },
       CAN_CHANGE: "You can change this setting with {command}.",
       CANT_CHANGE: "You cannot change this setting: {reason}",
+      SETTINGS_APPLY: "These settings apply to {channels}.",
+      SETTINGS_APPLY_OTHER: "These settings apply to {channels} and {other, number} other channels.",
+      SETTINGS_LIST_DESCRIPTION: `This the a list of all the settings you have configured in this server.
+      You can create settings that only apply to a set of channels. They can have their own starboard, emojis, reward roles, filters, and almost everything else the server-based settings can have.`,
+      SETTINGS_LIST_DESCRIPTION_NO_SETTINGS:
+        "Right now, you only have the server settings. If you wish to create settings that only apply to a set of channels, use {command}.",
+      HIT_MAX: "You have hit the maximum amount of settings for one server.",
+      PROVIDE_CHANNELS: "Please provide some channels for the new settings to apply to.",
+      DUPLICATE_CHANNELS:
+        "The channels provided must not already be in an existing group. A channel may only be a member of one Channel Settings group.",
+      CONFIRMATION_EMBED:
+        "Are you sure you want to delete the **{name}** settings?\nYou will lose all saved reward roles, blacklists/whitelists, filters and other saved configurations, and they will be gone forever.",
+      SUCCESS_CREATE:
+        "Successfully created new settings that apply to {size, plural, =1 {one channel} other {# channels}}: **{name}**.",
     },
     SETUP: {
       NAME: "setup",

@@ -1134,6 +1134,15 @@ module.exports = {
           CLONE: "The settings to clone and use as the base for these new settings.",
         },
       },
+      EDIT: {
+        NAME: "edit",
+        DESCRIPTION: "Edit the name and the channels a settings group applies to.",
+        OPTIONS: {
+          SETTINGS: "The settings to edit.",
+          NAME: "The new name to use to identify these settings.",
+          CHANNELS: "The new list of channels. +#channel to add, -#channel to remove, no sign to replace.",
+        },
+      },
       CAN_CHANGE: "You can change this setting with {command}.",
       CANT_CHANGE: "You cannot change this setting: {reason}",
       SETTINGS_APPLY: "These settings apply to {channels}.",
@@ -1143,13 +1152,19 @@ module.exports = {
       SETTINGS_LIST_DESCRIPTION_NO_SETTINGS:
         "Right now, you only have the server settings. If you wish to create settings that only apply to a set of channels, use {command}.",
       HIT_MAX: "You have hit the maximum amount of settings for one server.",
-      PROVIDE_CHANNELS: "Please provide some channels for the new settings to apply to.",
+      PROVIDE_CHANNELS: "Please provide some valid channels for the new settings to apply to.",
       DUPLICATE_CHANNELS:
-        "The channels provided must not already be in an existing group. A channel may only be a member of one Channel Settings group.",
+        "The channels provided must not already be in an existing group. A channel may only be a member of one settings group at a time.",
       CONFIRMATION_EMBED:
         "Are you sure you want to delete the **{name}** settings?\nYou will lose all saved reward roles, blacklists/whitelists, filters and other saved configurations, and they will be gone forever.",
       SUCCESS_CREATE:
         "Successfully created new settings that apply to {size, plural, =1 {one channel} other {# channels}}: **{name}**.",
+      NO_SETTINGS_CREATED: "No settings have been created in this server yet.",
+      PROVIDE_EDITS: "Please provide edits to make.",
+      MODIFIED_NAME: "Successfully changed the name of **{oldName}** to **{name}**.",
+      MODIFIED_CHANNELS: "Successfully changed the channels that **{name}** applies to {size, plural, =1 {one channel} other {# channels}}.",
+      MODIFIED_BOTH:
+        "Successfully changed the name of **{oldName}** to **{name}** and changed the channels that these settings apply for to {size, plural, =1 {one channel} other {# channels}}.",
     },
     SETUP: {
       NAME: "setup",

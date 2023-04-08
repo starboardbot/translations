@@ -586,6 +586,16 @@ declare type MessageParameters = {
     size: number,
     name: string,
   },
+  "COMMANDS.SETTINGS.MODIFIED_NAME": {
+    name: string,
+  },
+  "COMMANDS.SETTINGS.MODIFIED_CHANNELS": {
+    size: number,
+  },
+  "COMMANDS.SETTINGS.MODIFIED_BOTH": {
+    name: string,
+    size: number,
+  },
   "COMMANDS.SETUP.EMBED_DESCRIPTION": {
     settingsType: "server" | "channel",
   },

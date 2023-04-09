@@ -587,12 +587,15 @@ declare type MessageParameters = {
     name: string,
   },
   "COMMANDS.SETTINGS.MODIFIED_NAME": {
+    oldName: string,
     name: string,
   },
   "COMMANDS.SETTINGS.MODIFIED_CHANNELS": {
+    name: string,
     size: number,
   },
   "COMMANDS.SETTINGS.MODIFIED_BOTH": {
+    oldName: string,
     name: string,
     size: number,
   },

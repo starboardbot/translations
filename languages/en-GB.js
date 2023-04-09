@@ -1143,6 +1143,13 @@ module.exports = {
           CHANNELS: "The new list of channels. +#channel to add, -#channel to remove, no sign to replace.",
         },
       },
+      DELETE: {
+        NAME: "delete",
+        DESCRIPTION: "Delete existing settings.",
+        OPTIONS: {
+          SETTINGS: "The settings to delete.",
+        },
+      },
       CAN_CHANGE: "You can change this setting with {command}.",
       CANT_CHANGE: "You cannot change this setting: {reason}",
       SETTINGS_APPLY: "These settings apply to {channels}.",
@@ -1155,8 +1162,6 @@ module.exports = {
       PROVIDE_CHANNELS: "Please provide some valid channels for the new settings to apply to.",
       DUPLICATE_CHANNELS:
         "The channels provided must not already be in an existing group. A channel may only be a member of one settings group at a time.",
-      CONFIRMATION_EMBED:
-        "Are you sure you want to delete the **{name}** settings?\nYou will lose all saved reward roles, blacklists/whitelists, filters and other saved configurations, and they will be gone forever.",
       SUCCESS_CREATE:
         "Successfully created new settings that apply to {size, plural, =1 {one channel} other {# channels}}: **{name}**.",
       NO_SETTINGS_CREATED: "No settings have been created in this server yet.",
@@ -1165,6 +1170,9 @@ module.exports = {
       MODIFIED_CHANNELS: "Successfully changed the channels that **{name}** applies to {size, plural, =1 {one channel} other {# channels}}.",
       MODIFIED_BOTH:
         "Successfully changed the name of **{oldName}** to **{name}** and changed the channels that these settings apply for to {size, plural, =1 {one channel} other {# channels}}.",
+      CONFIRMATION:
+        "Are you sure you want to delete **{name}**?\nYou will lose all saved reward roles, blacklists/whitelists, filters and other saved configurations, and they will be gone forever. No starred messages will be erased.",
+      SUCCESS_DELETE: "Successfully deleted **{name}**.",
     },
     SETUP: {
       NAME: "setup",

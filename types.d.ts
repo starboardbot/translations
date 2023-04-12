@@ -579,9 +579,6 @@ declare type MessageParameters = {
   "COMMANDS.SETTINGS.SETTINGS_LIST_DESCRIPTION_NO_SETTINGS": {
     command: string,
   },
-  "COMMANDS.SETTINGS.CONFIRMATION_EMBED": {
-    name: string,
-  },
   "COMMANDS.SETTINGS.SUCCESS_CREATE": {
     size: number,
     name: string,
@@ -598,6 +595,18 @@ declare type MessageParameters = {
     oldName: string,
     name: string,
     size: number,
+  },
+  "COMMANDS.SETTINGS.CONFIRMATION": {
+    name: string,
+  },
+  "COMMANDS.SETTINGS.CONFIRMATION_RESET": {
+    settings: string | null,
+  },
+  "COMMANDS.SETTINGS.SUCCESS_DELETE": {
+    name: string,
+  },
+  "COMMANDS.SETTINGS.SUCCESS_RESET": {
+    settings: string | null,
   },
   "COMMANDS.SETUP.EMBED_DESCRIPTION": {
     settingsType: "server" | "channel",

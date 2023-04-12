@@ -332,6 +332,8 @@ module.exports = {
   NAME: "Name",
   CLONE: "Clone",
   SYNC: "Sync",
+  RESET: "Reset",
+  RESET_ALL_SETTINGS: "Reset All Settings",
 
   CANNOT_SEND_MESSAGES_IN_CHANNEL: "I cannot send messages in {channel}, please enable the `Send Messages` permission.",
   CANNOT_SEND_EMBEDS_IN_CHANNEL: "I cannot send embeds in {channel}, please enable the `Embed Links` permission.",
@@ -1167,12 +1169,16 @@ module.exports = {
       NO_SETTINGS_CREATED: "No settings have been created in this server yet.",
       PROVIDE_EDITS: "Please provide edits to make.",
       MODIFIED_NAME: "Successfully changed the name of **{oldName}** to **{name}**.",
-      MODIFIED_CHANNELS: "Successfully changed the channels that **{name}** applies to {size, plural, =1 {one channel} other {# channels}}.",
+      MODIFIED_CHANNELS:
+        "Successfully changed the channels that **{name}** applies to {size, plural, =1 {one channel} other {# channels}}.",
       MODIFIED_BOTH:
         "Successfully changed the name of **{oldName}** to **{name}** and changed the channels that these settings apply for to {size, plural, =1 {one channel} other {# channels}}.",
       CONFIRMATION:
         "Are you sure you want to delete **{name}**?\nYou will lose all saved reward roles, blacklists/whitelists, filters and other saved configurations, and they will be gone forever. No starred messages will be erased.",
+      CONFIRMATION_RESET:
+        "Are you sure you want to reset {settings, select, null {the server's settings} other {**{settings}**}}? All settings will be reset to their defaults, but blacklists, whitelists, reward roles and filters will not be affected.",
       SUCCESS_DELETE: "Successfully deleted **{name}**.",
+      SUCCESS_RESET: "Successfully reset {settings, select, null {the server's settings} other {**{settings}**}}.",
     },
     SETUP: {
       NAME: "setup",

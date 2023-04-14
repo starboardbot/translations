@@ -389,6 +389,8 @@ module.exports = {
   PERMISSIONS_SET_SUCCESS: "Successfully set the permissions required to perform various actions to {permission}.",
   COLOR_INVALID_COLOUR:
     "Could not parse a colour from `{input}`. Try inputting a hex code (`#ecd558`) or RGB values (`236, 213, 88`).",
+  COLOR_INVALID_COLOUR_AUTO_COMPLETE:
+    "Your input is invalid. Try inputting a hex code (#ecd558) or RGB values (236, 213, 88).",
   COLOR_SET_SUCCESS: `Successfully set the colour for starboard messages above {above, number} stars to {color, select,
     role {the author's highest role colour}
     random {random}
@@ -1176,7 +1178,7 @@ module.exports = {
       CONFIRMATION:
         "Are you sure you want to delete **{name}**?\nYou will lose all saved reward roles, blacklists/whitelists, filters and other saved configurations, and they will be gone forever. No starred messages will be erased.",
       CONFIRMATION_RESET:
-        "Are you sure you want to reset {settings, select, null {the server's settings} other {**{settings}**}}? All settings will be reset to their defaults, but blacklists, whitelists, reward roles and filters will not be affected.",
+        "Are you sure you want to reset {settings, select, null {the server's settings} other {**{settings}**}}?\nAll settings will be reset to their defaults, but blacklists, whitelists, reward roles and filters will not be affected.",
       SUCCESS_DELETE: "Successfully deleted **{name}**.",
       SUCCESS_RESET: "Successfully reset {settings, select, null {the server's settings} other {**{settings}**}}.",
     },

@@ -1,0 +1,36 @@
+{
+  "name": "English (GB)",
+  "real": true,
+  "HELLO_WORLD": "Hello world!",
+
+  "EN_GB": "English (GB)",
+  "EN_US": "English (US)",
+  "ES_ES": "Spanish",
+
+  "YES": "Yes",
+  "NO": "No",
+  "DELETE": "Delete",
+  "CANCEL": "Cancel",
+  "BACK": "Back",
+  "SKIP": "Skip",
+  "CONTINUE": "Continue",
+  "NEXT": "Next",
+  "END": "End",
+
+  "NONE": "None",
+  "NOT_SET": "Not set",
+
+  "ORIGINAL_MESSAGE": "Original Message",
+  "REPLYING_TO_USER": "Replying to {user}",
+  "REFERENCED_MESSAGE": "Referenced Message",
+  "SENT_A_STICKER": "Sent a sticker: {name}",
+  "CLICK_TO_JUMP_TO_MESSAGE": "Click to jump to message!",
+
+  "STARBOARD_MESSAGE_IMAGE": "Image",
+  "STARBOARD_MESSAGE_IMAGE_N": "Image {number, number}",
+  "STARBOARD_MESSAGE_VIDEO": "Video",
+  "STARBOARD_MESSAGE_VIDEO_N": "Video {number, number}",
+  "STARBOARD_MESSAGE_FILE": "File",
+  "STARBOARD_MESSAGE_FILE_N": "File {number, number}",
+  "STARBOARD_MESSAGE_SPOILER": "(SPOILER) {content}"
+}

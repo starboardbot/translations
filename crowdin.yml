@@ -1,3 +1,0 @@
-files:
-  - source: /languages/en-GB.js
-    translation: /languages/%locale%.js

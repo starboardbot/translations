@@ -1,0 +1,17 @@
+{
+  "name": "@starboard/i18n",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node scripts/types.js && tsc"
+  },
+  "dependencies": {
+    "intl-messageformat": "^10.5.0"
+  },
+  "devDependencies": {
+    "@formatjs/icu-messageformat-parser": "^2.6.0"
+  }
+}

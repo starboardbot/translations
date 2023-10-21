@@ -1,7 +1,9 @@
 const { parse, TYPE } = require("@formatjs/icu-messageformat-parser")
 const { writeFileSync } = require("fs")
 const messages = require("../translations/en-GB")
+
 let res = [] // `export = {}`
+
 const parseNode = node => {
   switch (node.type) {
     case TYPE.argument:
@@ -38,15 +40,25 @@ const flattenAST = ast => {
 
 const iterate = (obj, key = "") => {
   for (const i in obj) {
-    const str = Array.isArray(obj[i]) ? obj[i].join("\n") : obj[i]
+    const str = Array.isArray(obj[i]) ? obj[i].join(" ") : obj[i]
     if (typeof str === "object") iterate(str, key + i + ".")
     else if (typeof str === "string" && str.includes("{")) {
       let obj = []
       let keys = []
-      console.log("writing types for", key + i)
-      const ast = parse(str, { ignoreTag: true })
+      // console.log("writing types for", key + i)
+      let ast
+      try {
+        ast = parse(str, { ignoreTag: true, requiresOtherClause: false })
+      } catch (error) {
+        const { location } = error
+        console.error(`Invalid translation for ${key}${i}:`)
+        if (location.start.line !== location.end.line) throw error
+        else {
+          let e = new error.constructor(`${error}\n\n${str}\n${" ".repeat(location.start.offset)}${"~".repeat(location.end.offset - location.start.offset)}`)
+          throw e
+        }
+      }
       flattenAST(ast)
-      // console.log(ast)
 
       for (const node of ast) {
         if (keys.includes(node.value)) continue
@@ -72,3 +84,4 @@ declare type MessageParameters = {
 
 export = MessageParameters
 `.trim())
+console.log(`Wrote types for ${res.length} translations.`)

@@ -18,12 +18,11 @@ const parseNode = node => {
     case TYPE.select:
       const expl = Object.keys(node.options).filter(k => k !== "other")
       const notOther = expl[0]
-      let value
-      if (expl.length > 1) value = expl.map(v => isNaN(v) ? `"${v}"` : v).join(" | ")
-      else if (!isNaN(notOther)) value = "number"
+      let value = "string"
+      if (!isNaN(notOther)) value = "number"
       else if (notOther === "null") value = "string | null"
       else if (notOther === "true" || notOther === "false") value = "boolean"
-      else if (notOther === "channel") value = `"channel" | "server"`
+      else if (expl.length > 1) value = expl.map(v => isNaN(v) ? `"${v}"` : v).join(" | ")
       return `${node.value}: ${value},`
   }
 }

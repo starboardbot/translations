@@ -211,174 +211,6 @@
   },
 
   "COMMANDS": {
-    "SETTINGS": {
-      "NAME": "settings",
-      "DESCRIPTION": "View all available settings or make edits.",
-      "EDIT": {
-        "NAME": "edit",
-        "DESCRIPTION": "Edit settings.",
-        "MAIN": {
-          "NAME": "main",
-          "DESCRIPTION": "Edit the main settings, such as where starred messages go or how many stars are needed.",
-          "OPTIONS": {
-            "SETTINGS": {
-              "NAME": "override",
-              "DESCRIPTION": "The override to make changes to."
-            },
-            "STARBOARD": {
-              "NAME": "starboard",
-              "DESCRIPTION": "Where all starred messages go."
-            },
-            "REQUIRED_STARS": {
-              "NAME": "required-stars",
-              "DESCRIPTION": "Number of stars required to reach the starboard."
-            },
-            "REQUIRED_STARS_TO_REMOVE": {
-              "NAME": "required-stars-to-remove",
-              "DESCRIPTION": "Drop below this and get removed from the starboard."
-            },
-            "EMOJIS": {
-              "NAME": "emojis",
-              "DESCRIPTION": "The emojis used to add stars to messages."
-            },
-            "DOWNVOTE_EMOJIS": {
-              "NAME": "downvote-emojis",
-              "DESCRIPTION": "The emojis used to downvote messages."
-            }
-          }
-        },
-        "FILTERING": {
-          "NAME": "filtering",
-          "DESCRIPTION": "Edit settings related to filtering starred messages, such as allowing self stars.",
-          "OPTIONS": {
-            "SETTINGS": {
-              "NAME": "override",
-              "DESCRIPTION": "The override to make changes to."
-            },
-            "FILTER_BOTS": {
-              "NAME": "filter-bots",
-              "DESCRIPTION": "Filter messages by bots off the starboard."
-            },
-            "SELF_STARS": {
-              "NAME": "self-stars",
-              "DESCRIPTION": "Allow users to star their own messages."
-            },
-            "FILTER_BLACKLISTED_USERS": {
-              "NAME": "filter-blacklisted-users",
-              "DESCRIPTION": "Filter messages by blacklisted users off the starboard."
-            },
-            "REMOVE_INVALID_REACTIONS": {
-              "NAME": "remove-invalid-reactions",
-              "DESCRIPTION": "Remove invalid reactions, reactions on messages that shouldn't be starred."
-            }
-          }
-        },
-        "APPEARANCE": {
-          "NAME": "appearance",
-          "DESCRIPTION": "Edit settings related to how the starboard message looks.",
-          "OPTIONS": {
-            "SETTINGS": {
-              "NAME": "override",
-              "DESCRIPTION": "The override to make changes to."
-            },
-            "MESSAGE_JUMP_LINK": {
-              "NAME": "message-jump-link",
-              "DESCRIPTION": "How the link to jump to the original message should be displayed."
-            },
-            "NAME_DISPLAY": {
-              "NAME": "name-display",
-              "DESCRIPTION": "How user's names should be displayed on starboard messages."
-            },
-            "MAX_CONTENT_DISPLAYED": {
-              "NAME": "max-content-displayed",
-              "DESCRIPTION": "The maximum number of characters of the original message's content to display."
-            },
-            "MAX_MEDIA_DISPLAYED": {
-              "NAME": "max-media-displayed",
-              "DESCRIPTION": "The maximum amount of images/videos/files displayed, the rest being linked instead."
-            },
-            "MAX_EMBEDS_DISPLAYED": {
-              "NAME": "max-embeds-displayed",
-              "DESCRIPTION": "The maximum amount of embeds the bot should display for starboard messages."
-            },
-            "MAX_OVERALL_MESSAGE_LENGTH": {
-              "NAME": "max-overall-message-length",
-              "DESCRIPTION": "The maximum number of characters displayed on the starboard message in total."
-            },
-            "REUPLOAD_ATTACHMENTS": {
-              "NAME": "reupload-attachments",
-              "DESCRIPTION": "Reupload videos and files with the starboard message, instead of just appending as links."
-            },
-            "MENTION_AUTHOR": {
-              "NAME": "mention-author",
-              "DESCRIPTION": "Mention users on their starboard messages."
-            },
-            "DISPLAY_AVATAR": {
-              "NAME": "display-avatar",
-              "DESCRIPTION": "Display user avatars on starboard messages."
-            },
-            "DISPLAY_REPLIED_MESSAGE": {
-              "NAME": "display-replied-message",
-              "DESCRIPTION": "Always display the message that is being replied to, if any."
-            },
-            "USE_ORIGINAL_EMBED_COLOR": {
-              "NAME": "use-original-embed-colour",
-              "DESCRIPTION": "If an embed with colour is starred, use the original colour on the starboard message."
-            },
-            "USE_LINKS_OVER_BUTTONS": {
-              "NAME": "use-links-over-buttons",
-              "DESCRIPTION": "For linking videos and other files, use blue text links instead of grey button links."
-            }
-          }
-        },
-        "MISC": {
-          "NAME": "misc",
-          "DESCRIPTION": "Edit miscellaneous settings that are useful but fall under no real category.",
-          "OPTIONS": {
-            "SETTINGS": {
-              "NAME": "override",
-              "DESCRIPTION": "The override to make changes to."
-            },
-            "ON_DELETION": {
-              "NAME": "when-deleted",
-              "DESCRIPTION": "What to do when a moderator deletes a starboard message."
-            },
-            "LINK_DELETES": {
-              "NAME": "sync-message-deletes",
-              "DESCRIPTION": "Delete the starboard message when the original is deleted."
-            },
-            "KEEP_OLD_REWARD_ROLES": {
-              "NAME": "keep-old-reward-roles",
-              "DESCRIPTION": "Keep old reward roles when a new reward role is achieved."
-            },
-            "LINK_EDITS": {
-              "NAME": "sync-message-edits",
-              "DESCRIPTION": "Update the starboard message when the original message is edited."
-            }
-          }
-        }
-      },
-      "VIEW": {
-        "NAME": "view",
-        "DESCRIPTION": "View the settings you've configured.",
-        "OPTIONS": {
-          "SETTINGS": {
-            "NAME": "settings",
-            "DESCRIPTION": "The settings you want to view - an override or the server settings."
-          }
-        }
-      },
-      "RESET": {
-        "NAME": "reset",
-        "DESCRIPTION": "Reset the settings you've configured back to their defaults.",
-        "OPTIONS": {
-          "SETTINGS": {
-            "NAME": "settings",
-            "DESCRIPTION": "The settings you want to reset - an override or the server settings."
-          }
-        }
-      }
-    },
     "OVERRIDES": {
       "NAME": "overrides",
       "DESCRIPTION": "Manage overrides made for specific scenarios.",
@@ -545,6 +377,174 @@
           "EMOJI": {
             "NAME": "emoji",
             "DESCRIPTION": "The emoji that would be used to react."
+          }
+        }
+      }
+    },
+    "SETTINGS": {
+      "NAME": "settings",
+      "DESCRIPTION": "View all available settings or make edits.",
+      "EDIT": {
+        "NAME": "edit",
+        "DESCRIPTION": "Edit settings.",
+        "MAIN": {
+          "NAME": "main",
+          "DESCRIPTION": "Edit the main settings, such as where starred messages go or how many stars are needed.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to make changes to."
+            },
+            "STARBOARD": {
+              "NAME": "starboard",
+              "DESCRIPTION": "Where all starred messages go."
+            },
+            "REQUIRED_STARS": {
+              "NAME": "required-stars",
+              "DESCRIPTION": "Number of stars required to reach the starboard."
+            },
+            "REQUIRED_STARS_TO_REMOVE": {
+              "NAME": "required-stars-to-remove",
+              "DESCRIPTION": "Drop below this and get removed from the starboard."
+            },
+            "EMOJIS": {
+              "NAME": "emojis",
+              "DESCRIPTION": "The emojis used to add stars to messages."
+            },
+            "DOWNVOTE_EMOJIS": {
+              "NAME": "downvote-emojis",
+              "DESCRIPTION": "The emojis used to downvote messages."
+            }
+          }
+        },
+        "FILTERING": {
+          "NAME": "filtering",
+          "DESCRIPTION": "Edit settings related to filtering starred messages, such as allowing self stars.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to make changes to."
+            },
+            "FILTER_BOTS": {
+              "NAME": "filter-bots",
+              "DESCRIPTION": "Filter messages by bots off the starboard."
+            },
+            "SELF_STARS": {
+              "NAME": "self-stars",
+              "DESCRIPTION": "Allow users to star their own messages."
+            },
+            "FILTER_BLACKLISTED_USERS": {
+              "NAME": "filter-blacklisted-users",
+              "DESCRIPTION": "Filter messages by blacklisted users off the starboard."
+            },
+            "REMOVE_INVALID_REACTIONS": {
+              "NAME": "remove-invalid-reactions",
+              "DESCRIPTION": "Remove invalid reactions, reactions on messages that shouldn't be starred."
+            }
+          }
+        },
+        "APPEARANCE": {
+          "NAME": "appearance",
+          "DESCRIPTION": "Edit settings related to how the starboard message looks.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to make changes to."
+            },
+            "MESSAGE_JUMP_LINK": {
+              "NAME": "message-jump-link",
+              "DESCRIPTION": "How the link to jump to the original message should be displayed."
+            },
+            "NAME_DISPLAY": {
+              "NAME": "name-display",
+              "DESCRIPTION": "How user's names should be displayed on starboard messages."
+            },
+            "MAX_CONTENT_DISPLAYED": {
+              "NAME": "max-content-displayed",
+              "DESCRIPTION": "The maximum number of characters of the original message's content to display."
+            },
+            "MAX_MEDIA_DISPLAYED": {
+              "NAME": "max-media-displayed",
+              "DESCRIPTION": "The maximum amount of images/videos/files displayed, the rest being linked instead."
+            },
+            "MAX_EMBEDS_DISPLAYED": {
+              "NAME": "max-embeds-displayed",
+              "DESCRIPTION": "The maximum amount of embeds the bot should display for starboard messages."
+            },
+            "MAX_OVERALL_MESSAGE_LENGTH": {
+              "NAME": "max-overall-message-length",
+              "DESCRIPTION": "The maximum number of characters displayed on the starboard message in total."
+            },
+            "REUPLOAD_ATTACHMENTS": {
+              "NAME": "reupload-attachments",
+              "DESCRIPTION": "Reupload videos and files with the starboard message, instead of just appending as links."
+            },
+            "MENTION_AUTHOR": {
+              "NAME": "mention-author",
+              "DESCRIPTION": "Mention users on their starboard messages."
+            },
+            "DISPLAY_AVATAR": {
+              "NAME": "display-avatar",
+              "DESCRIPTION": "Display user avatars on starboard messages."
+            },
+            "DISPLAY_REPLIED_MESSAGE": {
+              "NAME": "display-replied-message",
+              "DESCRIPTION": "Always display the message that is being replied to, if any."
+            },
+            "USE_ORIGINAL_EMBED_COLOR": {
+              "NAME": "use-original-embed-colour",
+              "DESCRIPTION": "If an embed with colour is starred, use the original colour on the starboard message."
+            },
+            "USE_LINKS_OVER_BUTTONS": {
+              "NAME": "use-links-over-buttons",
+              "DESCRIPTION": "For linking videos and other files, use blue text links instead of grey button links."
+            }
+          }
+        },
+        "MISC": {
+          "NAME": "misc",
+          "DESCRIPTION": "Edit miscellaneous settings that are useful but fall under no real category.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to make changes to."
+            },
+            "ON_DELETION": {
+              "NAME": "when-deleted",
+              "DESCRIPTION": "What to do when a moderator deletes a starboard message."
+            },
+            "LINK_DELETES": {
+              "NAME": "sync-message-deletes",
+              "DESCRIPTION": "Delete the starboard message when the original is deleted."
+            },
+            "KEEP_OLD_REWARD_ROLES": {
+              "NAME": "keep-old-reward-roles",
+              "DESCRIPTION": "Keep old reward roles when a new reward role is achieved."
+            },
+            "LINK_EDITS": {
+              "NAME": "sync-message-edits",
+              "DESCRIPTION": "Update the starboard message when the original message is edited."
+            }
+          }
+        }
+      },
+      "VIEW": {
+        "NAME": "view",
+        "DESCRIPTION": "View the settings you've configured.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "settings",
+            "DESCRIPTION": "The settings you want to view - an override or the server settings."
+          }
+        }
+      },
+      "RESET": {
+        "NAME": "reset",
+        "DESCRIPTION": "Reset the settings you've configured back to their defaults.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "settings",
+            "DESCRIPTION": "The settings you want to reset - an override or the server settings."
           }
         }
       }

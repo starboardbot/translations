@@ -19,50 +19,50 @@ declare type MessageParameters = {
   "STARBOARD_MESSAGE_SPOILER": {
     content: string,
   },
-  "SETTINGS_NOT_FOUND": {
+  "OVERRIDE_NOT_FOUND": {
     name: string,
   },
-  "SUCCESS_CREATE_SETTINGS": {
+  "SUCCESS_CREATE_OVERRIDE": {
     name: string,
     type: "channel" | "channelType" | "emoji" | "role",
     channels: number,
     emojis: number,
     roles: number,
   },
-  "SUCCESS_CREATE_SETTINGS_CHANNELS_NOTICE": {
+  "SUCCESS_CREATE_OVERRIDE_CHANNELS_NOTICE": {
     channels: number,
   },
-  "CONFIRMATION_DELETE_SETTINGS": {
-    name: string,
-  },
-  "SUCCESS_DELETE_SETTINGS": {
-    name: string,
-  },
-  "CONFIRMATION_RESET_CREATED_SETTINGS": {
-    name: string,
-  },
-  "SUCCESS_RESET_SETTINGS": {
-    name: string | null,
-  },
-  "SUCCESS_CREATE_EMOJI_SETTINGS_NOTICE": {
+  "SUCCESS_CREATE_EMOJI_OVERRIDE_NOTICE": {
     emojis: string,
+  },
+  "CONFIRMATION_DELETE_OVERRIDE": {
+    name: string,
+  },
+  "SUCCESS_DELETE_OVERRIDE": {
+    name: string,
+  },
+  "CONFIRMATION_RESET_OVERRIDE": {
+    name: string,
+  },
+  "SUCCESS_RESET_OVERRIDE": {
+    name: string | null,
   },
   "INHERITS_SETTINGS_FROM": {
     name: string,
   },
-  "SETTINGS_APPLY_CHANNELS": {
+  "OVERRIDE_APPLY_CHANNELS": {
     other: number,
     channels: string,
   },
-  "SETTINGS_APPLY_CHANNEL_TYPES": {
+  "OVERRIDE_APPLY_CHANNEL_TYPES": {
     type: string,
   },
-  "SETTINGS_APPLY_ROLES": {
+  "OVERRIDE_APPLY_ROLES": {
     other: number,
     channels: string | null,
     roles: string,
   },
-  "SETTINGS_APPLY_EMOJIS": {
+  "OVERRIDE_APPLY_EMOJIS": {
     emojis: string,
     channels: string | null,
   },
@@ -71,21 +71,6 @@ declare type MessageParameters = {
   },
   "NUMBER_CHARACTERS": {
     chars: number,
-  },
-  "CANNOT_SEND_MESSAGES_IN_CHANNEL": {
-    channel: string,
-  },
-  "CANNOT_SEND_EMBEDS_IN_CHANNEL": {
-    channel: string,
-  },
-  "CANNOT_VIEW_CHANNEL": {
-    channel: string,
-  },
-  "CANNOT_VIEW_VOICE_CHANNEL": {
-    channel: string,
-  },
-  "CANNOT_READ_HISTORY_IN_CHANNEL": {
-    channel: string,
   },
   "SUCCESS_CHANGE_SETTINGS": {
     name: string,
@@ -106,17 +91,32 @@ declare type MessageParameters = {
   "SETTING_ONLY_FOR_SERVER_SETTINGS": {
     setting: string,
   },
-  "SUCCESS_EDIT_SETTINGS": {
+  "CANNOT_SEND_MESSAGES_IN_CHANNEL": {
+    channel: string,
+  },
+  "CANNOT_SEND_EMBEDS_IN_CHANNEL": {
+    channel: string,
+  },
+  "CANNOT_VIEW_CHANNEL": {
+    channel: string,
+  },
+  "CANNOT_VIEW_VOICE_CHANNEL": {
+    channel: string,
+  },
+  "CANNOT_READ_HISTORY_IN_CHANNEL": {
+    channel: string,
+  },
+  "SUCCESS_EDIT_OVERRIDE": {
     name: string,
     changes: string,
   },
-  "SETTINGS_NOW_NAMED": {
+  "OVERRIDE_NOW_NAMED": {
     name: string,
   },
-  "SETTINGS_PRIORITY_NOW": {
+  "OVERRIDE_PRIORITY_NOW": {
     priority: string,
   },
-  "SETTINGS_NOW_INHERITS": {
+  "OVERRIDE_NOW_INHERITS": {
     name: string,
   },
 }

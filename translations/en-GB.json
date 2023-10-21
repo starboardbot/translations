@@ -44,7 +44,512 @@
   "VIEW_SETTINGS": "View Settings",
   "SETTINGS_NOT_FOUND": "There is no existing override created under the name **{name}**.",
 
+  "PLEASE_PROVIDE_VALID_LIST_CHANNELS": "Please provide a valid list of channels.",
+  "PLEASE_PROVIDE_VALID_LIST_ROLES": "Please provide a valid list of roles.",
+  "PLEASE_PROVIDE_VALID_LIST_EMOJIS": "Please provide a valid list of emojis.",
+
+  "SETTINGS_CHANNEL_TYPES_TEXT": "All Text/Announcement Channels",
+  "SETTINGS_CHANNEL_TYPES_TEXT_SFW": "Non-NSFW Text/Announcement Channels",
+  "SETTINGS_CHANNEL_TYPES_TEXT_NSFW": "NSFW Text/Announcement Channels",
+  "SETTINGS_CHANNEL_TYPES_THREAD": "All Threads and Forums",
+  "SETTINGS_CHANNEL_TYPES_THREAD_SFW": "Non-NSFW Threads and Forums",
+  "SETTINGS_CHANNEL_TYPES_THREAD_NSFW": "NSFW Threads and Forums",
+  "SETTINGS_CHANNEL_TYPES_VOICE": "All Voice/Stage Channels",
+  "SETTINGS_CHANNEL_TYPES_VOICE_SFW": "Non-NSFW Voice/Stage Channels",
+  "SETTINGS_CHANNEL_TYPES_VOICE_NSFW": "NSFW Voice/Stage Channels",
+  "SETTINGS_CHANNEL_TYPES_SFW": "All Non-NSFW Channels",
+  "SETTINGS_CHANNEL_TYPES_NSFW": "All NSFW Channels",
+
+  "SUCCESS_CREATE_SETTINGS": "Successfully created an override **{name}** that only applies {type, select, channel {to {channels, plural, =1 {1 channel} other {# channels}}} channelType {to messages in the specified type of channels} emoji {when one of the specified {emojis, plural, =1 {1 emoji} other {# emojis}} are used} role {when the message author has one of the specified {roles, plural, =1 {1 role} other {# roles}}}}.",
+  "SUCCESS_CREATE_SETTINGS_CHANNELS_NOTICE": "This override also only applies in {channels, plural, =1 {1 channel} other {# channels}}.",
+  "CONFIRMATION_DELETE_SETTINGS": "Are you sure you want to delete **{name}**?\nYou will lose all configurations made specifically on this override, and they will be gone forever. No starred messages or other stats will be erased.",
+  "SUCCESS_DELETE_SETTINGS": "Successfully deleted **{name}**.",
+  "CONFIRMATION_RESET_SERVER_SETTINGS": "Are you sure you want to reset the server settings?\nYou will lose all configurations made specifically on the server settings, and they will be gone forever, but no created overrides will be deleted. No starred messages or other stats will be erased.",
+  "CONFIRMATION_RESET_CREATED_SETTINGS": "Are you sure you want to reset **{name}**?\nYou will lose all configurations made specifically on this override, and they will be gone forever, but the override itself will not be deleted. No starred messages or other stats will be erased.",
+  "SUCCESS_RESET_SETTINGS": "Successfully reset {name, select, null {the server settings} other {**{name}**}}.",
+  "SUCCESS_CREATE_EMOJI_SETTINGS_NOTICE": "Please note that this override will only take effect for an emoji if the **Emoji** setting is set to that emoji. Right now, no settings have the **Emoji** setting set to {emojis}.",
+
+  "MAIN_SETTINGS": "Main Settings",
+  "FILTERING_SETTINGS": "Filtering",
+  "APPEARANCE_SETTINGS": "Appearance",
+  "MISCELLANEOUS_SETTINGS": "Miscellaneous Settings",
+
+  "INHERITS_SETTINGS_FROM": "Inherits from {name}",
+  "SETTINGS_APPLY_CHANNELS": "This override applies to messages in {other, plural, =0 {{channels}} other {{channels} and # other channels}}.",
+  "SETTINGS_APPLY_CHANNEL_TYPES": "This override applies to messages in: {type}",
+  "SETTINGS_APPLY_ROLES": "This override applies to messages where the author has {other, plural, =0 {{roles}} other {{roles} and # other roles}}{channels, select, null {} other { in {channels}}}.",
+  "SETTINGS_APPLY_EMOJIS": "This override applies when reacting with {emojis}{channels, select, null {} other { in {channels}}}.",
+
+  "APPLIES_TO": "Applies to",
+  "CHANNELS": "Channels",
+  "IN_CHANNELS": "In Channels",
+  "CHANNEL_TYPE": "Channel Type",
+  "ROLES": "Roles",
+  "EMOJIS": "Emojis",
+  "PRIORTIY": "Priority",
+
+  "NUMBER_STARS": "{stars, number} stars",
+  "NUMBER_CHARACTERS": "{chars, number} characters",
+
+  "PLEASE_PROVIDE_CONTEXT_SETTINGS_TEST": "Please provide a channel, role or emoji to use to test.",
+
+  "CANNOT_SEND_MESSAGES_IN_CHANNEL": "I cannot send messages in {channel}, please enable the `Send Messages` permission.",
+  "CANNOT_SEND_EMBEDS_IN_CHANNEL": "I cannot send embeds in {channel}, please enable the `Embed Links` permission.",
+  "CANNOT_VIEW_CHANNEL": "I cannot view {channel}, please enable the `View Channel` permission.",
+  "CANNOT_VIEW_VOICE_CHANNEL": "I cannot view {channel}, please enable the `View Channel` and the `Connect` permissions.",
+  "CANNOT_READ_HISTORY_IN_CHANNEL": "I cannot read message history in {channel}, please enable the `Read Message History` permission.",
+
+  "PLEASE_PROVIDE_CHANGES": "Please provide the changes you would like to make.",
+  "SUCCESS_CHANGE_SETTINGS": "Successfully changed those settings for {name}.",
+
+  "SUCCESS_CHANGE_SETTINGS_NOTICE": "Note that:\n{notices}",
+  "MISSING_ATTACH_FILES_PERMISSION_NOTICE": "The bot is missing the `Attach Files` permission in {channel}, so media and files that are supposed to be reuploaded due to the **Reupload Attachments** setting will be linked instead.",
+  "REQUIRED_STARS_CLASH_SET": "Because the value of **Required Stars** has to be higher than **Required Stars To Remove**, I've set **Required Stars** to {requiredStars, number} and **Required Stars To Remove** to {requiredToRemove, number}.",
+  "UNUSABLE_REACTION_EMOJIS_PROVIDED": "I cannot use the emojis {emojis}. Please choose emojis from servers I am in.",
+  "TOO_MANY_EMOJIS": "You have reached the maximum amount of emojis allowed for one server.",
+  "UPVOTE_DOWNVOTE_EMOJIS_CLASH": "You cannot set the same emoji to star messages and downvote messages.",
+  "SETTING_ONLY_FOR_SERVER_SETTINGS": "The setting **{setting}** can only be modified when editing Server Settings.",
+
+  "SETTINGS_EDIT_INVALID_CHANGE_ON_INVALID_TYPE": "You cannot make those changes on this type of override.",
+  "SUCCESS_EDIT_SETTINGS": "Successfully edited the override **{name}**:\n{changes}",
+  "SETTINGS_NOW_NAMED": "This override is now named **{name}**.",
+  "SETTINGS_PRIORITY_NOW": "This override now has a priority value of `{priority}`.",
+  "SETTINGS_NOW_INHERITS": "This override now inherits settings from **{name}**.",
+
+  "VIEW_EXPANDED": "View Expanded",
+  "VIEW_COMPILED": "View Compiled",
+  "NO_SETTINGS_APPLIED": "No overrides are appplied when in the provided scenario.",
+
+  "SETTINGS": {
+    "STARBOARD_ID": {
+      "NAME": "Starboard"
+    },
+    "REQUIRED": {
+      "NAME": "Required Stars"
+    },
+    "REQUIRED_TO_REMOVE": {
+      "NAME": "Required Stars To Remove"
+    },
+    "EMOJIS": {
+      "NAME": "Emoji"
+    },
+    "DOWNVOTE_EMOJIS": {
+      "NAME": "Downvote Emoji"
+    },
+    "ON_DELETION": {
+      "NAME": "When Deleted",
+      "CHOICE_0": "Do Nothing",
+      "CHOICE_1": "Repost Message",
+      "CHOICE_2": "Freeze Message",
+      "CHOICE_3": "Trash Message"
+    },
+    "MESSAGE_JUMP_LINK": {
+      "NAME": "Message Jump Link",
+      "CHOICE_0": "No Link",
+      "CHOICE_1": "Button/Link",
+      "CHOICE_2": "Mention Link"
+    },
+    "NAME_DISPLAY": {
+      "NAME": "Name Display",
+      "CHOICE_0": "Username",
+      "CHOICE_1": "Display Name",
+      "CHOICE_2": "Server Nickname"
+    },
+    "MAX_CONTENT_DISPLAYED": {
+      "NAME": "Max Content Displayed"
+    },
+    "MAX_MEDIA_DISPLAYED": {
+      "NAME": "Max Media Displayed"
+    },
+    "MAX_EMBEDS_DISPLAYED": {
+      "NAME": "Max Embeds Displayed"
+    },
+    "MAX_OVERALL_MESSAGE_LENGTH": {
+      "NAME": "Max Overall Message Length"
+    },
+    "LINK_DELETES": {
+      "NAME": "Sync Message Deletes"
+    },
+    "FILTER_BOTS": {
+      "NAME": "Filter Bots"
+    },
+    "SELF_STARS": {
+      "NAME": "Self Stars"
+    },
+    "PUBLIC_SERVER": {
+      "NAME": "Public Server"
+    },
+    "REUPLOAD_ATTACHMENTS": {
+      "NAME": "Reupload Attachments"
+    },
+    "FILTER_BLACKLISTED_USERS": {
+      "NAME": "Filter Blacklisted Users"
+    },
+    "REMOVE_INVALID_REACTIONS": {
+      "NAME": "Remove Invalid Reactions"
+    },
+    "KEEP_OLD_REWARD_ROLES": {
+      "NAME": "Keep Old Reward Roles"
+    },
+    "MENTION_AUTHOR": {
+      "NAME": "Mention Author"
+    },
+    "LINK_EDITS": {
+      "NAME": "Sync Message Edits"
+    },
+    "DISPLAY_AVATAR": {
+      "NAME": "Display Avatar"
+    },
+    "DISPLAY_REPLIED_MESSAGE": {
+      "NAME": "Display Replied Message"
+    },
+    "USE_ORIGINAL_EMBED_COLOR": {
+      "NAME": "Use Original Embed Colour"
+    },
+    "USE_LINKS_OVER_BUTTONS": {
+      "NAME": "Use Links Over Buttons"
+    }
+  },
+
   "COMMANDS": {
+    "SETTINGS": {
+      "NAME": "settings",
+      "DESCRIPTION": "View all available settings or make edits.",
+      "EDIT": {
+        "NAME": "edit",
+        "DESCRIPTION": "Edit settings.",
+        "MAIN": {
+          "NAME": "main",
+          "DESCRIPTION": "Edit the main settings, such as where starred messages go or how many stars are needed.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to make changes to."
+            },
+            "STARBOARD": {
+              "NAME": "starboard",
+              "DESCRIPTION": "Where all starred messages go."
+            },
+            "REQUIRED_STARS": {
+              "NAME": "required-stars",
+              "DESCRIPTION": "Number of stars required to reach the starboard."
+            },
+            "REQUIRED_STARS_TO_REMOVE": {
+              "NAME": "required-stars-to-remove",
+              "DESCRIPTION": "Drop below this and get removed from the starboard."
+            },
+            "EMOJIS": {
+              "NAME": "emojis",
+              "DESCRIPTION": "The emojis used to add stars to messages."
+            },
+            "DOWNVOTE_EMOJIS": {
+              "NAME": "downvote-emojis",
+              "DESCRIPTION": "The emojis used to downvote messages."
+            }
+          }
+        },
+        "FILTERING": {
+          "NAME": "filtering",
+          "DESCRIPTION": "Edit settings related to filtering starred messages, such as allowing self stars.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to make changes to."
+            },
+            "FILTER_BOTS": {
+              "NAME": "filter-bots",
+              "DESCRIPTION": "Filter messages by bots off the starboard."
+            },
+            "SELF_STARS": {
+              "NAME": "self-stars",
+              "DESCRIPTION": "Allow users to star their own messages."
+            },
+            "FILTER_BLACKLISTED_USERS": {
+              "NAME": "filter-blacklisted-users",
+              "DESCRIPTION": "Filter messages by blacklisted users off the starboard."
+            },
+            "REMOVE_INVALID_REACTIONS": {
+              "NAME": "remove-invalid-reactions",
+              "DESCRIPTION": "Remove invalid reactions, reactions on messages that shouldn't be starred."
+            }
+          }
+        },
+        "APPEARANCE": {
+          "NAME": "appearance",
+          "DESCRIPTION": "Edit settings related to how the starboard message looks.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to make changes to."
+            },
+            "MESSAGE_JUMP_LINK": {
+              "NAME": "message-jump-link",
+              "DESCRIPTION": "How the link to jump to the original message should be displayed."
+            },
+            "NAME_DISPLAY": {
+              "NAME": "name-display",
+              "DESCRIPTION": "How user's names should be displayed on starboard messages."
+            },
+            "MAX_CONTENT_DISPLAYED": {
+              "NAME": "max-content-displayed",
+              "DESCRIPTION": "The maximum number of characters of the original message's content to display."
+            },
+            "MAX_MEDIA_DISPLAYED": {
+              "NAME": "max-media-displayed",
+              "DESCRIPTION": "The maximum amount of images/videos/files displayed, the rest being linked instead."
+            },
+            "MAX_EMBEDS_DISPLAYED": {
+              "NAME": "max-embeds-displayed",
+              "DESCRIPTION": "The maximum amount of embeds the bot should display for starboard messages."
+            },
+            "MAX_OVERALL_MESSAGE_LENGTH": {
+              "NAME": "max-overall-message-length",
+              "DESCRIPTION": "The maximum number of characters displayed on the starboard message in total."
+            },
+            "REUPLOAD_ATTACHMENTS": {
+              "NAME": "reupload-attachments",
+              "DESCRIPTION": "Reupload videos and files with the starboard message, instead of just appending as links."
+            },
+            "MENTION_AUTHOR": {
+              "NAME": "mention-author",
+              "DESCRIPTION": "Mention users on their starboard messages."
+            },
+            "DISPLAY_AVATAR": {
+              "NAME": "display-avatar",
+              "DESCRIPTION": "Display user avatars on starboard messages."
+            },
+            "DISPLAY_REPLIED_MESSAGE": {
+              "NAME": "display-replied-message",
+              "DESCRIPTION": "Always display the message that is being replied to, if any."
+            },
+            "USE_ORIGINAL_EMBED_COLOR": {
+              "NAME": "use-original-embed-colour",
+              "DESCRIPTION": "If an embed with colour is starred, use the original colour on the starboard message."
+            },
+            "USE_LINKS_OVER_BUTTONS": {
+              "NAME": "use-links-over-buttons",
+              "DESCRIPTION": "For linking videos and other files, use blue text links instead of grey button links."
+            }
+          }
+        },
+        "MISC": {
+          "NAME": "misc",
+          "DESCRIPTION": "Edit miscellaneous settings that are useful but fall under no real category.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to make changes to."
+            },
+            "ON_DELETION": {
+              "NAME": "when-deleted",
+              "DESCRIPTION": "What to do when a moderator deletes a starboard message."
+            },
+            "LINK_DELETES": {
+              "NAME": "sync-message-deletes",
+              "DESCRIPTION": "Delete the starboard message when the original is deleted."
+            },
+            "KEEP_OLD_REWARD_ROLES": {
+              "NAME": "keep-old-reward-roles",
+              "DESCRIPTION": "Keep old reward roles when a new reward role is achieved."
+            },
+            "LINK_EDITS": {
+              "NAME": "sync-message-edits",
+              "DESCRIPTION": "Update the starboard message when the original message is edited."
+            }
+          }
+        }
+      },
+      "VIEW": {
+        "NAME": "view",
+        "DESCRIPTION": "View the settings you've configured.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "settings",
+            "DESCRIPTION": "The settings you want to view - an override or the server settings."
+          }
+        }
+      },
+      "RESET": {
+        "NAME": "reset",
+        "DESCRIPTION": "Reset the settings you've configured back to their defaults.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "settings",
+            "DESCRIPTION": "The settings you want to reset - an override or the server settings."
+          }
+        }
+      }
+    },
+    "OVERRIDES": {
+      "NAME": "overrides",
+      "DESCRIPTION": "Manage overrides made for specific scenarios.",
+      "CREATE": {
+        "NAME": "create",
+        "DESCRIPTION": "Create an override for a specific scenario.",
+        "CHANNEL": {
+          "NAME": "channel",
+          "DESCRIPTION": "Create a channel override for specific channels.",
+          "OPTIONS": {
+            "NAME": {
+              "NAME": "name",
+              "DESCRIPTION": "The name you want to give this new override."
+            },
+            "SYNC_WITH": {
+              "NAME": "inherit-from",
+              "DESCRIPTION": "The override you create will inherit settings and copy changes from this existing override."
+            },
+            "PRIORITY": {
+              "NAME": "priority",
+              "DESCRIPTION": "High priority overrides will be used before lower priority overrides. (default: 0)"
+            },
+            "CHANNELS": {
+              "NAME": "channels",
+              "DESCRIPTION": "The channels this override should be applied in."
+            }
+          }
+        },
+        "CHANNEL_TYPE": {
+          "NAME": "channel-type",
+          "DESCRIPTION": "Create a channel-type override for specific types of channels.",
+          "OPTIONS": {
+            "NAME": {
+              "NAME": "name",
+              "DESCRIPTION": "The name you want to give this new override."
+            },
+            "SYNC_WITH": {
+              "NAME": "inherit-from",
+              "DESCRIPTION": "The override you create will inherit settings and copy changes from this existing override."
+            },
+            "PRIORITY": {
+              "NAME": "priority",
+              "DESCRIPTION": "High priority overrides will be used before lower priority overrides. (default: 0)"
+            },
+            "CHANNEL_TYPES": {
+              "NAME": "channel-types",
+              "DESCRIPTION": "The types of channels this override should be applied in."
+            }
+          }
+        },
+        "ROLE": {
+          "NAME": "role",
+          "DESCRIPTION": "Create a role override that get applied when the message author has specific roles.",
+          "OPTIONS": {
+            "NAME": {
+              "NAME": "name",
+              "DESCRIPTION": "The name you want to give this new override."
+            },
+            "SYNC_WITH": {
+              "NAME": "inherit-from",
+              "DESCRIPTION": "The override you create will inherit settings and copy changes from this existing override."
+            },
+            "PRIORITY": {
+              "NAME": "priority",
+              "DESCRIPTION": "High priority overrides will be used before lower priority overrides. (default: 0)"
+            },
+            "ROLES": {
+              "NAME": "roles",
+              "DESCRIPTION": "The roles the message author must have one of for this override to apply."
+            },
+            "CHANNELS": {
+              "NAME": "channels",
+              "DESCRIPTION": "The channels the message must also be in for this override to apply."
+            }
+          }
+        },
+        "EMOJI": {
+          "NAME": "emoji",
+          "DESCRIPTION": "Create an emoji override for specific emojis.",
+          "OPTIONS": {
+            "NAME": {
+              "NAME": "name",
+              "DESCRIPTION": "The name you want to give this new override."
+            },
+            "SYNC_WITH": {
+              "NAME": "inherit-from",
+              "DESCRIPTION": "The override you create will inherit settings and copy changes from this existing override."
+            },
+            "PRIORITY": {
+              "NAME": "priority",
+              "DESCRIPTION": "High priority overrides will be used before lower priority overrides. (default: 0)"
+            },
+            "EMOJIS": {
+              "NAME": "emojis",
+              "DESCRIPTION": "This override will only apply when these emojis are used."
+            },
+            "CHANNELS": {
+              "NAME": "channels",
+              "DESCRIPTION": "The channels the message must also be in for this override to apply."
+            }
+          }
+        }
+      },
+      "DELETE": {
+        "NAME": "delete",
+        "DESCRIPTION": "Delete an override you've previously created.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The name of the override you want to delete."
+          }
+        }
+      },
+      "EDIT": {
+        "NAME": "edit",
+        "DESCRIPTION": "Edit info about an override, such as the name or where it is applied.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override to edit."
+          },
+          "NAME": {
+            "NAME": "name",
+            "DESCRIPTION": "The new name for this override."
+          },
+          "CHANNELS": {
+            "NAME": "channels",
+            "DESCRIPTION": "Provide every channel to set, or provide +#channel / -#channel to add/remove from the existing list."
+          },
+          "CHANNEL_TYPES": {
+            "NAME": "channel-types",
+            "DESCRIPTION": "The type of channels this override should now be applied in."
+          },
+          "EMOJIS": {
+            "NAME": "emojis",
+            "DESCRIPTION": "The full list of emojis that this override should now be applied for."
+          },
+          "ROLES": {
+            "NAME": "roles",
+            "DESCRIPTION": "Provide the full list of roles or provide +@role or -@role to add or remove from the existing list."
+          },
+          "PRIORITY": {
+            "NAME": "priority",
+            "DESCRIPTION": "The priority this override should now have."
+          },
+          "SYNC_WITH": {
+            "NAME": "inherit-from",
+            "DESCRIPTION": "The override that this override should now inherit settings and copy changes from."
+          }
+        }
+      },
+      "TEST": {
+        "NAME": "test",
+        "DESCRIPTION": "Test settings you've created in a provided context, and the order they're applied to.",
+        "OPTIONS": {
+          "CHANNEL": {
+            "NAME": "channel",
+            "DESCRIPTION": "The channel that the message would be in."
+          },
+          "ROLES": {
+            "NAME": "roles",
+            "DESCRIPTION": "The role the message author would have. Provide a user to test with all their roles."
+          },
+          "EMOJI": {
+            "NAME": "emoji",
+            "DESCRIPTION": "The emoji that would be used to react."
+          }
+        }
+      }
+    },
     "TEST": {
       "NAME": "test",
       "DESCRIPTION": "test"

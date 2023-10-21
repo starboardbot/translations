@@ -19,6 +19,9 @@ declare type MessageParameters = {
   "STARBOARD_MESSAGE_SPOILER": {
     content: string,
   },
+  "SETTINGS_NOT_FOUND": {
+    name: string,
+  },
 }
 
 export = MessageParameters

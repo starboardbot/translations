@@ -1,3 +1,4 @@
+require("./validate")
 const { parse, TYPE } = require("@formatjs/icu-messageformat-parser")
 const { writeFileSync } = require("fs")
 const messages = require("../translations/en-GB")

@@ -10,6 +10,7 @@
   "YES": "Yes",
   "NO": "No",
   "DELETE": "Delete",
+  "RESET": "Reset",
   "CANCEL": "Cancel",
   "BACK": "Back",
   "SKIP": "Skip",
@@ -32,5 +33,21 @@
   "STARBOARD_MESSAGE_VIDEO_N": "Video {number, number}",
   "STARBOARD_MESSAGE_FILE": "File",
   "STARBOARD_MESSAGE_FILE_N": "File {number, number}",
-  "STARBOARD_MESSAGE_SPOILER": "(SPOILER) {content}"
+  "STARBOARD_MESSAGE_SPOILER": "(SPOILER) {content}",
+
+  "ARE_YOU_SURE": "Are you sure?",
+  "ARE_YOU_SURE_PROMPT": "Are you sure you want to perform this action?",
+  "ARE_YOU_SURE_PROMPT_DESTRUCTIVE": "Are you sure you want to perform this action? This action cannot be reversed.",
+
+  "SERVER_SETTINGS": "Server Settings",
+  "SETTINGS_TITLE": "Settings",
+  "VIEW_SETTINGS": "View Settings",
+  "SETTINGS_NOT_FOUND": "There is no existing override created under the name **{name}**.",
+
+  "COMMANDS": {
+    "TEST": {
+      "NAME": "test",
+      "DESCRIPTION": "test"
+    }
+  }
 }

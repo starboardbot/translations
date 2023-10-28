@@ -119,6 +119,73 @@ declare type MessageParameters = {
   "OVERRIDE_NOW_INHERITS": {
     name: string,
   },
+  "ALREADY_BLACKLISTED": {
+    name: string,
+  },
+  "SUCCESSFULLY_BLACKLISTED": {
+    name: string,
+  },
+  "SUCCESSFULLY_BLACKLISTED_USER_OR_ROLE": {
+    type: "users" | "roles",
+    filterBlacklistedUsers: boolean,
+  },
+  "NOT_BLACKLISTED": {
+    name: string,
+  },
+  "SUCCESSFULLY_UNBLACKLISTED": {
+    name: string,
+  },
+  "SUCCESSFULLY_CLEAR_BLACKLIST_ALL": {
+    size: number,
+  },
+  "SUCCESSFULLY_CLEAR_BLACKLIST_USERS": {
+    size: number,
+  },
+  "SUCCESSFULLY_CLEAR_BLACKLIST_ROLES": {
+    size: number,
+  },
+  "SUCCESSFULLY_CLEAR_BLACKLIST_CHANNELS": {
+    size: number,
+  },
+  "ALREADY_WHITELISTED": {
+    name: string,
+  },
+  "SUCCESSFULLY_WHITELISTED": {
+    name: string,
+  },
+  "NOT_WHITELISTED": {
+    name: string,
+  },
+  "SUCCESSFULLY_UNWHITELISTED": {
+    name: string,
+  },
+  "SUCCESSFULLY_CLEAR_WHITELIST_ALL": {
+    size: number,
+  },
+  "SUCCESSFULLY_CLEAR_WHITELIST_USERS": {
+    size: number,
+  },
+  "SUCCESSFULLY_CLEAR_WHITELIST_ROLES": {
+    size: number,
+  },
+  "SUCCESSFULLY_CLEAR_WHITELIST_CHANNELS": {
+    size: number,
+  },
+  "BLACKLIST_DESCRIPTION_ADD_ITEMS": {
+    commands: string,
+  },
+  "NUMBER_OF_BLACKLISTED_ITEMS": {
+    num: number,
+  },
+  "INHERITS_BLACKLISTED_ITEMS_FROM": {
+    name: string,
+  },
+  "WHITELIST_DESCRIPTION_ADD_ITEMS": {
+    commands: string,
+  },
+  "NUMBER_OF_WHITELISTED_ITEMS": {
+    num: number,
+  },
 }
 
 export = MessageParameters

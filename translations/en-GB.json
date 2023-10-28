@@ -48,6 +48,7 @@
   "PLEASE_PROVIDE_VALID_LIST_ROLES": "Please provide a valid list of roles.",
   "PLEASE_PROVIDE_VALID_LIST_EMOJIS": "Please provide a valid list of emojis.",
 
+  "ALL_CHANNELS": "All Channels",
   "OVERRIDE_CHANNEL_TYPES_TEXT": "All Text/Announcement Channels",
   "OVERRIDE_CHANNEL_TYPES_TEXT_SFW": "Non-NSFW Text/Announcement Channels",
   "OVERRIDE_CHANNEL_TYPES_TEXT_NSFW": "NSFW Text/Announcement Channels",
@@ -87,6 +88,8 @@
   "ROLES": "Roles",
   "EMOJIS": "Emojis",
   "PRIORTIY": "Priority",
+  "USERS": "Users",
+  "ALL": "All",
 
   "NUMBER_STARS": "{stars, number} stars",
   "NUMBER_CHARACTERS": "{chars, number} characters",
@@ -118,6 +121,65 @@
   "VIEW_COMPILED": "View Compiled",
   "PLEASE_PROVIDE_CONTEXT_OVERRIDE_TEST": "Please provide a channel, role or emoji to use to test.",
   "NO_OVERRIDES_APPLIED": "No overrides are appplied when in the provided scenario.",
+
+  "ALREADY_BLACKLISTED": "{name} is already on the blacklist.",
+  "MAX_BLACKLISTED_ITEMS_FOR_SERVER": "This server has reached the maximum amount of items on the blacklist.",
+  "SUCCESSFULLY_BLACKLISTED": "Successfully added {name} to the blacklist.",
+  "SUCCESSFULLY_BLACKLISTED_USER_OR_ROLE": "{type, select, users {They} roles {Users with this role}} will not be able to star messages {filterBlacklistedUsers, select, true {and their messages will not be able to reach the starboard.} false {but their messages will still be able to reach the starboard.}}",
+  "SUCCESSFULLY_BLACKLISTED_THREAD": "Users will no longer be able to star messages sent in this thread.",
+  "SUCCESSFULLY_BLACKLISTED_CHANNEL": "Users will no longer be able to star messages sent in this channel, or any of its threads.",
+  "SUCCESSFULLY_BLACKLISTED_CATEGORY": "Users will no longer be able to star messages sent in any channel under this category, and any threads under this category too.",
+  "SUCCESSFULLY_BLACKLISTED_ALL_CHANNELS": "All channels in the server are now blacklisted, users will not be able to star messages anywhere. Whitelist a channel to enable starring there.",
+  "NOT_BLACKLISTED": "{name} is not on the blacklist.",
+  "SUCCESSFULLY_UNBLACKLISTED": "Successfully removed {name} from the blacklist.",
+  "NOTHING_BLACKLISTED": "There is currently nothing on the blacklist.",
+  "SUCCESSFULLY_CLEAR_BLACKLIST_ALL": "Successfully cleared {size, plural, =1 {# item} other {# items}} from the blacklist.",
+  "SUCCESSFULLY_CLEAR_BLACKLIST_USERS": "Successfully cleared {size, plural, =1 {# user} other {# users}} from the blacklist.",
+  "SUCCESSFULLY_CLEAR_BLACKLIST_ROLES": "Successfully cleared {size, plural, =1 {# role} other {# roles}} from the blacklist.",
+  "SUCCESSFULLY_CLEAR_BLACKLIST_CHANNELS": "Successfully cleared {size, plural, =1 {# channel} other {# channels}} from the blacklist.",
+
+  "ALREADY_WHITELISTED": "{name} is already on the whitelist.",
+  "CANNOT_WHITELIST_EVERYONE": "You cannot whitelist @everyone.",
+  "MAX_WHITELISTED_ITEMS_FOR_SERVER": "This server has reached the maximum amount of items on the whitelist.",
+  "SUCCESSFULLY_WHITELISTED": "Successfully added {name} to the whitelist.",
+  "SUCCESSFULLY_WHITELISTED_USER": "They will now be able to star messages and have their messages on the starboard, regardless of if they are on the blacklist or have a role on the blacklist.",
+  "SUCCESSFULLY_WHITELISTED_ROLE": "Users with this role will now be able to star messages and have their messages on the starboard.",
+  "SUCCESSFULLY_WHITELISTED_THREAD": "Users will now be able to star messages sent in this thread, regardless of if the channel's parent is blacklisted.",
+  "SUCCESSFULLY_WHITELISTED_CHANNEL": "Users will now be able to star messages sent in this channel, or any of its threads, regardless of if the channel's parent is blacklisted.",
+  "SUCCESSFULLY_WHITELISTED_CATEGORY": "Users will now be able to star messages sent in any channel under this category, and any threads under this category too.",
+  "NOT_WHITELISTED": "{name} is not on the whitelist.",
+  "SUCCESSFULLY_UNWHITELISTED": "Successfully removed {name} from the whitelist.",
+  "NOTHING_WHITELISTED": "There is currently nothing on the whitelist.",
+  "SUCCESSFULLY_CLEAR_WHITELIST_ALL": "Successfully cleared {size, plural, =1 {# item} other {# items}} from the whitelist.",
+  "SUCCESSFULLY_CLEAR_WHITELIST_USERS": "Successfully cleared {size, plural, =1 {# user} other {# users}} from the whitelist.",
+  "SUCCESSFULLY_CLEAR_WHITELIST_ROLES": "Successfully cleared {size, plural, =1 {# role} other {# roles}} from the whitelist.",
+  "SUCCESSFULLY_CLEAR_WHITELIST_CHANNELS": "Successfully cleared {size, plural, =1 {# channel} other {# channels}} from the whitelist.",
+
+  "BLACKLIST": "Blacklist",
+  "BLACKLISTED_USERS": "Blacklisted Users",
+  "BLACKLISTED_ROLES": "Blacklisted Roles",
+  "BLACKLISTED_CHANNELS": "Blacklisted Channels",
+  "WHITELIST": "Whitelist",
+  "WHITELISTED_USERS": "Whitelisted Users",
+  "WHITELISTED_ROLES": "Whitelisted Roles",
+  "WHITELISTED_CHANNELS": "Whitelisted Channels",
+
+  "BLACKLIST_DESCRIPTION_USERS": "Blacklisted users cannot star messages and cannot have their messages on the starboard.",
+  "BLACKLIST_DESCRIPTION_USERS_NO_FILTER_MESSAGES": "Blacklisted users cannot star any messages but their messages can still be starred by other users.",
+  "BLACKLIST_DESCRIPTION_CHANNELS": "Users cannot star messages that were sent in blacklisted channels.\nIf a channel is blacklisted, the channel's threads will automatically be blacklisted too unless whitelisted. If a category is blacklisted, all the channels in the category will be blacklisted too, including threads.",
+  "BLACKLIST_DESCRIPTION_NOTHING_BLACKLISTED": "Currently there are no users, roles or channels blacklisted.",
+  "BLACKLIST_DESCRIPTION_NOTHING_BLACKLISTED_OVERRIDE": "Currently there are no users, roles or channels blacklisted on this override, but some are inherently blacklisted via server settings or other overrides.",
+  "BLACKLIST_DESCRIPTION_ADD_ITEMS": "To add users, roles or channels to the blacklist, you can run any one of {commands}.",
+  "NUMBER_OF_BLACKLISTED_ITEMS": "Number of items blacklisted: {num, number}",
+
+  "INHERITS_BLACKLISTED_ITEMS_FROM": "Inherits blacklisted items from {name}",
+  "WHITELIST_DESCRIPTION_USERS": "Whitelisted users are able to star messages and have their messages on the starboard regardless of if they are on the blacklist or have a role on the blacklist.",
+  "WHITELIST_DESCRIPTION_CHANNELS": "Users can star messages that were sent in whitelisted channels, even if the channel or its parent is on the blacklist.\nIf a channel is whitelisted, the channel's threads will also be whitelisted, and the threads can be individually blacklisted if needed.",
+  "WHITELIST_DESCRIPTION_NOTHING_WHITELISTED": "Currently there are no users, roles or channels whitelisted.",
+  "WHITELIST_DESCRIPTION_NOTHING_WHITELISTED_OVERRIDE": "Currently there are no users, roles or channels whitelisted on this override, but some are inherently whitelisted via server settings or other overrides.",
+  "WHITELIST_DESCRIPTION_ADD_ITEMS": "To add users, roles or channels to the whitelist, you can run any one of {commands}.",
+  "NUMBER_OF_WHITELISTED_ITEMS": "Number of items whitelisted: {num, number}",
+  "NO_MORE_ITEMS": "No more items.",
 
   "SETTINGS": {
     "STARBOARD_ID": {
@@ -211,6 +273,140 @@
   },
 
   "COMMANDS": {
+    "BLACKLIST": {
+      "NAME": "blacklist",
+      "DESCRIPTION": "View info about blacklisted users, roles, and channels, or modify the blacklist.",
+      "ADD": {
+        "NAME": "add",
+        "DESCRIPTION": "Add a user, role or channel to the blacklist.",
+        "USER": {
+          "NAME": "user",
+          "DESCRIPTION": "Add a user to the blacklist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the blacklist on, server settings by default."
+            },
+            "USER": {
+              "NAME": "user",
+              "DESCRIPTION": "The user to blacklist."
+            }
+          }
+        },
+        "ROLE": {
+          "NAME": "role",
+          "DESCRIPTION": "Add a role to the blacklist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the blacklist on, server settings by default."
+            },
+            "ROLE": {
+              "NAME": "role",
+              "DESCRIPTION": "The role to blacklist."
+            }
+          }
+        },
+        "CHANNEL": {
+          "NAME": "channel",
+          "DESCRIPTION": "Add a channel to the blacklist, or provide no specific channel to blacklist all channels.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the blacklist on, server settings by default."
+            },
+            "CHANNEL": {
+              "NAME": "channel",
+              "DESCRIPTION": "The channel to blacklist. All the channel's children will also be blacklisted by default."
+            }
+          }
+        }
+      },
+      "REMOVE": {
+        "NAME": "remove",
+        "DESCRIPTION": "Remove a user, role or channel from the blacklist.",
+        "USER": {
+          "NAME": "user",
+          "DESCRIPTION": "Remove a user from the blacklist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the blacklist on, server settings by default."
+            },
+            "USER": {
+              "NAME": "user",
+              "DESCRIPTION": "The user to unblacklist."
+            }
+          }
+        },
+        "ROLE": {
+          "NAME": "role",
+          "DESCRIPTION": "Remove a role from the blacklist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the blacklist on, server settings by default."
+            },
+            "ROLE": {
+              "NAME": "role",
+              "DESCRIPTION": "The role to unblacklist."
+            }
+          }
+        },
+        "CHANNEL": {
+          "NAME": "channel",
+          "DESCRIPTION": "Remove a channel from the blacklist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the blacklist on, server settings by default."
+            },
+            "CHANNEL": {
+              "NAME": "channel",
+              "DESCRIPTION": "The channel to unblacklist."
+            }
+          }
+        },
+        "ID": {
+          "NAME": "id",
+          "DESCRIPTION": "Remove any ID, perhaps of a deleted channel, role or user, from the blacklist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the blacklist on, server settings by default."
+            },
+            "ID": {
+              "NAME": "id",
+              "DESCRIPTION": "The id of the item to unblacklist."
+            }
+          }
+        }
+      },
+      "CLEAR": {
+        "NAME": "clear",
+        "DESCRIPTION": "Remove all users/roles/channel from the blacklist.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override to modify the blacklist on, server settings by default."
+          },
+          "TYPE": {
+            "NAME": "type",
+            "DESCRIPTION": "What to remove all items of from the blacklist."
+          }
+        }
+      },
+      "VIEW": {
+        "NAME": "view",
+        "DESCRIPTION": "View the list of blacklisted users, roles and channels.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override you want to see the blacklist for."
+          }
+        }
+      }
+    },
     "OVERRIDES": {
       "NAME": "overrides",
       "DESCRIPTION": "Manage overrides made for specific scenarios.",
@@ -545,6 +741,140 @@
           "SETTINGS": {
             "NAME": "settings",
             "DESCRIPTION": "The settings you want to reset - an override or the server settings."
+          }
+        }
+      }
+    },
+    "WHITELIST": {
+      "NAME": "whitelist",
+      "DESCRIPTION": "View info about whitelisted items. Whitelisted items aren't affected by the blacklist.",
+      "ADD": {
+        "NAME": "add",
+        "DESCRIPTION": "Add a user, role or channel to the whitelist.",
+        "USER": {
+          "NAME": "user",
+          "DESCRIPTION": "Add a user to the whitelist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the whitelist on, server settings by default."
+            },
+            "USER": {
+              "NAME": "user",
+              "DESCRIPTION": "The user to whitelist."
+            }
+          }
+        },
+        "ROLE": {
+          "NAME": "role",
+          "DESCRIPTION": "Add a role to the whitelist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the whitelist on, server settings by default."
+            },
+            "ROLE": {
+              "NAME": "role",
+              "DESCRIPTION": "The role to whitelist."
+            }
+          }
+        },
+        "CHANNEL": {
+          "NAME": "channel",
+          "DESCRIPTION": "Add a channel to the whitelist. All of the channel's children will also be whitelisted by default.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the whitelist on, server settings by default."
+            },
+            "CHANNEL": {
+              "NAME": "channel",
+              "DESCRIPTION": "The channel to whitelist."
+            }
+          }
+        }
+      },
+      "REMOVE": {
+        "NAME": "remove",
+        "DESCRIPTION": "Remove a user, role or channel from the whitelist.",
+        "USER": {
+          "NAME": "user",
+          "DESCRIPTION": "Remove a user from the whitelist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the whitelist on, server settings by default."
+            },
+            "USER": {
+              "NAME": "user",
+              "DESCRIPTION": "The user to unwhitelist."
+            }
+          }
+        },
+        "ROLE": {
+          "NAME": "role",
+          "DESCRIPTION": "Remove a role from the whitelist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the whitelist on, server settings by default."
+            },
+            "ROLE": {
+              "NAME": "role",
+              "DESCRIPTION": "The role to unwhitelist."
+            }
+          }
+        },
+        "CHANNEL": {
+          "NAME": "channel",
+          "DESCRIPTION": "Remove a channel from the whitelist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the whitelist on, server settings by default."
+            },
+            "CHANNEL": {
+              "NAME": "channel",
+              "DESCRIPTION": "The channel to unwhitelist."
+            }
+          }
+        },
+        "ID": {
+          "NAME": "id",
+          "DESCRIPTION": "Remove any ID, perhaps of a deleted channel, role or user, from the whitelist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the whitelist on, server settings by default."
+            },
+            "ID": {
+              "NAME": "id",
+              "DESCRIPTION": "The id of the item to unwhitelist."
+            }
+          }
+        }
+      },
+      "CLEAR": {
+        "NAME": "clear",
+        "DESCRIPTION": "Remove all users/roles/channel from the whitelist.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override to modify the whitelist on, server settings by default."
+          },
+          "TYPE": {
+            "NAME": "type",
+            "DESCRIPTION": "What to remove all items of from the whitelist."
+          }
+        }
+      },
+      "VIEW": {
+        "NAME": "view",
+        "DESCRIPTION": "View the list of whitelisted users, roles and channels.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override you want to see the whitelist for."
           }
         }
       }

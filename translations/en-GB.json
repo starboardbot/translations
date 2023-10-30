@@ -21,6 +21,8 @@
   "NONE": "None",
   "NOT_SET": "Not set",
 
+  "PLUS_MORE": "+{num, number} more",
+
   "ORIGINAL_MESSAGE": "Original Message",
   "REPLYING_TO_USER": "Replying to {user}",
   "REFERENCED_MESSAGE": "Referenced Message",
@@ -194,7 +196,7 @@
   "SUCCESSFULLY_CREATED_DISPLAY_TIER": "Successfully created a new display tier: {tier}",
   "DISPLAY_TIER_DUPLICATE": "A display tier with the provided options already exists.",
   "DISPLAY_TIERS": "Display Tiers",
-  "DISPLAY_TIERS_DESCRIPTION_1": "Display Tiers are the different tiers of cosmetic changes that a starboard message can go through as it gets more reactions.",
+  "DISPLAY_TIERS_DESCRIPTION_1": "Display tiers are the different tiers of cosmetic changes that a starboard message can go through as it gets more reactions.",
   "DISPLAY_TIERS_DESCRIPTION_2": "Currently the cosmetics you can change are the star beside the star count and the colour of the starboard message's embeds.",
   "DISPLAY_TIERS_DESCRIPTION_CREATE_TIER": "To create a display tier you can run {command}.",
   "DISPLAY_TIERS_DESCRIPTION_INHERITED": "Some display tiers are inherited from the server settings or other overrides - those tiers are listed in *italics*.",

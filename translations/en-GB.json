@@ -181,6 +181,31 @@
   "NUMBER_OF_WHITELISTED_ITEMS": "Number of items whitelisted: {num, number}",
   "NO_MORE_ITEMS": "No more items.",
 
+  "DISPLAY_TIER_COLOR_ROLE": "Colour of message author's highest role",
+  "DISPLAY_TIER_COLOR_RANDOM": "Random colour",
+  "COLOR_INVALID_COLOUR_AUTO_COMPLETE": "Your input is invalid. Try inputting a hex code (#ecd558) or RGB values (236, 213, 88).",
+  "PLEASE_PROVIDE_STAR_OR_COLOR": "Please provide an emoji and/or colour for this display tier.",
+  "PLEASE_PROVIDE_VALID_EMOJI": "Please provide a valid emoji.",
+  "PLEASE_PROVIDE_VALID_COLOUR": "Please provide a valid colour.",
+  "TOO_MANY_DISPLAY_TIERS": "This server has reached the maximum amount of display tiers.",
+  "ROLE_COLOR": "role colour",
+  "RANDOM_COLOR": "random colour",
+  "DISPLAY_TIER_FROM": "{style} from **{threshold, number}** stars",
+  "SUCCESSFULLY_CREATED_DISPLAY_TIER": "Successfully created a new display tier: {tier}",
+  "DISPLAY_TIER_DUPLICATE": "A display tier with the provided options already exists.",
+  "DISPLAY_TIERS": "Display Tiers",
+  "DISPLAY_TIERS_DESCRIPTION_1": "Display Tiers are the different tiers of cosmetic changes that a starboard message can go through as it gets more reactions.",
+  "DISPLAY_TIERS_DESCRIPTION_2": "Currently the cosmetics you can change are the star beside the star count and the colour of the starboard message's embeds.",
+  "DISPLAY_TIERS_DESCRIPTION_CREATE_TIER": "To create a display tier you can run {command}.",
+  "DISPLAY_TIERS_DESCRIPTION_INHERITED": "Some display tiers are inherited from the server settings or other overrides - those tiers are listed in *italics*.",
+  "DISPLAY_TIERS_DESCRIPTION_UNUSED": "Some display tiers have no effect as their changes are immediately overriden by the next display tier - those tiers are ~~crossed out~~.",
+  "DISPLAY_TIER_UNDELETABLE": "You cannot delete this display tier.",
+  "DISPLAY_TIER_NOT_BELONG": "That display tier doesn't belong to this override. Double check the number of the display tiers with {command}.",
+  "DISPLAY_TIER_NOT_FOUND": "There is no display tier #{number, number} created. Double check the number of the display tiers with {command}.",
+  "SUCCESSFULLY_DELETED_DISPLAY_TIER": "Successfully deleted the display tier: {tier}.",
+  "DISPLAY_TIER_CANNOT_EDIT_THRESHOLD": "You cannot change the threshold of this display tier.",
+  "SUCCESSFULLY_EDITED_DISPLAY_TIER": "Successfully edited the display tier: {old} -> {tier}.",
+
   "SETTINGS": {
     "STARBOARD_ID": {
       "NAME": "Starboard"
@@ -403,6 +428,82 @@
           "SETTINGS": {
             "NAME": "override",
             "DESCRIPTION": "The override you want to see the blacklist for."
+          }
+        }
+      }
+    },
+    "DISPLAYTIERS": {
+      "NAME": "displaytiers",
+      "DESCRIPTION": "Edit the list of cosmetic changes a starboard message can go through as it gets stars.",
+      "CREATE": {
+        "NAME": "create",
+        "DESCRIPTION": "Create a display tier, cosmetic changes that get applied after a certain number of stars.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override to modify the display tiers for, server settings by default."
+          },
+          "THRESHOLD": {
+            "NAME": "threshold",
+            "DESCRIPTION": "This tier will take effect once the starred message has obtained this number of stars."
+          },
+          "STAR": {
+            "NAME": "star",
+            "DESCRIPTION": "The star the starboard message should display beside the star count once this tier is reached."
+          },
+          "COLOR": {
+            "NAME": "colour",
+            "DESCRIPTION": "The colour the starboard message embed should use once it reaches this tier."
+          }
+        }
+      },
+      "DELETE": {
+        "NAME": "delete",
+        "DESCRIPTION": "Delete a display tier.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override you want to delete a display tier from."
+          },
+          "TIER": {
+            "NAME": "tier",
+            "DESCRIPTION": "The number of the display tier you want to delete."
+          }
+        }
+      },
+      "EDIT": {
+        "NAME": "edit",
+        "DESCRIPTION": "Edit a display tier.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override to modify the display tiers for, server settings by default."
+          },
+          "TIER": {
+            "NAME": "tier",
+            "DESCRIPTION": "The number of the display tier you want to edit."
+          },
+          "THRESHOLD": {
+            "NAME": "threshold",
+            "DESCRIPTION": "This tier should now take effect once the starred message has obtained this number of stars."
+          },
+          "STAR": {
+            "NAME": "star",
+            "DESCRIPTION": "The star the starboard message should now display beside the star count once this tier is reached."
+          },
+          "COLOR": {
+            "NAME": "colour",
+            "DESCRIPTION": "The colour the starboard message embed should now use once it reaches this tier."
+          }
+        }
+      },
+      "VIEW": {
+        "NAME": "view",
+        "DESCRIPTION": "View all display tiers.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override you want to list all display tiers for."
           }
         }
       }
@@ -689,7 +790,7 @@
             },
             "USE_ORIGINAL_EMBED_COLOR": {
               "NAME": "use-original-embed-colour",
-              "DESCRIPTION": "If an embed with colour is starred, use the original colour on the starboard message."
+              "DESCRIPTION": "If an embed with colour is starred, use that colour on the starboard message."
             },
             "USE_LINKS_OVER_BUTTONS": {
               "NAME": "use-links-over-buttons",

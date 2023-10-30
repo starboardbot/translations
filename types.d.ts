@@ -186,6 +186,30 @@ declare type MessageParameters = {
   "NUMBER_OF_WHITELISTED_ITEMS": {
     num: number,
   },
+  "DISPLAY_TIER_FROM": {
+    style: string,
+    threshold: number,
+  },
+  "SUCCESSFULLY_CREATED_DISPLAY_TIER": {
+    tier: string,
+  },
+  "DISPLAY_TIERS_DESCRIPTION_CREATE_TIER": {
+    command: string,
+  },
+  "DISPLAY_TIER_NOT_BELONG": {
+    command: string,
+  },
+  "DISPLAY_TIER_NOT_FOUND": {
+    number: number,
+    command: string,
+  },
+  "SUCCESSFULLY_DELETED_DISPLAY_TIER": {
+    tier: string,
+  },
+  "SUCCESSFULLY_EDITED_DISPLAY_TIER": {
+    old: string,
+    tier: string,
+  },
 }
 
 export = MessageParameters

@@ -47,7 +47,11 @@ declare type MessageParameters = {
   "CONFIRMATION_RESET_OVERRIDE": {
     name: string,
   },
-  "SUCCESS_RESET_OVERRIDE": {
+  "SUCCESS_RESET_SETTINGS": {
+    name: string | null,
+  },
+  "SUCCESS_RESET_SETTING": {
+    setting: string,
     name: string | null,
   },
   "INHERITS_SETTINGS_FROM": {

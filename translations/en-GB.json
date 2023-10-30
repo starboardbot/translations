@@ -70,7 +70,9 @@
   "SUCCESS_DELETE_OVERRIDE": "Successfully deleted **{name}**.",
   "CONFIRMATION_RESET_SERVER_SETTINGS": "Are you sure you want to reset the server settings?\nYou will lose all configurations made specifically on the server settings, and they will be gone forever, but no created overrides will be deleted. No starred messages or other stats will be erased.",
   "CONFIRMATION_RESET_OVERRIDE": "Are you sure you want to reset **{name}**?\nYou will lose all configurations made specifically on this override, and they will be gone forever, but the override itself will not be deleted. No starred messages or other stats will be erased.",
-  "SUCCESS_RESET_OVERRIDE": "Successfully reset {name, select, null {the server settings} other {**{name}**}}.",
+  "SUCCESS_RESET_SETTINGS": "Successfully reset {name, select, null {the server settings} other {**{name}**}}.",
+  "INVALID_SETTING_RESET": "Please provide a valid setting to reset.",
+  "SUCCESS_RESET_SETTING": "Successfully reset **{setting}** on {name, select, null {the server settings} other {**{name}**}}.",
 
   "MAIN_SETTINGS": "Main Settings",
   "FILTERING_SETTINGS": "Filtering",
@@ -844,6 +846,10 @@
           "SETTINGS": {
             "NAME": "settings",
             "DESCRIPTION": "The settings you want to reset - an override or the server settings."
+          },
+          "SETTING": {
+            "NAME": "setting",
+            "DESCRIPTION": "The specific setting you want to reset or unset."
           }
         }
       }

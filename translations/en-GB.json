@@ -210,6 +210,39 @@
   "DISPLAY_TIER_CANNOT_EDIT_THRESHOLD": "You cannot change the threshold of this display tier.",
   "SUCCESSFULLY_EDITED_DISPLAY_TIER": "Successfully edited the display tier: {old} -> {tier}.",
 
+  "REWARD_ROLE_TYPE_0": "Total Stars",
+  "REWARD_ROLE_TYPE_1": "Most Starred Message",
+  "REWARD_ROLE_TYPE_2": "Times On Starboard",
+  "REWARD_ROLE_TYPE_3": "Times On Hall Of Fame",
+  "REWARD_ROLE_MANAGED": "This role is automatically managed by an integration and cannot be manually assigned to members.",
+  "REWARD_ROLES_HIGHER_THAN_ME": "I cannot assign this role to users as it is higher than my highest role.",
+  "REWARD_ROLES_HIGHER_THAN_YOU": "You cannot make this role a reward role as it is higher than your highest role.",
+  "REWARD_ROLES_GRANTING_PERMISSIONS": "You cannot make this role a reward role as it is granting permissions you don't already have.",
+  "CANNOT_GIVE_REWARD_ROLES": "I am missing the `Manage Roles` permission, required to give reward roles to users.",
+  "TOO_MANY_REWARD_ROLES": "This server has reached the maximum amount of reward roles.",
+  "DUPLICATE_REWARD_ROLE": "A reward role of the provided type and role already exists.",
+  "SUCCESS_CREATE_REWARD_ROLE_0": "Successfully created a reward role {role}, awarded to users when they've accumulated {required, number} stars in total.",
+  "SUCCESS_CREATE_REWARD_ROLE_1": "Successfully created a reward role {role}, awarded to users when their most starred message has gotten {required, number} stars.",
+  "SUCCESS_CREATE_REWARD_ROLE_2": "Successfully created a reward role {role}, awarded to users when they've reached the starboard {required, number} times.",
+  "SUCCESS_CREATE_REWARD_ROLE_3": "Successfully created a reward role {role}, awarded to users when they've gotten {required, number} messages on the Hall of Fame.",
+  "REWARD_ROLE_NOT_FOUND": "That reward role could not be found.",
+  "REWARD_ROLE_NOT_FOUND_TYPE": "That type of requirement for that reward role doesn't exist.",
+  "SUCCESS_EDIT_REWARD_ROLE": "Successfully changed the requirement for that reward role to {required, number}.",
+  "SUCCESS_DELETE_REWARD_ROLE": "Successfully deleted the {role} reward role.",
+  "SUCCESS_DELETE_REWARD_ROLE_TYPE": "Successfully deleted that requirement for the {role} reward role.",
+  "REWARD_ROLES": "Reward Roles",
+  "REWARD_ROLES_DESCRIPTION": "Reward roles are a fun way to reward users for getting their messages starred. They are roles that are given to users after reaching a certain requirement, such as the user's total number of stars or the times a user has reached the starboard.",
+  "REWARD_ROLES_NO_REWARD_ROLES": "There are no reward roles currently made in this server.",
+  "REWARD_ROLES_DESCRIPTION_CREATE_REWARD_ROLES": "To create reward roles you can run {command}.",
+  "REWARD_ROLE_DESCRIPTION_REQUIREMENT_0": "accumulate **{required, number}** stars in total",
+  "REWARD_ROLE_DESCRIPTION_REQUIREMENT_1": "get **{required, number}** stars on your most starred message",
+  "REWARD_ROLE_DESCRIPTION_REQUIREMENT_2": "reach the starboard **{required, number}** times",
+  "REWARD_ROLE_DESCRIPTION_REQUIREMENT_3": "get **{required, number}** messages on the Hall of Fame",
+  "REWARD_ROLES_PROGRESS": "Reward Roles Progress",
+  "REWARD_ROLES_OBTAINED": "Reward Roles Obtained",
+  "REWARD_ROLES_PROGRESS_STARS": "{obtained, number}/{required, number} stars",
+
+
   "SETTINGS": {
     "STARBOARD_ID": {
       "NAME": "Starboard"
@@ -680,6 +713,68 @@
             "DESCRIPTION": "The emoji that would be used to react."
           }
         }
+      }
+    },
+    "REWARDROLES": {
+      "NAME": "rewardroles",
+      "DESCRIPTION": "View or edit the list of reward roles, roles awarded to users as they get more stars.",
+      "CREATE": {
+        "NAME": "create",
+        "DESCRIPTION": "Create a reward role.",
+        "OPTIONS": {
+          "ROLE": {
+            "NAME": "role",
+            "DESCRIPTION": "The role to make a reward role out of."
+          },
+          "TYPE": {
+            "NAME": "type",
+            "DESCRIPTION": "The type of requirement the reward role you want to create should have."
+          },
+          "REQUIRED": {
+            "NAME": "required",
+            "DESCRIPTION": "What is required for this reward role. (i.e. 50 total stars, 50 stars on most starred message, etc.)"
+          }
+        }
+      },
+      "EDIT": {
+        "NAME": "edit",
+        "DESCRIPTION": "Edit the requirement for a reward role.",
+        "OPTIONS": {
+          "ROLE": {
+            "NAME": "role",
+            "DESCRIPTION": "The reward role to change the requirement of."
+          },
+          "TYPE": {
+            "NAME": "type",
+            "DESCRIPTION": "The type of requirement the reward role you want to edit has."
+          },
+          "REQUIRED": {
+            "NAME": "required",
+            "DESCRIPTION": "What should now be required for this reward role."
+          }
+        }
+      },
+      "DELETE": {
+        "NAME": "delete",
+        "DESCRIPTION": "Delete a reward role.",
+        "OPTIONS": {
+          "ROLE": {
+            "NAME": "role",
+            "DESCRIPTION": "The reward role to delete."
+          },
+          "TYPE": {
+            "NAME": "type",
+            "DESCRIPTION": "The type of requirement the reward role you want to delete has."
+          }
+        }
+      },
+      "PROGRESS": {
+        "NAME": "progress",
+        "DESCRIPTION": "View your progress in relation to getting reward roles."
+      },
+      "VIEW": {
+        "NAME": "view",
+        "DESCRIPTION": "View the list of reward roles created in this server."
       }
     },
     "SETTINGS": {

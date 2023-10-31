@@ -217,6 +217,50 @@ declare type MessageParameters = {
     old: string,
     tier: string,
   },
+  "SUCCESS_CREATE_REWARD_ROLE_0": {
+    role: string,
+    required: number,
+  },
+  "SUCCESS_CREATE_REWARD_ROLE_1": {
+    role: string,
+    required: number,
+  },
+  "SUCCESS_CREATE_REWARD_ROLE_2": {
+    role: string,
+    required: number,
+  },
+  "SUCCESS_CREATE_REWARD_ROLE_3": {
+    role: string,
+    required: number,
+  },
+  "SUCCESS_EDIT_REWARD_ROLE": {
+    required: number,
+  },
+  "SUCCESS_DELETE_REWARD_ROLE": {
+    role: string,
+  },
+  "SUCCESS_DELETE_REWARD_ROLE_TYPE": {
+    role: string,
+  },
+  "REWARD_ROLES_DESCRIPTION_CREATE_REWARD_ROLES": {
+    command: string,
+  },
+  "REWARD_ROLE_DESCRIPTION_REQUIREMENT_0": {
+    required: number,
+  },
+  "REWARD_ROLE_DESCRIPTION_REQUIREMENT_1": {
+    required: number,
+  },
+  "REWARD_ROLE_DESCRIPTION_REQUIREMENT_2": {
+    required: number,
+  },
+  "REWARD_ROLE_DESCRIPTION_REQUIREMENT_3": {
+    required: number,
+  },
+  "REWARD_ROLES_PROGRESS_STARS": {
+    obtained: number,
+    required: number,
+  },
 }
 
 export = MessageParameters

@@ -41,7 +41,7 @@ declare type MessageParameters = {
   "CONFIRMATION_DELETE_OVERRIDE": {
     name: string,
   },
-  "SUCCESS_DELETE_OVERRIDE": {
+  "SUCCESSFULLY_DELETED": {
     name: string,
   },
   "CONFIRMATION_RESET_OVERRIDE": {
@@ -260,6 +260,175 @@ declare type MessageParameters = {
   "REWARD_ROLES_PROGRESS_STARS": {
     obtained: number,
     required: number,
+  },
+  "INVALID_REGEX": {
+    error: string,
+  },
+  "RELATIVE_MIN_AGE_TIME": {
+    time: string,
+  },
+  "RELATIVE_MAX_AGE_TIME": {
+    time: string,
+  },
+  "SUCCESS_CREATE_FILTER": {
+    name: string,
+    type: string | number,
+    appliesTo: number,
+    doesNotApplyTo: number,
+  },
+  "TO_ADD_FILTER": {
+    filtersAdd: string,
+    overridesCreateChannel: string,
+  },
+  "TO_ADD_FILTER_OVERRIDE": {
+    filtersAdd: string,
+  },
+  "SUCCESS_EDIT_FILTER": {
+    type: number,
+    name: string,
+    changes: string,
+  },
+  "FILTER_NOW_NAMED": {
+    name: string,
+  },
+  "FILTER_NOW_APPLIES": {
+    appliesTo: number,
+  },
+  "FILTER_NOW_NOT_APPLIES": {
+    doesNotApplyTo: number,
+  },
+  "FILTERS_DESCRIPTION": {
+    settingsEditFiltering: string,
+  },
+  "FILTER_OR": {
+    a: string,
+    b: string,
+  },
+  "FILTERS_DESCRIPTION_ALL_CREATED": {
+    filtersAdd: string,
+  },
+  "FILTERS_DESCRIPTION_NO_FILTERS_CREATED": {
+    filtersCreate: string,
+  },
+  "VIEW_ALL_CREATED_FILTERS": {
+    command: string,
+  },
+  "THIS_FILTER_SAYS": {
+    type: string | number,
+  },
+  "FILTER_EXPLAIN_CONTENT_MIN_LENGTH": {
+    chars: number,
+  },
+  "FILTER_EXPLAIN_CONTENT_MAX_LENGTH": {
+    chars: number,
+  },
+  "FILTER_EXPLAIN_CONTENT_INCLUDE_TEXT": {
+    words: string,
+  },
+  "FILTER_EXPLAIN_CONTENT_NOT_INCLUDE_TEXT": {
+    words: string,
+  },
+  "FILTER_EXPLAIN_CONTENT_MATCH_REGEX": {
+    pattern: string,
+  },
+  "FILTER_EXPLAIN_CONTENT_NOT_MATCH_REGEX": {
+    pattern: string,
+  },
+  "FILTER_EXPLAIN_ATTACHMENTS_MIN_ATTACHMENTS": {
+    num: number,
+  },
+  "FILTER_EXPLAIN_ATTACHMENTS_MAX_ATTACHMENTS": {
+    num: number,
+  },
+  "FILTER_EXPLAIN_ATTACHMENTS_INCLUDE_TEXT": {
+    texts: string,
+  },
+  "FILTER_EXPLAIN_ATTACHMENTS_NOT_INCLUDE_TEXT": {
+    texts: string,
+  },
+  "FILTER_EXPLAIN_ATTACHMENTS_MATCH_REGEX": {
+    pattern: string,
+  },
+  "FILTER_EXPLAIN_ATTACHMENTS_NOT_MATCH_REGEX": {
+    pattern: string,
+  },
+  "FILTER_EXPLAIN_AGE_MIN": {
+    age: string,
+  },
+  "FILTER_EXPLAIN_AGE_MAX": {
+    age: string,
+  },
+  "FILTER_EXPLAIN_DATE_MIN": {
+    date: Date | number,
+  },
+  "FILTER_EXPLAIN_DATE_MAX": {
+    date: Date | number,
+  },
+  "FILTER_EXPLAIN_APPLIES_TO": {
+    list: string,
+  },
+  "FILTER_EXPLAIN_DOES_NOT_APPLY_TO": {
+    list: string,
+  },
+  "AFTER_FILTER": {
+    filter: string,
+    position: number,
+  },
+  "FILTER_NOT_FOUND": {
+    name: string,
+  },
+  "FILTER_ALREADY_ADDED": {
+    filter: string,
+  },
+  "SUCCESS_FILTER_ADD": {
+    filter: string,
+    override: string | null,
+    optional: boolean,
+    settingsView: string,
+  },
+  "CONFIRMATION_DELETE_FILTER": {
+    name: string,
+  },
+  "FILTER_IN_SETTINGS_AUTOCOMPLETE": {
+    position: number,
+    filter: string,
+    optional: boolean,
+  },
+  "NO_FILTER_AT_POSITION": {
+    position: number,
+    override: string | null,
+  },
+  "SUCCESS_FILTER_REMOVE": {
+    optional: boolean,
+    position: number,
+    override: string | null,
+    filter: string,
+  },
+  "SUCCESS_FILTER_MOVE": {
+    filter: string,
+    old: number,
+    position: number,
+    override: string | null,
+    after: string,
+  },
+  "PASSES_FILTER": {
+    filter: string,
+    result: string,
+  },
+  "MESSAGE_CONTENT_LENGTH": {
+    num: number,
+  },
+  "MESSAGE_ATTACHMENTS_LENGTH": {
+    num: number,
+  },
+  "MESSAGE_HAS_MEDIA": {
+    has: string,
+  },
+  "MESSAGE_AGE": {
+    age: string,
+  },
+  "MESSAGE_DATE": {
+    date: Date | number,
   },
 }
 

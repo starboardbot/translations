@@ -17,6 +17,7 @@
   "CONTINUE": "Continue",
   "NEXT": "Next",
   "END": "End",
+  "RETRY": "Retry",
 
   "NONE": "None",
   "NOT_SET": "Not set",
@@ -67,7 +68,7 @@
   "SUCCESS_CREATE_OVERRIDE_CHANNELS_NOTICE": "This override also only applies in {channels, plural, =1 {1 channel} other {# channels}}.",
   "SUCCESS_CREATE_EMOJI_OVERRIDE_NOTICE": "Please note that this override will only take effect for an emoji if the **Emoji** setting is set to that emoji. Right now, no settings have the **Emoji** setting set to {emojis}.",
   "CONFIRMATION_DELETE_OVERRIDE": "Are you sure you want to delete **{name}**?\nYou will lose all configurations made specifically on this override, and they will be gone forever. No starred messages or other stats will be erased.",
-  "SUCCESS_DELETE_OVERRIDE": "Successfully deleted **{name}**.",
+  "SUCCESSFULLY_DELETED": "Successfully deleted **{name}**.",
   "CONFIRMATION_RESET_SERVER_SETTINGS": "Are you sure you want to reset the server settings?\nYou will lose all configurations made specifically on the server settings, and they will be gone forever, but no created overrides will be deleted. No starred messages or other stats will be erased.",
   "CONFIRMATION_RESET_OVERRIDE": "Are you sure you want to reset **{name}**?\nYou will lose all configurations made specifically on this override, and they will be gone forever, but the override itself will not be deleted. No starred messages or other stats will be erased.",
   "SUCCESS_RESET_SETTINGS": "Successfully reset {name, select, null {the server settings} other {**{name}**}}.",
@@ -242,6 +243,92 @@
   "REWARD_ROLES_OBTAINED": "Reward Roles Obtained",
   "REWARD_ROLES_PROGRESS_STARS": "{obtained, number}/{required, number} stars",
 
+  "FILTER_INCLUDE_MATCH_CONFLICT": "A filter cannot check if a message includes text and matches a regex pattern at the same time - those two options are mutually exclusive.",
+  "FILTER_NOT_INCLUDE_MATCH_CONFLICT": "A filter cannot check for the inclusion of text and the matching of a regex pattern at the same time - those two options are mutually exclusive.",
+  "CONTENT_FILTER_MIN_GREATER_THAN_MAX": "The minimum length option cannot be greater than the maximum length option.",
+  "ATTACHMENTS_FILTER_MIN_GREATER_THAN_MAX": "The min number of attachments option cannot be greater than the min number of attachments option.",
+  "RELATIVE_AGE_FILTER_MIN_GREATER_THAN_MAX": "The \"older than\" option cannot be greater than the \"newer than\" option. (A message can't be older than 10 days and newer than 5 days at the same time.)",
+  "STATIC_AGE_FILTER_MIN_GREATER_THAN_MAX": "The \"sent after\" option cannot be greater than the \"sent before\" option. (A message can't be sent after 2023 and sent before 2022 at the same time.)",
+  "INVALID_REGEX": "An invalid regex pattern was provided: {error}. Try testing your regex pattern on sites like [regexr.com](https://regexr.com) or [regex101.com](https://regex101.com).",
+  "INVALID_APPLY_LIST": "Please provide a valid list of roles or users.",
+  "TOO_MANY_APPLY_LIST": "You've provided too many users and roles.",
+  "RELATIVE_MIN_AGE_TIME": "Older than {time}",
+  "RELATIVE_MAX_AGE_TIME": "Newer than {time}",
+  "INVALID_DATE_AUTOCOMPLETE": "Invalid Date",
+  "INVALID_DATE_AUTOCOMPLETE_EDIT": "No Date (unset)",
+  "INVALID_DATE": "An invalid date was provided. Make sure your using the right format (dd/mm/yyyy for everyone, mm/dd/yyyy if you live in the US).",
+  "INVALID_AGE_AUTOCOMPLETE": "Invalid Age",
+  "INVALID_AGE_AUTOCOMPLETE_EDIT": "No Age (unset)",
+  "INVALID_AGE": "An invalid age was provided. You can provide your age in seconds, minutes, hours, days, weeks, months (30d) and years. (example: `1 day 12 hours`)",
+  "PLEASE_INPUT_FILTER_OPTIONS": "Please input some options for this filter.",
+  "CANNOT_HAVE_EMPTY_FILTER": "A message filter can't exist without any options.",
+  "SUCCESS_CREATE_FILTER": "Successfully created a message filter **{name}** based on the message's {type, select, 0 {content (and embed content)} 1 {attachments, links and embeds} other {age}}, which applies to {appliesTo, plural, =0 {everyone} =1 {1 user/role} other {# users/roles}} and does not apply to {doesNotApplyTo, plural, =1 {1 user/role} other {# users/roles}}.",
+  "TO_ADD_FILTER": "To enable this filter for messages across the whole server, run {filtersAdd}. If you want this filter to only apply for a set of channels, try creating a channel override with {overridesCreateChannel} and then add this filter to the newly created override with {filtersAdd}.",
+  "TO_ADD_FILTER_OVERRIDE": "To enable this filter you can add it to the list of filters on the server settings to enable it server-wide, or add it to an override to have this filter enabled whenever the override is applied. You can add the filter with {filtersAdd}.",
+  "SUCCESS_EDIT_FILTER": "Successfully edited the message {type, select, 0 {content} 1 {attachments} 2 {age} 3 {date}} filter **{name}**:\n{changes}",
+  "FILTER_NOW_NAMED": "This filter is now named **{name}**.",
+  "FILTER_NOW_APPLIES": "This filter now applies to {appliesTo, plural, =0 {everyone} =1 {1 user/role} other {# users/roles}}.",
+  "FILTER_NOW_NOT_APPLIES": "This filter now does not apply to {doesNotApplyTo, plural, =1 {1 user/role} other {# users/roles}}.",
+
+  "MESSAGE_FILTERS": "Message Filters",
+  "FILTERS_DESCRIPTION": "Message Filters are a more advanced way to filter messages off the starboard. For simple filtering of messages, you can edit the **Filtering Settings** with {settingsEditFiltering}.",
+  "FILTERS_DESCRIPTION_MESSAGE_CANNOT_BE_STARRED_IF_NOT_PASS_ALL": "A message cannot be starred if it doesn't pass all filters.",
+  "FILTERS_DESCRIPTION_SHORT": "These are the message filters a message must pass in order to be starred.",
+  "NOTHING_TO_SHOW": "Nothing to show.",
+  "FILTER_OR": "{a} OR {b}",
+  "FILTERS_DESCRIPTION_ALL_CREATED": "These are all the message filters created in this server. To enable them you have to add them to the settings with {filtersAdd}.\nWhen adding filters, if two or more filters beside eachother are marked as optional it means only one of them have to pass for them all to pass. For example, A, B, C, D, with B & C both optional means A must pass, B *or* C must pass, and D must pass, to allow the message to be starred.",
+  "FILTERS_DESCRIPTION_NO_FILTERS_CREATED": "There are no message filters currently created in this server. To create one, run any one of {filtersCreate}.",
+  "VIEW_ALL_CREATED_FILTERS": "View all created filters with {command}.",
+  "THIS_FILTER_SAYS": "This message {type, select, 0 {content filter} 1 {attachments filter} 2 {age filter} 3 {date filter} other {filter}} says that a message must:",
+  "THIS_FILTER_NOW_SAYS": "This message filter now says that a message must:",
+  "FILTER_EXPLAIN": "For a message to be starred, it must:",
+  "FILTER_EXPLAIN_ALSO": "For a message to be starred, it must also:",
+  "FILTER_EXPLAIN_CONTENT_MIN_LENGTH": "have at least **{chars, number}** characters (incl. text in embeds)",
+  "FILTER_EXPLAIN_CONTENT_MAX_LENGTH": "have no more than **{chars, number}** characters (incl. text in embeds)",
+  "FILTER_EXPLAIN_CONTENT_INCLUDE_TEXT": "include the words and phrases {words}",
+  "FILTER_EXPLAIN_CONTENT_NOT_INCLUDE_TEXT": "not include the words and phrases {words}",
+  "FILTER_EXPLAIN_CONTENT_MATCH_REGEX": "match the regex pattern `{pattern}`",
+  "FILTER_EXPLAIN_CONTENT_NOT_MATCH_REGEX": "match the regex pattern `{pattern}`",
+  "FILTER_EXPLAIN_ATTACHMENTS_MEDIA_REQUIRED": "have at least **one** image, video or other viewable content",
+  "FILTER_EXPLAIN_ATTACHMENTS_MIN_ATTACHMENTS": "have **{num, number}** or more attachments/files/embeds/links",
+  "FILTER_EXPLAIN_ATTACHMENTS_MAX_ATTACHMENTS": "have no more than **{num, number}** attachments/files/embeds/links",
+  "FILTER_EXPLAIN_ATTACHMENTS_INCLUDE_TEXT": "have at least one embed/attachment link that includes the text {texts}",
+  "FILTER_EXPLAIN_ATTACHMENTS_NOT_INCLUDE_TEXT": "not include the text {texts} in any of the message's embed/attachment links",
+  "FILTER_EXPLAIN_ATTACHMENTS_MATCH_REGEX": "have at least one embed/attachment link that matches the regex pattern `{pattern}`",
+  "FILTER_EXPLAIN_ATTACHMENTS_NOT_MATCH_REGEX": "not match the regex pattern `{pattern}` in any of the message's embed/attachment links",
+  "FILTER_EXPLAIN_AGE_MIN": "be older than **{age}** at the time of starring the message",
+  "FILTER_EXPLAIN_AGE_MAX": "be newer than **{age}** at the time of starring the message",
+  "FILTER_EXPLAIN_DATE_MIN": "be sent after **{date, date, medium}**",
+  "FILTER_EXPLAIN_DATE_MAX": "be sent before **{date, date, medium}**",
+  "FILTER_EXPLAIN_APPLIES_TO": "This filter applies to {list}.",
+  "FILTER_EXPLAIN_DOES_NOT_APPLY_TO": "This filter does not apply to {list}.",
+
+  "AFTER_FILTER": "After {filter} (position: {position, number})",
+  "AT_START": "At start",
+  "AT_END": "At end",
+  "FILTER_NOT_FOUND": "There is no existing message filter created under the name **{name}**.",
+  "FILTER_ALREADY_ADDED": "**{filter}** is already added as a filter a message __has__ to pass, so adding it again won't do anything.",
+  "SUCCESS_FILTER_ADD": "Successfully added **{filter}** to the list of filters on {override, select, null {the server settings} other {the **{override}** override}}{optional, select, true { as an optional filter} false {}}. You can view the list of filters with {settingsView}.",
+
+  "CONFIRMATION_DELETE_FILTER": "Are you sure you want to delete **{name}**? This filter will be removed from wherever it is used and will be deleted permanently.",
+  "FILTER_IN_SETTINGS_AUTOCOMPLETE": "{position, number}: {filter} {optional, select, true {(optional filter)} false {}}",
+  "NO_FILTER_AT_POSITION": "There is no message filter at the given position {position, number} on {override, select, null {the server settings} other {override **{override}**}}.",
+  "SUCCESS_FILTER_REMOVE": "Successfully removed {optional, select, true {optional filter **{filter}**} false {**{filter}**}} (position: {position, number}) from {override, select, null {the server settings} other {the **{override}** override}}.",
+  "SUCCESS_FILTER_MOVE": "Successfully moved **{filter}** from {old, number} to {position, plural, =1 {the start,} other {**{position, number}** (after **{after}**)}} on {override, select, null {the server settings} other {the **{override}** override}}.",
+
+  "MESSAGE_NOT_FOUND": [
+    "I could not find a message from your input. This could be due to different reasons:\n",
+    "- I can't view the channel, due to missing the `Read Message History` or `View Channel` permissions, or the `Connect` permission in voice/stage channels.\n",
+    "- The message is in another server.\n",
+    "- The channel or message does not exist or has been deleted.\n",
+    "- A valid message link or message ID was not provided."
+  ],
+  "PASSES_FILTER": "Passes **{filter}**: {result}",
+  "MESSAGE_CONTENT_LENGTH": "**Characters in message**: {num, number}",
+  "MESSAGE_ATTACHMENTS_LENGTH": "**Number of embeds/attachments**: {num, number}",
+  "MESSAGE_HAS_MEDIA": "**Has media (images/videos)?**: {has}",
+  "MESSAGE_AGE": "**Age**: {age}",
+  "MESSAGE_DATE": "**Sent on**: {date, date, medium}",
 
   "SETTINGS": {
     "STARBOARD_ID": {
@@ -543,6 +630,382 @@
             "DESCRIPTION": "The override you want to list all display tiers for."
           }
         }
+      }
+    },
+    "FILTER": {
+      "NAME": "filter",
+      "DESCRIPTION": "-",
+      "ADD": {
+        "NAME": "add",
+        "DESCRIPTION": "Add a message filter you've created to the list of enabled message filters.",
+        "OPTIONS": {
+          "FILTER": {
+            "NAME": "filter",
+            "DESCRIPTION": "The filter you want to add."
+          },
+          "SETTINGS": {
+            "NAME": "settings",
+            "DESCRIPTION": "Where you'd like the filter to be added."
+          },
+          "POSITION": {
+            "NAME": "position",
+            "DESCRIPTION": "The position you'd like the filter to be in. Filters are checked from top to bottom."
+          },
+          "OPTIONAL": {
+            "NAME": "optional",
+            "DESCRIPTION": "When 2 or more optional filters are beside eachother, only one of them has to pass for all to pass."
+          }
+        }
+      },
+      "DELETE": {
+        "NAME": "delete",
+        "DESCRIPTION": "Delete a message filter you've previously created.",
+        "OPTIONS": {
+          "FILTER": {
+            "NAME": "filter",
+            "DESCRIPTION": "The name of the message filter you want to delete."
+          }
+        }
+      },
+      "EDIT": {
+        "NAME": "edit",
+        "DESCRIPTION": "edit",
+        "CONTENT": {
+          "NAME": "content",
+          "DESCRIPTION": "Edit a message content filter.",
+          "OPTIONS": {
+            "FILTER": {
+              "NAME": "filter",
+              "DESCRIPTION": "The message content filter you want to edit."
+            },
+            "NAME": {
+              "NAME": "new-name",
+              "DESCRIPTION": "The new name for this message content filter."
+            },
+            "APPLIES_TO": {
+              "NAME": "applies-to",
+              "DESCRIPTION": "Provide every item to set, or provide +@mention / -@mention to add or remove from the current list."
+            },
+            "DOES_NOT_APPLY_TO": {
+              "NAME": "does-not-apply-to",
+              "DESCRIPTION": "Provide every item to set, or provide +@mention / -@mention to add or remove from the current list."
+            },
+            "MIN_LENGTH": {
+              "NAME": "min-length",
+              "DESCRIPTION": "The minimum amount of characters a message is now allowed to have. Provide 0 to unset."
+            },
+            "MAX_LENGTH": {
+              "NAME": "max-length",
+              "DESCRIPTION": "The maximum amount of characters a message is now allowed to have. Provide -1 to unset."
+            },
+            "INCLUDE_TEXT": {
+              "NAME": "include-text",
+              "DESCRIPTION": "Text the message (including embeds) must now contain. Provide \",\" to unset."
+            },
+            "NOT_INCLUDE_TEXT": {
+              "NAME": "not-include-text",
+              "DESCRIPTION": "Text the message (including embeds) must now NOT contain. Provide \",\" to unset."
+            },
+            "MATCH_REGEX": {
+              "NAME": "match-regex",
+              "DESCRIPTION": "For advanced matching, provide a regex pattern instead of include-text. Provide \".\" to unset."
+            },
+            "NOT_MATCH_REGEX": {
+              "NAME": "not-match-regex",
+              "DESCRIPTION": "For advanced matching, provide a regex pattern instead of not-include-text. Provide \".\" to unset."
+            }
+          }
+        },
+        "ATTACHMENTS": {
+          "NAME": "attachments",
+          "DESCRIPTION": "Edit a message attachments filter.",
+          "OPTIONS": {
+            "FILTER": {
+              "NAME": "filter",
+              "DESCRIPTION": "The message attachments filter you want to edit."
+            },
+            "NAME": {
+              "NAME": "new-name",
+              "DESCRIPTION": "The new name for this message attachments filter."
+            },
+            "APPLIES_TO": {
+              "NAME": "applies-to",
+              "DESCRIPTION": "Provide every item to set, or provide +@mention / -@mention to add or remove from the current list."
+            },
+            "DOES_NOT_APPLY_TO": {
+              "NAME": "does-not-apply-to",
+              "DESCRIPTION": "Provide every item to set, or provide +@mention / -@mention to add or remove from the current list."
+            },
+            "MIN_ATTACHMENTS": {
+              "NAME": "min-attachments",
+              "DESCRIPTION": "The minimum amount of attachments and embeds a message is now allowed to have. Provide 0 to unset."
+            },
+            "MAX_ATTACHMENTS": {
+              "NAME": "max-attachments",
+              "DESCRIPTION": "The maximum amount of attachments and embeds a message is now allowed to have. Provide -1 to unset."
+            },
+            "MEDIA_REQUIRED": {
+              "NAME": "media-required",
+              "DESCRIPTION": "Whether or not watchable content (images and videos) should now be required."
+            },
+            "INCLUDE_TEXT": {
+              "NAME": "include-text",
+              "DESCRIPTION": "Text the embed/attachment URLs must now contain. Provide \" \" to unset."
+            },
+            "NOT_INCLUDE_TEXT": {
+              "NAME": "not-include-text",
+              "DESCRIPTION": "Text the embed/attachment URLs must now NOT contain. Provide \" \" to unset."
+            },
+            "MATCH_REGEX": {
+              "NAME": "match-regex",
+              "DESCRIPTION": "For advanced matching, provide a regex pattern instead of include-text. Provide \".\" to unset."
+            },
+            "NOT_MATCH_REGEX": {
+              "NAME": "not-match-regex",
+              "DESCRIPTION": "For advanced matching provide a regex pattern instead of not-include-text. Provide \".\" to unset."
+            }
+          }
+        },
+        "AGE": {
+          "NAME": "age",
+          "DESCRIPTION": "Edit a message age filter.",
+          "OPTIONS": {
+            "FILTER": {
+              "NAME": "filter",
+              "DESCRIPTION": "The message age filter you want to edit."
+            },
+            "NAME": {
+              "NAME": "new-name",
+              "DESCRIPTION": "The new name for this message age filter."
+            },
+            "APPLIES_TO": {
+              "NAME": "applies-to",
+              "DESCRIPTION": "Provide every item to set, or provide +@mention / -@mention to add or remove from the current list."
+            },
+            "DOES_NOT_APPLY_TO": {
+              "NAME": "does-not-apply-to",
+              "DESCRIPTION": "Provide every item to set, or provide +@mention / -@mention to add or remove from the current list."
+            },
+            "MIN": {
+              "NAME": "older-than",
+              "DESCRIPTION": "The message must now be older than this at the time of starring. Provide an invalid age to unset."
+            },
+            "MAX": {
+              "NAME": "newer-than",
+              "DESCRIPTION": "The message must now be newer than this at the time of starring. Provide an invalid age to unset."
+            }
+          }
+        },
+        "DATE": {
+          "NAME": "date",
+          "DESCRIPTION": "Edit a message date filter.",
+          "OPTIONS": {
+            "FILTER": {
+              "NAME": "filter",
+              "DESCRIPTION": "The message date filter you want to edit."
+            },
+            "NAME": {
+              "NAME": "new-name",
+              "DESCRIPTION": "The new name for this message date filter."
+            },
+            "APPLIES_TO": {
+              "NAME": "applies-to",
+              "DESCRIPTION": "Provide every item to set, or provide +@mention / -@mention to add or remove from the current list."
+            },
+            "DOES_NOT_APPLY_TO": {
+              "NAME": "does-not-apply-to",
+              "DESCRIPTION": "Provide every item to set, or provide +@mention / -@mention to add or remove from the current list."
+            },
+            "MIN": {
+              "NAME": "sent-after",
+              "DESCRIPTION": "The message must now be sent after this date. Provide an invalid date to unset."
+            },
+            "MAX": {
+              "NAME": "sent-before",
+              "DESCRIPTION": "The message must now be sent before this date. Provide an invalid date to unset."
+            }
+          }
+        }
+      },
+      "REMOVE": {
+        "NAME": "remove",
+        "DESCRIPTION": "Remove or move a message filter that's in the list of enabled message filters.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "settings",
+            "DESCRIPTION": "Where you want to move/remove a filter from."
+          },
+          "FILTER": {
+            "NAME": "filter",
+            "DESCRIPTION": "The message filter you want to move/remove."
+          },
+          "NEW_POSITION": {
+            "NAME": "new-position",
+            "DESCRIPTION": "The new position for this filter. If nothing is provided, the filter is simply removed."
+          }
+        }
+      }
+    },
+    "FILTERS": {
+      "NAME": "filters",
+      "DESCRIPTION": "View or create message filters for the server.",
+      "CREATE": {
+        "NAME": "create",
+        "DESCRIPTION": "Create a filter that filters which messages can be starred.",
+        "CONTENT": {
+          "NAME": "content",
+          "DESCRIPTION": "Create a filter that filters messages based on the content of the message and its embeds.",
+          "OPTIONS": {
+            "NAME": {
+              "NAME": "name",
+              "DESCRIPTION": "The name of this message content filter."
+            },
+            "APPLIES_TO": {
+              "NAME": "applies-to",
+              "DESCRIPTION": "A list of users and roles that this filter applies to. (everyone by default)"
+            },
+            "DOES_NOT_APPLY_TO": {
+              "NAME": "does-not-apply-to",
+              "DESCRIPTION": "A list of users and roles that this filter does not apply to."
+            },
+            "MIN_LENGTH": {
+              "NAME": "min-length",
+              "DESCRIPTION": "The minimum amount of characters a message is allowed to have, including embeds."
+            },
+            "MAX_LENGTH": {
+              "NAME": "max-length",
+              "DESCRIPTION": "The maximum amount of characters a message is allowed to have, including embeds."
+            },
+            "INCLUDE_TEXT": {
+              "NAME": "include-text",
+              "DESCRIPTION": "Text the message (including embeds) must contain. Separate words and phrases with commas."
+            },
+            "NOT_INCLUDE_TEXT": {
+              "NAME": "not-include-text",
+              "DESCRIPTION": "Text the message (including embeds) must NOT contain. Separate words and phrases with commas."
+            },
+            "MATCH_REGEX": {
+              "NAME": "match-regex",
+              "DESCRIPTION": "For advanced matching, you can provide one regex pattern instead of include-text. (e.g. /meme: .+/i)"
+            },
+            "NOT_MATCH_REGEX": {
+              "NAME": "not-match-regex",
+              "DESCRIPTION": "For advanced matching, you can provide one regex pattern instead of not-include-text. (e.g. /ba+d/)"
+            }
+          }
+        },
+        "ATTACHMENTS": {
+          "NAME": "attachments",
+          "DESCRIPTION": "Create a filter that filters messages based on the attachments, files and urls in the message.",
+          "OPTIONS": {
+            "NAME": {
+              "NAME": "name",
+              "DESCRIPTION": "The name of this message attachments filter."
+            },
+            "APPLIES_TO": {
+              "NAME": "applies-to",
+              "DESCRIPTION": "A list of users and roles that this filter applies to. (everyone by default)"
+            },
+            "DOES_NOT_APPLY_TO": {
+              "NAME": "does-not-apply-to",
+              "DESCRIPTION": "A list of users and roles that this filter does not apply to."
+            },
+            "MIN_ATTACHMENTS": {
+              "NAME": "min-attachments",
+              "DESCRIPTION": "The minimum amount of attachments and embeds a message is allowed to have."
+            },
+            "MAX_ATTACHMENTS": {
+              "NAME": "max-attachments",
+              "DESCRIPTION": "The maximum amount of attachments and embeds a message is allowed to have."
+            },
+            "MEDIA_REQUIRED": {
+              "NAME": "media-required",
+              "DESCRIPTION": "Whether or not watchable content (images and videos) is required. False by default."
+            },
+            "INCLUDE_TEXT": {
+              "NAME": "include-text",
+              "DESCRIPTION": "Text the embed/attachment URLs must contain. Separate words and phrases with commas."
+            },
+            "NOT_INCLUDE_TEXT": {
+              "NAME": "not-include-text",
+              "DESCRIPTION": "Text the embed/attachment URLs must NOT contain. Separate words and phrases with commas."
+            },
+            "MATCH_REGEX": {
+              "NAME": "match-regex",
+              "DESCRIPTION": "For advanced matching, you can provide one regex pattern instead of include-text. (e.g. /^https:/i)"
+            },
+            "NOT_MATCH_REGEX": {
+              "NAME": "not-match-regex",
+              "DESCRIPTION": "For advanced matching you can provide one regex pattern instead of not-include-text. (e.g. /^http:/)"
+            }
+          }
+        },
+        "AGE": {
+          "NAME": "age",
+          "DESCRIPTION": "Create a filter that filters messages based on the age of the message at the time of starring it.",
+          "OPTIONS": {
+            "NAME": {
+              "NAME": "name",
+              "DESCRIPTION": "The name of this message age filter."
+            },
+            "APPLIES_TO": {
+              "NAME": "applies-to",
+              "DESCRIPTION": "A list of users and roles that this filter applies to. (everyone by default)"
+            },
+            "DOES_NOT_APPLY_TO": {
+              "NAME": "does-not-apply-to",
+              "DESCRIPTION": "A list of users and roles that this filter does not apply to."
+            },
+            "MIN": {
+              "NAME": "older-than",
+              "DESCRIPTION": "The message must be older than this at the time of starring. (e.g. 1 hour 30 mins)"
+            },
+            "MAX": {
+              "NAME": "newer-than",
+              "DESCRIPTION": "The message must be newer than this at the time of starring. (e.g. 1 year 6 months)"
+            }
+          }
+        },
+        "DATE": {
+          "NAME": "date",
+          "DESCRIPTION": "Create a filter that filters messages based on the date the message was sent on.",
+          "OPTIONS": {
+            "NAME": {
+              "NAME": "name",
+              "DESCRIPTION": "The name of this message date filter."
+            },
+            "APPLIES_TO": {
+              "NAME": "applies-to",
+              "DESCRIPTION": "A list of users and roles that this filter applies to. (everyone by default)"
+            },
+            "DOES_NOT_APPLY_TO": {
+              "NAME": "does-not-apply-to",
+              "DESCRIPTION": "A list of users and roles that this filter does not apply to."
+            },
+            "MIN": {
+              "NAME": "sent-after",
+              "DESCRIPTION": "The message must be sent after this date. (e.g. 14/9/2019, 3/2020, 2018)"
+            },
+            "MAX": {
+              "NAME": "sent-before",
+              "DESCRIPTION": "The message must be sent before this date. (e.g. 14/9/2024, 20/1/21, 2020)"
+            }
+          }
+        }
+      },
+      "TEST": {
+        "NAME": "test",
+        "DESCRIPTION": "Test all the message filters you've created on this server against a message.",
+        "OPTIONS": {
+          "MESSAGE": {
+            "NAME": "message",
+            "DESCRIPTION": "A link to the message you want to test all message filters against."
+          }
+        }
+      },
+      "VIEW": {
+        "NAME": "view",
+        "DESCRIPTION": "View the filters you've created in this server."
       }
     },
     "OVERRIDES": {

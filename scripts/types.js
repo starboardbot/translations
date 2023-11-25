@@ -14,15 +14,26 @@ const parseNode = node => {
       return `${node.value}: number,`
     case TYPE.date:
     case TYPE.time:
-      return `${node.value}: Date,`
+      return `${node.value}: Date | number,`
     case TYPE.select:
-      const expl = Object.keys(node.options).filter(k => k !== "other")
-      const notOther = expl[0]
-      let value = "string"
-      if (!isNaN(notOther)) value = "number"
-      else if (notOther === "null") value = "string | null"
-      else if (notOther === "true" || notOther === "false") value = "boolean"
-      else if (expl.length > 1) value = expl.map(v => isNaN(v) ? `"${v}"` : v).join(" | ")
+      const options = Object.keys(node.options)
+      const values = new Set()
+      for (const e of options) {
+        if (e === "other") values.add("string")
+        else if (!isNaN(e)) values.add("number")
+        else if (e === "null") values.add("null")
+        else if ((e === "true" || e === "false") && !values.has("boolean")) {
+          values.add(e)
+          if (values.has("true") && values.has("false")) {
+            values.delete("true")
+            values.delete("false")
+            values.add("boolean")
+          }
+        }
+        else values.add(`"${e}"`)
+      }
+      const presets = ["string", "number", "true", "false", "boolean", "null"]
+      const value = [...values].sort((a, b) => presets.indexOf(a) - presets.indexOf(b)).join(" | ") || "unknown"
       return `${node.value}: ${value},`
   }
 }
@@ -40,12 +51,11 @@ const flattenAST = ast => {
 
 const iterate = (obj, key = "") => {
   for (const i in obj) {
-    const str = Array.isArray(obj[i]) ? obj[i].join(" ") : obj[i]
+    const str = Array.isArray(obj[i]) ? obj[i].join("") : obj[i]
     if (typeof str === "object") iterate(str, key + i + ".")
     else if (typeof str === "string" && str.includes("{")) {
       let obj = []
       let keys = []
-      // console.log("writing types for", key + i)
       let ast
       try {
         ast = parse(str, { ignoreTag: true, requiresOtherClause: false })
@@ -84,4 +94,4 @@ declare type MessageParameters = {
 
 export = MessageParameters
 `.trim())
-console.log(`Wrote types for ${res.length} translations.`)
+console.log(`Wrote types for ${res.length} translations. (../types.d.ts)`)

@@ -52,7 +52,7 @@ function translate<T extends TranslationKey>(key: T, locale: Locale, options?: T
   )
   if (!raw) throw new ReferenceError(`Unknown translation ${key}`)
 
-  let msg: string = Array.isArray(raw) ? raw.join(" ") : raw
+  let msg: string = Array.isArray(raw) ? raw.join("") : raw
   // message with input
   if (msg.includes("{"))
     msg = (

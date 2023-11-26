@@ -261,6 +261,21 @@ declare type MessageParameters = {
     obtained: number,
     required: number,
   },
+  "AUDIT_LOG_REWARD_ROLES": {
+    achievements: string,
+  },
+  "AUDIT_LOG_ACHIEVEMENT_STARS": {
+    stars: number,
+  },
+  "AUDIT_LOG_ACHIEVEMENT_MOST_STARRED_MESSAGE": {
+    stars: number,
+  },
+  "AUDIT_LOG_ACHIEVEMENT_TIMES_ON_STARBOARD": {
+    timesOnStarboard: number,
+  },
+  "AUDIT_LOG_ACHIEVEMENT_TIMES_ON_HALL_OF_FAME": {
+    timesOnHallOfFame: number,
+  },
   "INVALID_REGEX": {
     error: string,
   },

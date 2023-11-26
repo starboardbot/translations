@@ -102,3 +102,17 @@ export function translationExists(key: string): key is TranslationKey {
   key = fixCase(key)
   return get<string>(translations, `${defaultLocale}.${key}`) !== undefined
 }
+
+/** Wrap a locale for easier translations. */
+export function wrapLocale(locale: Locale) {
+  /** Get a translation that contains intl context variables. */
+  function translateWrapped<T extends keyof MessageParameters>(key: T, options: MessageParameters[T]): string
+  /** Get a simple translation with no variables. */
+  function translateWrapped<T extends Exclude<TranslationKey, keyof MessageParameters>>(key: T): string
+  /** Get a translation (usually unknown) with or without context variables. */
+  function translateWrapped<T extends TranslationKey>(key: T, options?: T extends keyof MessageParameters ? MessageParameters[T] : undefined): string
+  function translateWrapped<T extends TranslationKey>(key: T, options?: T extends keyof MessageParameters ? MessageParameters[T] : undefined): string {
+    return translate(key, locale, options)
+  }
+  return translateWrapped
+}

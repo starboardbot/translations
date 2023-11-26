@@ -242,6 +242,11 @@
   "REWARD_ROLES_PROGRESS": "Reward Roles Progress",
   "REWARD_ROLES_OBTAINED": "Reward Roles Obtained",
   "REWARD_ROLES_PROGRESS_STARS": "{obtained, number}/{required, number} stars",
+  "AUDIT_LOG_REWARD_ROLES": "Starboard Reward Roles - this user {achievements}.",
+  "AUDIT_LOG_ACHIEVEMENT_STARS": "has {stars, number} stars",
+  "AUDIT_LOG_ACHIEVEMENT_MOST_STARRED_MESSAGE": "has {stars, number} stars on their most starred message",
+  "AUDIT_LOG_ACHIEVEMENT_TIMES_ON_STARBOARD": "has been on the starboard {timesOnStarboard, number} times",
+  "AUDIT_LOG_ACHIEVEMENT_TIMES_ON_HALL_OF_FAME": "has been on the Hall of Fame {timesOnHallOfFame, number} times",
 
   "FILTER_INCLUDE_MATCH_CONFLICT": "A filter cannot check if a message includes text and matches a regex pattern at the same time - those two options are mutually exclusive.",
   "FILTER_NOT_INCLUDE_MATCH_CONFLICT": "A filter cannot check for the inclusion of text and the matching of a regex pattern at the same time - those two options are mutually exclusive.",

@@ -10,9 +10,9 @@
     "dev": "nodemon -e json ./scripts/types.js"
   },
   "dependencies": {
-    "intl-messageformat": "^10.5.0"
+    "intl-messageformat": "^10.5.8"
   },
   "devDependencies": {
-    "@formatjs/icu-messageformat-parser": "^2.6.0"
+    "@formatjs/icu-messageformat-parser": "^2.7.3"
   }
 }

@@ -445,6 +445,9 @@ declare type MessageParameters = {
   "MESSAGE_DATE": {
     date: Date | number,
   },
+  "SUCCESSFULLY_DELETED_YOUR_STARBOARD_MESSAGE": {
+    trashCommand: string,
+  },
 }
 
 export = MessageParameters

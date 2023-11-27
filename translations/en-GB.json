@@ -281,7 +281,10 @@
   "FILTERS_DESCRIPTION_SHORT": "These are the message filters a message must pass in order to be starred.",
   "NOTHING_TO_SHOW": "Nothing to show.",
   "FILTER_OR": "{a} OR {b}",
-  "FILTERS_DESCRIPTION_ALL_CREATED": "These are all the message filters created in this server. To enable them you have to add them to the settings with {filtersAdd}.\nWhen adding filters, if two or more filters beside eachother are marked as optional it means only one of them have to pass for them all to pass. For example, A, B, C, D, with B & C both optional means A must pass, B *or* C must pass, and D must pass, to allow the message to be starred.",
+  "FILTERS_DESCRIPTION_ALL_CREATED": [
+    "These are all the message filters created in this server. To enable them you have to add them to the settings with {filtersAdd}.\n",
+    "When adding filters, if two or more filters beside eachother are marked as optional it means only one of them have to pass for them all to pass. For example, A, B, C, D, with B & C both optional means A must pass, B *or* C must pass, and D must pass, to allow the message to be starred."
+  ],
   "FILTERS_DESCRIPTION_NO_FILTERS_CREATED": "There are no message filters currently created in this server. To create one, run any one of {filtersCreate}.",
   "VIEW_ALL_CREATED_FILTERS": "View all created filters with {command}.",
   "THIS_FILTER_SAYS": "This message {type, select, 0 {content filter} 1 {attachments filter} 2 {age filter} 3 {date filter} other {filter}} says that a message must:",
@@ -334,6 +337,10 @@
   "MESSAGE_HAS_MEDIA": "**Has media (images/videos)?**: {has}",
   "MESSAGE_AGE": "**Age**: {age}",
   "MESSAGE_DATE": "**Sent on**: {date, date, medium}",
+
+  "NOT_STARBOARD_MESSAGE": "This message is not a starboard message.",
+  "NOT_YOUR_STARBOARD_MESSAGE": "This starboard message does not belong to you.",
+  "SUCCESSFULLY_DELETED_YOUR_STARBOARD_MESSAGE": "Successfully deleted your starboard message.\nUsers may still get this message back on the starboard again by giving it more stars - to prevent this, get a moderator to trash the message with {trashCommand}.",
 
   "SETTINGS": {
     "STARBOARD_ID": {
@@ -1554,6 +1561,10 @@
     "TEST": {
       "NAME": "test",
       "DESCRIPTION": "test"
+    },
+
+    "DELETE_MY_MESSAGE": {
+      "NAME": "Delete My Message"
     }
   }
 }

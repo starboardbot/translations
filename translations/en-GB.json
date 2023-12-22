@@ -21,6 +21,7 @@
 
   "NONE": "None",
   "NOT_SET": "Not set",
+  "NA": "N/A",
 
   "PLUS_MORE": "+{num, number} more",
 
@@ -342,6 +343,33 @@
   "NOT_YOUR_STARBOARD_MESSAGE": "This starboard message does not belong to you.",
   "SUCCESSFULLY_DELETED_YOUR_STARBOARD_MESSAGE": "Successfully deleted your starboard message.\nUsers may still get this message back on the starboard again by giving it more stars - to prevent this, get a moderator to trash the message with {trashCommand}.",
 
+  "PONG": [
+    "Pong!\n",
+    "> **Latency**: {latency}\n",
+    "> **Shard {shard}**: {shardLatency}\n",
+    "> **Database Latency**: {dbLatency}"
+  ],
+  "CLUSTER_N": "Cluster {number, number}",
+  "SHARD_N": "Shard {number, number}",
+  "STATUS_GREEN": "🟢 All shards online",
+  "STATUS_YELLOW": "🟡 Some shards are reconnecting...",
+  "STATUS_ORANGE": "🟠 Still logging in...",
+  "STATUS_RED": "🔴 Some shards are offline",
+  "UPTIME": "**Uptime**: {uptime} (last restart: {lastRestart})",
+
+  "BOT_STATS": "Bot Stats",
+  "BOT": "Bot",
+  "STAT_SERVERS": "**Servers**: {servers, number}",
+  "STAT_USERS": "**Users**: {users, number}",
+  "STAT_COMMANDS_RAN": "**Commands Ran**: {commandsRan, number}",
+  "CACHE": "Cache",
+  "STAT_CACHED_USERS": "**Cached Users**: {cachedUsers, number}",
+  "STAT_CACHED_MEMBERS": "**Cached Members**: {cachedMembers, number}",
+  "STAT_CACHED_MESSAGES": "**Cached Messages**: {cachedMessages, number}",
+  "SYSTEM": "System",
+  "STAT_CPU_USAGE": "**CPU Usage**: {cpuUsage, number, ::percent}",
+  "STAT_MEMORY_USAGE": "**Memory Usage**: {memoryUsage}",
+
   "SETTINGS": {
     "STARBOARD_ID": {
       "NAME": "Starboard"
@@ -566,6 +594,18 @@
             "DESCRIPTION": "The override you want to see the blacklist for."
           }
         }
+      }
+    },
+    "BOT": {
+      "NAME": "bot",
+      "DESCRIPTION": "View information to do with the bot.",
+      "STATS": {
+        "NAME": "stats",
+        "DESCRIPTION": "View statistics about the bot."
+      },
+      "STATUS": {
+        "NAME": "status",
+        "DESCRIPTION": "Check the bot's status."
       }
     },
     "DISPLAYTIERS": {
@@ -1189,6 +1229,10 @@
           }
         }
       }
+    },
+    "PING": {
+      "NAME": "ping",
+      "DESCRIPTION": "Pong!"
     },
     "REWARDROLES": {
       "NAME": "rewardroles",

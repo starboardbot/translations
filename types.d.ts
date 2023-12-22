@@ -448,6 +448,46 @@ declare type MessageParameters = {
   "SUCCESSFULLY_DELETED_YOUR_STARBOARD_MESSAGE": {
     trashCommand: string,
   },
+  "PONG": {
+    latency: string,
+    shard: string,
+    shardLatency: string,
+    dbLatency: string,
+  },
+  "CLUSTER_N": {
+    number: number,
+  },
+  "SHARD_N": {
+    number: number,
+  },
+  "UPTIME": {
+    uptime: string,
+    lastRestart: string,
+  },
+  "STAT_SERVERS": {
+    servers: number,
+  },
+  "STAT_USERS": {
+    users: number,
+  },
+  "STAT_COMMANDS_RAN": {
+    commandsRan: number,
+  },
+  "STAT_CACHED_USERS": {
+    cachedUsers: number,
+  },
+  "STAT_CACHED_MEMBERS": {
+    cachedMembers: number,
+  },
+  "STAT_CACHED_MESSAGES": {
+    cachedMessages: number,
+  },
+  "STAT_CPU_USAGE": {
+    cpuUsage: number,
+  },
+  "STAT_MEMORY_USAGE": {
+    memoryUsage: string,
+  },
 }
 
 export = MessageParameters

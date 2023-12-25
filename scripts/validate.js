@@ -28,9 +28,6 @@ const length = function* (obj, key = "") {
 for (const messages of readdirSync(`${__dirname}/../translations`)
   .filter(f => f.endsWith(".json"))
   .map(locale => require(`../translations/${locale}`))) {
-  for (const [key, length] of checkCommandDescriptions(messages))
-    console.log("WARNING:", `${messages.name} translation ${key} is over 100 characters in length. (${length})`)
-
   console.log("COMMANDS:")
   for (const [key, len] of length(messages)) {
     if (key.startsWith("COMMANDS.") && key.split(".").length === 2) {
@@ -47,6 +44,10 @@ for (const messages of readdirSync(`${__dirname}/../translations`)
     }
     else if (key === "") console.log(`${"--".repeat(40)}\n${messages.name} has ${len.toLocaleString()} characters across ${Object.keys(messages).length - 2} translations!`)
   }
+
+  console.log("")
+  for (const [key, length] of checkCommandDescriptions(messages))
+    console.log("WARNING:", `${messages.name} translation ${key} is over 100 characters in length. (${length})`)
 }
 
 console.log("")

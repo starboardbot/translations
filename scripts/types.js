@@ -19,7 +19,28 @@ const parseNode = node => {
       const options = Object.keys(node.options)
       const values = new Set()
       for (const e of options) {
-        if (e === "other") values.add("string")
+        if (e === "other") {
+          // arg can be used inside the `other` clause, let's check for that
+          const inner = node.options[e].value.slice()
+          flattenAST(inner)
+          let types = new Set()
+          for (const innerReference of inner.filter(innerNode => innerNode.value === node.value)) {
+            switch (innerReference.type) {
+              case TYPE.argument:
+                types.add("string")
+                break
+              case TYPE.number:
+              case TYPE.plural:
+                types.add("number")
+                break
+              case TYPE.date:
+              case TYPE.time:
+                types.add("Date | number")
+                break
+            }
+          }
+          values.add(Array.from(types).join(" | ") || "string")
+        }
         else if (!isNaN(e)) values.add("number")
         else if (e === "null") values.add("null")
         else if ((e === "true" || e === "false") && !values.has("boolean")) {

@@ -10,6 +10,7 @@
   "YES": "Yes",
   "NO": "No",
   "DELETE": "Delete",
+  "CLEAR": "Clear",
   "RESET": "Reset",
   "CANCEL": "Cancel",
   "BACK": "Back",
@@ -369,6 +370,66 @@
   "SYSTEM": "System",
   "STAT_CPU_USAGE": "**CPU Usage**: {cpuUsage, number, ::percent}",
   "STAT_MEMORY_USAGE": "**Memory Usage**: {memoryUsage}",
+
+  "STARRED_MESSAGE_NOT_FOUND": "I could not resolve a starred message from your input. The message you're referring to probably hasn't gotten any stars yet.\nIf it has gotten stars before, try re-reacting on the message with a star so I can notice it, while ensuring the message is in a channel I can see.",
+  "ALREADY_FROZEN": "This starred message is already frozen.",
+  "SUCCESSFULLY_FROZE_MESSAGE": "Successfully froze that starred message. No stars can be added or removed from the message anymore, and the starboard message will no longer be updated.",
+  "NOT_ALREADY_FROZEN": "This starred message is not frozen.",
+  "CANNOT_UNFREEZE_TRASHED_MESSAGES": "This message cannot be unfrozen because it is currently trashed.",
+  "SUCCESSFULLY_UNFROZE_MESSAGE": "Successfully unfroze that starred message. Stars can be added or removed from the message again, and the starboard message will now get updated.",
+  "ALREADY_LOCKED": "This starred message is already locked to the starboard.",
+  "CANNOT_LOCK_TRASHED_MESSAGES": "This message cannot be locked because it is currently trashed.",
+  "SUCCESSFULLY_LOCKED_MESSAGE": "Successfully locked that starred message. Now, even if the starred message's stars drop below **Required Stars To Remove**, the starboard message will stay on the starboard.",
+  "NOT_ALREADY_LOCKED": "This starred message is not locked to the starboard.",
+  "SUCCESSFULLY_UNLOCKED_MESSAGE": "Successfully unlocked that starred message. Now, when the starred message's stars drop below **Required Stars To Remove**, the starboard message will be removed from the starboard as normal.",
+  "CANNOT_FORCE_STARBOARD_MESSAGE": "You cannot force a starboard message to the starboard.",
+  "ALREADY_ON_STARBOARD": "It seems this starred message has already been posted to the starboard.",
+  "CANNOT_FORCE_TRASHED_MESSAGES": "Trashed messages cannot be forced to the starboard.",
+  "SUCCESSFULLY_FORCED_MESSAGE": "Successfully forced this message to the starboard. You can view the starboard message [here](<{link}>).\nI've also locked the newly forced starboard message to prevent it from instantly being removed. If you wish, you can unlock it with {unlock}.",
+  "FAILED_FORCE_MESSAGE": "It seems something went wrong and this message could not be forced (to {starboard}). Make sure I have the permissions required to send messages in this channel.",
+  "NO_STARBOARDS_FOR_FORCE": "You cannot force this starred message because you have no starboard channels set for this server.",
+  "NO_STARBOARD_TO_FORCE": "It seems there's no starboard channel that this starred message can be forced to. Ensure the server's settings/overrides are set up correctly, and I have the permissions required to send messages in whatever channel you set the starboard to.",
+  "CANNOT_RECOUNT_FROZEN": "I can't recount the stars for this starred message because it is currently frozen.",
+  "CANNOT_RECOUNT_TRASHED": "I can't recount the stars for this starred message because it is trashed.",
+  "RECOUNTED_RECENTLY": "You cannot recount this starred message's stars because it has already been recounted quite recently.",
+  "SUCCESSFULLY_RECOUNTED": "Successfully recounted the stars for that message - it now has {stars, plural, =1 {# star} other {# stars}}.{link, select, null {} other { The starboard message is [here](<{link}>).}}",
+  "ALREADY_TRASHED": "This starred message is already trashed.",
+  "CONFIRMATION_TRASH_MESSAGE": "Just to confirm, are you sure you want to trash [this starred message]({link}) {reason, select, null {for an unspecified reason?} other {for the following reason?\n{reason}}} \nIts starboard message will be removed from the starboard immediately, and the starred message will be frozen to ensure it doesn't get back on the starboard again. You can always reverse this action later.",
+  "SUCCESSFULLY_TRASHED_MESSAGE": "Successfully trashed this message and removed it from the starboard. It will no longer be able to get any more stars as long as it is trashed.\nIf my calculations are correct, the first few people to star this message were {users, select, null {no-one} other {{users}}}.",
+  "NOT_ALREADY_TRASHED": "This starred message is not currently trashed.",
+  "SUCCESSFULLY_UNTRASHED_MESSAGE": "Successfully untrashed this message. It is now able to get on the starboard again.",
+  "NO_MESSAGES_TRASHED": "There are currently no starred messages trashed in this server.",
+  "CONFIRMATION_CLEAR_TRASH": "Are you sure you want to clear the list of trashed messages? Every message that was on the list will be able to get more stars again and get back on the starboard.",
+  "SUCCESSFULLY_CLEAR_TRASH": "Successfully removed {items, plural, =1 {1 item} other {# items}} from the list of trashed starred messages.",
+
+  "STARRED_MESSAGE": "Starred Message",
+  "THIS_MESSAGE_IS_TRASHED": "This message has been trashed by a moderator and cannot get any more stars. Reason: {reason, select, null {no reason given.} other {\n{reason}}}",
+  "AUTHOR": "Author",
+  "CHANNEL": "Channel",
+  "STARBOARD": "Starboard",
+  "MESSAGE": "Message",
+  "STARBOARD_MESSAGE": "Starboard Message",
+  "FIRST_STARRED_AT": "First Starred At",
+  "STARS": "Stars",
+  "STARS_FIELD": "{stars, number}{requiredStars, select, null {} other {/{requiredStars, number}}} ({upvotes, plural, =1 {1 upvote} other {# upvotes}}, {downvotes, plural, =1 {1 downvote} other {# downvotes}})",
+  "DOWNVOTES": "Downvotes",
+  "GLOBAL_POINTS": "Global Points",
+  "ON_STARBOARD_BEFORE": "On Starboard Before",
+  "LOCKED": "Locked",
+  "FROZEN": "Frozen",
+  "ON_HALL_OF_FAME": "On Hall Of Fame",
+  "TRASHED": "Trashed",
+  "ORIGINAL_MESSAGE_DELETED": "Original Message Deleted",
+  "FREEZE": "Freeze",
+  "LOCK": "Lock",
+  "UNFREEZE": "Unfreeze",
+  "UNLOCK": "Unlock",
+  "UNTRASH_MESSAGE": "Untrash Message",
+  "TRASH_MESSAGE": "Trash Message",
+  "REASON": "Reason",
+  "REASON_PLACEHOLDER": "Inappropriate content.",
+  "MESSAGE_ID": "Message ID",
+  "TRASHED_MESSAGES": "Trashed Messages",
 
   "SETTINGS": {
     "STARBOARD_ID": {
@@ -1060,6 +1121,116 @@
         "DESCRIPTION": "View the filters you've created in this server."
       }
     },
+    "MOD": {
+      "NAME": "mod",
+      "DESCRIPTION": "Moderator commands for starred messages.",
+      "FORCE": {
+        "NAME": "force",
+        "DESCRIPTION": "Force a message to the starboard regardless of whether it has enough stars or not.",
+        "OPTIONS": {
+          "MESSAGE": {
+            "NAME": "message",
+            "DESCRIPTION": "A link to the message you want to force."
+          }
+        }
+      },
+      "RECOUNT": {
+        "NAME": "recount",
+        "DESCRIPTION": "Recount a starred message's stars, if the current number seem to be inaccurate.",
+        "OPTIONS": {
+          "STARRED_MESSAGE": {
+            "NAME": "starred-message",
+            "DESCRIPTION": "A link to the starred message/starboard message you want to recount stars for."
+          }
+        }
+      },
+      "INFO": {
+        "NAME": "info",
+        "DESCRIPTION": "View information about a starred message.",
+        "OPTIONS": {
+          "STARRED_MESSAGE": {
+            "NAME": "starred-message",
+            "DESCRIPTION": "A link to the starred message/starboard message you want to view information about."
+          }
+        }
+      },
+      "FREEZE": {
+        "NAME": "freeze",
+        "DESCRIPTION": "Freeze a starred message so it can't get/lose any more stars and does not get updated.",
+        "OPTIONS": {
+          "STARRED_MESSAGE": {
+            "NAME": "starred-message",
+            "DESCRIPTION": "The starred message you want to freeze. Provide a link to the message or the starboard message."
+          }
+        }
+      },
+      "UNFREEZE": {
+        "NAME": "unfreeze",
+        "DESCRIPTION": "Unfreeze a starred message so it can get/lose stars and get updated as normal.",
+        "OPTIONS": {
+          "STARRED_MESSAGE": {
+            "NAME": "starred-message",
+            "DESCRIPTION": "The starred message you want to unfreeze. Provide a link to the message or the starboard message."
+          }
+        }
+      },
+      "LOCK": {
+        "NAME": "lock",
+        "DESCRIPTION": "Lock a starred message so it stays on the starboard no matter how many stars it loses.",
+        "OPTIONS": {
+          "STARRED_MESSAGE": {
+            "NAME": "starred-message",
+            "DESCRIPTION": "The starred message you want to lock. Provide a link to the message or the starboard message."
+          }
+        }
+      },
+      "UNLOCK": {
+        "NAME": "unlock",
+        "DESCRIPTION": "Unlocks a starred message so it gets removed from the starboard as normal.",
+        "OPTIONS": {
+          "STARRED_MESSAGE": {
+            "NAME": "starred-message",
+            "DESCRIPTION": "The starred message you want to unlock. Provide a link to the message or the starboard message."
+          }
+        }
+      },
+      "TRASH": {
+        "NAME": "trash",
+        "DESCRIPTION": "Manage trashed messages.",
+        "ADD": {
+          "NAME": "add",
+          "DESCRIPTION": "Trash a starred message, deleting it from the starboard and preventing it from coming back.",
+          "OPTIONS": {
+            "STARRED_MESSAGE": {
+              "NAME": "starred-message",
+              "DESCRIPTION": "The starred message you want to trash. Provide a link to the message or the starboard message."
+            },
+            "REASON": {
+              "NAME": "reason",
+              "DESCRIPTION": "A reason for trashing this message."
+            }
+          }
+        },
+        "REMOVE": {
+          "NAME": "remove",
+          "DESCRIPTION": "Remove a trashed message from the list of trashed messages.",
+          "OPTIONS": {
+            "STARRED_MESSAGE": {
+              "NAME": "starred-message",
+              "DESCRIPTION": "A link to the starred message you want to remove from the list of trashed messages."
+            }
+          }
+        },
+        "LIST": {
+          "NAME": "list",
+          "DESCRIPTION": "List all the trashed messages in the server."
+        },
+        "CLEAR": {
+          "NAME": "clear",
+          "DESCRIPTION": "Remove all messages from the list of trashed messages."
+        }
+      }
+    },
     "OVERRIDES": {
       "NAME": "overrides",
       "DESCRIPTION": "Manage overrides made for specific scenarios.",
@@ -1609,6 +1780,12 @@
 
     "DELETE_MY_MESSAGE": {
       "NAME": "Delete My Message"
+    },
+    "FORCE_TO_STARBOARD": {
+      "NAME": "Force to Starboard"
+    },
+    "TRASH_MESSAGE": {
+      "NAME": "Trash Message"
     }
   }
 }

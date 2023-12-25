@@ -488,6 +488,36 @@ declare type MessageParameters = {
   "STAT_MEMORY_USAGE": {
     memoryUsage: string,
   },
+  "SUCCESSFULLY_FORCED_MESSAGE": {
+    link: string,
+    unlock: string,
+  },
+  "FAILED_FORCE_MESSAGE": {
+    starboard: string,
+  },
+  "SUCCESSFULLY_RECOUNTED": {
+    stars: number,
+    link: string | null,
+  },
+  "CONFIRMATION_TRASH_MESSAGE": {
+    link: string,
+    reason: string | null,
+  },
+  "SUCCESSFULLY_TRASHED_MESSAGE": {
+    users: string | null,
+  },
+  "SUCCESSFULLY_CLEAR_TRASH": {
+    items: number,
+  },
+  "THIS_MESSAGE_IS_TRASHED": {
+    reason: string | null,
+  },
+  "STARS_FIELD": {
+    stars: number,
+    requiredStars: number | null,
+    upvotes: number,
+    downvotes: number,
+  },
 }
 
 export = MessageParameters

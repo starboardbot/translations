@@ -518,6 +518,9 @@ declare type MessageParameters = {
     upvotes: number,
     downvotes: number,
   },
+  "STARRED_MESSAGE_UNOBTAINABLE": {
+    channel: string,
+  },
 }
 
 export = MessageParameters

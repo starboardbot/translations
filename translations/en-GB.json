@@ -383,6 +383,7 @@
   "NOT_ALREADY_LOCKED": "This starred message is not locked to the starboard.",
   "SUCCESSFULLY_UNLOCKED_MESSAGE": "Successfully unlocked that starred message. Now, when the starred message's stars drop below **Required Stars To Remove**, the starboard message will be removed from the starboard as normal.",
   "CANNOT_FORCE_STARBOARD_MESSAGE": "You cannot force a starboard message to the starboard.",
+  "CANNOT_FORCE_THIS_MESSAGE": "You cannot force this message to the starboard.",
   "ALREADY_ON_STARBOARD": "It seems this starred message has already been posted to the starboard.",
   "CANNOT_FORCE_TRASHED_MESSAGES": "Trashed messages cannot be forced to the starboard.",
   "SUCCESSFULLY_FORCED_MESSAGE": "Successfully forced this message to the starboard. You can view the starboard message [here](<{link}>).\nI've also locked the newly forced starboard message to prevent it from instantly being removed. If you wish, you can unlock it with {unlock}.",
@@ -430,6 +431,17 @@
   "REASON_PLACEHOLDER": "Inappropriate content.",
   "MESSAGE_ID": "Message ID",
   "TRASHED_MESSAGES": "Trashed Messages",
+
+  "NO_STARRED_MESSAGES": "It seems this server has no starred messages yet!",
+  "NO_STARRED_MESSAGES_AVAILABLE": "There are no starred messages I am able to show - the only ones I've found are unobtainable. They might be deleted, in deleted channels, or I don't have permission to see them.",
+  "NO_STARRED_MESSAGES_BY_QUERY": "I could not find any starred messages based on your query.",
+  "NO_STARRED_MESSAGES_COULD_BE_FOUND": "I could not find any starred messages.",
+  "STARRED_MESSAGE_UNOBTAINABLE": [
+    "I could not obtain the contents of this starred message. This could be for any of the following reasons:\n",
+    "- I don't have the permissions required to read messages in {channel}.\n",
+    "- The channel the message was sent in, or the message itself, has since been deleted.\n",
+    "- {channel} is marked as NSFW and this channel isn't - I can't send NSFW messages in non-NSFW channels.\n"
+  ],
 
   "SETTINGS": {
     "STARBOARD_ID": {
@@ -1635,6 +1647,82 @@
           "SETTING": {
             "NAME": "setting",
             "DESCRIPTION": "The specific setting you want to reset or unset."
+          }
+        }
+      }
+    },
+    "SHOW": {
+      "NAME": "show",
+      "DESCRIPTION": "Show messages that have been starred in the past.",
+      "LOST": {
+        "NAME": "lost",
+        "DESCRIPTION": "Show a random lost starred message - one that hasn't yet reached the starboard.",
+        "OPTIONS": {
+          "AUTHOR": {
+            "NAME": "author",
+            "DESCRIPTION": "Only show messages by this user."
+          },
+          "CHANNEL": {
+            "NAME": "channel",
+            "DESCRIPTION": "Only show messages in this channel."
+          },
+          "STARBOARD": {
+            "NAME": "starboard",
+            "DESCRIPTION": "Only show messages where the starboard is this channel."
+          }
+        }
+      },
+      "MOSTSTARRED": {
+        "NAME": "moststarred",
+        "DESCRIPTION": "Show the most starred messages.",
+        "OPTIONS": {
+          "AUTHOR": {
+            "NAME": "author",
+            "DESCRIPTION": "Only show messages by this user."
+          },
+          "CHANNEL": {
+            "NAME": "channel",
+            "DESCRIPTION": "Only show messages in this channel."
+          },
+          "STARBOARD": {
+            "NAME": "starboard",
+            "DESCRIPTION": "Only show messages where the starboard is this channel."
+          }
+        }
+      },
+      "RANDOM": {
+        "NAME": "random",
+        "DESCRIPTION": "Show a random starred message.",
+        "OPTIONS": {
+          "AUTHOR": {
+            "NAME": "author",
+            "DESCRIPTION": "Only show messages by this user."
+          },
+          "CHANNEL": {
+            "NAME": "channel",
+            "DESCRIPTION": "Only show messages in this channel."
+          },
+          "STARBOARD": {
+            "NAME": "starboard",
+            "DESCRIPTION": "Only show messages where the starboard is this channel."
+          },
+          "MIN_STARS": {
+            "NAME": "min-stars",
+            "DESCRIPTION": "Only show messages with at least this many stars."
+          },
+          "MAX_STARS": {
+            "NAME": "max-stars",
+            "DESCRIPTION": "Only show messages with no more than this many stars."
+          }
+        }
+      },
+      "SINGLE": {
+        "NAME": "single",
+        "DESCRIPTION": "Show a single starred message.",
+        "OPTIONS": {
+          "STARRED_MESSAGE": {
+            "NAME": "starred-message",
+            "DESCRIPTION": "A link to the starred message/starboard message you want to preview."
           }
         }
       }

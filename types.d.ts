@@ -203,9 +203,6 @@ declare type MessageParameters = {
   "DISPLAY_TIERS_DESCRIPTION_CREATE_TIER": {
     command: string,
   },
-  "DISPLAY_TIER_NOT_BELONG": {
-    command: string,
-  },
   "DISPLAY_TIER_NOT_FOUND": {
     number: number,
     command: string,

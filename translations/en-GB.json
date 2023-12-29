@@ -405,6 +405,13 @@
   "NO_MESSAGES_TRASHED": "There are currently no starred messages trashed in this server.",
   "CONFIRMATION_CLEAR_TRASH": "Are you sure you want to clear the list of trashed messages? Every message that was on the list will be able to get more stars again and get back on the starboard.",
   "SUCCESSFULLY_CLEAR_TRASH": "Successfully removed {items, plural, =1 {1 item} other {# items}} from the list of trashed starred messages.",
+  "HALL_OF_FAME_MAX": "This server has reached the maximum amount of starred messages allowed on the Hall Of Fame.",
+  "ALREADY_ON_HALL_OF_FAME": "This starred message is already on the server's Hall Of Fame.",
+  "SUCCESSFULLY_ADD_HALL_OF_FAME": "Successfully added {message} to the server's Hall Of Fame.",
+  "NOT_ON_HALL_OF_FAME": "This starred message is not on the server's Hall Of Fame.",
+  "SUCCESSFULLY_REMOVE_HALL_OF_FAME": "Successfully removed {message} from the server's Hall Of Fame.",
+  "CONFIRMATION_HALL_OF_FAME_CLEAR": "Are you sure you want to clear all starred messages from the server's Hall Of Fame? This action is irreversible.",
+  "SUCCESSFULLY_CLEAR_HALL_OF_FAME": "Successfully removed {number, number} starred messages from the server's Hall of Fame.",
 
   "STARRED_MESSAGE": "Starred Message",
   "THIS_MESSAGE_IS_TRASHED": "This message has been trashed by a moderator and cannot get any more stars. Reason: {reason, select, null {no reason given.} other {\n{reason}}}",
@@ -445,6 +452,10 @@
     "- The channel the message was sent in, or the message itself, has since been deleted.\n",
     "- {channel} is marked as NSFW and this channel isn't - I can't send NSFW messages in non-NSFW channels.\n"
   ],
+
+  "HALL_OF_FAME": "Hall Of Fame",
+  "HALL_OF_FAME_DESCRIPTION": "This is the Hall of Fame, messages that \"belong in a museum\" - the best messages on the server. These messages were picked by various moderators, so appearing here is a great achievement.",
+  "NO_STARRED_MESSAGES_HALL_OF_FAME": "It seems this server has no starred messages on the Hall of Fame yet.",
 
   "SETTINGS": {
     "STARBOARD_ID": {
@@ -1136,6 +1147,10 @@
         "DESCRIPTION": "View the filters you've created in this server."
       }
     },
+    "HALL_OF_FAME": {
+      "NAME": "hall-of-fame",
+      "DESCRIPTION": "View the list of starred messages on the server's Hall Of Fame."
+    },
     "MOD": {
       "NAME": "mod",
       "DESCRIPTION": "Moderator commands for starred messages.",
@@ -1243,6 +1258,34 @@
         "CLEAR": {
           "NAME": "clear",
           "DESCRIPTION": "Remove all messages from the list of trashed messages."
+        }
+      },
+      "HALL_OF_FAME": {
+        "NAME": "hall-of-fame",
+        "DESCRIPTION": "Hall Of Fame.",
+        "ADD": {
+          "NAME": "add",
+          "DESCRIPTION": "Add a starred message to the server's Hall Of Fame.",
+          "OPTIONS": {
+            "STARRED_MESSAGE": {
+              "NAME": "starred-message",
+              "DESCRIPTION": "A link to the starred message message you want to add to the server's Hall Of Fame."
+            }
+          }
+        },
+        "REMOVE": {
+          "NAME": "remove",
+          "DESCRIPTION": "Remove a starred message from the server's Hall Of Fame.",
+          "OPTIONS": {
+            "STARRED_MESSAGE": {
+              "NAME": "starred-message",
+              "DESCRIPTION": "A link to the starred message message you want to remove from the server's Hall Of Fame."
+            }
+          }
+        },
+        "CLEAR": {
+          "NAME": "clear",
+          "DESCRIPTION": "Remove all starred messages from the server's Hall Of Fame."
         }
       }
     },
@@ -1657,6 +1700,10 @@
     "SHOW": {
       "NAME": "show",
       "DESCRIPTION": "Show messages that have been starred in the past.",
+      "HALL_OF_FAME": {
+        "NAME": "hall-of-fame",
+        "DESCRIPTION": "Show messages that are on the server's Hall Of Fame."
+      },
       "LOST": {
         "NAME": "lost",
         "DESCRIPTION": "Show a random lost starred message - one that hasn't yet reached the starboard.",
@@ -1869,6 +1916,9 @@
       "DESCRIPTION": "test"
     },
 
+    "ADD_TO_HALL_OF_FAME": {
+      "NAME": "Add to Hall of Fame"
+    },
     "DELETE_MY_MESSAGE": {
       "NAME": "Delete My Message"
     },

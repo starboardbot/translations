@@ -506,6 +506,15 @@ declare type MessageParameters = {
   "SUCCESSFULLY_CLEAR_TRASH": {
     items: number,
   },
+  "SUCCESSFULLY_ADD_HALL_OF_FAME": {
+    message: string,
+  },
+  "SUCCESSFULLY_REMOVE_HALL_OF_FAME": {
+    message: string,
+  },
+  "SUCCESSFULLY_CLEAR_HALL_OF_FAME": {
+    number: number,
+  },
   "THIS_MESSAGE_IS_TRASHED": {
     reason: string | null,
   },

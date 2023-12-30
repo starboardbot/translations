@@ -221,6 +221,7 @@
   "REWARD_ROLE_TYPE_2": "Times On Starboard",
   "REWARD_ROLE_TYPE_3": "Times On Hall Of Fame",
   "REWARD_ROLE_MANAGED": "This role is automatically managed by an integration and cannot be manually assigned to members.",
+  "REWARD_ROLE_EVERYONE": "You cannot make that role a reward role.",
   "REWARD_ROLES_HIGHER_THAN_ME": "I cannot assign this role to users as it is higher than my highest role.",
   "REWARD_ROLES_HIGHER_THAN_YOU": "You cannot make this role a reward role as it is higher than your highest role.",
   "REWARD_ROLES_GRANTING_PERMISSIONS": "You cannot make this role a reward role as it is granting permissions you don't already have.",

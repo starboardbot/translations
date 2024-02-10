@@ -459,6 +459,45 @@
   "HALL_OF_FAME_DESCRIPTION": "This is the Hall of Fame, messages that \"belong in a museum\" - the best messages on the server. These messages were picked by various moderators, so appearing here is a great achievement.",
   "NO_STARRED_MESSAGES_HALL_OF_FAME": "It seems this server has no starred messages on the Hall of Fame yet.",
 
+  "TIMES_ON_STARBOARD": "Times On Starboard",
+  "STARRED_MESSAGES": "Starred Messages",
+  "LOCKED_MESSAGES": "Locked Messages",
+  "FROZEN_MESSAGES": "Frozen Messages",
+  "AVERAGE_STARS_PER_MESSAGE": "Average Stars Per Message",
+  "MOST_STARS_EARNED_IN": "Most Stars Earned In",
+  "MOST_STARRED_MESSAGE": "Most Starred Message",
+  "MOST_STARS_ON_A_MESSAGE": "Most Stars On A Message",
+  "PERCENT_LOCKED": "% Locked",
+  "PERCENT_FROZEN": "% Frozen",
+  "PERCENT_TRASHED": "% Trashed",
+  "PERCENT_STARRED_MESSAGES_BY_YOU": "% Of Starred Messages By You",
+  "WORLDWIDE_STATS": "Worldwide Stats",
+  "TOTAL_STARS": "Total Stars",
+  "MESSAGES_ON_HALL_OF_FAME": "Messages On Hall Of Fame",
+  "YOUR_STATS": "Your Stats",
+  "USERS_STATS": "{user}'s Stats",
+  "SERVER_STATS": "Server Stats",
+  "STAT_WITH_PAST_24_HRS": "{count, number} ({today, number} in the past 24hrs)",
+  "STARBOARD_MESSAGES_POSTED": "Starboard Messages Posted",
+  "MOST_STARS_GIVEN_IN": "Most Stars Given In",
+  "MOST_STARRED_USER": "Most Starred User",
+  "MOST_STARRED_USERS": "Most Starred Users",
+  "MOST_STARRED_MESSAGES": "Most Starred Messages",
+  "MOST_STARRED_CHANNELS": "Most Starred Channels",
+  "GLOBAL_STATS": "Global Stats",
+  "STARBOARD_MESSAGES_EDITED": "Starboard Messages Edited",
+  "REWARD_ROLES_GIVEN": "Reward Roles Given",
+
+
+  "LEADERBOARD_TITLE": "Leaderboard - {title}",
+  "YOUR_PLACE": "Your Place: {place, select, 0 {Not on the leaderboard.} other {#{place, number}}}",
+  "USERS_PLACE": "{user}'s Place: {place, select, 0 {Not on the leaderboard.} other {#{place, number}}}",
+  "CONFIRMATION_LEADERBOARD_RESET_USER": "Are you sure you want to remove all of the leaderboard data for **{username}** ({mention})?\nTheir stats for the server leaderboards will be {keepOldRewardRoles, select, true {reset back to 0, but they won't lose any reward roles and} false {reset back to 0 and they will lose all their reward roles, but}} the {statsUser} command will not be affected for them.",
+  "SUCCESSFULLY_RESET_LEADERBOARD_USER_KEEP_REWARD_ROLES": "Successfully reset leaderboard stats for **{username}** ({mention}).",
+  "SUCCESSFULLY_RESET_LEADERBOARD_USER": "Successfully reset leaderboard stats for **{username}** ({mention}) and removed all their reward roles.",
+  "CONFIRMATION_LEADERBOARD_RESET": "Are you sure you want to reset the server's leaderboard?\nNo reward roles will be removed from users, and the {stats} commands will not be affected. This action is irreversable.",
+  "SUCCESSFULLY_RESET_LEADERBOARD": "Successfully cleared the server's leaderboard, removing {count, number} users from it.",
+
   "SETTINGS": {
     "STARBOARD_ID": {
       "NAME": "Starboard"
@@ -1153,6 +1192,52 @@
       "NAME": "hall-of-fame",
       "DESCRIPTION": "View the list of starred messages on the server's Hall Of Fame."
     },
+    "LEADERBOARD": {
+      "NAME": "leaderboard",
+      "DESCRIPTION": "View the server leaderboard.",
+      "STARS": {
+        "NAME": "stars",
+        "DESCRIPTION": "View the server leaderboard for the users with the most stars earned.",
+        "OPTIONS": {
+          "PAGE": {
+            "NAME": "page",
+            "DESCRIPTION": "The page to jump to."
+          },
+          "USER": {
+            "NAME": "user",
+            "DESCRIPTION": "Jump to a user's position on the leaderboard and highlight them."
+          }
+        }
+      },
+      "TIMES_ON_STARBOARD": {
+        "NAME": "times-on-starboard",
+        "DESCRIPTION": "View the server leaderboard for the users who've gotten on the starboard the most.",
+        "OPTIONS": {
+          "PAGE": {
+            "NAME": "page",
+            "DESCRIPTION": "The page to jump to."
+          },
+          "USER": {
+            "NAME": "user",
+            "DESCRIPTION": "Jump to a user's position on the leaderboard and highlight them."
+          }
+        }
+      },
+      "MOST_STARRED_MESSAGE": {
+        "NAME": "most-starred-message",
+        "DESCRIPTION": "View the server leaderboard for the users with the most stars on a message.",
+        "OPTIONS": {
+          "PAGE": {
+            "NAME": "page",
+            "DESCRIPTION": "The page to jump to."
+          },
+          "USER": {
+            "NAME": "user",
+            "DESCRIPTION": "Jump to a user's position on the leaderboard and highlight them."
+          }
+        }
+      }
+    },
     "MOD": {
       "NAME": "mod",
       "DESCRIPTION": "Moderator commands for starred messages.",
@@ -1288,6 +1373,24 @@
         "CLEAR": {
           "NAME": "clear",
           "DESCRIPTION": "Remove all starred messages from the server's Hall Of Fame."
+        }
+      },
+      "RESET": {
+        "NAME": "reset",
+        "DESCRIPTION": "Reset leaderboard data.",
+        "LEADERBOARD_USER": {
+          "NAME": "leaderboard-user",
+          "DESCRIPTION": "Reset the leaderboard data for one specific user, removing them from the leaderboard.",
+          "OPTIONS": {
+            "USER": {
+              "NAME": "user",
+              "DESCRIPTION": "The user who's leaderboard data you want to reset."
+            }
+          }
+        },
+        "LEADERBOARD": {
+          "NAME": "leaderboard",
+          "DESCRIPTION": "Reset the entire server leaderboard, removing all users from it."
         }
       }
     },
@@ -1777,6 +1880,28 @@
             "DESCRIPTION": "A link to the starred message/starboard message you want to preview."
           }
         }
+      }
+    },
+    "STATS": {
+      "NAME": "stats",
+      "DESCRIPTION": "View starred message related all-time stats.",
+      "USER": {
+        "NAME": "user",
+        "DESCRIPTION": "View all-time stats about a user's starred messages.",
+        "OPTIONS": {
+          "USER": {
+            "NAME": "user",
+            "DESCRIPTION": "The user whose stats you'd like to view."
+          }
+        }
+      },
+      "SERVER": {
+        "NAME": "server",
+        "DESCRIPTION": "View all-time stats about the server's starred messages."
+      },
+      "GLOBAL": {
+        "NAME": "global",
+        "DESCRIPTION": "View all-time stats about starred messages around the world."
       }
     },
     "WHITELIST": {

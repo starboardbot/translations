@@ -442,9 +442,6 @@ declare type MessageParameters = {
   "MESSAGE_DATE": {
     date: Date | number,
   },
-  "SUCCESSFULLY_DELETED_YOUR_STARBOARD_MESSAGE": {
-    trashCommand: string,
-  },
   "PONG": {
     latency: string,
     shard: string,
@@ -526,6 +523,43 @@ declare type MessageParameters = {
   },
   "STARRED_MESSAGE_UNOBTAINABLE": {
     channel: string,
+  },
+  "USERS_STATS": {
+    user: string,
+  },
+  "STAT_WITH_PAST_24_HRS": {
+    count: number,
+    today: number,
+  },
+  "LEADERBOARD_TITLE": {
+    title: string,
+  },
+  "YOUR_PLACE": {
+    place: number,
+  },
+  "USERS_PLACE": {
+    user: string,
+    place: number,
+  },
+  "CONFIRMATION_LEADERBOARD_RESET_USER": {
+    username: string,
+    mention: string,
+    keepOldRewardRoles: boolean,
+    statsUser: string,
+  },
+  "SUCCESSFULLY_RESET_LEADERBOARD_USER_KEEP_REWARD_ROLES": {
+    username: string,
+    mention: string,
+  },
+  "SUCCESSFULLY_RESET_LEADERBOARD_USER": {
+    username: string,
+    mention: string,
+  },
+  "CONFIRMATION_LEADERBOARD_RESET": {
+    stats: string,
+  },
+  "SUCCESSFULLY_RESET_LEADERBOARD": {
+    count: number,
   },
 }
 

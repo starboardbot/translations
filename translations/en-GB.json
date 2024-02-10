@@ -346,7 +346,8 @@
 
   "NOT_STARBOARD_MESSAGE": "This message is not a starboard message.",
   "NOT_YOUR_STARBOARD_MESSAGE": "This starboard message does not belong to you.",
-  "SUCCESSFULLY_DELETED_YOUR_STARBOARD_MESSAGE": "Successfully deleted your starboard message.\nUsers may still get this message back on the starboard again by giving it more stars - to prevent this, get a moderator to trash the message with {trashCommand}.",
+  "SUCCESSFULLY_DELETED_YOUR_STARBOARD_MESSAGE": "Successfully deleted your starboard message.",
+  "SUCCESSFULLY_DELETED_YOUR_STARBOARD_MESSAGE_PLUS_FREEZE_OPTION": "Successfully deleted your starboard message.\nUsers may still get this message back on the starboard again by giving it more stars - to prevent this, you can freeze the message. If you don't have moderator permissions and you want to unfreeze the message again, you'll need to get a moderator to help.",
 
   "PONG": [
     "Pong!\n",
@@ -1743,7 +1744,7 @@
       },
       "RANDOM": {
         "NAME": "random",
-        "DESCRIPTION": "Show a random starred message.",
+        "DESCRIPTION": "Show a random starboard message.",
         "OPTIONS": {
           "AUTHOR": {
             "NAME": "author",

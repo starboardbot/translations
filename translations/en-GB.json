@@ -498,6 +498,17 @@
   "CONFIRMATION_LEADERBOARD_RESET": "Are you sure you want to reset the server's leaderboard?\nNo reward roles will be removed from users, and the {stats} commands will not be affected. This action is irreversable.",
   "SUCCESSFULLY_RESET_LEADERBOARD": "Successfully cleared the server's leaderboard, removing {count, number} users from it.",
 
+  "NO_STARBOARDS_SET": "It seems this server has no starboard channels set.",
+  "DEBUG_NO_STARBOARD_FOR_MESSAGE": "This message cannot be starred because there is no starboard set on the server settings.",
+  "DEBUG_NO_STARBOARD_FOR_MESSAGE_OVERRIDE": "This message cannot be starred because there is no starboard channel it is able to go to. Please ensure the server's settings/overrides are set up correctly.",
+  "MESSAGE_CHANNEL_BLACKLISTED": "The channel that this message was sent in is blacklisted and no messages from this channel can be starred.",
+  "MESSAGE_AUTHOR_BLACKLISTED": "The user that sent this message is blacklisted.",
+  "MESSAGE_AUTHOR_ROLE_BLACKLISTED": "The user that sent this message has a role that is blacklisted.",
+  "DEBUG_FILTER_BOTS": "This message cannot be starred because bots cannot be starred. (**Filter Bots** is enabled)",
+  "DEBUG_FAILED_FILTERS": "This message doesn't pass the filters {filters}. Run {filtersTestCommand} for more information.",
+  "DEBUG_NOTHING_WRONG": "There seems to be nothing wrong with [this message](<{link}>) and it should be able to get stars as normal. If this message has gotten stars already, try running {modInfoCommand} for more info about the message.",
+  "DEBUG": "Debug",
+
   "SETTINGS": {
     "STARBOARD_ID": {
       "NAME": "Starboard"
@@ -1391,6 +1402,16 @@
         "LEADERBOARD": {
           "NAME": "leaderboard",
           "DESCRIPTION": "Reset the entire server leaderboard, removing all users from it."
+        }
+      },
+      "DEBUG": {
+        "NAME": "debug",
+        "DESCRIPTION": "Debug a message and get reasons for why it isn't on the starboard.",
+        "OPTIONS": {
+          "MESSAGE": {
+            "NAME": "message",
+            "DESCRIPTION": "The message to debug."
+          }
         }
       }
     },

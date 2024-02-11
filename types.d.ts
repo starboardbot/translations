@@ -561,6 +561,14 @@ declare type MessageParameters = {
   "SUCCESSFULLY_RESET_LEADERBOARD": {
     count: number,
   },
+  "DEBUG_FAILED_FILTERS": {
+    filters: string,
+    filtersTestCommand: string,
+  },
+  "DEBUG_NOTHING_WRONG": {
+    link: string,
+    modInfoCommand: string,
+  },
 }
 
 export = MessageParameters

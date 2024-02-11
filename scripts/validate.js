@@ -42,7 +42,16 @@ for (const messages of readdirSync(`${__dirname}/../translations`)
       else
         console.log(`   -     ${messages.name} ${id} command contains ${len} characters.`)
     }
-    else if (key === "") console.log(`${"--".repeat(40)}\n${messages.name} has ${len.toLocaleString()} characters across ${Object.keys(messages).length - 2} translations!`)
+    else if (key === "") {
+      let nTranslations = -2
+      let go = (obj) => {
+        for (const v of Object.values(obj))
+          if (typeof v === "object") go(v)
+          else nTranslations++
+      }
+      go(messages)
+      console.log(`${"--".repeat(40)}\n${messages.name} has ${len.toLocaleString()} characters across ${nTranslations} translations!`)
+    }
   }
 
   console.log("")

@@ -1591,7 +1591,7 @@
     },
     "REWARDROLES": {
       "NAME": "rewardroles",
-      "DESCRIPTION": "View or edit the list of reward roles, roles awarded to users as they get more stars.",
+      "DESCRIPTION": "View and manage the list of reward roles, roles awarded to users as they get more stars.",
       "CREATE": {
         "NAME": "create",
         "DESCRIPTION": "Create a reward role.",
@@ -1642,13 +1642,17 @@
           }
         }
       },
-      "PROGRESS": {
-        "NAME": "progress",
-        "DESCRIPTION": "View your progress in relation to getting reward roles."
-      },
       "VIEW": {
         "NAME": "view",
         "DESCRIPTION": "View the list of reward roles created in this server."
+      }
+    },
+    "REWARDROLE": {
+      "NAME": "rewardrole",
+      "DESCRIPTION": "Personal reward role information.",
+      "PROGRESS": {
+        "NAME": "progress",
+        "DESCRIPTION": "View your progress in relation to getting reward roles."
       }
     },
     "SETTINGS": {

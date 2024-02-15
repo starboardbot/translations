@@ -1,3 +1,6 @@
 old
 node_modules
 dist
+
+.turbo
+*.log

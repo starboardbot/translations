@@ -569,6 +569,24 @@ declare type MessageParameters = {
     link: string,
     modInfoCommand: string,
   },
+  "SUCCESSFULLY_REDEEMED_PREMIUM_CODE": {
+    code: string,
+    duration: string,
+  },
+  "PREMIUM_WILL_BE_ACTIVATED": {
+    type: "code" | "pledge",
+  },
+  "TO_REDEEM_STARBOARD_PREMIUM": {
+    premiumRedeem: string,
+  },
+  "TO_GET_STARBOARD_PREMIUM": {
+    patreonLink: string,
+  },
+  "SERVER_HAS_PREMIUM": {
+    type: "pledge" | "code",
+    user: string,
+    inTimeLeft: string,
+  },
 }
 
 export = MessageParameters

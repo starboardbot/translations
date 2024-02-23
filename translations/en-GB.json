@@ -19,6 +19,8 @@
   "NEXT": "Next",
   "END": "End",
   "RETRY": "Retry",
+  "DISABLE": "Disable",
+  "RESTORE": "Restore",
 
   "NONE": "None",
   "NOT_SET": "Not set",
@@ -108,7 +110,6 @@
   "MISSING_ATTACH_FILES_PERMISSION_NOTICE": "The bot is missing the `Attach Files` permission in {channel}, so media and files that are supposed to be reuploaded due to the **Reupload Attachments** setting will be linked instead.",
   "REQUIRED_STARS_CLASH_SET": "Because the value of **Required Stars** has to be higher than **Required Stars To Remove**, I've set **Required Stars** to {requiredStars, number} and **Required Stars To Remove** to {requiredToRemove, number}.",
   "UNUSABLE_REACTION_EMOJIS_PROVIDED": "I cannot use the emojis {emojis}. Please choose emojis from servers I am in.",
-  "TOO_MANY_EMOJIS": "You have reached the maximum amount of emojis allowed for one server.",
   "UPVOTE_DOWNVOTE_EMOJIS_CLASH": "You cannot set the same emoji to star messages and downvote messages.",
   "SETTING_ONLY_FOR_SERVER_SETTINGS": "The setting **{setting}** can only be modified when editing Server Settings.",
 
@@ -287,6 +288,8 @@
   "FILTERS_DESCRIPTION_SHORT": "These are the message filters a message must pass in order to be starred.",
   "NOTHING_TO_SHOW": "Nothing to show.",
   "FILTER_OR": "{a} OR {b}",
+  "DELETED_FILTER": "Deleted Filter",
+  "DELETED_FILTER_INBETWEEN_OPTIONALS": "Deleted Filter (this was kept here due to being surrounded by optional filters)",
   "FILTERS_DESCRIPTION_ALL_CREATED": [
     "These are all the message filters created in this server. To enable them you have to add them to the settings with {filtersAdd}.\n",
     "When adding filters, if two or more filters beside eachother are marked as optional it means only one of them have to pass for them all to pass. For example, A, B, C, D, with B & C both optional means A must pass, B *or* C must pass, and D must pass, to allow the message to be starred."
@@ -323,7 +326,6 @@
   "FILTER_NOT_FOUND": "There is no existing message filter created under the name **{name}**.",
   "FILTER_ALREADY_ADDED": "**{filter}** is already added as a filter a message __has__ to pass, so adding it again won't do anything.",
   "SUCCESS_FILTER_ADD": "Successfully added **{filter}** to the list of filters on {override, select, null {the server settings} other {the **{override}** override}}{optional, select, true { as an optional filter} false {}}. You can view the list of filters with {settingsView}.",
-
   "CONFIRMATION_DELETE_FILTER": "Are you sure you want to delete **{name}**? This filter will be removed from wherever it is used and will be deleted permanently.",
   "FILTER_IN_SETTINGS_AUTOCOMPLETE": "{position, number}: {filter} {optional, select, true {(optional filter)} false {}}",
   "NO_FILTER_AT_POSITION": "There is no message filter at the given position {position, number} on {override, select, null {the server settings} other {override **{override}**}}.",
@@ -492,11 +494,22 @@
   "LEADERBOARD_TITLE": "Leaderboard - {title}",
   "YOUR_PLACE": "Your Place: {place, select, 0 {Not on the leaderboard.} other {#{place, number}}}",
   "USERS_PLACE": "{user}'s Place: {place, select, 0 {Not on the leaderboard.} other {#{place, number}}}",
+  "NOTHING_TO_SHOW_PREMIUM": "Nothing to show. (**[Premium Servers]({patreonLink})** can have up to {premiumLimit, number} pages.)",
+  "LAST_RESET": "Last Reset:",
   "CONFIRMATION_LEADERBOARD_RESET_USER": "Are you sure you want to remove all of the leaderboard data for **{username}** ({mention})?\nTheir stats for the server leaderboards will be {keepOldRewardRoles, select, true {reset back to 0, but they won't lose any reward roles and} false {reset back to 0 and they will lose all their reward roles, but}} the {statsUser} command will not be affected for them.",
   "SUCCESSFULLY_RESET_LEADERBOARD_USER_KEEP_REWARD_ROLES": "Successfully reset leaderboard stats for **{username}** ({mention}).",
   "SUCCESSFULLY_RESET_LEADERBOARD_USER": "Successfully reset leaderboard stats for **{username}** ({mention}) and removed all their reward roles.",
-  "CONFIRMATION_LEADERBOARD_RESET": "Are you sure you want to reset the server's leaderboard?\nNo reward roles will be removed from users, and the {stats} commands will not be affected. This action is irreversable.",
+  "CONFIRMATION_LEADERBOARD_RESET": "Are you sure you want to reset the server's leaderboard?\nNo reward roles will be removed from users, and the {stats} commands will not be affected. {hasPremium, select, true {} false {This action is **irreversable**. (Due to how slow and intensive restoring is, {modLeaderboardRestore} is limited to **[Premium Servers]({patreonLink})**.)}}",
   "SUCCESSFULLY_RESET_LEADERBOARD": "Successfully cleared the server's leaderboard, removing {count, number} users from it.",
+  "SUCCESSFULLY_ENABLED_AUTO_RESET": "Successfully enabled the auto-reset for the server leaderboard.",
+  "LEADERBOARD_AUTO_RESET_EVERY": "The leaderboard will be reset {type, select, days {{days, plural, =1 {every day} other {every # days}}} date {on the {date, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} of every month}}, with the next auto-reset being on {nextReset}.",
+  "LEADERBOARD_AUTO_RESET_ENABLED": "Auto-resetting the server leaderboard is enabled:",
+  "LEADERBOARD_AUTO_RESET_NOT_ENABLED": "Auto-resetting the server leaderboard is not currently enabled.",
+  "SUCCESSFULLY_DISABLED_LEADERBOARD_AUTO_RESET": "Successfully disabled the server leaderboard auto-reset.",
+  "SUCCESSFULLY_RESTORE_LEADERBOARD": "Successfully restored {entries, number} leaderboard entries.",
+  "LEADERBOARD_CURRENTLY_BEING_RESTORED": "This server's leaderboard is currently being restored.",
+  "LEADERBOARD_ALREADY_BEING_RESTORED": "This server's leaderboard is already being restored right now.",
+  "CONFIRMATION_LEADERBOARD_RESTORE": "Just to confirm, are you sure you want to restore the leaderboard using {after, select, null {all starred message data?} other {starred message data of messages starred after {after}? The leaderboard **will first be reset** before being restored.}}\nAlthough the leaderboard doesn't count self stars, the star counts restored by this command *will* include self stars.",
 
   "NO_STARBOARDS_SET": "It seems this server has no starboard channels set.",
   "DEBUG_NO_STARBOARD_FOR_MESSAGE": "This message cannot be starred because there is no starboard set on the server settings.",
@@ -517,11 +530,47 @@
   "PREMIUM_PENDING": "It seems your Patron payment is currently pending, please try again in a few minutes.",
   "PATRON_PAYMENT_DECLINED": "It seems your Patron payment has declined and you cannot redeem Starboard Premium until that is resolved.",
   "SUCCESSFULLY_REDEEMED_PREMIUM": "Successfully redeemed Starboard Premium for this server!",
+  "OLD_PREMIUM_FEATURES_RESTORED": "This server had Starboard Premium before, and had items (overrides, reward roles, emojis etc.) that exceeded the free limit and got taken away when the premium expired, so I've gone and restored them back.",
   "STARBOARD_PREMIUM": "Starboard Premium",
-  "STARBOARD_PREMIUM_INFO": "Starboard Premium is a great way to show your support to the development of Starboard. In return, you can unlock the true potential of Starboard.",
+  "STARBOARD_PREMIUM_INFO_BASIC": "Starboard Premium is a great way to show your support to the development of Starboard. In return, you can unlock the true potential of Starboard.",
+  "PREMIUM_FEATURES_SAVED_FOR_YOU": "When the server's current Starboard Premium ends, any items (overrides, reward roles, etc.) that exceed the free limit will be saved and will be waiting for you when you decide to get Starboard Premium again.",
   "TO_REDEEM_STARBOARD_PREMIUM": "To redeem Starboard premium for a server of your choice, simply run {premiumRedeem} in that server.",
   "TO_GET_STARBOARD_PREMIUM": "To get Starboard Premium for one server of your choice, [become a patron on Patreon]({patreonLink}) on the Starboard Premium tier.",
   "SERVER_HAS_PREMIUM": "This server has Starboard Premium, {type, select, pledge {courtesy of {user} being a patron} code {which will expire {inTimeLeft}}}.",
+  "STARBOARD_PREMIUM_INFO_EXTRA": "Starboard Premium allows you to unlock the true potential of Starboard, with many features to offer, such as:",
+  "PREMIUM_FEATURE_EMOJIS": "up to **{premiumLimit, number}** emojis for starring messages (previously {freeLimit, number})",
+  "PREMIUM_FEATURE_DOWNVOTE_EMOJIS": "up to **{premiumLimit, number}** downvote emojis (previously {freeLimit, number})",
+  "PREMIUM_FEATURE_OVERRIDES": "create up to **{premiumLimit, number}** overrides, to fine tune which settings are applied based on the message's channel and author's roles (previously {freeLimit, number})",
+  "PREMIUM_FEATURE_REWARD_ROLES": "up to **{premiumLimit, number}** reward roles, rewarded to users as they get more stars (previously {freeLimit, number})",
+  "PREMIUM_FEATURE_FILTERS": "up to **{premiumLimit, number}** advanced message filters (previously {freeLimit, number})",
+  "PREMIUM_FEATURE_DISPLAY_TIERS": "personalise up to **{premiumLimit, number}** cosmetic display tiers to make popular starboard messages stand out even more (previously {freeLimit, number})",
+  "PREMIUM_FEATURE_LEADERBOARD_ENTRIES": "view up to **{premiumLimit, number}** entries on the server leaderboards (previously {freeLimit, number})",
+  "PREMIUM_FEATURE_LEADERBOARD_AUTO_RESET": "the ability to create and customise server leaderboard automatic resets (e.g. auto-reset at the start of every month)",
+  "PREMIUM_FEATURE_LEADERBOARD_RESTORE": "the ability to restore the leaderboard (using data from all starred messages recorded)",
+  "PREMIUM_FEATURE_FILE_UPLOADS": "have media up to 100MB in size reuploaded onto starboard messages, instead of being linked (previously {freeMB, number}MB)",
+  "PREMIUM_FEATURE_OLD_FEATURES": "access to all the old items taken away as a result of the server's last Starboard Premium ending",
+
+  "REACHED_LIMIT_PREMIUM_UPSELL": [
+    "This server has reached the maximum amount of {type, select, ",
+    "filters {filters}",
+    "overrides {overrides}",
+    "rewardRoles {reward roles}",
+    "displayTiers {display tiers}",
+    "} allowed for one server. {premium, select, true {({premiumLimit, number})} false {To have {premiumLimit, select, null {as many as you want} other {up to {premiumLimit, number}}}, this server needs to have **[Starboard Premium]({patreonLink})**.}}"
+  ],
+  "LOCKED_FEATURE_PREMIUM_UPSELL": [
+    "{feature, select, ",
+    "lbRestore {Due to how slow and intensive it is, restoring the leaderboard}",
+    "null {This feature}",
+    "} is reserved for servers that have **[Starboard Premium]({patreonLink})**."
+  ],
+  "SET_LIMIT_PREMIUM_UPSELL": [
+    "You cannot have that many {type, select, ",
+    "emojis {emojis}",
+    "downvoteEmojis {downvote emojis}",
+    "} set. {premium, select, true {({premiumLimit, number})} false {To have {premiumLimit, select, null {as many as you want} other {up to {premiumLimit, number}}}, this server needs to have **[Starboard Premium]({patreonLink})**.}}"
+  ],
+  "GET_STARBOARD_PREMIUM": "Get Starboard Premium",
 
   "SETTINGS": {
     "STARBOARD_ID": {
@@ -1400,11 +1449,11 @@
           "DESCRIPTION": "Remove all starred messages from the server's Hall Of Fame."
         }
       },
-      "RESET": {
-        "NAME": "reset",
+      "LEADERBOARD": {
+        "NAME": "leaderboard",
         "DESCRIPTION": "Reset leaderboard data.",
-        "LEADERBOARD_USER": {
-          "NAME": "leaderboard-user",
+        "RESET_USER": {
+          "NAME": "reset-user",
           "DESCRIPTION": "Reset the leaderboard data for one specific user, removing them from the leaderboard.",
           "OPTIONS": {
             "USER": {
@@ -1413,9 +1462,37 @@
             }
           }
         },
-        "LEADERBOARD": {
-          "NAME": "leaderboard",
+        "RESET": {
+          "NAME": "reset",
           "DESCRIPTION": "Reset the entire server leaderboard, removing all users from it."
+        },
+        "AUTO_RESET": {
+          "NAME": "auto-reset",
+          "DESCRIPTION": "Have the server leaderboard automatically reset every set period of time, or view the current setup.",
+          "OPTIONS": {
+            "DAYS": {
+              "NAME": "days",
+              "DESCRIPTION": "Reset the leaderboard every certain number of days."
+            },
+            "DATE_OF_MONTH": {
+              "NAME": "date-of-month",
+              "DESCRIPTION": "Or reset the leaderboard on a specific date of every month."
+            },
+            "START_FROM": {
+              "NAME": "start-from",
+              "DESCRIPTION": "Start resetting the leaderboard automatically from this date and onwards."
+            }
+          }
+        },
+        "RESTORE": {
+          "NAME": "restore",
+          "DESCRIPTION": "Premium servers can restore leaderboard data using all of the server's starred message data.",
+          "OPTIONS": {
+            "AFTER": {
+              "NAME": "after",
+              "DESCRIPTION": "Reset the leaderboard and restore it based on starred messages after this date."
+            }
+          }
         }
       },
       "DEBUG": {

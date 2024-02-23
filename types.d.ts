@@ -542,6 +542,10 @@ declare type MessageParameters = {
     user: string,
     place: number,
   },
+  "NOTHING_TO_SHOW_PREMIUM": {
+    patreonLink: string,
+    premiumLimit: number,
+  },
   "CONFIRMATION_LEADERBOARD_RESET_USER": {
     username: string,
     mention: string,
@@ -558,9 +562,24 @@ declare type MessageParameters = {
   },
   "CONFIRMATION_LEADERBOARD_RESET": {
     stats: string,
+    hasPremium: boolean,
+    modLeaderboardRestore: string,
+    patreonLink: string,
   },
   "SUCCESSFULLY_RESET_LEADERBOARD": {
     count: number,
+  },
+  "LEADERBOARD_AUTO_RESET_EVERY": {
+    type: "date" | "days",
+    nextReset: string,
+    days: number,
+    date: number,
+  },
+  "SUCCESSFULLY_RESTORE_LEADERBOARD": {
+    entries: number,
+  },
+  "CONFIRMATION_LEADERBOARD_RESTORE": {
+    after: string | null,
   },
   "DEBUG_FAILED_FILTERS": {
     filters: string,
@@ -584,9 +603,56 @@ declare type MessageParameters = {
     patreonLink: string,
   },
   "SERVER_HAS_PREMIUM": {
-    type: "pledge" | "code",
+    type: "code" | "pledge",
     user: string,
     inTimeLeft: string,
+  },
+  "PREMIUM_FEATURE_EMOJIS": {
+    premiumLimit: number,
+    freeLimit: number,
+  },
+  "PREMIUM_FEATURE_DOWNVOTE_EMOJIS": {
+    premiumLimit: number,
+    freeLimit: number,
+  },
+  "PREMIUM_FEATURE_OVERRIDES": {
+    premiumLimit: number,
+    freeLimit: number,
+  },
+  "PREMIUM_FEATURE_REWARD_ROLES": {
+    premiumLimit: number,
+    freeLimit: number,
+  },
+  "PREMIUM_FEATURE_FILTERS": {
+    premiumLimit: number,
+    freeLimit: number,
+  },
+  "PREMIUM_FEATURE_DISPLAY_TIERS": {
+    premiumLimit: number,
+    freeLimit: number,
+  },
+  "PREMIUM_FEATURE_LEADERBOARD_ENTRIES": {
+    premiumLimit: number,
+    freeLimit: number,
+  },
+  "PREMIUM_FEATURE_FILE_UPLOADS": {
+    freeMB: number,
+  },
+  "REACHED_LIMIT_PREMIUM_UPSELL": {
+    type: "displayTiers" | "filters" | "overrides" | "rewardRoles",
+    premium: boolean,
+    premiumLimit: number | null,
+    patreonLink: string,
+  },
+  "LOCKED_FEATURE_PREMIUM_UPSELL": {
+    feature: "lbRestore" | null,
+    patreonLink: string,
+  },
+  "SET_LIMIT_PREMIUM_UPSELL": {
+    type: "downvoteEmojis" | "emojis",
+    premium: boolean,
+    premiumLimit: number | null,
+    patreonLink: string,
   },
 }
 

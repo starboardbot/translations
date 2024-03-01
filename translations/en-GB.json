@@ -85,9 +85,9 @@
   "MISCELLANEOUS_SETTINGS": "Miscellaneous Settings",
 
   "INHERITS_SETTINGS_FROM": "Inherits from {name}",
-  "OVERRIDE_APPLY_CHANNELS": "This override applies to messages in {other, plural, =0 {{channels}} other {{channels} and # other channels}}.",
+  "OVERRIDE_APPLY_CHANNELS": "This override applies to messages in {other, plural, =0 {{channels}} =1 {{channels} and 1 other channel} other {{channels} and # other channels}}.",
   "OVERRIDE_APPLY_CHANNEL_TYPES": "This override applies to messages in: {type}",
-  "OVERRIDE_APPLY_ROLES": "This override applies to messages where the author has {other, plural, =0 {{roles}} other {{roles} and # other roles}}{channels, select, null {} other { in {channels}}}.",
+  "OVERRIDE_APPLY_ROLES": "This override applies to messages where the author has {other, plural, =0 {{roles}} =1 {{roles} and 1 other role} other {{roles} and # other roles}}{channels, select, null {} other { in {channels}}}.",
   "OVERRIDE_APPLY_EMOJIS": "This override applies when reacting with {emojis}{channels, select, null {} other { in {channels}}}.",
 
   "APPLIES_TO": "Applies to",
@@ -325,6 +325,7 @@
   "AT_END": "At end",
   "FILTER_NOT_FOUND": "There is no existing message filter created under the name **{name}**.",
   "FILTER_ALREADY_ADDED": "**{filter}** is already added as a filter a message __has__ to pass, so adding it again won't do anything.",
+  "TOO_MANY_FILTERS": "You have added too many filters here.",
   "SUCCESS_FILTER_ADD": "Successfully added **{filter}** to the list of filters on {override, select, null {the server settings} other {the **{override}** override}}{optional, select, true { as an optional filter} false {}}. You can view the list of filters with {settingsView}.",
   "CONFIRMATION_DELETE_FILTER": "Are you sure you want to delete **{name}**? This filter will be removed from wherever it is used and will be deleted permanently.",
   "FILTER_IN_SETTINGS_AUTOCOMPLETE": "{position, number}: {filter} {optional, select, true {(optional filter)} false {}}",
@@ -522,6 +523,27 @@
   "DEBUG_NOTHING_WRONG": "There seems to be nothing wrong with [this message](<{link}>) and it should be able to get stars as normal. If this message has gotten stars already, try running {modInfoCommand} for more info about the message.",
   "DEBUG": "Debug",
 
+  "SUCCESSFULLY_CREATE_AUTO_STAR_CONFIG": "Successfully created an auto-star configuration **{name}** for the emojis {emojis} in {includeThreads, select, true {{channels, plural, =1 {1 channel and its threads} other {# channels and their threads}}} false {{channels, plural, =1 {1 channel} other {# channels}}}}.",
+  "SUCCESSFULLY_EDIT_AUTO_STAR_CONFIG": "Successfully edited the auto-star configuration **{name}**:\n{changes}",
+  "ASC_EDIT_NAME": "this auto-star configuration is now named **{name}**",
+  "ASC_EDIT_EMOJIS": "the auto-star emojis are now {emojis}",
+  "ASC_EDIT_CHANNELS": "this auto-star configuration is now active for {includeThreads, select, true {{channels, plural, =1 {1 channel and its threads} other {# channels and their threads}}} false {{channels, plural, =1 {1 channel} other {# channels}}}}",
+  "ASC_EDIT_DELETE_INVALID_MESSAGES": "invalid messages (from blacklisted users or that don't pass filters) will {value, select, true {now} false {no longer}} be deleted",
+  "AUTO_STAR_CONFIG_NOT_FOUND": "There is no existing auto-star configuration created under the name **{name}**.",
+  "CONFIRMATION_DELETE_AUTO_STAR_CONFIG": "Are you sure you want to delete **{name}**? No other settings, overrides or filters will be affected.",
+  "NO_AUTO_STAR_CONFIGS": "There are no auto-star configurations set up in this server.",
+  "AUTO_STAR_CONFIG_ACTIVE_IN": "This auto-star configuration is active in {includeThreads, select, true {{numChannels, plural, =1 {{channels} and its threads} other {{channels} and their threads}}} false {{channels}}}.",
+  "DELETE_INVALID_MESSAGES": "Delete Invalid Messages",
+  "ASC_EXTRA_INFO": "Other settings (such as **Filter Bots** and blacklists) will be taken into account from the server settings and overrides. Only the emojis that a user can use to star the message will be added.",
+  "ASC_MESSAGE_FILTERS": "Auto-Star Message Filters",
+  "ASC_FILTERS_DESCRIPTION_SHORT": "These are the message filters a message must *also* pass in order to be auto-starred, alongside filters set on server settings or on overrides.",
+  "AUTO_STAR_CONFIGURATIONS": "Auto-Star Configurations",
+  "ASC_SUCCESS_FILTER_ADD": "Successfully added **{filter}** to the list of filters on auto-star configuration **{autoStarConfig}**{optional, select, true { as an optional filter} false {}}. You can view the list of filters and the rest of the current configuration with {autostarView}.",
+  "ASC_NO_FILTER_AT_POSITION": "There is no message filter at the given position {position, number} on auto-star configuration **{autoStarConfig}**.",
+  "ASC_SUCCESS_FILTER_REMOVE": "Successfully removed {optional, select, true {optional filter **{filter}**} false {**{filter}**}} (position: {position, number}) from auto-star configuration **{autoStarConfig}**.",
+  "ASC_SUCCESS_FILTER_MOVE": "Successfully moved **{filter}** from {old, number} to {position, plural, =1 {the start,} other {**{position, number}** (after **{after}**)}} on auto-star configuration **{autoStarConfig}**.",
+
+
   "INVALID_PREMIUM_CODE": "That premium code is not valid or has already been redeemed.",
   "SUCCESSFULLY_REDEEMED_PREMIUM_CODE": "Successfully redeemed a Starboard Premium code `{code}`. This server now has Starboard Premium for {duration}!",
   "PREMIUM_WILL_BE_ACTIVATED": "{type, select, code {This premium code will be activated} pledge {Your premium pledge will come into effect}} when this server's current Starboard Premium runs out.",
@@ -548,6 +570,9 @@
   "PREMIUM_FEATURE_LEADERBOARD_AUTO_RESET": "the ability to create and customise server leaderboard automatic resets (e.g. auto-reset at the start of every month)",
   "PREMIUM_FEATURE_LEADERBOARD_RESTORE": "the ability to restore the leaderboard (using data from all starred messages recorded)",
   "PREMIUM_FEATURE_FILE_UPLOADS": "have media up to 100MB in size reuploaded onto starboard messages, instead of being linked (previously {freeMB, number}MB)",
+  "PREMIUM_FEATURE_AUTO_STAR_CONFIGS": "configure up to **{premiumLimit, number}** auto-star configurations (previously {freeLimit, number})",
+  "PREMIUM_FEATURE_AUTO_STAR_CONFIG_EMOJIS_CHANNELS": "set up to **{premiumLimitEmojis, number}** emojis and **{premiumLimitChannels, number}** channels per auto star configuration (previously {freeLimitEmojis, number} emojis and {freeLimitChannels, number} channels)",
+  "PREMIUM_FEATURE_AUTO_STAR_INCLUDE_THREADS": "the option to include all threads of channels you've enabled auto-starring in",
   "PREMIUM_FEATURE_OLD_FEATURES": "access to all the old items taken away as a result of the server's last Starboard Premium ending",
 
   "REACHED_LIMIT_PREMIUM_UPSELL": [
@@ -556,11 +581,13 @@
     "overrides {overrides}",
     "rewardRoles {reward roles}",
     "displayTiers {display tiers}",
+    "autoStarConfigs {auto-star configurations}",
     "} allowed for one server. {premium, select, true {({premiumLimit, number})} false {To have {premiumLimit, select, null {as many as you want} other {up to {premiumLimit, number}}}, this server needs to have **[Starboard Premium]({patreonLink})**.}}"
   ],
   "LOCKED_FEATURE_PREMIUM_UPSELL": [
     "{feature, select, ",
     "lbRestore {Due to how slow and intensive it is, restoring the leaderboard}",
+    "autoStarIncludeThreads {Automatically auto-starring messages in the threads of listed channels}",
     "null {This feature}",
     "} is reserved for servers that have **[Starboard Premium]({patreonLink})**."
   ],
@@ -568,6 +595,8 @@
     "You cannot have that many {type, select, ",
     "emojis {emojis}",
     "downvoteEmojis {downvote emojis}",
+    "autoStarConfigEmojis {emojis on an auto-star configuration}",
+    "autoStarConfigChannels {channels on an auto-star configuration}",
     "} set. {premium, select, true {({premiumLimit, number})} false {To have {premiumLimit, select, null {as many as you want} other {up to {premiumLimit, number}}}, this server needs to have **[Starboard Premium]({patreonLink})**.}}"
   ],
   "GET_STARBOARD_PREMIUM": "Get Starboard Premium",
@@ -664,6 +693,130 @@
   },
 
   "COMMANDS": {
+    "AUTOSTAR": {
+      "NAME": "autostar",
+      "DESCRIPTION": "Manage auto-star configurations for automatically starring messages as they're sent.",
+      "CREATE": {
+        "NAME": "create",
+        "DESCRIPTION": "Create an auto-star configuration to automatically star messages as they're sent.",
+        "OPTIONS": {
+          "NAME": {
+            "NAME": "name",
+            "DESCRIPTION": "The name of this auto-star configuration."
+          },
+          "CHANNELS": {
+            "NAME": "channels",
+            "DESCRIPTION": "The channels in which this configuration should be active."
+          },
+          "EMOJIS": {
+            "NAME": "emojis",
+            "DESCRIPTION": "The emojis to automatically react with."
+          },
+          "INCLUDE_THREADS": {
+            "NAME": "include-threads",
+            "DESCRIPTION": "Also add reactions to messages sent in threads under this channel."
+          },
+          "DELETE_INVALID_MESSAGES": {
+            "NAME": "delete-invalid-messages",
+            "DESCRIPTION": "If delete messages (i.e. ones that don't pass filters) should automatically get deleted."
+          }
+        }
+      },
+      "DELETE": {
+        "NAME": "delete",
+        "DESCRIPTION": "Delete an auto-star configuration.",
+        "OPTIONS": {
+          "AUTO_STAR_CONFIG": {
+            "NAME": "auto-star-config",
+            "DESCRIPTION": "The auto-star configuration to delete."
+          }
+        }
+      },
+      "EDIT": {
+        "NAME": "edit",
+        "DESCRIPTION": "Edit an auto-star configuration.",
+        "OPTIONS": {
+          "AUTO_STAR_CONFIG": {
+            "NAME": "auto-star-config",
+            "DESCRIPTION": "The auto-star configuration to edit."
+          },
+          "NAME": {
+            "NAME": "new-name",
+            "DESCRIPTION": "The new name of this auto-star configuration."
+          },
+          "CHANNELS": {
+            "NAME": "channels",
+            "DESCRIPTION": "The channels in which this configuration should now be active."
+          },
+          "EMOJIS": {
+            "NAME": "emojis",
+            "DESCRIPTION": "The emojis to now automatically react with."
+          },
+          "INCLUDE_THREADS": {
+            "NAME": "include-threads",
+            "DESCRIPTION": "Also add reactions to messages sent in threads under this channel."
+          },
+          "DELETE_INVALID_MESSAGES": {
+            "NAME": "delete-invalid-messages",
+            "DESCRIPTION": "If delete messages (i.e. ones that don't pass filters) should automatically get deleted."
+          }
+        }
+      },
+      "VIEW": {
+        "NAME": "view",
+        "DESCRIPTION": "View all your auto-star configurations.",
+        "OPTIONS": {
+          "AUTO_STAR_CONFIG": {
+            "NAME": "auto-star-config",
+            "DESCRIPTION": "The auto-star configuration to view."
+          }
+        }
+      },
+      "FILTERS": {
+        "NAME": "filters",
+        "DESCRIPTION": "Manage message filters for auto-starring.",
+        "ADD": {
+          "NAME": "add",
+          "DESCRIPTION": "Add a message filter to an auto-star config, so messages must pass it to be auto-starred.",
+          "OPTIONS": {
+            "FILTER": {
+              "NAME": "filter",
+              "DESCRIPTION": "The filter you want to add."
+            },
+            "AUTO_STAR_CONFIG": {
+              "NAME": "auto-star-config",
+              "DESCRIPTION": "The auto-star configuration you'd like to add a filter to."
+            },
+            "POSITION": {
+              "NAME": "position",
+              "DESCRIPTION": "The position you'd like the filter to be in. Filters are checked from top to bottom."
+            },
+            "OPTIONAL": {
+              "NAME": "optional",
+              "DESCRIPTION": "When 2 or more optional filters are beside eachother, only one has to pass for them all to pass."
+            }
+          }
+        },
+        "REMOVE": {
+          "NAME": "remove",
+          "DESCRIPTION": "Remove or move a message filter that's in an auto-star config's list of enabled message filters.",
+          "OPTIONS": {
+            "AUTO_STAR_CONFIG": {
+              "NAME": "auto-star-config",
+              "DESCRIPTION": "The auto-star configuration you want to move/remove a filter from."
+            },
+            "FILTER": {
+              "NAME": "filter",
+              "DESCRIPTION": "The message filter you want to move/remove."
+            },
+            "NEW_POSITION": {
+              "NAME": "new-position",
+              "DESCRIPTION": "The new position for this filter. If nothing is provided, the filter is simply removed."
+            }
+          }
+        }
+      }
+    },
     "BLACKLIST": {
       "NAME": "blacklist",
       "DESCRIPTION": "View info about blacklisted users, roles, and channels, or modify the blacklist.",
@@ -907,7 +1060,7 @@
           },
           "OPTIONAL": {
             "NAME": "optional",
-            "DESCRIPTION": "When 2 or more optional filters are beside eachother, only one of them has to pass for all to pass."
+            "DESCRIPTION": "When 2 or more optional filters are beside eachother, only one has to pass for them all to pass."
           }
         }
       },

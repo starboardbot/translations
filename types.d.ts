@@ -589,6 +589,63 @@ declare type MessageParameters = {
     link: string,
     modInfoCommand: string,
   },
+  "SUCCESSFULLY_CREATE_AUTO_STAR_CONFIG": {
+    name: string,
+    emojis: string,
+    includeThreads: boolean,
+    channels: number,
+  },
+  "SUCCESSFULLY_EDIT_AUTO_STAR_CONFIG": {
+    name: string,
+    changes: string,
+  },
+  "ASC_EDIT_NAME": {
+    name: string,
+  },
+  "ASC_EDIT_EMOJIS": {
+    emojis: string,
+  },
+  "ASC_EDIT_CHANNELS": {
+    includeThreads: boolean,
+    channels: number,
+  },
+  "ASC_EDIT_DELETE_INVALID_MESSAGES": {
+    value: boolean,
+  },
+  "AUTO_STAR_CONFIG_NOT_FOUND": {
+    name: string,
+  },
+  "CONFIRMATION_DELETE_AUTO_STAR_CONFIG": {
+    name: string,
+  },
+  "AUTO_STAR_CONFIG_ACTIVE_IN": {
+    includeThreads: boolean,
+    numChannels: number,
+    channels: string,
+  },
+  "ASC_SUCCESS_FILTER_ADD": {
+    filter: string,
+    autoStarConfig: string,
+    optional: boolean,
+    autostarView: string,
+  },
+  "ASC_NO_FILTER_AT_POSITION": {
+    position: number,
+    autoStarConfig: string,
+  },
+  "ASC_SUCCESS_FILTER_REMOVE": {
+    optional: boolean,
+    position: number,
+    autoStarConfig: string,
+    filter: string,
+  },
+  "ASC_SUCCESS_FILTER_MOVE": {
+    filter: string,
+    old: number,
+    position: number,
+    autoStarConfig: string,
+    after: string,
+  },
   "SUCCESSFULLY_REDEEMED_PREMIUM_CODE": {
     code: string,
     duration: string,
@@ -638,18 +695,28 @@ declare type MessageParameters = {
   "PREMIUM_FEATURE_FILE_UPLOADS": {
     freeMB: number,
   },
+  "PREMIUM_FEATURE_AUTO_STAR_CONFIGS": {
+    premiumLimit: number,
+    freeLimit: number,
+  },
+  "PREMIUM_FEATURE_AUTO_STAR_CONFIG_EMOJIS_CHANNELS": {
+    premiumLimitEmojis: number,
+    premiumLimitChannels: number,
+    freeLimitEmojis: number,
+    freeLimitChannels: number,
+  },
   "REACHED_LIMIT_PREMIUM_UPSELL": {
-    type: "displayTiers" | "filters" | "overrides" | "rewardRoles",
+    type: "autoStarConfigs" | "displayTiers" | "filters" | "overrides" | "rewardRoles",
     premium: boolean,
     premiumLimit: number | null,
     patreonLink: string,
   },
   "LOCKED_FEATURE_PREMIUM_UPSELL": {
-    feature: "lbRestore" | null,
+    feature: "autoStarIncludeThreads" | "lbRestore" | null,
     patreonLink: string,
   },
   "SET_LIMIT_PREMIUM_UPSELL": {
-    type: "downvoteEmojis" | "emojis",
+    type: "autoStarConfigChannels" | "autoStarConfigEmojis" | "downvoteEmojis" | "emojis",
     premium: boolean,
     premiumLimit: number | null,
     patreonLink: string,

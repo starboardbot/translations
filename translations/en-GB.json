@@ -714,7 +714,7 @@
           },
           "INCLUDE_THREADS": {
             "NAME": "include-threads",
-            "DESCRIPTION": "Also add reactions to messages sent in threads under this channel."
+            "DESCRIPTION": "Also add reactions to messages sent in threads under these channels."
           },
           "DELETE_INVALID_MESSAGES": {
             "NAME": "delete-invalid-messages",
@@ -754,7 +754,7 @@
           },
           "INCLUDE_THREADS": {
             "NAME": "include-threads",
-            "DESCRIPTION": "Also add reactions to messages sent in threads under this channel."
+            "DESCRIPTION": "Also add reactions to messages sent in threads under these channels."
           },
           "DELETE_INVALID_MESSAGES": {
             "NAME": "delete-invalid-messages",

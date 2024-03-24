@@ -133,7 +133,9 @@
   "ALREADY_BLACKLISTED": "{name} is already on the blacklist.",
   "MAX_BLACKLISTED_ITEMS_FOR_SERVER": "This server has reached the maximum amount of items on the blacklist.",
   "SUCCESSFULLY_BLACKLISTED": "Successfully added {name} to the blacklist.",
-  "SUCCESSFULLY_BLACKLISTED_USER_OR_ROLE": "{type, select, users {They} roles {Users with this role}} will not be able to star messages {filterBlacklistedUsers, select, true {and their messages will not be able to reach the starboard.} false {but their messages will still be able to reach the starboard.}}",
+  "SUCCESSFULLY_BLACKLISTED_USER_OR_ROLE_1": "{type, select, users {They} roles {Users with this role}} will not be able to star messages but their messages will still be able to reach the starboard.",
+  "SUCCESSFULLY_BLACKLISTED_USER_OR_ROLE_2": "Messages sent by {type, select, users {this user} roles {users with this role}} will not be able to reach the starboard, but they will still be able to star other messages.",
+  "SUCCESSFULLY_BLACKLISTED_USER_OR_ROLE_3": "{type, select, users {They} roles {Users with this role}} will not be able to star messages and their messages will not be able to reach the starboard.",
   "SUCCESSFULLY_BLACKLISTED_THREAD": "Users will no longer be able to star messages sent in this thread.",
   "SUCCESSFULLY_BLACKLISTED_CHANNEL": "Users will no longer be able to star messages sent in this channel, or any of its threads.",
   "SUCCESSFULLY_BLACKLISTED_CATEGORY": "Users will no longer be able to star messages sent in any channel under this category, and any threads under this category too.",
@@ -172,8 +174,9 @@
   "WHITELISTED_ROLES": "Whitelisted Roles",
   "WHITELISTED_CHANNELS": "Whitelisted Channels",
 
-  "BLACKLIST_DESCRIPTION_USERS": "Blacklisted users cannot star messages and cannot have their messages on the starboard.",
-  "BLACKLIST_DESCRIPTION_USERS_NO_FILTER_MESSAGES": "Blacklisted users cannot star any messages but their messages can still be starred by other users.",
+  "BLACKLIST_DESCRIPTION_USERS_1": "Blacklisted users cannot star any messages, but their messages can still be starred by other users.",
+  "BLACKLIST_DESCRIPTION_USERS_2": "Blacklisted users cannot have their messages on the starboard, but they can still star messages sent by other users.",
+  "BLACKLIST_DESCRIPTION_USERS_3": "Blacklisted users cannot star messages and cannot have their messages on the starboard.",
   "BLACKLIST_DESCRIPTION_CHANNELS": "Users cannot star messages that were sent in blacklisted channels.\nIf a channel is blacklisted, the channel's threads will automatically be blacklisted too unless whitelisted. If a category is blacklisted, all the channels in the category will be blacklisted too, including threads.",
   "BLACKLIST_DESCRIPTION_NOTHING_BLACKLISTED": "Currently there are no users, roles or channels blacklisted.",
   "BLACKLIST_DESCRIPTION_NOTHING_BLACKLISTED_OVERRIDE": "Currently there are no users, roles or channels blacklisted on this override, but some are inherently blacklisted via server settings or other overrides.",
@@ -657,6 +660,21 @@
     },
     "LINK_DELETES": {
       "NAME": "Sync Message Deletes"
+    },
+    "FILTER_BLACKLISTED": {
+      "NAME": "Filter Blacklisted Users",
+      "CHOICE_1": {
+        "NAME": "Filter Reactors",
+        "VALUE": "Reactors"
+      },
+      "CHOICE_2": {
+        "NAME": "Filter Message Authors",
+        "VALUE": "Authors"
+      },
+      "CHOICE_3": {
+        "NAME": "Filter Both (Reactors & Message Authors)",
+        "VALUE": "All"
+      }
     },
     "FILTER_BOTS": {
       "NAME": "Filter Bots"

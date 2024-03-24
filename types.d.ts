@@ -133,9 +133,14 @@ declare type MessageParameters = {
   "SUCCESSFULLY_BLACKLISTED": {
     name: string,
   },
-  "SUCCESSFULLY_BLACKLISTED_USER_OR_ROLE": {
+  "SUCCESSFULLY_BLACKLISTED_USER_OR_ROLE_1": {
     type: "roles" | "users",
-    filterBlacklistedUsers: boolean,
+  },
+  "SUCCESSFULLY_BLACKLISTED_USER_OR_ROLE_2": {
+    type: "roles" | "users",
+  },
+  "SUCCESSFULLY_BLACKLISTED_USER_OR_ROLE_3": {
+    type: "roles" | "users",
   },
   "NOT_BLACKLISTED": {
     name: string,

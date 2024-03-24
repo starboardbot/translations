@@ -601,6 +601,13 @@
   ],
   "GET_STARBOARD_PREMIUM": "Get Starboard Premium",
 
+  "LOCKED_FEATURE_VOTE_UPSELL": [
+    "In order to {feature, select, ",
+    "emojis {change the emojis used to star messages}",
+    "}, you need to **[vote for the bot]({voteLink})**. Once you have voted, you have to wait a few minutes for me to recieve your vote. You only have to vote once."
+  ],
+  "VOTE_TOPGG": "Vote on top.gg",
+
   "SETTINGS": {
     "STARBOARD_ID": {
       "NAME": "Starboard"

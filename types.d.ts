@@ -721,6 +721,10 @@ declare type MessageParameters = {
     premiumLimit: number | null,
     patreonLink: string,
   },
+  "LOCKED_FEATURE_VOTE_UPSELL": {
+    feature: "emojis",
+    voteLink: string,
+  },
 }
 
 export = MessageParameters

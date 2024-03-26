@@ -93,10 +93,17 @@ declare type MessageParameters = {
     requiredStars: number,
     requiredToRemove: number,
   },
+  "EMOJI_OVERRIDE_REQUIRED_NOTICE": {
+    required: number,
+    emojis: string,
+  },
   "UNUSABLE_REACTION_EMOJIS_PROVIDED": {
     emojis: string,
   },
   "SETTING_ONLY_FOR_SERVER_SETTINGS": {
+    setting: string,
+  },
+  "CANNOT_EDIT_SETTING_ON_EMOJI_OVERRIDE": {
     setting: string,
   },
   "CANNOT_SEND_MESSAGES_IN_CHANNEL": {
@@ -717,7 +724,7 @@ declare type MessageParameters = {
     patreonLink: string,
   },
   "LOCKED_FEATURE_PREMIUM_UPSELL": {
-    feature: "autoStarIncludeThreads" | "lbRestore" | null,
+    feature: "autoStarIncludeThreads" | "emojiOverridesBeta" | "lbRestore" | null,
     patreonLink: string,
   },
   "SET_LIMIT_PREMIUM_UPSELL": {

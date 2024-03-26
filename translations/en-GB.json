@@ -70,7 +70,7 @@
 
   "SUCCESS_CREATE_OVERRIDE": "Successfully created an override **{name}** that only applies {type, select, channel {to {channels, plural, =1 {1 channel} other {# channels}}} channelType {to messages in the specified type of channels} emoji {when one of the specified {emojis, plural, =1 {1 emoji} other {# emojis}} are used} role {when the message author has one of the specified {roles, plural, =1 {1 role} other {# roles}}}}.",
   "SUCCESS_CREATE_OVERRIDE_CHANNELS_NOTICE": "This override also only applies in {channels, plural, =1 {1 channel} other {# channels}}.",
-  "SUCCESS_CREATE_EMOJI_OVERRIDE_NOTICE": "Please note that this override will only take effect for an emoji if the **Emoji** setting is set to that emoji. Right now, no settings have the **Emoji** setting set to {emojis}.",
+  "SUCCESS_CREATE_EMOJI_OVERRIDE_NOTICE": "Please note that this override will only take effect for an emoji if the **Emoji**/**Downvote Emoji** setting is set to that emoji. Right now, no settings have the **Emoji**/**Downvote Emoji** setting set to {emojis}.",
   "CONFIRMATION_DELETE_OVERRIDE": "Are you sure you want to delete **{name}**?\nYou will lose all configurations made specifically on this override, and they will be gone forever. No starred messages or other stats will be erased.",
   "SUCCESSFULLY_DELETED": "Successfully deleted **{name}**.",
   "CONFIRMATION_RESET_SERVER_SETTINGS": "Are you sure you want to reset the server settings?\nYou will lose all configurations made specifically on the server settings, and they will be gone forever, but no created overrides will be deleted. No starred messages or other stats will be erased.",
@@ -109,9 +109,11 @@
   "SUCCESS_CHANGE_SETTINGS_NOTICE": "Note that:\n{notices}",
   "MISSING_ATTACH_FILES_PERMISSION_NOTICE": "The bot is missing the `Attach Files` permission in {channel}, so media and files that are supposed to be reuploaded due to the **Reupload Attachments** setting will be linked instead.",
   "REQUIRED_STARS_CLASH_SET": "Because the value of **Required Stars** has to be higher than **Required Stars To Remove**, I've set **Required Stars** to {requiredStars, number} and **Required Stars To Remove** to {requiredToRemove, number}.",
+  "EMOJI_OVERRIDE_REQUIRED_NOTICE": "When figuring out which settings to take into account when posting starboard messages (i.e. when not reacting to messages), this emoji override will only apply when the starred message has {required, number} or more {emojis} reactions.",
   "UNUSABLE_REACTION_EMOJIS_PROVIDED": "I cannot use the emojis {emojis}. Please choose emojis from servers I am in.",
   "UPVOTE_DOWNVOTE_EMOJIS_CLASH": "You cannot set the same emoji to star messages and downvote messages.",
   "SETTING_ONLY_FOR_SERVER_SETTINGS": "The setting **{setting}** can only be modified when editing Server Settings.",
+  "CANNOT_EDIT_SETTING_ON_EMOJI_OVERRIDE": "The setting **{setting}** cannot be modified on emoji overrides.",
 
   "CANNOT_SEND_MESSAGES_IN_CHANNEL": "I cannot send messages in {channel}, please enable the `Send Messages` permission.",
   "CANNOT_SEND_EMBEDS_IN_CHANNEL": "I cannot send embeds in {channel}, please enable the `Embed Links` permission.",
@@ -591,6 +593,7 @@
     "{feature, select, ",
     "lbRestore {Due to how slow and intensive it is, restoring the leaderboard}",
     "autoStarIncludeThreads {Automatically auto-starring messages in the threads of listed channels}",
+    "emojiOverridesBeta {Emoji Overrides are an experimental, beta feature and aren't yet available to the public. The use of beta features}",
     "null {This feature}",
     "} is reserved for servers that have **[Starboard Premium]({patreonLink})**."
   ],
@@ -675,6 +678,13 @@
         "NAME": "Filter Both (Reactors & Message Authors)",
         "VALUE": "All"
       }
+    },
+    "STARBOARD_REACT": {
+      "NAME": "Starboard React",
+      "CHOICE_0": "None",
+      "CHOICE_1": "Upvote Emojis",
+      "CHOICE_2": "Downvote Emojis",
+      "CHOICE_3": "Upvote & Downvote Emojis"
     },
     "FILTER_BOTS": {
       "NAME": "Filter Bots"
@@ -1850,6 +1860,10 @@
           "EMOJI": {
             "NAME": "emoji",
             "DESCRIPTION": "The emoji that would be used to react."
+          },
+          "MESSAGE": {
+            "NAME": "message",
+            "DESCRIPTION": "Instead of channel and roles, provide a message to use it's channel and author roles."
           }
         }
       }
@@ -2085,6 +2099,10 @@
             "LINK_EDITS": {
               "NAME": "sync-message-edits",
               "DESCRIPTION": "Update the starboard message when the original message is edited."
+            },
+            "STARBOARD_REACT": {
+              "NAME": "starboard-react",
+              "DESCRIPTION": "Have the bot react on the starboard message with upvote/downvote emojis as a shortcut."
             }
           }
         }

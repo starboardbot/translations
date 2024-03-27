@@ -3,9 +3,9 @@
   "real": true,
   "HELLO_WORLD": "Hello world!",
 
-  "EN_GB": "English (GB)",
-  "EN_US": "English (US)",
-  "ES_ES": "Spanish",
+  "EN_GB": "English [GB]",
+  "EN_US": "English [US]",
+  "ES_ES": "Español (Spanish)",
 
   "YES": "Yes",
   "NO": "No",
@@ -637,6 +637,10 @@
   "LEAVE_A_REVIEW": "Leave A Review",
   "PING_HELP": "## Hey! 👋\nStarboard has made the switch from prefix commands to slash commands! (about time, right?) Type `/` to see all of Starboards commands. {helpCommand}",
   "PING_HELP_MIGRATED_TEMPORARY_NOTICE": "If you've used the bot before, all your starred messages are still saved and all your configurations have been carefully migrated. A lot of things have changed and a lot of new things have been added, so please double check your setup and ensure everything is as expected :) {settingsView}",
+
+  "SUCCESSFULLY_SET_LANGUAGE": "Successfully set the language for the server to **{language}**.",
+  "LANGUAGES": "Languages",
+  "LANGUAGES_DESCRIPTION": "This server's language is currently set to **{current}**. Use this command to change the language the bot should use in this server. The currently supported languages are:\n{languages}\nIf you speak a language that the bot doesn't yet support, and would like to see it supported, you can [help with the translations]({translationLink}).",
 
   "SETTINGS": {
     "STARBOARD_ID": {
@@ -1481,6 +1485,16 @@
     "HELP": {
       "NAME": "help",
       "DESCRIPTION": "View useful information about using the bot."
+    },
+    "LANGUAGE": {
+      "NAME": "language",
+      "DESCRIPTION": "Change the language the bot uses for messages in this server.",
+      "OPTIONS": {
+        "LANGUAGE": {
+          "NAME": "language",
+          "DESCRIPTION": "The language you want to use."
+        }
+      }
     },
     "LEADERBOARD": {
       "NAME": "leaderboard",

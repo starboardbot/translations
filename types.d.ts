@@ -758,6 +758,14 @@ declare type MessageParameters = {
   "PING_HELP_MIGRATED_TEMPORARY_NOTICE": {
     settingsView: string,
   },
+  "SUCCESSFULLY_SET_LANGUAGE": {
+    language: string,
+  },
+  "LANGUAGES_DESCRIPTION": {
+    current: string,
+    languages: string,
+    translationLink: string,
+  },
 }
 
 export = MessageParameters

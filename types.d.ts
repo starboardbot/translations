@@ -23,6 +23,10 @@ declare type MessageParameters = {
   "STARBOARD_MESSAGE_SPOILER": {
     content: string,
   },
+  "POLL_VOTES": {
+    votes: number,
+    percent: number,
+  },
   "OVERRIDE_NOT_FOUND": {
     name: string,
   },

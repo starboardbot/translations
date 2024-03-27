@@ -618,6 +618,26 @@
   ],
   "VOTE_TOPGG": "Vote on top.gg",
 
+  "HELP_TITLE": "Starboard",
+  "HELP_DESCRIPTION": "Starboard is Discord's first advanced starboard bot, with a massive range of customisable settings and features.",
+  "HELP_GETTING_STARTED_TITLE": "Getting Started",
+  "HELP_GETTING_STARTED": [
+    "- To get the starboard up and running in your server, all you have to do is run {settingsEditMain} and set the starboard channel to where you want messages to go - and that's it!\n",
+    "- {settingsView} gives you a full overview of what can be configured, and will be your central point of focus while configuring the bot for your server.\n\n",
+    "Starboard offers more ambitious users the ability to create advanced setups, but also offers simple setups for new users, so don't over-complicate things for yourself!\n",
+    "If you're ever stuck, you can ask for help in the [support server]({supportLink})."
+  ],
+  "HELP_SUPPORT_THE_BOT_TITLE": "Support The Bot",
+  "HELP_SUPPORT_THE_BOT": [
+    "If you're enjoying Starboard in your server, make sure to [vote for the bot]({voteLink}) and [leave a review]({reviewLink}) on top.gg!\n",
+    "Becoming a patron on [Patreon]({patreonLink}) also helps tremendously, and you also unlock cool features in return - {premiumInfoCommand}."
+  ],
+  "SUPPORT_SERVER": "Support Server",
+  "INVITE": "Invite",
+  "LEAVE_A_REVIEW": "Leave A Review",
+  "PING_HELP": "## Hey! 👋\nStarboard has made the switch from prefix commands to slash commands! (about time, right?) Type `/` to see all of Starboards commands. {helpCommand}",
+  "PING_HELP_MIGRATED_TEMPORARY_NOTICE": "If you've used the bot before, all your starred messages are still saved and all your configurations have been carefully migrated. A lot of things have changed and a lot of new things have been added, so please double check your setup and ensure everything is as expected :) {settingsView}",
+
   "SETTINGS": {
     "STARBOARD_ID": {
       "NAME": "Starboard"
@@ -1457,6 +1477,10 @@
     "HALL_OF_FAME": {
       "NAME": "hall-of-fame",
       "DESCRIPTION": "View the list of starred messages on the server's Hall Of Fame."
+    },
+    "HELP": {
+      "NAME": "help",
+      "DESCRIPTION": "View useful information about using the bot."
     },
     "LEADERBOARD": {
       "NAME": "leaderboard",

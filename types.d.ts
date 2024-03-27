@@ -741,6 +741,23 @@ declare type MessageParameters = {
     feature: "emojis",
     voteLink: string,
   },
+  "HELP_GETTING_STARTED": {
+    settingsEditMain: string,
+    settingsView: string,
+    supportLink: string,
+  },
+  "HELP_SUPPORT_THE_BOT": {
+    voteLink: string,
+    reviewLink: string,
+    patreonLink: string,
+    premiumInfoCommand: string,
+  },
+  "PING_HELP": {
+    helpCommand: string,
+  },
+  "PING_HELP_MIGRATED_TEMPORARY_NOTICE": {
+    settingsView: string,
+  },
 }
 
 export = MessageParameters

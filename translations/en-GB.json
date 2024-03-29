@@ -580,7 +580,7 @@
   "PREMIUM_FEATURE_LEADERBOARD_RESTORE": "the ability to restore the leaderboard (using data from all starred messages recorded)",
   "PREMIUM_FEATURE_FILE_UPLOADS": "have media up to 100MB in size reuploaded onto starboard messages, instead of being linked (previously {freeMB, number}MB)",
   "PREMIUM_FEATURE_AUTO_STAR_CONFIGS": "configure up to **{premiumLimit, number}** auto-star configurations (previously {freeLimit, number})",
-  "PREMIUM_FEATURE_AUTO_STAR_CONFIG_EMOJIS_CHANNELS": "set up to **{premiumLimitEmojis, number}** emojis and **{premiumLimitChannels, number}** channels per auto star configuration (previously {freeLimitEmojis, number} emojis and {freeLimitChannels, number} channels)",
+  "PREMIUM_FEATURE_AUTO_STAR_CONFIG_EMOJIS_CHANNELS": "set up to **{premiumLimitEmojis, number}** emojis and **{premiumLimitChannels, number}** channels per auto-star configuration (previously {freeLimitEmojis, number} emojis and {freeLimitChannels, number} channels)",
   "PREMIUM_FEATURE_AUTO_STAR_INCLUDE_THREADS": "the option to include all threads of channels you've enabled auto-starring in",
   "PREMIUM_FEATURE_OLD_FEATURES": "access to all the old items taken away as a result of the server's last Starboard Premium ending",
 

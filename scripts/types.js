@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+/* eslint-disable @typescript-eslint/no-var-requires */
 require("./validate")
 const { parse, TYPE } = require("@formatjs/icu-messageformat-parser")
 const { writeFileSync } = require("fs")
@@ -16,7 +18,7 @@ const parseNode = node => {
     case TYPE.date:
     case TYPE.time:
       return ["Date", "number"]
-    case TYPE.select:
+    case TYPE.select: {
       const options = Object.keys(node.options)
       const values = new Set()
       for (const e of options) {
@@ -55,6 +57,7 @@ const parseNode = node => {
         else values.add(`"${e}"`)
       }
       return values
+    }
   }
 }
 
@@ -98,7 +101,7 @@ const iterate = (obj, key = "") => {
 
       const types = Object.entries(obj)
         .map(([key, v]) => {
-          const hasLiteral = v.some(val => val.includes('"'))
+          const hasLiteral = v.some(val => val.includes("\""))
           const value =
             [...new Set(v)]
               .map(v => hasLiteral && v === "string" ? "OtherString" : v)

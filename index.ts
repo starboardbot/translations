@@ -18,6 +18,7 @@ export const translations = Object.fromEntries(
   locales.map(locale => [locale, require(`./translations/${locale}`)])
 ) as Record<Locale, typeof import("./translations/en-GB.json")>
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 function get<T>(object: any, path: string): T | undefined
 function get<T>(object: any, path: string, defaultValue: T): T
 function get<T>(object: any, path: string, defaultValue?: T): T | undefined {
@@ -27,6 +28,7 @@ function get<T>(object: any, path: string, defaultValue?: T): T | undefined {
   }
   return object
 }
+/* eslint-enable @typescript-eslint/no-explicit-any */
 function fixCase(key: string): string {
   return key
     .replace(/ +|-/g, "_")
@@ -80,12 +82,12 @@ export { translate }
  * ```
  */
 export function pickTranslation<T extends TranslationKey>(
-  keyOptions: Record<T, any>,
+  keyOptions: Record<T, boolean>,
   locale: Locale,
   options: T extends keyof MessageParameters ? MessageParameters[T] : undefined
 ): string | null {
-  const key = Object.keys(keyOptions).find(k => keyOptions[k as keyof typeof keyOptions]) as TranslationKey | undefined
-  return key ? translate(key, locale, options) : null
+  const key = Object.entries(keyOptions).find(([, v]) => v)?.[0] as TranslationKey | undefined
+  return key !== undefined ? translate(key, locale, options) : null
 }
 
 export type Translatable = (locale: Locale) => string

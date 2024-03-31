@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+/* eslint-disable indent */
 const { readdirSync } = require("fs")
 
 const checkCommandDescriptions = function* (obj, key = "") {

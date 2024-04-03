@@ -625,7 +625,7 @@
     "- To get the starboard up and running in your server, all you have to do is run {settingsEditMain} and set the starboard channel to where you want messages to go - and that's it!\n",
     "- {settingsView} gives you a full overview of what can be configured, and will be your central point of focus while configuring the bot for your server.\n\n",
     "Starboard offers more ambitious users the ability to create advanced setups, but also offers simple setups for new users, so don't over-complicate things for yourself!\n",
-    "If you're ever stuck, you can ask for help in the [support server]({supportLink})."
+    "If you're ever stuck, you can read the [guide]({guideLink}), or ask for help in the [support server]({supportLink})."
   ],
   "HELP_SUPPORT_THE_BOT_TITLE": "Support The Bot",
   "HELP_SUPPORT_THE_BOT": [
@@ -635,6 +635,7 @@
   "SUPPORT_SERVER": "Support Server",
   "INVITE": "Invite",
   "LEAVE_A_REVIEW": "Leave A Review",
+  "STARBOARD_GUIDE": "Starboard Guide",
   "PING_HELP": "## Hey! 👋\nStarboard has made the switch from prefix commands to slash commands! (about time, right?) Type `/` to see all of Starboards commands. {helpCommand}",
   "PING_HELP_MIGRATED_TEMPORARY_NOTICE": "If you've used the bot before, all your starred messages are still saved and all your configurations have been carefully migrated. A lot of things have changed and a lot of new things have been added, so please double check your setup and ensure everything is as expected :) {settingsView}",
 
@@ -2010,7 +2011,7 @@
           "OPTIONS": {
             "SETTINGS": {
               "NAME": "override",
-              "DESCRIPTION": "The override to make changes to."
+              "DESCRIPTION": "The override to make changes to, if you have any. Leave blank to edit server settings."
             },
             "STARBOARD": {
               "NAME": "starboard",
@@ -2040,7 +2041,7 @@
           "OPTIONS": {
             "SETTINGS": {
               "NAME": "override",
-              "DESCRIPTION": "The override to make changes to."
+              "DESCRIPTION": "The override to make changes to, if you have any. Leave blank to edit server settings."
             },
             "FILTER_BOTS": {
               "NAME": "filter-bots",
@@ -2066,7 +2067,7 @@
           "OPTIONS": {
             "SETTINGS": {
               "NAME": "override",
-              "DESCRIPTION": "The override to make changes to."
+              "DESCRIPTION": "The override to make changes to, if you have any. Leave blank to edit server settings."
             },
             "MESSAGE_JUMP_LINK": {
               "NAME": "message-jump-link",
@@ -2124,7 +2125,7 @@
           "OPTIONS": {
             "SETTINGS": {
               "NAME": "override",
-              "DESCRIPTION": "The override to make changes to."
+              "DESCRIPTION": "The override to make changes to, if you have any. Leave blank to edit server settings."
             },
             "ON_DELETION": {
               "NAME": "when-deleted",

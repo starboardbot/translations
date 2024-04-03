@@ -744,6 +744,7 @@ declare type MessageParameters = {
   "HELP_GETTING_STARTED": {
     settingsEditMain: string,
     settingsView: string,
+    guideLink: string,
     supportLink: string,
   },
   "HELP_SUPPORT_THE_BOT": {

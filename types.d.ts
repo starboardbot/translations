@@ -725,6 +725,7 @@ declare type MessageParameters = {
     type: "autoStarConfigs" | "displayTiers" | "filters" | "overrides" | "rewardRoles",
     premium: boolean,
     premiumLimit: number | null,
+    freeLimit: number,
     patreonLink: string,
   },
   "LOCKED_FEATURE_PREMIUM_UPSELL": {
@@ -735,6 +736,7 @@ declare type MessageParameters = {
     type: "autoStarConfigChannels" | "autoStarConfigEmojis" | "downvoteEmojis" | "emojis",
     premium: boolean,
     premiumLimit: number | null,
+    freeLimit: number,
     patreonLink: string,
   },
   "LOCKED_FEATURE_VOTE_UPSELL": {

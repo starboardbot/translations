@@ -591,7 +591,7 @@
     "rewardRoles {reward roles}",
     "displayTiers {display tiers}",
     "autoStarConfigs {auto-star configurations}",
-    "} allowed for one server. {premium, select, true {({premiumLimit, number})} false {To have {premiumLimit, select, null {as many as you want} other {up to {premiumLimit, number}}}, this server needs to have **[Starboard Premium]({patreonLink})**.}}"
+    "} allowed for one server {premium, select, true {({premiumLimit, number}).} false {({freeLimit, number}). To have {premiumLimit, select, null {as many as you want} other {up to {premiumLimit, number}}}, this server needs to have **[Starboard Premium]({patreonLink})**.}}"
   ],
   "LOCKED_FEATURE_PREMIUM_UPSELL": [
     "{feature, select, ",
@@ -607,7 +607,7 @@
     "downvoteEmojis {downvote emojis}",
     "autoStarConfigEmojis {emojis on an auto-star configuration}",
     "autoStarConfigChannels {channels on an auto-star configuration}",
-    "} set. {premium, select, true {({premiumLimit, number})} false {To have {premiumLimit, select, null {as many as you want} other {up to {premiumLimit, number}}}, this server needs to have **[Starboard Premium]({patreonLink})**.}}"
+    "} set{premium, select, true { ({premiumLimit, number}).} false {({freeLimit, number}). To have {premiumLimit, select, null {as many as you want} other {up to {premiumLimit, number}}}, this server needs to have **[Starboard Premium]({patreonLink})**.}}"
   ],
   "GET_STARBOARD_PREMIUM": "Get Starboard Premium",
 

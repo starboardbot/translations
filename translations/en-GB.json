@@ -112,6 +112,7 @@
 
   "SUCCESS_CHANGE_SETTINGS_NOTICE": "Note that:\n{notices}",
   "MISSING_ATTACH_FILES_PERMISSION_NOTICE": "The bot is missing the `Attach Files` permission in {channel}, so media and files that are supposed to be reuploaded due to the **Reupload Attachments** setting will be linked instead.",
+  "MISSING_MANAGE_MESSAGES_PERMISSION_NOTICE": "The bot is missing the `Manage Messages` permission in {channel}, so I cannot remove invalid reactions and messages that are supposed to be removed due to the **Remove Invalid Reactions**/**Delete Invalid Messages** setting.",
   "REQUIRED_STARS_CLASH_SET": "Because the value of **Required Stars** has to be higher than **Required Stars To Remove**, I've set **Required Stars** to {requiredStars, number} and **Required Stars To Remove** to {requiredToRemove, number}.",
   "EMOJI_OVERRIDE_REQUIRED_NOTICE": "When figuring out which settings to take into account when posting starboard messages (i.e. when not reacting to messages), this emoji override will only apply when the starred message has {required, number} or more {emojis} reactions.",
   "UNUSABLE_REACTION_EMOJIS_PROVIDED": "I cannot use the emojis {emojis}. Please choose emojis from servers I am in.",
@@ -527,6 +528,7 @@
   "MESSAGE_CHANNEL_BLACKLISTED": "The channel that this message was sent in is blacklisted and no messages from this channel can be starred.",
   "MESSAGE_AUTHOR_BLACKLISTED": "The user that sent this message is blacklisted.",
   "MESSAGE_AUTHOR_ROLE_BLACKLISTED": "The user that sent this message has a role that is blacklisted.",
+  "DEBUG_STARBOARD_NOT_NSFW": "This message cannot be posted to the starboard {starboard} because the channel is marked as NSFW and the starboard isn't.",
   "DEBUG_FILTER_BOTS": "This message cannot be starred because bots cannot be starred. (**Filter Bots** is enabled)",
   "DEBUG_FAILED_FILTERS": "This message doesn't pass the filters {filters}. Run {filtersTestCommand} for more information.",
   "DEBUG_NOTHING_WRONG": "There seems to be nothing wrong with [this message](<{link}>) and it should be able to get stars as normal. If this message has gotten stars already, try running {modInfoCommand} for more info about the message.",

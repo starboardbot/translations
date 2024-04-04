@@ -93,6 +93,9 @@ declare type MessageParameters = {
   "MISSING_ATTACH_FILES_PERMISSION_NOTICE": {
     channel: string,
   },
+  "MISSING_MANAGE_MESSAGES_PERMISSION_NOTICE": {
+    channel: string,
+  },
   "REQUIRED_STARS_CLASH_SET": {
     requiredStars: number,
     requiredToRemove: number,
@@ -596,6 +599,9 @@ declare type MessageParameters = {
   },
   "CONFIRMATION_LEADERBOARD_RESTORE": {
     after: string | null,
+  },
+  "DEBUG_STARBOARD_NOT_NSFW": {
+    starboard: string,
   },
   "DEBUG_FAILED_FILTERS": {
     filters: string,

@@ -458,7 +458,7 @@
   "TRASHED_MESSAGES": "Trashed Messages",
 
   "NO_STARRED_MESSAGES": "It seems this server has no starred messages yet!",
-  "NO_STARRED_MESSAGES_AVAILABLE": "There are no starred messages I am able to show - the only ones I've found are unobtainable. They might be deleted, in deleted channels, or I don't have permission to see them.",
+  "NO_STARRED_MESSAGES_AVAILABLE": "There are no starred messages I am able to show - the only ones I've found are unobtainable. They might be deleted, in deleted channels, or you or I don't have permission to see them.",
   "NO_STARRED_MESSAGES_BY_QUERY": "I could not find any starred messages based on your query.",
   "NO_STARRED_MESSAGES_COULD_BE_FOUND": "I could not find any starred messages.",
   "STARRED_MESSAGE_UNOBTAINABLE": [

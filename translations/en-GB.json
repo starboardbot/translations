@@ -115,6 +115,8 @@
   "MISSING_MANAGE_MESSAGES_PERMISSION_NOTICE": "The bot is missing the `Manage Messages` permission in {channel}, so I cannot remove invalid reactions and messages that are supposed to be removed due to the **Remove Invalid Reactions**/**Delete Invalid Messages** setting.",
   "REQUIRED_STARS_CLASH_SET": "Because the value of **Required Stars** has to be higher than **Required Stars To Remove**, I've set **Required Stars** to {requiredStars, number} and **Required Stars To Remove** to {requiredToRemove, number}.",
   "EMOJI_OVERRIDE_REQUIRED_NOTICE": "When figuring out which settings to take into account when posting starboard messages (i.e. when not reacting to messages), this emoji override will only apply when the starred message has {required, number} or more {emojis} reactions.",
+  "PREMIUM_BASED_FILE_SIZE_LIMIT_NOTICE": "The bot will only reupload attachments that are smaller than {limit, number}MB in size. Premium servers can have attachments up to the Nitro limit ({nitroLimit, number}MB) in size reuploaded.",
+  "NITRO_BASED_FILE_SIZE_LIMIT_NOTICE": "The bot can only reupload attachments that are smaller than the Nitro limit ({nitroLimit, number}MB) in size.",
   "UNUSABLE_REACTION_EMOJIS_PROVIDED": "I cannot use the emojis {emojis}. Please choose emojis from servers I am in.",
   "UPVOTE_DOWNVOTE_EMOJIS_CLASH": "You cannot set the same emoji to star messages and downvote messages.",
   "SETTING_ONLY_FOR_SERVER_SETTINGS": "The setting **{setting}** can only be modified when editing Server Settings.",

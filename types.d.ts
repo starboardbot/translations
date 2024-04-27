@@ -104,6 +104,13 @@ declare type MessageParameters = {
     required: number,
     emojis: string,
   },
+  "PREMIUM_BASED_FILE_SIZE_LIMIT_NOTICE": {
+    limit: number,
+    nitroLimit: number,
+  },
+  "NITRO_BASED_FILE_SIZE_LIMIT_NOTICE": {
+    nitroLimit: number,
+  },
   "UNUSABLE_REACTION_EMOJIS_PROVIDED": {
     emojis: string,
   },

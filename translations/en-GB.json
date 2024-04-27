@@ -532,6 +532,7 @@
   "MESSAGE_AUTHOR_ROLE_BLACKLISTED": "The user that sent this message has a role that is blacklisted.",
   "DEBUG_STARBOARD_NOT_NSFW": "This message cannot be posted to the starboard {starboard} because the channel is marked as NSFW and the starboard isn't.",
   "DEBUG_FILTER_BOTS": "This message cannot be starred because bots cannot be starred. (**Filter Bots** is enabled)",
+  "DEBUG_SELF_STARS": "You cannot star this message as users are not allowed to star their own messages. (**Self Stars** is disabled)",
   "DEBUG_FAILED_FILTERS": "This message doesn't pass the filters {filters}. Run {filtersTestCommand} for more information.",
   "DEBUG_NOTHING_WRONG": "There seems to be nothing wrong with [this message](<{link}>) and it should be able to get stars as normal. If this message has gotten stars already, try running {modInfoCommand} for more info about the message.",
   "DEBUG": "Debug",

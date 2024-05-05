@@ -612,7 +612,7 @@
     "downvoteEmojis {downvote emojis}",
     "autoStarConfigEmojis {emojis on an auto-star configuration}",
     "autoStarConfigChannels {channels on an auto-star configuration}",
-    "} set{premium, select, true { ({premiumLimit, number}).} false {({freeLimit, number}). To have {premiumLimit, select, null {as many as you want} other {up to {premiumLimit, number}}}, this server needs to have **[Starboard Premium]({patreonLink})**.}}"
+    "} set {premium, select, true {({premiumLimit, number}).} false {({freeLimit, number}). To have {premiumLimit, select, null {as many as you want} other {up to {premiumLimit, number}}}, this server needs to have **[Starboard Premium]({patreonLink})**.}}"
   ],
   "GET_STARBOARD_PREMIUM": "Get Starboard Premium",
 
@@ -2058,7 +2058,7 @@
             },
             "FILTER_BLACKLISTED_USERS": {
               "NAME": "filter-blacklisted-users",
-              "DESCRIPTION": "Filter messages by blacklisted users off the starboard."
+              "DESCRIPTION": "The blacklisted users which should be filtered."
             },
             "REMOVE_INVALID_REACTIONS": {
               "NAME": "remove-invalid-reactions",

@@ -230,6 +230,9 @@ declare type MessageParameters = {
   "DISPLAY_TIERS_DESCRIPTION_CREATE_TIER": {
     command: string,
   },
+  "DISPLAY_TIERS_DESCRIPTION_CREATE_TIER_USER": {
+    command: string,
+  },
   "DISPLAY_TIER_NOT_FOUND": {
     number: number,
     command: string,
@@ -240,6 +243,12 @@ declare type MessageParameters = {
   "SUCCESSFULLY_EDITED_DISPLAY_TIER": {
     old: string,
     tier: string,
+  },
+  "USER_DISPLAY_TIERS_NOT_A_PATRON": {
+    patreonLink: string,
+  },
+  "USER_DISPLAY_TIERS_REACHED_MAX": {
+    premiumLimit: number,
   },
   "SUCCESS_CREATE_REWARD_ROLE_0": {
     role: string,

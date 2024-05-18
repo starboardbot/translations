@@ -111,7 +111,7 @@
   "SUCCESS_CHANGE_SETTINGS": "Successfully changed those settings for {name}.",
 
   "SUCCESS_CHANGE_SETTINGS_NOTICE": "Note that:\n{notices}",
-  "MISSING_ATTACH_FILES_PERMISSION_NOTICE": "The bot is missing the `Attach Files` permission in {channel}, so media and files that are supposed to be reuploaded due to the **Reupload Attachments** setting will be linked instead.",
+  "MISSING_ATTACH_FILES_PERMISSION_NOTICE": "{bot, select, null {The bot} other {{bot}}} is missing the `Attach Files` permission in {channel}, so media and files that are supposed to be reuploaded due to the **Reupload Attachments** setting will be linked instead.",
   "MISSING_MANAGE_MESSAGES_PERMISSION_NOTICE": "The bot is missing the `Manage Messages` permission in {channel}, so I cannot remove invalid reactions and messages that are supposed to be removed due to the **Remove Invalid Reactions**/**Delete Invalid Messages** setting.",
   "REQUIRED_STARS_CLASH_SET": "Because the value of **Required Stars** has to be higher than **Required Stars To Remove**, I've set **Required Stars** to {requiredStars, number} and **Required Stars To Remove** to {requiredToRemove, number}.",
   "EMOJI_OVERRIDE_REQUIRED_NOTICE": "When figuring out which settings to take into account when posting starboard messages (i.e. when not reacting to messages), this emoji override will only apply when the starred message has {required, number} or more {emojis} reactions.",
@@ -122,11 +122,11 @@
   "SETTING_ONLY_FOR_SERVER_SETTINGS": "The setting **{setting}** can only be modified when editing Server Settings.",
   "CANNOT_EDIT_SETTING_ON_EMOJI_OVERRIDE": "The setting **{setting}** cannot be modified on emoji overrides.",
 
-  "CANNOT_SEND_MESSAGES_IN_CHANNEL": "I cannot send messages in {channel}, please enable the `Send Messages` permission.",
-  "CANNOT_SEND_EMBEDS_IN_CHANNEL": "I cannot send embeds in {channel}, please enable the `Embed Links` permission.",
-  "CANNOT_VIEW_CHANNEL": "I cannot view {channel}, please enable the `View Channel` permission.",
-  "CANNOT_VIEW_VOICE_CHANNEL": "I cannot view {channel}, please enable the `View Channel` and the `Connect` permissions.",
-  "CANNOT_READ_HISTORY_IN_CHANNEL": "I cannot read message history in {channel}, please enable the `Read Message History` permission.",
+  "CANNOT_SEND_MESSAGES_IN_CHANNEL": "{bot, select, null {I} other {{bot}}} cannot send messages in {channel}, please enable the `Send Messages` permission.",
+  "CANNOT_SEND_EMBEDS_IN_CHANNEL": "{bot, select, null {I} other {{bot}}} cannot send embeds in {channel}, please enable the `Embed Links` permission.",
+  "CANNOT_VIEW_CHANNEL": "{bot, select, null {I} other {{bot}}} cannot view {channel}, please enable the `View Channel` permission.",
+  "CANNOT_VIEW_VOICE_CHANNEL": "{bot, select, null {I} other {{bot}}} cannot view {channel}, please enable the `View Channel` and the `Connect` permissions.",
+  "CANNOT_READ_HISTORY_IN_CHANNEL": "{bot, select, null {I} other {{bot}}} cannot read message history in {channel}, please enable the `Read Message History` permission.",
 
   "OVERRIDE_EDIT_INVALID_CHANGE_ON_INVALID_TYPE": "You cannot make those changes on this type of override.",
   "SUCCESS_EDIT_OVERRIDE": "Successfully edited the override **{name}**:\n{changes}",
@@ -564,6 +564,19 @@
   "ASC_SUCCESS_FILTER_REMOVE": "Successfully removed {optional, select, true {optional filter **{filter}**} false {**{filter}**}} (position: {position, number}) from auto-star configuration **{autoStarConfig}**.",
   "ASC_SUCCESS_FILTER_MOVE": "Successfully moved **{filter}** from {old, number} to {position, plural, =1 {the start,} other {**{position, number}** (after **{after}**)}} on auto-star configuration **{autoStarConfig}**.",
 
+  "COULD_NOT_PARSE_TOKEN": "Could not parse a valid Discord bot token from your input.",
+  "INVALID_TOKEN_PROVIDED": "An invalid token was provided.",
+  "CUSTOM_BOT_NOT_A_BOT_USER": "The application or user you provided ({app}) is not a bot and can't be used.",
+  "CUSTOM_BOT_NOT_IN_SERVER": "The bot you provided ({bot}) is not in this server. Add the bot to this server and try again.",
+  "CONFIRMATION_SET_CUSTOM_BOT": "Are you sure you want to set the server's custom bot to {bot}? This bot will __only__ be used to post starboard messages, everything else (commands, auto-star, reward roles, etc.) will be handled by me as normal. Your bot's token will be encrypted before it is saved, and will not be visible to anyone (including you).",
+  "SUCCESSFULLY_SET_CUSTOM_BOT": "Successfully set {bot} as the custom bot for the server. {bot} will now be used for posting starboard messages.",
+  "NO_CUSTOM_BOT_SET": "This server has no custom bot set.",
+  "SUCCESSFULLY_UNSET_CUSTOM_BOT": "Successfully unset the custom bot for the server. Starboard messages will now be posted by me as normal.",
+  "CUSTOM_BOT_DESCRIPTION": [
+    "Have a special community bot? Want to follow a server theme or roleplay environment? You can now configure a custom bot to use to post starboard messages, while the magic of Starboard works in the background.\n\n",
+    "Current custom bot: {bot, select, null {not set ({command})} other {{bot}}} {unauthorised, select, true {(warning: no longer a valid token, please reprovide with {command})} false {}}\n\n",
+    "*The custom bot will __only__ be used for posting and editing starboard messages, nothing else. All custom bot tokens are encrypted.*"
+  ],
 
   "INVALID_PREMIUM_CODE": "That premium code is not valid or has already been redeemed.",
   "SUCCESSFULLY_REDEEMED_PREMIUM_CODE": "Successfully redeemed a Starboard Premium code `{code}`. This server now has Starboard Premium for {duration}!",
@@ -610,6 +623,7 @@
     "lbRestore {Due to how slow and intensive it is, restoring the leaderboard}",
     "autoStarIncludeThreads {Automatically auto-starring messages in the threads of listed channels}",
     "emojiOverridesBeta {Emoji Overrides are an experimental, beta feature and aren't yet available to the public. The use of beta features}",
+    "customBot {Setting a custom bot to use for posting starboard messages}",
     "null {This feature}",
     "} is reserved for servers that have **[Starboard Premium]({patreonLink})**."
   ],
@@ -1038,6 +1052,28 @@
       "STATUS": {
         "NAME": "status",
         "DESCRIPTION": "Check the bot's status."
+      }
+    },
+    "CUSTOM_BOT": {
+      "NAME": "custom-bot",
+      "DESCRIPTION": "Configure a custom bot for the server to use for posting starboard messages.",
+      "SET": {
+        "NAME": "set",
+        "DESCRIPTION": "Set the custom bot you want to use for posting starboard messages in this server.",
+        "OPTIONS": {
+          "TOKEN": {
+            "NAME": "token",
+            "DESCRIPTION": "The Discord bot token of the bot you want to use. The token will be encrypted and hidden."
+          }
+        }
+      },
+      "UNSET": {
+        "NAME": "unset",
+        "DESCRIPTION": "Unset the server's custom bot for posting starboard messages."
+      },
+      "VIEW": {
+        "NAME": "view",
+        "DESCRIPTION": "View info about the server's custom bot for posting starboard messages."
       }
     },
     "DISPLAYTIERS": {

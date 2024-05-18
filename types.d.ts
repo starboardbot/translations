@@ -91,6 +91,7 @@ declare type MessageParameters = {
     notices: string,
   },
   "MISSING_ATTACH_FILES_PERMISSION_NOTICE": {
+    bot: string | null,
     channel: string,
   },
   "MISSING_MANAGE_MESSAGES_PERMISSION_NOTICE": {
@@ -121,18 +122,23 @@ declare type MessageParameters = {
     setting: string,
   },
   "CANNOT_SEND_MESSAGES_IN_CHANNEL": {
+    bot: string | null,
     channel: string,
   },
   "CANNOT_SEND_EMBEDS_IN_CHANNEL": {
+    bot: string | null,
     channel: string,
   },
   "CANNOT_VIEW_CHANNEL": {
+    bot: string | null,
     channel: string,
   },
   "CANNOT_VIEW_VOICE_CHANNEL": {
+    bot: string | null,
     channel: string,
   },
   "CANNOT_READ_HISTORY_IN_CHANNEL": {
+    bot: string | null,
     channel: string,
   },
   "SUCCESS_EDIT_OVERRIDE": {
@@ -684,6 +690,23 @@ declare type MessageParameters = {
     autoStarConfig: string,
     after: string,
   },
+  "CUSTOM_BOT_NOT_A_BOT_USER": {
+    app: string,
+  },
+  "CUSTOM_BOT_NOT_IN_SERVER": {
+    bot: string,
+  },
+  "CONFIRMATION_SET_CUSTOM_BOT": {
+    bot: string,
+  },
+  "SUCCESSFULLY_SET_CUSTOM_BOT": {
+    bot: string,
+  },
+  "CUSTOM_BOT_DESCRIPTION": {
+    bot: string | null,
+    unauthorised: boolean,
+    command: string,
+  },
   "SUCCESSFULLY_REDEEMED_PREMIUM_CODE": {
     code: string,
     duration: string,
@@ -751,7 +774,7 @@ declare type MessageParameters = {
     patreonLink: string,
   },
   "LOCKED_FEATURE_PREMIUM_UPSELL": {
-    feature: "autoStarIncludeThreads" | "emojiOverridesBeta" | "lbRestore" | null,
+    feature: "autoStarIncludeThreads" | "customBot" | "emojiOverridesBeta" | "lbRestore" | null,
     patreonLink: string,
   },
   "SET_LIMIT_PREMIUM_UPSELL": {

@@ -725,47 +725,6 @@ declare type MessageParameters = {
     user: string,
     inTimeLeft: string,
   },
-  "PREMIUM_FEATURE_EMOJIS": {
-    premiumLimit: number,
-    freeLimit: number,
-  },
-  "PREMIUM_FEATURE_DOWNVOTE_EMOJIS": {
-    premiumLimit: number,
-    freeLimit: number,
-  },
-  "PREMIUM_FEATURE_OVERRIDES": {
-    premiumLimit: number,
-    freeLimit: number,
-  },
-  "PREMIUM_FEATURE_REWARD_ROLES": {
-    premiumLimit: number,
-    freeLimit: number,
-  },
-  "PREMIUM_FEATURE_FILTERS": {
-    premiumLimit: number,
-    freeLimit: number,
-  },
-  "PREMIUM_FEATURE_DISPLAY_TIERS": {
-    premiumLimit: number,
-    freeLimit: number,
-  },
-  "PREMIUM_FEATURE_LEADERBOARD_ENTRIES": {
-    premiumLimit: number,
-    freeLimit: number,
-  },
-  "PREMIUM_FEATURE_FILE_UPLOADS": {
-    freeMB: number,
-  },
-  "PREMIUM_FEATURE_AUTO_STAR_CONFIGS": {
-    premiumLimit: number,
-    freeLimit: number,
-  },
-  "PREMIUM_FEATURE_AUTO_STAR_CONFIG_EMOJIS_CHANNELS": {
-    premiumLimitEmojis: number,
-    premiumLimitChannels: number,
-    freeLimitEmojis: number,
-    freeLimitChannels: number,
-  },
   "REACHED_LIMIT_PREMIUM_UPSELL": {
     type: "autoStarConfigs" | "displayTiers" | "filters" | "overrides" | "rewardRoles",
     premium: boolean,

@@ -520,6 +520,7 @@
   "USERS_PLACE": "{user}'s Place: {place, select, 0 {Not on the leaderboard.} other {#{place, number}}}",
   "NOTHING_TO_SHOW_PREMIUM": "Nothing to show. (**[Premium Servers]({patreonLink})** can have up to {premiumLimit, number} pages.)",
   "LAST_RESET": "Last Reset:",
+  "RECORDING_SINCE": "Recording Since:",
   "CONFIRMATION_LEADERBOARD_RESET_USER": "Are you sure you want to remove all of the leaderboard data for **{username}** ({mention})?\nTheir stats for the server leaderboards will be {keepOldRewardRoles, select, true {reset back to 0, but they won't lose any reward roles and} false {reset back to 0 and they will lose all their reward roles, but}} the {statsUser} command will not be affected for them. This action is **irreversable** (you cannot manually add stats to users).",
   "SUCCESSFULLY_RESET_LEADERBOARD_USER_KEEP_REWARD_ROLES": "Successfully reset leaderboard stats for **{username}** ({mention}).",
   "SUCCESSFULLY_RESET_LEADERBOARD_USER": "Successfully reset leaderboard stats for **{username}** ({mention}) and removed all their reward roles.",

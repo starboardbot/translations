@@ -240,6 +240,7 @@
   "REWARD_ROLE_TYPE_1": "Most Starred Message",
   "REWARD_ROLE_TYPE_2": "Times On Starboard",
   "REWARD_ROLE_TYPE_3": "Times On Hall Of Fame",
+  "REWARD_ROLE_CUSTOM_AUTOCOMPLETE": "Custom: {name}",
   "REWARD_ROLE_MANAGED": "This role is automatically managed by an integration and cannot be manually assigned to members.",
   "REWARD_ROLE_EVERYONE": "You cannot make that role a reward role.",
   "REWARD_ROLES_HIGHER_THAN_ME": "I cannot assign this role to users as it is higher than my highest role.",
@@ -252,6 +253,7 @@
   "SUCCESS_CREATE_REWARD_ROLE_1": "Successfully created a reward role {role}, awarded to users when their most starred message has gotten {required, number} stars.",
   "SUCCESS_CREATE_REWARD_ROLE_2": "Successfully created a reward role {role}, awarded to users when they've reached the starboard {required, number} times.",
   "SUCCESS_CREATE_REWARD_ROLE_3": "Successfully created a reward role {role}, awarded to users when they've gotten {required, number} messages on the Hall of Fame.",
+  "SUCCESS_CREATE_REWARD_ROLE_4": "Successfully created a reward role {role}, awarded to users when they've gotten {required} of the custom stat **{stat}**.",
   "REWARD_ROLE_NOT_FOUND": "That reward role could not be found.",
   "REWARD_ROLE_NOT_FOUND_TYPE": "That type of requirement for that reward role doesn't exist.",
   "SUCCESS_EDIT_REWARD_ROLE": "Successfully changed the requirement for that reward role to {required, number}.",
@@ -265,6 +267,7 @@
   "REWARD_ROLE_DESCRIPTION_REQUIREMENT_1": "get **{required, number}** stars on your most starred message",
   "REWARD_ROLE_DESCRIPTION_REQUIREMENT_2": "reach the starboard **{required, number}** times",
   "REWARD_ROLE_DESCRIPTION_REQUIREMENT_3": "get **{required, number}** messages on the Hall of Fame",
+  "REWARD_ROLE_DESCRIPTION_REQUIREMENT_4": "get **{required, number}** of the custom stat **{stat}**",
   "REWARD_ROLES_PROGRESS": "Reward Roles Progress",
   "REWARD_ROLES_OBTAINED": "Reward Roles Obtained",
   "REWARD_ROLES_PROGRESS_STARS": "{obtained, number}/{required, number} stars",
@@ -273,6 +276,7 @@
   "AUDIT_LOG_ACHIEVEMENT_MOST_STARRED_MESSAGE": "has {stars, number} stars on their most starred message",
   "AUDIT_LOG_ACHIEVEMENT_TIMES_ON_STARBOARD": "has been on the starboard {timesOnStarboard, number} times",
   "AUDIT_LOG_ACHIEVEMENT_TIMES_ON_HALL_OF_FAME": "has been on the Hall of Fame {timesOnHallOfFame, number} times",
+  "AUDIT_LOG_ACHIEVEMENT_CUSTOM": "has achieved a custom stat requirement",
 
   "FILTER_INCLUDE_MATCH_CONFLICT": "A filter cannot check if a message includes text and matches a regex pattern at the same time - those two options are mutually exclusive.",
   "FILTER_NOT_INCLUDE_MATCH_CONFLICT": "A filter cannot check for the inclusion of text and the matching of a regex pattern at the same time - those two options are mutually exclusive.",
@@ -516,10 +520,10 @@
   "USERS_PLACE": "{user}'s Place: {place, select, 0 {Not on the leaderboard.} other {#{place, number}}}",
   "NOTHING_TO_SHOW_PREMIUM": "Nothing to show. (**[Premium Servers]({patreonLink})** can have up to {premiumLimit, number} pages.)",
   "LAST_RESET": "Last Reset:",
-  "CONFIRMATION_LEADERBOARD_RESET_USER": "Are you sure you want to remove all of the leaderboard data for **{username}** ({mention})?\nTheir stats for the server leaderboards will be {keepOldRewardRoles, select, true {reset back to 0, but they won't lose any reward roles and} false {reset back to 0 and they will lose all their reward roles, but}} the {statsUser} command will not be affected for them.",
+  "CONFIRMATION_LEADERBOARD_RESET_USER": "Are you sure you want to remove all of the leaderboard data for **{username}** ({mention})?\nTheir stats for the server leaderboards will be {keepOldRewardRoles, select, true {reset back to 0, but they won't lose any reward roles and} false {reset back to 0 and they will lose all their reward roles, but}} the {statsUser} command will not be affected for them. This action is **irreversable** (you cannot manually add stats to users).",
   "SUCCESSFULLY_RESET_LEADERBOARD_USER_KEEP_REWARD_ROLES": "Successfully reset leaderboard stats for **{username}** ({mention}).",
   "SUCCESSFULLY_RESET_LEADERBOARD_USER": "Successfully reset leaderboard stats for **{username}** ({mention}) and removed all their reward roles.",
-  "CONFIRMATION_LEADERBOARD_RESET": "Are you sure you want to reset the server's leaderboard?\nNo reward roles will be removed from users, and the {stats} commands will not be affected. {hasPremium, select, true {} false {This action is **irreversable**. (Due to how slow and intensive restoring is, {modLeaderboardRestore} is limited to **[Premium Servers]({patreonLink})**.)}}",
+  "CONFIRMATION_LEADERBOARD_RESET": "Are you sure you want to reset the server's leaderboard?\nNo reward roles will be removed from users, and the {stats} commands will not be affected. {hasPremium, select, true {Any custom stats erased will **not** be recoverable by {modLeaderboardRestore}.} false {This action is **irreversable**. (Due to how slow and intensive restoring is, {modLeaderboardRestore} is limited to **[Premium Servers]({patreonLink})**.)}}",
   "SUCCESSFULLY_RESET_LEADERBOARD": "Successfully cleared the server's leaderboard, removing {count, number} users from it.",
   "SUCCESSFULLY_ENABLED_AUTO_RESET": "Successfully enabled the auto-reset for the server leaderboard.",
   "LEADERBOARD_AUTO_RESET_EVERY": "The leaderboard will be reset {type, select, days {{days, plural, =1 {every day} other {every # days}}} date {on the {date, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} of every month}}, with the next auto-reset being on {nextReset}.",
@@ -529,7 +533,7 @@
   "SUCCESSFULLY_RESTORE_LEADERBOARD": "Successfully restored {entries, number} leaderboard entries.",
   "LEADERBOARD_CURRENTLY_BEING_RESTORED": "This server's leaderboard is currently being restored.",
   "LEADERBOARD_ALREADY_BEING_RESTORED": "This server's leaderboard is already being restored right now.",
-  "CONFIRMATION_LEADERBOARD_RESTORE": "Just to confirm, are you sure you want to restore the leaderboard using {after, select, null {all starred message data?} other {starred message data of messages starred after {after}? The leaderboard **will first be reset** before being restored.}}\nAlthough the leaderboard doesn't count self stars, the star counts restored by this command *will* include self stars.",
+  "CONFIRMATION_LEADERBOARD_RESTORE": "Just to confirm, are you sure you want to restore the leaderboard using {after, select, null {all starred message data?} other {starred message data of messages starred after {after}? The leaderboard **will first be reset** before being restored.}}\nAlthough the leaderboard doesn't count self stars, the star counts restored by this command *will* include self stars. Also, due to the complexity of custom leaderboards, custom stats will **not** be restored.",
 
   "NO_STARBOARDS_SET": "It seems this server has no starboard channels set.",
   "DEBUG_NO_STARBOARD_FOR_MESSAGE": "This message cannot be starred because there is no starboard set on the server settings.",
@@ -578,6 +582,29 @@
     "*The custom bot will __only__ be used for posting and editing starboard messages, nothing else. All custom bot tokens are encrypted.*"
   ],
 
+  "CUSTOM_STAT_NAME_TOO_LONG": "The name you give the custom leaderboard stat has to be less than 32 characters.",
+  "SUCCESSFULLY_CREATED_CUSTOM_STAT": "Successfully created the custom stat {display, select, null {**{stat}**} other {**{stat}** (`{display}`)}} based on {type, select, 0 {the total amount of stars users have} 1 {the total amount of upvotes users have} 2 {the total amount of downvotes users have} 3 {users' most starred message} 4 {the number of times users have reached the starboard}}. Right now, this custom leaderboard stat is not active. To enable it, add it to an override with {addCommand} so this stat is recorded whenever the override is applied.",
+  "CUSTOM_STAT_NOT_FOUND": "There is no existing custom leaderboard stat created under the name **{name}**.",
+  "SUCCESSFULLY_EDITED_CUSTOM_STAT": "Successfully edited the custom stat **{oldName}**:",
+  "CUSTOM_STAT_NOW_NAMED": "This custom leaderboard stat is now named **{name}**.",
+  "CUSTOM_STAT_NOW_DISPLAYED": "This custom leaderboard stat is now displayed as {display, select, null {just the number} other {`{display}`}}.",
+  "CONFIRMATION_DELETE_CUSTOM_STAT": "Are you sure you want to delete **{name}**? This custom leaderboard stat will be removed from wherever it is used, and any reward roles depending on this stat will be deleted as well (but no reward roles will immediately be removed from users). Finally, all recorded information regarding this stat will be wiped. This action is **irreversable**.",
+  "CUSTOM_STAT_ALREADY_ADDED": "**{stat}** is already added as a custom leaderboard stat on **{override}**.",
+  "SUCCESSFULLY_ADDED_CUSTOM_STAT": "Successfully added **{stat}** as a custom leaderboard stat on **{override}**. This stat will now be recorded when this override is applied.",
+  "CUSTOM_STAT_NOT_ADDED": "**{stat}** is not added as a custom leaderboard stat on **{override}**.",
+  "SUCCESSFULLY_REMOVED_CUSTOM_STAT": "Successfully removed the custom leaderboard stat **{stat}** from **{override}**. This stat will no longer be recorded when this override is applied.",
+  "CUSTOM_LEADERBOARDS": "Custom Leaderboards",
+  "CUSTOM_LEADERBOARD_DESCRIPTION": "Custom Leaderboard Stats allow you to create custom leaderboards, based on a subset of leaderboard data. Specific data is recorded based on which overrides are applied, so you can, for example, create a leaderboard based on only messages sent in a specific channel or category.",
+  "CUSTOM_STATS_NO_CUSTOM_STATS": "There are no custom leaderboard stats currently made in this server.",
+  "CUSTOM_STATS_DESCRIPTION_CREATE_CUSTOM_STATS": "To create custom leaderboard stats you can run {command}.",
+  "CUSTOM_STAT_RECORDED_WHEN": "This custom leaderboard stat is recorded when any of the following overrides are applied:",
+  "CUSTOM_STAT_BASED_ON": "This custom stat is based on: **{type}**",
+  "CUSTOM_LEADERBOARD_STAT_TYPE_0": "Total Stars",
+  "CUSTOM_LEADERBOARD_STAT_TYPE_1": "Total Upvotes",
+  "CUSTOM_LEADERBOARD_STAT_TYPE_2": "Total Downvotes",
+  "CUSTOM_LEADERBOARD_STAT_TYPE_3": "Most Starred Message",
+  "CUSTOM_LEADERBOARD_STAT_TYPE_4": "Times On Starboard",
+
   "INVALID_PREMIUM_CODE": "That premium code is not valid or has already been redeemed.",
   "SUCCESSFULLY_REDEEMED_PREMIUM_CODE": "Successfully redeemed a Starboard Premium code `{code}`. This server now has Starboard Premium for {duration}!",
   "PREMIUM_WILL_BE_ACTIVATED": "{type, select, code {This premium code will be activated} pledge {Your premium pledge will come into effect}} when this server's current Starboard Premium runs out.",
@@ -598,9 +625,9 @@
     "- more starring emojis and downvote emojis\n",
     "- bigger file uploads\n",
     "- set a custom bot to use for posting starboard messages\n",
-    "- improved server leaderboard\n",
-    "- raised limits on the number of overrides, reward roles, message filters, cosmetic display tiers, etc.\n",
-    "- better auto-star setups"
+    "- improved server leaderboard, and custom leaderboards\n",
+    "- better auto-star setups\n",
+    "- raised limits on the number of overrides, reward roles, message filters, cosmetic display tiers, etc."
   ],
   "PREMIUM_FEATURE_OLD_FEATURES": "- access to all the old items taken away as a result of the server's last Starboard Premium ending",
   "PREMIUM_FEATURE_VIEW_MORE": "For more precise information on premium features, visit the Patreon page.",
@@ -612,14 +639,15 @@
     "rewardRoles {reward roles}",
     "displayTiers {display tiers}",
     "autoStarConfigs {auto-star configurations}",
+    "customLeaderboardStats {custom leaderboard stats}",
     "} allowed for one server {premium, select, true {({premiumLimit, number}).} false {({freeLimit, number}). To have {premiumLimit, select, null {as many as you want} other {up to {premiumLimit, number}}}, this server needs to have **[Starboard Premium]({patreonLink})**.}}"
   ],
   "LOCKED_FEATURE_PREMIUM_UPSELL": [
     "{feature, select, ",
     "lbRestore {Due to how slow and intensive it is, restoring the leaderboard}",
     "autoStarIncludeThreads {Automatically auto-starring messages in the threads of listed channels}",
-    "emojiOverridesBeta {Emoji Overrides are an experimental, beta feature and aren't yet available to the public. The use of beta features}",
     "customBot {Setting a custom bot to use for posting starboard messages}",
+    "customLeaderboards {Creating custom leaderboards}",
     "null {This feature}",
     "} is reserved for servers that have **[Starboard Premium]({patreonLink})**."
   ],
@@ -1070,6 +1098,88 @@
       "VIEW": {
         "NAME": "view",
         "DESCRIPTION": "View info about the server's custom bot for posting starboard messages."
+      }
+    },
+    "CUSTOM_LEADERBOARD": {
+      "NAME": "custom-leaderboard",
+      "DESCRIPTION": "Manage custom leaderboards.",
+      "CREATE": {
+        "NAME": "create",
+        "DESCRIPTION": "Create a custom leaderboard stat, recorded when specific overrides are applied.",
+        "OPTIONS": {
+          "NAME": {
+            "NAME": "name",
+            "DESCRIPTION": "The name to give this custom leaderboard stat."
+          },
+          "TYPE": {
+            "NAME": "based-on",
+            "DESCRIPTION": "What this custom leaderboard stat is based on."
+          },
+          "DISPLAY": {
+            "NAME": "display",
+            "DESCRIPTION": "How the stat should be displayed. # represents the number. # stars -> 10 stars."
+          }
+        }
+      },
+      "EDIT": {
+        "NAME": "edit",
+        "DESCRIPTION": "Edit a custom leaderboard stat.",
+        "OPTIONS": {
+          "STAT": {
+            "NAME": "stat",
+            "DESCRIPTION": "The existing custom leaderboard stat you want to edit."
+          },
+          "NAME": {
+            "NAME": "new-name",
+            "DESCRIPTION": "The new name to give this custom leaderboard stat."
+          },
+          "DISPLAY": {
+            "NAME": "display",
+            "DESCRIPTION": "How the stat should now be displayed. # represents the number. # stars -> 10 stars."
+          }
+        }
+      },
+      "DELETE": {
+        "NAME": "delete",
+        "DESCRIPTION": "Delete a custom leaderboard stat.",
+        "OPTIONS": {
+          "STAT": {
+            "NAME": "stat",
+            "DESCRIPTION": "The existing custom leaderboard stat you want to delete."
+          }
+        }
+      },
+      "ADD": {
+        "NAME": "add",
+        "DESCRIPTION": "Add a custom leaderboard stat to an override to start tracking it.",
+        "OPTIONS": {
+          "STAT": {
+            "NAME": "stat",
+            "DESCRIPTION": "The existing custom leaderboard stat you want to add to an override."
+          },
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override you want to enable this custom leaderboard stat on."
+          }
+        }
+      },
+      "REMOVE": {
+        "NAME": "remove",
+        "DESCRIPTION": "Remove a custom leaderboard stat from an override.",
+        "OPTIONS": {
+          "STAT": {
+            "NAME": "stat",
+            "DESCRIPTION": "The custom leaderboard stat you want to remove from an override."
+          },
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override you want to disable and remove this custom leaderboard stat from."
+          }
+        }
+      },
+      "VIEW": {
+        "NAME": "view",
+        "DESCRIPTION": "View all the custom stats for custom leaderboards created in this server."
       }
     },
     "DISPLAYTIERS": {
@@ -1586,6 +1696,24 @@
             "DESCRIPTION": "Jump to a user's position on the leaderboard and highlight them."
           }
         }
+      },
+      "CUSTOM": {
+        "NAME": "custom",
+        "DESCRIPTION": "View a custom leaderboard, of a custom leaderboard stat configured in the server.",
+        "OPTIONS": {
+          "STAT": {
+            "NAME": "stat",
+            "DESCRIPTION": "The custom leaderboard stat you want to view the leaderboard of."
+          },
+          "PAGE": {
+            "NAME": "page",
+            "DESCRIPTION": "The page to jump to."
+          },
+          "USER": {
+            "NAME": "user",
+            "DESCRIPTION": "Jump to a user's position on the leaderboard and highlight them."
+          }
+        }
       }
     },
     "MOD": {
@@ -2027,7 +2155,7 @@
           },
           "TYPE": {
             "NAME": "type",
-            "DESCRIPTION": "The type of requirement the reward role you want to delete has."
+            "DESCRIPTION": "The type of requirement you want to delete from the reward role."
           }
         }
       },

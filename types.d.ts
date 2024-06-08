@@ -256,6 +256,9 @@ declare type MessageParameters = {
   "USER_DISPLAY_TIERS_REACHED_MAX": {
     premiumLimit: number,
   },
+  "REWARD_ROLE_CUSTOM_AUTOCOMPLETE": {
+    name: string,
+  },
   "SUCCESS_CREATE_REWARD_ROLE_0": {
     role: string,
     required: number,
@@ -271,6 +274,11 @@ declare type MessageParameters = {
   "SUCCESS_CREATE_REWARD_ROLE_3": {
     role: string,
     required: number,
+  },
+  "SUCCESS_CREATE_REWARD_ROLE_4": {
+    role: string,
+    required: string,
+    stat: string,
   },
   "SUCCESS_EDIT_REWARD_ROLE": {
     required: number,
@@ -295,6 +303,10 @@ declare type MessageParameters = {
   },
   "REWARD_ROLE_DESCRIPTION_REQUIREMENT_3": {
     required: number,
+  },
+  "REWARD_ROLE_DESCRIPTION_REQUIREMENT_4": {
+    required: number,
+    stat: string,
   },
   "REWARD_ROLES_PROGRESS_STARS": {
     obtained: number,
@@ -707,6 +719,49 @@ declare type MessageParameters = {
     unauthorised: boolean,
     command: string,
   },
+  "SUCCESSFULLY_CREATED_CUSTOM_STAT": {
+    display: string | null,
+    type: number,
+    addCommand: string,
+    stat: string,
+  },
+  "CUSTOM_STAT_NOT_FOUND": {
+    name: string,
+  },
+  "SUCCESSFULLY_EDITED_CUSTOM_STAT": {
+    oldName: string,
+  },
+  "CUSTOM_STAT_NOW_NAMED": {
+    name: string,
+  },
+  "CUSTOM_STAT_NOW_DISPLAYED": {
+    display: string | null,
+  },
+  "CONFIRMATION_DELETE_CUSTOM_STAT": {
+    name: string,
+  },
+  "CUSTOM_STAT_ALREADY_ADDED": {
+    stat: string,
+    override: string,
+  },
+  "SUCCESSFULLY_ADDED_CUSTOM_STAT": {
+    stat: string,
+    override: string,
+  },
+  "CUSTOM_STAT_NOT_ADDED": {
+    stat: string,
+    override: string,
+  },
+  "SUCCESSFULLY_REMOVED_CUSTOM_STAT": {
+    stat: string,
+    override: string,
+  },
+  "CUSTOM_STATS_DESCRIPTION_CREATE_CUSTOM_STATS": {
+    command: string,
+  },
+  "CUSTOM_STAT_BASED_ON": {
+    type: string,
+  },
   "SUCCESSFULLY_REDEEMED_PREMIUM_CODE": {
     code: string,
     duration: string,
@@ -726,14 +781,14 @@ declare type MessageParameters = {
     inTimeLeft: string,
   },
   "REACHED_LIMIT_PREMIUM_UPSELL": {
-    type: "autoStarConfigs" | "displayTiers" | "filters" | "overrides" | "rewardRoles",
+    type: "autoStarConfigs" | "customLeaderboardStats" | "displayTiers" | "filters" | "overrides" | "rewardRoles",
     premium: boolean,
     premiumLimit: number | null,
     freeLimit: number,
     patreonLink: string,
   },
   "LOCKED_FEATURE_PREMIUM_UPSELL": {
-    feature: "autoStarIncludeThreads" | "customBot" | "emojiOverridesBeta" | "lbRestore" | null,
+    feature: "autoStarIncludeThreads" | "customBot" | "customLeaderboards" | "lbRestore" | null,
     patreonLink: string,
   },
   "SET_LIMIT_PREMIUM_UPSELL": {

@@ -154,6 +154,12 @@ declare type MessageParameters = {
   "OVERRIDE_NOW_INHERITS": {
     name: string,
   },
+  "OVERRIDE_NOW_INHERITS_FILTERS": {
+    inherits: boolean,
+  },
+  "OVERRIDE_NOW_INHERITS_BLACKLIST": {
+    inherits: boolean,
+  },
   "ALREADY_BLACKLISTED": {
     name: string,
   },

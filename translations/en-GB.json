@@ -133,6 +133,8 @@
   "OVERRIDE_NOW_NAMED": "This override is now named **{name}**.",
   "OVERRIDE_PRIORITY_NOW": "This override now has a priority value of `{priority}`.",
   "OVERRIDE_NOW_INHERITS": "This override now inherits settings from **{name}**.",
+  "OVERRIDE_NOW_INHERITS_FILTERS": "This override {inherits, select, true {now} false {no longer}} inherits filters from the server settings or other overrides.",
+  "OVERRIDE_NOW_INHERITS_BLACKLIST": "This override {inherits, select, true {now} false {no longer}} inherits blacklists/whitelists from the server settings or other overrides.",
 
   "VIEW_EXPANDED": "View Expanded",
   "VIEW_COMPILED": "View Compiled",
@@ -1933,6 +1935,14 @@
               "NAME": "priority",
               "DESCRIPTION": "High priority overrides will be used before lower priority overrides. (default: 0)"
             },
+            "INHERIT_FILTERS": {
+              "NAME": "inherit-filters",
+              "DESCRIPTION": "Whether or not filters are inherited from server settings or other overrides. (default: yes)"
+            },
+            "INHERIT_BLACKLIST": {
+              "NAME": "inherit-blacklist",
+              "DESCRIPTION": "Whether or not blacklisted/whitelisted items are inherited from other settings. (default: yes)"
+            },
             "CHANNELS": {
               "NAME": "channels",
               "DESCRIPTION": "The channels this override should be applied in."
@@ -1955,6 +1965,14 @@
               "NAME": "priority",
               "DESCRIPTION": "High priority overrides will be used before lower priority overrides. (default: 0)"
             },
+            "INHERIT_FILTERS": {
+              "NAME": "inherit-filters",
+              "DESCRIPTION": "Whether or not filters are inherited from server settings or other overrides. (default: yes)"
+            },
+            "INHERIT_BLACKLIST": {
+              "NAME": "inherit-blacklist",
+              "DESCRIPTION": "Whether or not blacklisted/whitelisted items are inherited from other settings. (default: yes)"
+            },
             "CHANNEL_TYPES": {
               "NAME": "channel-types",
               "DESCRIPTION": "The types of channels this override should be applied in."
@@ -1976,6 +1994,14 @@
             "PRIORITY": {
               "NAME": "priority",
               "DESCRIPTION": "High priority overrides will be used before lower priority overrides. (default: 0)"
+            },
+            "INHERIT_FILTERS": {
+              "NAME": "inherit-filters",
+              "DESCRIPTION": "Whether or not filters are inherited from server settings or other overrides. (default: yes)"
+            },
+            "INHERIT_BLACKLIST": {
+              "NAME": "inherit-blacklist",
+              "DESCRIPTION": "Whether or not blacklisted/whitelisted items are inherited from other settings. (default: yes)"
             },
             "ROLES": {
               "NAME": "roles",
@@ -2002,6 +2028,14 @@
             "PRIORITY": {
               "NAME": "priority",
               "DESCRIPTION": "High priority overrides will be used before lower priority overrides. (default: 0)"
+            },
+            "INHERIT_FILTERS": {
+              "NAME": "inherit-filters",
+              "DESCRIPTION": "Whether or not filters are inherited from server settings or other overrides. (default: yes)"
+            },
+            "INHERIT_BLACKLIST": {
+              "NAME": "inherit-blacklist",
+              "DESCRIPTION": "Whether or not blacklisted/whitelisted items are inherited from other settings. (default: yes)"
             },
             "EMOJIS": {
               "NAME": "emojis",
@@ -2056,6 +2090,14 @@
             "NAME": "priority",
             "DESCRIPTION": "The priority this override should now have."
           },
+          "INHERIT_FILTERS": {
+            "NAME": "inherit-filters",
+            "DESCRIPTION": "Whether or not filters should now be inherited, from server settings or other overrides."
+          },
+          "INHERIT_BLACKLIST": {
+            "NAME": "inherit-blacklist",
+            "DESCRIPTION": "Whether or not blacklisted/whitelisted items should now be inherited from other settings."
+          },
           "SYNC_WITH": {
             "NAME": "inherit-from",
             "DESCRIPTION": "The override that this override should now inherit settings and copy changes from."
@@ -2064,7 +2106,7 @@
       },
       "TEST": {
         "NAME": "test",
-        "DESCRIPTION": "Test settings you've created in a provided context, and the order they're applied to.",
+        "DESCRIPTION": "Test the overrides you've created to see how they're applied in a provided context.",
         "OPTIONS": {
           "CHANNEL": {
             "NAME": "channel",

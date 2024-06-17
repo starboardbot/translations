@@ -1,0 +1,2655 @@
+{
+  "name": "English (GB)",
+  "real": true,
+  "HELLO_WORLD": "Hello world!",
+  "EN_GB": "English [GB]",
+  "EN_US": "English [US]",
+  "ES_ES": "Español (Spanish)",
+  "YES": "Yes",
+  "NO": "No",
+  "DELETE": "Delete",
+  "CLEAR": "Clear",
+  "RESET": "Reset",
+  "CANCEL": "Cancel",
+  "BACK": "Back",
+  "SKIP": "Skip",
+  "CONTINUE": "Continue",
+  "NEXT": "Next",
+  "END": "End",
+  "RETRY": "Retry",
+  "DISABLE": "Disable",
+  "RESTORE": "Restore",
+  "NONE": "None",
+  "NOT_SET": "Not set",
+  "NA": "N/A",
+  "PLUS_MORE": "+{num, number} more",
+  "ORIGINAL_MESSAGE": "Original Message",
+  "REPLYING_TO_USER": "Replying to {user}",
+  "REFERENCED_MESSAGE": "Referenced Message",
+  "SENT_A_STICKER": "Sent a sticker: {name}",
+  "CLICK_TO_JUMP_TO_MESSAGE": "Click to jump to message!",
+  "STARBOARD_MESSAGE_IMAGE": "Image",
+  "STARBOARD_MESSAGE_IMAGE_N": "Image {number, number}",
+  "STARBOARD_MESSAGE_VIDEO": "Video",
+  "STARBOARD_MESSAGE_VIDEO_N": "Video {number, number}",
+  "STARBOARD_MESSAGE_FILE": "File",
+  "STARBOARD_MESSAGE_FILE_N": "File {number, number}",
+  "STARBOARD_MESSAGE_SPOILER": "(SPOILER) {content}",
+  "POLL_RESULTS": "Poll results are in!",
+  "POLL_ONGOING": "Poll ongoing!",
+  "POLL_VOTES": "{votes, plural, =1 {# vote} other {# votes}}, {percent, number, ::percent}",
+  "ARE_YOU_SURE": "Are you sure?",
+  "ARE_YOU_SURE_PROMPT": "Are you sure you want to perform this action?",
+  "ARE_YOU_SURE_PROMPT_DESTRUCTIVE": "Are you sure you want to perform this action? This action cannot be reversed.",
+  "SERVER_SETTINGS": "Server Settings",
+  "SETTINGS_TITLE": "Settings",
+  "VIEW_SETTINGS": "View Settings",
+  "OVERRIDE_NOT_FOUND": "There is no existing override created under the name **{name}**.",
+  "PLEASE_PROVIDE_VALID_LIST_CHANNELS": "Please provide a valid list of channels.",
+  "PLEASE_PROVIDE_VALID_LIST_ROLES": "Please provide a valid list of roles.",
+  "PLEASE_PROVIDE_VALID_LIST_EMOJIS": "Please provide a valid list of emojis.",
+  "ALL_CHANNELS": "All Channels",
+  "OVERRIDE_CHANNEL_TYPES_TEXT": "All Text/Announcement Channels",
+  "OVERRIDE_CHANNEL_TYPES_TEXT_SFW": "Non-NSFW Text/Announcement Channels",
+  "OVERRIDE_CHANNEL_TYPES_TEXT_NSFW": "NSFW Text/Announcement Channels",
+  "OVERRIDE_CHANNEL_TYPES_THREAD": "All Threads and Forums",
+  "OVERRIDE_CHANNEL_TYPES_THREAD_SFW": "Non-NSFW Threads and Forums",
+  "OVERRIDE_CHANNEL_TYPES_THREAD_NSFW": "NSFW Threads and Forums",
+  "OVERRIDE_CHANNEL_TYPES_VOICE": "All Voice/Stage Channels",
+  "OVERRIDE_CHANNEL_TYPES_VOICE_SFW": "Non-NSFW Voice/Stage Channels",
+  "OVERRIDE_CHANNEL_TYPES_VOICE_NSFW": "NSFW Voice/Stage Channels",
+  "OVERRIDE_CHANNEL_TYPES_SFW": "All Non-NSFW Channels",
+  "OVERRIDE_CHANNEL_TYPES_NSFW": "All NSFW Channels",
+  "SUCCESS_CREATE_OVERRIDE": "Successfully created an override **{name}** that only applies {type, select, channel {to {channels, plural, =1 {1 channel} other {# channels}}} channelType {to messages in the specified type of channels} emoji {when one of the specified {emojis, plural, =1 {1 emoji} other {# emojis}} are used} role {when the message author has one of the specified {roles, plural, =1 {1 role} other {# roles}}}}.",
+  "SUCCESS_CREATE_OVERRIDE_CHANNELS_NOTICE": "This override also only applies in {channels, plural, =1 {1 channel} other {# channels}}.",
+  "SUCCESS_CREATE_EMOJI_OVERRIDE_NOTICE": "Please note that this override will only take effect for an emoji if the **Emoji**/**Downvote Emoji** setting is set to that emoji. Right now, no settings have the **Emoji**/**Downvote Emoji** setting set to {emojis}.",
+  "CONFIRMATION_DELETE_OVERRIDE": "Are you sure you want to delete **{name}**?\nYou will lose all configurations made specifically on this override, and they will be gone forever. No starred messages or other stats will be erased.",
+  "SUCCESSFULLY_DELETED": "Successfully deleted **{name}**.",
+  "CONFIRMATION_RESET_SERVER_SETTINGS": "Are you sure you want to reset the server settings?\nYou will lose all configurations made specifically on the server settings, and they will be gone forever, but no created overrides, created filters, or auto-star configurations will be deleted. No starred messages or other stats will be erased.",
+  "CONFIRMATION_RESET_OVERRIDE": "Are you sure you want to reset **{name}**?\nYou will lose all configurations made specifically on this override, and they will be gone forever, but the override itself will not be deleted. No starred messages or other stats will be erased.",
+  "SUCCESS_RESET_SETTINGS": "Successfully reset {name, select, null {the server settings} other {**{name}**}}.",
+  "INVALID_SETTING_RESET": "Please provide a valid setting to reset.",
+  "SUCCESS_RESET_SETTING": "Successfully reset **{setting}** on {name, select, null {the server settings} other {**{name}**}}.",
+  "MAIN_SETTINGS": "Main Settings",
+  "FILTERING_SETTINGS": "Filtering",
+  "APPEARANCE_SETTINGS": "Appearance",
+  "MISCELLANEOUS_SETTINGS": "Miscellaneous Settings",
+  "INHERITS_SETTINGS_FROM": "Inherits from {name}",
+  "OVERRIDE_APPLY_CHANNELS": "This override applies to messages in {other, plural, =0 {{channels}} =1 {{channels} and 1 other channel} other {{channels} and # other channels}}.",
+  "OVERRIDE_APPLY_CHANNEL_TYPES": "This override applies to messages in: {type}",
+  "OVERRIDE_APPLY_ROLES": "This override applies to messages where the author has {other, plural, =0 {{roles}} =1 {{roles} and 1 other role} other {{roles} and # other roles}}{channels, select, null {} other { in {channels}}}.",
+  "OVERRIDE_APPLY_EMOJIS": "This override applies when reacting with {emojis}{channels, select, null {} other { in {channels}}}.",
+  "APPLIES_TO": "Applies to",
+  "CHANNELS": "Channels",
+  "IN_CHANNELS": "In Channels",
+  "CHANNEL_TYPE": "Channel Type",
+  "ROLES": "Roles",
+  "EMOJIS": "Emojis",
+  "PRIORTIY": "Priority",
+  "USERS": "Users",
+  "ALL": "All",
+  "NUMBER_STARS": "{stars, number} stars",
+  "NUMBER_CHARACTERS": "{chars, number} characters",
+  "PLEASE_PROVIDE_CHANGES": "Please provide the changes you would like to make.",
+  "SUCCESS_CHANGE_SETTINGS": "Successfully changed those settings for {name}.",
+  "SUCCESS_CHANGE_SETTINGS_NOTICE": "Note that:\n{notices}",
+  "MISSING_ATTACH_FILES_PERMISSION_NOTICE": "{bot, select, null {The bot} other {{bot}}} is missing the `Attach Files` permission in {channel}, so media and files that are supposed to be reuploaded due to the **Reupload Attachments** setting will be linked instead.",
+  "MISSING_MANAGE_MESSAGES_PERMISSION_NOTICE": "The bot is missing the `Manage Messages` permission in {channel}, so I cannot remove invalid reactions and messages that are supposed to be removed due to the **Remove Invalid Reactions**/**Delete Invalid Messages** setting.",
+  "REQUIRED_STARS_CLASH_SET": "Because the value of **Required Stars** has to be higher than **Required Stars To Remove**, I've set **Required Stars** to {requiredStars, number} and **Required Stars To Remove** to {requiredToRemove, number}.",
+  "EMOJI_OVERRIDE_REQUIRED_NOTICE": "When figuring out which settings to take into account when posting starboard messages (i.e. when not reacting to messages), this emoji override will only apply when the starred message has {required, number} or more {emojis} reactions.",
+  "PREMIUM_BASED_FILE_SIZE_LIMIT_NOTICE": "The bot will only reupload attachments that are smaller than {limit, number}MB in size. Premium servers can have attachments up to the Nitro limit ({nitroLimit, number}MB) in size reuploaded.",
+  "NITRO_BASED_FILE_SIZE_LIMIT_NOTICE": "The bot can only reupload attachments that are smaller than the Nitro limit ({nitroLimit, number}MB) in size.",
+  "UNUSABLE_REACTION_EMOJIS_PROVIDED": "I cannot use the emojis {emojis}. Please choose emojis from servers I am in.",
+  "UPVOTE_DOWNVOTE_EMOJIS_CLASH": "You cannot set the same emoji to star messages and downvote messages.",
+  "SETTING_ONLY_FOR_SERVER_SETTINGS": "The setting **{setting}** can only be modified when editing Server Settings.",
+  "CANNOT_EDIT_SETTING_ON_EMOJI_OVERRIDE": "The setting **{setting}** cannot be modified on emoji overrides.",
+  "CANNOT_SEND_MESSAGES_IN_CHANNEL": "{bot, select, null {I} other {{bot}}} cannot send messages in {channel}, please enable the `Send Messages` permission.",
+  "CANNOT_SEND_EMBEDS_IN_CHANNEL": "{bot, select, null {I} other {{bot}}} cannot send embeds in {channel}, please enable the `Embed Links` permission.",
+  "CANNOT_VIEW_CHANNEL": "{bot, select, null {I} other {{bot}}} cannot view {channel}, please enable the `View Channel` permission.",
+  "CANNOT_VIEW_VOICE_CHANNEL": "{bot, select, null {I} other {{bot}}} cannot view {channel}, please enable the `View Channel` and the `Connect` permissions.",
+  "CANNOT_READ_HISTORY_IN_CHANNEL": "{bot, select, null {I} other {{bot}}} cannot read message history in {channel}, please enable the `Read Message History` permission.",
+  "OVERRIDE_EDIT_INVALID_CHANGE_ON_INVALID_TYPE": "You cannot make those changes on this type of override.",
+  "SUCCESS_EDIT_OVERRIDE": "Successfully edited the override **{name}**:\n{changes}",
+  "OVERRIDE_NOW_NAMED": "This override is now named **{name}**.",
+  "OVERRIDE_PRIORITY_NOW": "This override now has a priority value of `{priority}`.",
+  "OVERRIDE_NOW_INHERITS": "This override now inherits settings from **{name}**.",
+  "OVERRIDE_NOW_INHERITS_FILTERS": "This override {inherits, select, true {now} false {no longer}} inherits filters from the server settings or other overrides.",
+  "OVERRIDE_NOW_INHERITS_BLACKLIST": "This override {inherits, select, true {now} false {no longer}} inherits blacklists/whitelists from the server settings or other overrides.",
+  "VIEW_EXPANDED": "View Expanded",
+  "VIEW_COMPILED": "View Compiled",
+  "PLEASE_PROVIDE_CONTEXT_OVERRIDE_TEST": "Please provide a channel, role or emoji to use to test.",
+  "NO_OVERRIDES_APPLIED": "No overrides are appplied when in the provided scenario.",
+  "ALREADY_BLACKLISTED": "{name} is already on the blacklist.",
+  "MAX_BLACKLISTED_ITEMS_FOR_SERVER": "This server has reached the maximum amount of items on the blacklist.",
+  "SUCCESSFULLY_BLACKLISTED": "Successfully added {name} to the blacklist.",
+  "SUCCESSFULLY_BLACKLISTED_USER_OR_ROLE_1": "{type, select, users {They} roles {Users with this role}} will not be able to star messages but their messages will still be able to reach the starboard.",
+  "SUCCESSFULLY_BLACKLISTED_USER_OR_ROLE_2": "Messages sent by {type, select, users {this user} roles {users with this role}} will not be able to reach the starboard, but they will still be able to star other messages.",
+  "SUCCESSFULLY_BLACKLISTED_USER_OR_ROLE_3": "{type, select, users {They} roles {Users with this role}} will not be able to star messages and their messages will not be able to reach the starboard.",
+  "SUCCESSFULLY_BLACKLISTED_THREAD": "Users will no longer be able to star messages sent in this thread.",
+  "SUCCESSFULLY_BLACKLISTED_CHANNEL": "Users will no longer be able to star messages sent in this channel, or any of its threads.",
+  "SUCCESSFULLY_BLACKLISTED_CATEGORY": "Users will no longer be able to star messages sent in any channel under this category, and any threads under this category too.",
+  "SUCCESSFULLY_BLACKLISTED_ALL_CHANNELS": "All channels in the server are now blacklisted, users will not be able to star messages anywhere. Whitelist a channel to enable starring there.",
+  "NOT_BLACKLISTED": "{name} is not on the blacklist.",
+  "SUCCESSFULLY_UNBLACKLISTED": "Successfully removed {name} from the blacklist.",
+  "NOTHING_BLACKLISTED": "There is currently nothing on the blacklist.",
+  "SUCCESSFULLY_CLEAR_BLACKLIST_ALL": "Successfully cleared {size, plural, =1 {# item} other {# items}} from the blacklist.",
+  "SUCCESSFULLY_CLEAR_BLACKLIST_USERS": "Successfully cleared {size, plural, =1 {# user} other {# users}} from the blacklist.",
+  "SUCCESSFULLY_CLEAR_BLACKLIST_ROLES": "Successfully cleared {size, plural, =1 {# role} other {# roles}} from the blacklist.",
+  "SUCCESSFULLY_CLEAR_BLACKLIST_CHANNELS": "Successfully cleared {size, plural, =1 {# channel} other {# channels}} from the blacklist.",
+  "ALREADY_WHITELISTED": "{name} is already on the whitelist.",
+  "CANNOT_WHITELIST_EVERYONE": "You cannot whitelist @everyone.",
+  "MAX_WHITELISTED_ITEMS_FOR_SERVER": "This server has reached the maximum amount of items on the whitelist.",
+  "SUCCESSFULLY_WHITELISTED": "Successfully added {name} to the whitelist.",
+  "SUCCESSFULLY_WHITELISTED_USER": "They will now be able to star messages and have their messages on the starboard, regardless of if they are on the blacklist or have a role on the blacklist.",
+  "SUCCESSFULLY_WHITELISTED_ROLE": "Users with this role will now be able to star messages and have their messages on the starboard.",
+  "SUCCESSFULLY_WHITELISTED_THREAD": "Users will now be able to star messages sent in this thread, regardless of if the channel's parent is blacklisted.",
+  "SUCCESSFULLY_WHITELISTED_CHANNEL": "Users will now be able to star messages sent in this channel, or any of its threads, regardless of if the channel's parent is blacklisted.",
+  "SUCCESSFULLY_WHITELISTED_CATEGORY": "Users will now be able to star messages sent in any channel under this category, and any threads under this category too.",
+  "NOT_WHITELISTED": "{name} is not on the whitelist.",
+  "SUCCESSFULLY_UNWHITELISTED": "Successfully removed {name} from the whitelist.",
+  "NOTHING_WHITELISTED": "There is currently nothing on the whitelist.",
+  "SUCCESSFULLY_CLEAR_WHITELIST_ALL": "Successfully cleared {size, plural, =1 {# item} other {# items}} from the whitelist.",
+  "SUCCESSFULLY_CLEAR_WHITELIST_USERS": "Successfully cleared {size, plural, =1 {# user} other {# users}} from the whitelist.",
+  "SUCCESSFULLY_CLEAR_WHITELIST_ROLES": "Successfully cleared {size, plural, =1 {# role} other {# roles}} from the whitelist.",
+  "SUCCESSFULLY_CLEAR_WHITELIST_CHANNELS": "Successfully cleared {size, plural, =1 {# channel} other {# channels}} from the whitelist.",
+  "BLACKLIST": "Blacklist",
+  "BLACKLISTED_USERS": "Blacklisted Users",
+  "BLACKLISTED_ROLES": "Blacklisted Roles",
+  "BLACKLISTED_CHANNELS": "Blacklisted Channels",
+  "WHITELIST": "Whitelist",
+  "WHITELISTED_USERS": "Whitelisted Users",
+  "WHITELISTED_ROLES": "Whitelisted Roles",
+  "WHITELISTED_CHANNELS": "Whitelisted Channels",
+  "BLACKLIST_DESCRIPTION_USERS_1": "Blacklisted users cannot star any messages, but their messages can still be starred by other users.",
+  "BLACKLIST_DESCRIPTION_USERS_2": "Blacklisted users cannot have their messages on the starboard, but they can still star messages sent by other users.",
+  "BLACKLIST_DESCRIPTION_USERS_3": "Blacklisted users cannot star messages and cannot have their messages on the starboard.",
+  "BLACKLIST_DESCRIPTION_CHANNELS": "Users cannot star messages that were sent in blacklisted channels.\nIf a channel is blacklisted, the channel's threads will automatically be blacklisted too unless whitelisted. If a category is blacklisted, all the channels in the category will be blacklisted too, including threads.",
+  "BLACKLIST_DESCRIPTION_NOTHING_BLACKLISTED": "Currently there are no users, roles or channels blacklisted.",
+  "BLACKLIST_DESCRIPTION_NOTHING_BLACKLISTED_OVERRIDE": "Currently there are no users, roles or channels blacklisted on this override, but some are inherently blacklisted via server settings or other overrides.",
+  "BLACKLIST_DESCRIPTION_ADD_ITEMS": "To add users, roles or channels to the blacklist, you can run any one of {commands}.",
+  "NUMBER_OF_BLACKLISTED_ITEMS": "Number of items blacklisted: {num, number}",
+  "INHERITS_BLACKLISTED_ITEMS_FROM": "Inherits blacklisted items from {name}",
+  "WHITELIST_DESCRIPTION_USERS": "Whitelisted users are able to star messages and have their messages on the starboard regardless of if they are on the blacklist or have a role on the blacklist.",
+  "WHITELIST_DESCRIPTION_CHANNELS": "Users can star messages that were sent in whitelisted channels, even if the channel or its parent is on the blacklist.\nIf a channel is whitelisted, the channel's threads will also be whitelisted, and the threads can be individually blacklisted if needed.",
+  "WHITELIST_DESCRIPTION_NOTHING_WHITELISTED": "Currently there are no users, roles or channels whitelisted.",
+  "WHITELIST_DESCRIPTION_NOTHING_WHITELISTED_OVERRIDE": "Currently there are no users, roles or channels whitelisted on this override, but some are inherently whitelisted via server settings or other overrides.",
+  "WHITELIST_DESCRIPTION_ADD_ITEMS": "To add users, roles or channels to the whitelist, you can run any one of {commands}.",
+  "NUMBER_OF_WHITELISTED_ITEMS": "Number of items whitelisted: {num, number}",
+  "NO_MORE_ITEMS": "No more items.",
+  "DISPLAY_TIER_COLOR_ROLE": "Colour of message author's highest role",
+  "DISPLAY_TIER_COLOR_RANDOM": "Random colour",
+  "COLOR_INVALID_COLOUR_AUTO_COMPLETE": "Your input is invalid. Try inputting a hex code (#ecd558) or RGB values (236, 213, 88).",
+  "PLEASE_PROVIDE_STAR_OR_COLOR": "Please provide an emoji and/or colour for this display tier.",
+  "PLEASE_PROVIDE_VALID_EMOJI": "Please provide a valid emoji.",
+  "PLEASE_PROVIDE_VALID_COLOUR": "Please provide a valid colour.",
+  "TOO_MANY_DISPLAY_TIERS": "This server has reached the maximum amount of display tiers.",
+  "ROLE_COLOR": "role colour",
+  "RANDOM_COLOR": "random colour",
+  "DISPLAY_TIER_FROM": "{style} from **{threshold, number}** stars",
+  "SUCCESSFULLY_CREATED_DISPLAY_TIER": "Successfully created a new display tier: {tier}",
+  "DISPLAY_TIER_DUPLICATE": "A display tier with the provided options already exists.",
+  "CREATED_DEFAULT_DISPLAY_TIER": "As this is the first display tier you're creating for this override, display tiers are no longer inherited from server settings and other overrides. So, I've gone ahead and created a default display tier that is used when the one you've just created hasn't yet been reached.",
+  "CREATED_DEFAULT_DISPLAY_TIER_USER": "I've also gone ahead and created a default display tier that is used when the one you've just created hasn't yet been reached.",
+  "DISPLAY_TIERS": "Display Tiers",
+  "DISPLAY_TIERS_DESCRIPTION_1": "Display tiers are the different tiers of cosmetic changes that a starboard message can go through as it gets more stars.",
+  "DISPLAY_TIERS_DESCRIPTION_2": "Currently the cosmetics you can change are the star beside the star count and the colour of the starboard message's embeds.",
+  "DISPLAY_TIERS_DESCRIPTION_USER": "These user display tiers allow you to personalise your own starboard messages, using your customisations instead of the server's.",
+  "DISPLAY_TIERS_DESCRIPTION_CREATE_TIER": "To create a display tier you can run {command}.",
+  "DISPLAY_TIERS_DESCRIPTION_CREATE_TIER_USER": "To create a display tier for yourself you can run {command}.",
+  "DISPLAY_TIERS_DESCRIPTION_INHERITED": "Since you have no display tiers created specifically for this override, the display tiers are inherited from the server settings or other overrides, and are listed in *italics*.",
+  "DISPLAY_TIERS_DESCRIPTION_UNUSED": "Some display tiers have no effect as their changes are immediately overriden by the next display tier - those tiers are ~~crossed out~~.",
+  "DISPLAY_TIER_UNDELETABLE": "You cannot delete this display tier.",
+  "DISPLAY_TIER_UNDELETABLE_OVERRIDE": "You cannot delete this display tier. Delete all other display tiers first, then delete this display tier, to go back to inheriting the display tiers from the server settings or other overrides.",
+  "NO_DISPLAY_TIERS_OVERRIDE": "You have no display tiers created specifically for this override.",
+  "DISPLAY_TIER_NOT_FOUND": "There is no display tier #{number, number} created. Double check the number of the display tier with {command}.",
+  "SUCCESSFULLY_DELETED_DISPLAY_TIER": "Successfully deleted the display tier: {tier}.",
+  "DISPLAY_TIERS_INHERITED_AGAIN": "As there are no display tiers for this override anymore, display tiers are now inherited again.",
+  "DISPLAY_TIER_CANNOT_EDIT_THRESHOLD": "You cannot change the threshold of this display tier.",
+  "SUCCESSFULLY_EDITED_DISPLAY_TIER": "Successfully edited the display tier: {old} -> {tier}.",
+  "USER_DISPLAY_TIERS_NOT_A_PATRON": "To personalise custom display tiers just for your starboard messages, you must be a [patron]({patreonLink}).",
+  "USER_DISPLAY_TIERS_REACHED_MAX": "You have reached the maximum amount of display tiers allowed for one user. ({premiumLimit, number})",
+  "NO_DISPLAY_TIERS_USER": "You have no display tiers created for yourself.",
+  "REWARD_ROLE_TYPE_0": "Total Stars",
+  "REWARD_ROLE_TYPE_1": "Most Starred Message",
+  "REWARD_ROLE_TYPE_2": "Times On Starboard",
+  "REWARD_ROLE_TYPE_3": "Times On Hall Of Fame",
+  "REWARD_ROLE_CUSTOM_AUTOCOMPLETE": "Custom: {name}",
+  "REWARD_ROLE_MANAGED": "This role is automatically managed by an integration and cannot be manually assigned to members.",
+  "REWARD_ROLE_EVERYONE": "You cannot make that role a reward role.",
+  "REWARD_ROLES_HIGHER_THAN_ME": "I cannot assign this role to users as it is higher than my highest role.",
+  "REWARD_ROLES_HIGHER_THAN_YOU": "You cannot make this role a reward role as it is higher than your highest role.",
+  "REWARD_ROLES_GRANTING_PERMISSIONS": "You cannot make this role a reward role as it is granting permissions you don't already have.",
+  "CANNOT_GIVE_REWARD_ROLES": "I am missing the `Manage Roles` permission, required to give reward roles to users.",
+  "TOO_MANY_REWARD_ROLES": "This server has reached the maximum amount of reward roles.",
+  "DUPLICATE_REWARD_ROLE": "A reward role of the provided type and role already exists.",
+  "SUCCESS_CREATE_REWARD_ROLE_0": "Successfully created a reward role {role}, awarded to users when they've accumulated {required, number} stars in total.",
+  "SUCCESS_CREATE_REWARD_ROLE_1": "Successfully created a reward role {role}, awarded to users when their most starred message has gotten {required, number} stars.",
+  "SUCCESS_CREATE_REWARD_ROLE_2": "Successfully created a reward role {role}, awarded to users when they've reached the starboard {required, number} times.",
+  "SUCCESS_CREATE_REWARD_ROLE_3": "Successfully created a reward role {role}, awarded to users when they've gotten {required, number} messages on the Hall of Fame.",
+  "SUCCESS_CREATE_REWARD_ROLE_4": "Successfully created a reward role {role}, awarded to users when they've gotten {required} of the custom stat **{stat}**.",
+  "REWARD_ROLE_NOT_FOUND": "That reward role could not be found.",
+  "REWARD_ROLE_NOT_FOUND_TYPE": "That type of requirement for that reward role doesn't exist.",
+  "SUCCESS_EDIT_REWARD_ROLE": "Successfully changed the requirement for that reward role to {required, number}.",
+  "SUCCESS_DELETE_REWARD_ROLE": "Successfully deleted the {role} reward role.",
+  "SUCCESS_DELETE_REWARD_ROLE_TYPE": "Successfully deleted that requirement for the {role} reward role.",
+  "REWARD_ROLES": "Reward Roles",
+  "REWARD_ROLES_DESCRIPTION": "Reward roles are a fun way to reward users for getting their messages starred. They are roles that are given to users after reaching a certain requirement, such as the user's total number of stars or the times a user has reached the starboard.",
+  "REWARD_ROLES_NO_REWARD_ROLES": "There are no reward roles currently made in this server.",
+  "REWARD_ROLES_DESCRIPTION_CREATE_REWARD_ROLES": "To create reward roles you can run {command}.",
+  "REWARD_ROLE_DESCRIPTION_REQUIREMENT_0": "accumulate **{required, number}** stars in total",
+  "REWARD_ROLE_DESCRIPTION_REQUIREMENT_1": "get **{required, number}** stars on your most starred message",
+  "REWARD_ROLE_DESCRIPTION_REQUIREMENT_2": "reach the starboard **{required, number}** times",
+  "REWARD_ROLE_DESCRIPTION_REQUIREMENT_3": "get **{required, number}** messages on the Hall of Fame",
+  "REWARD_ROLE_DESCRIPTION_REQUIREMENT_4": "get **{required, number}** of the custom stat **{stat}**",
+  "REWARD_ROLES_PROGRESS": "Reward Roles Progress",
+  "REWARD_ROLES_OBTAINED": "Reward Roles Obtained",
+  "REWARD_ROLES_PROGRESS_STARS": "{obtained, number}/{required, number} stars",
+  "AUDIT_LOG_REWARD_ROLES": "Starboard Reward Roles - this user {achievements}.",
+  "AUDIT_LOG_ACHIEVEMENT_STARS": "has {stars, number} stars",
+  "AUDIT_LOG_ACHIEVEMENT_MOST_STARRED_MESSAGE": "has {stars, number} stars on their most starred message",
+  "AUDIT_LOG_ACHIEVEMENT_TIMES_ON_STARBOARD": "has been on the starboard {timesOnStarboard, number} times",
+  "AUDIT_LOG_ACHIEVEMENT_TIMES_ON_HALL_OF_FAME": "has been on the Hall of Fame {timesOnHallOfFame, number} times",
+  "AUDIT_LOG_ACHIEVEMENT_CUSTOM": "has achieved a custom stat requirement",
+  "FILTER_INCLUDE_MATCH_CONFLICT": "A filter cannot check if a message includes text and matches a regex pattern at the same time - those two options are mutually exclusive.",
+  "FILTER_NOT_INCLUDE_MATCH_CONFLICT": "A filter cannot check for the inclusion of text and the matching of a regex pattern at the same time - those two options are mutually exclusive.",
+  "CONTENT_FILTER_MIN_GREATER_THAN_MAX": "The minimum length option cannot be greater than the maximum length option.",
+  "ATTACHMENTS_FILTER_MIN_GREATER_THAN_MAX": "The min number of attachments option cannot be greater than the min number of attachments option.",
+  "RELATIVE_AGE_FILTER_MIN_GREATER_THAN_MAX": "The \"older than\" option cannot be greater than the \"newer than\" option. (A message can't be older than 10 days and newer than 5 days at the same time.)",
+  "STATIC_AGE_FILTER_MIN_GREATER_THAN_MAX": "The \"sent after\" option cannot be greater than the \"sent before\" option. (A message can't be sent after 2023 and sent before 2022 at the same time.)",
+  "INVALID_REGEX": "An invalid regex pattern was provided: {error}. Try testing your regex pattern on sites like [regexr.com](https://regexr.com) or [regex101.com](https://regex101.com).",
+  "INVALID_APPLY_LIST": "Please provide a valid list of roles or users.",
+  "TOO_MANY_APPLY_LIST": "You've provided too many users and roles.",
+  "RELATIVE_MIN_AGE_TIME": "Older than {time}",
+  "RELATIVE_MAX_AGE_TIME": "Newer than {time}",
+  "INVALID_DATE_AUTOCOMPLETE": "Invalid Date",
+  "INVALID_DATE_AUTOCOMPLETE_EDIT": "No Date (unset)",
+  "INVALID_DATE": "An invalid date was provided. Make sure your using the right format (dd/mm/yyyy for everyone, mm/dd/yyyy if you live in the US).",
+  "INVALID_AGE_AUTOCOMPLETE": "Invalid Age",
+  "INVALID_AGE_AUTOCOMPLETE_EDIT": "No Age (unset)",
+  "INVALID_AGE": "An invalid age was provided. You can provide your age in seconds, minutes, hours, days, weeks, months (30d) and years. (example: `1 day 12 hours`)",
+  "PLEASE_INPUT_FILTER_OPTIONS": "Please input some options for this filter.",
+  "CANNOT_HAVE_EMPTY_FILTER": "A message filter can't exist without any options.",
+  "SUCCESS_CREATE_FILTER": "Successfully created a message filter **{name}** based on the message's {type, select, 0 {content (and embed content)} 1 {attachments, links and embeds} other {age}}, which applies to {appliesTo, plural, =0 {everyone} =1 {1 user/role} other {# users/roles}} and does not apply to {doesNotApplyTo, plural, =1 {1 user/role} other {# users/roles}}.",
+  "TO_ADD_FILTER": "To enable this filter for messages across the whole server, run {filtersAdd}. If you want this filter to only apply for a set of channels, try creating a channel override with {overridesCreateChannel} and then add this filter to the newly created override with {filtersAdd}.",
+  "TO_ADD_FILTER_OVERRIDE": "To enable this filter you can add it to the list of filters on the server settings to enable it server-wide, or add it to an override to have this filter enabled whenever the override is applied. You can add the filter with {filtersAdd}.",
+  "SUCCESS_EDIT_FILTER": "Successfully edited the message {type, select, 0 {content} 1 {attachments} 2 {age} 3 {date}} filter **{name}**:\n{changes}",
+  "FILTER_NOW_NAMED": "This filter is now named **{name}**.",
+  "FILTER_NOW_APPLIES": "This filter now applies to {appliesTo, plural, =0 {everyone} =1 {1 user/role} other {# users/roles}}.",
+  "FILTER_NOW_NOT_APPLIES": "This filter now does not apply to {doesNotApplyTo, plural, =1 {1 user/role} other {# users/roles}}.",
+  "MESSAGE_FILTERS": "Message Filters",
+  "FILTERS_DESCRIPTION": "Message Filters are a more advanced way to filter messages off the starboard. For simple filtering of messages, you can edit the **Filtering Settings** with {settingsEditFiltering}.",
+  "FILTERS_DESCRIPTION_MESSAGE_CANNOT_BE_STARRED_IF_NOT_PASS_ALL": "A message cannot be starred if it doesn't pass all filters.",
+  "FILTERS_DESCRIPTION_SHORT": "These are the message filters a message must pass in order to be starred.",
+  "NOTHING_TO_SHOW": "Nothing to show.",
+  "FILTER_OR": "{a} OR {b}",
+  "DELETED_FILTER": "Deleted Filter",
+  "DELETED_FILTER_INBETWEEN_OPTIONALS": "Deleted Filter (this was kept here due to being surrounded by optional filters)",
+  "FILTERS_DESCRIPTION_ALL_CREATED": [
+    "These are all the message filters created in this server. To enable them you have to add them to the settings with {filtersAdd}.\n",
+    "When adding filters, if two or more filters beside eachother are marked as optional it means only one of them have to pass for them all to pass. For example, A, B, C, D, with B & C both optional means A must pass, B *or* C must pass, and D must pass, to allow the message to be starred."
+  ],
+  "FILTERS_DESCRIPTION_NO_FILTERS_CREATED": "There are no message filters currently created in this server. To create one, run any one of {filtersCreate}.",
+  "VIEW_ALL_CREATED_FILTERS": "View all created filters with {command}.",
+  "THIS_FILTER_SAYS": "This message {type, select, 0 {content filter} 1 {attachments filter} 2 {age filter} 3 {date filter} other {filter}} says that a message must:",
+  "THIS_FILTER_NOW_SAYS": "This message filter now says that a message must:",
+  "FILTER_EXPLAIN": "For a message to be starred, it must:",
+  "FILTER_EXPLAIN_ALSO": "For a message to be starred, it must also:",
+  "FILTER_EXPLAIN_CONTENT_MIN_LENGTH": "have at least **{chars, number}** characters (incl. text in embeds)",
+  "FILTER_EXPLAIN_CONTENT_MAX_LENGTH": "have no more than **{chars, number}** characters (incl. text in embeds)",
+  "FILTER_EXPLAIN_CONTENT_INCLUDE_TEXT": "include the words and phrases {words}",
+  "FILTER_EXPLAIN_CONTENT_NOT_INCLUDE_TEXT": "not include the words and phrases {words}",
+  "FILTER_EXPLAIN_CONTENT_MATCH_REGEX": "match the regex pattern `{pattern}`",
+  "FILTER_EXPLAIN_CONTENT_NOT_MATCH_REGEX": "match the regex pattern `{pattern}`",
+  "FILTER_EXPLAIN_ATTACHMENTS_MEDIA_REQUIRED": "have at least **one** image, video or other viewable content",
+  "FILTER_EXPLAIN_ATTACHMENTS_MIN_ATTACHMENTS": "have **{num, number}** or more attachments/files/embeds/links",
+  "FILTER_EXPLAIN_ATTACHMENTS_MAX_ATTACHMENTS": "have no more than **{num, number}** attachments/files/embeds/links",
+  "FILTER_EXPLAIN_ATTACHMENTS_INCLUDE_TEXT": "have at least one embed/attachment link that includes the text {texts}",
+  "FILTER_EXPLAIN_ATTACHMENTS_NOT_INCLUDE_TEXT": "not include the text {texts} in any of the message's embed/attachment links",
+  "FILTER_EXPLAIN_ATTACHMENTS_MATCH_REGEX": "have at least one embed/attachment link that matches the regex pattern `{pattern}`",
+  "FILTER_EXPLAIN_ATTACHMENTS_NOT_MATCH_REGEX": "not match the regex pattern `{pattern}` in any of the message's embed/attachment links",
+  "FILTER_EXPLAIN_AGE_MIN": "be older than **{age}** at the time of starring the message",
+  "FILTER_EXPLAIN_AGE_MAX": "be newer than **{age}** at the time of starring the message",
+  "FILTER_EXPLAIN_DATE_MIN": "be sent after **{date, date, medium}**",
+  "FILTER_EXPLAIN_DATE_MAX": "be sent before **{date, date, medium}**",
+  "FILTER_EXPLAIN_APPLIES_TO": "This filter applies to {list}.",
+  "FILTER_EXPLAIN_DOES_NOT_APPLY_TO": "This filter does not apply to {list}.",
+  "AFTER_FILTER": "After {filter} (position: {position, number})",
+  "AT_START": "At start",
+  "AT_END": "At end",
+  "FILTER_NOT_FOUND": "There is no existing message filter created under the name **{name}**.",
+  "FILTER_ALREADY_ADDED": "**{filter}** is already added as a filter a message __has__ to pass, so adding it again won't do anything.",
+  "TOO_MANY_FILTERS": "You have added too many filters here.",
+  "SUCCESS_FILTER_ADD": "Successfully added **{filter}** to the list of filters on {override, select, null {the server settings} other {the **{override}** override}}{optional, select, true { as an optional filter} false {}}. You can view the list of filters with {settingsView}.",
+  "CONFIRMATION_DELETE_FILTER": "Are you sure you want to delete **{name}**? This filter will be removed from wherever it is used and will be deleted permanently.",
+  "FILTER_IN_SETTINGS_AUTOCOMPLETE": "{position, number}: {filter} {optional, select, true {(optional filter)} false {}}",
+  "NO_FILTER_AT_POSITION": "There is no message filter at the given position {position, number} on {override, select, null {the server settings} other {override **{override}**}}.",
+  "SUCCESS_FILTER_REMOVE": "Successfully removed {optional, select, true {optional filter **{filter}**} false {**{filter}**}} (position: {position, number}) from {override, select, null {the server settings} other {the **{override}** override}}.",
+  "SUCCESS_FILTER_MOVE": "Successfully moved **{filter}** from {old, number} to {position, plural, =1 {the start,} other {**{position, number}** (after **{after}**)}} on {override, select, null {the server settings} other {the **{override}** override}}.",
+  "MESSAGE_NOT_FOUND": [
+    "I could not find a message from your input. This could be due to different reasons:\n",
+    "- I can't view the channel, due to missing the `Read Message History` or `View Channel` permissions, or the `Connect` permission in voice/stage channels.\n",
+    "- The message is in another server.\n",
+    "- The channel or message does not exist or has been deleted.\n",
+    "- A valid message link or message ID was not provided."
+  ],
+  "PASSES_FILTER": "Passes **{filter}**: {result}",
+  "MESSAGE_CONTENT_LENGTH": "**Characters in message**: {num, number}",
+  "MESSAGE_ATTACHMENTS_LENGTH": "**Number of embeds/attachments**: {num, number}",
+  "MESSAGE_HAS_MEDIA": "**Has media (images/videos)?**: {has}",
+  "MESSAGE_AGE": "**Age**: {age}",
+  "MESSAGE_DATE": "**Sent on**: {date, date, medium}",
+  "NOT_STARBOARD_MESSAGE": "This message is not a starboard message.",
+  "NOT_YOUR_STARBOARD_MESSAGE": "This starboard message does not belong to you.",
+  "SUCCESSFULLY_DELETED_YOUR_STARBOARD_MESSAGE": "Successfully deleted your starboard message.",
+  "SUCCESSFULLY_DELETED_YOUR_STARBOARD_MESSAGE_PLUS_FREEZE_OPTION": "Successfully deleted your starboard message.\nUsers may still get this message back on the starboard again by giving it more stars - to prevent this, you can freeze the message. If you don't have moderator permissions and you want to unfreeze the message again, you'll need to get a moderator to help.",
+  "PONG": [
+    "Pong!\n",
+    "> **Latency**: {latency}\n",
+    "> **Shard {shard}**: {shardLatency}\n",
+    "> **Database Latency**: {dbLatency}"
+  ],
+  "CLUSTER_N": "Cluster {number, number}",
+  "SHARD_N": "Shard {number, number}",
+  "STATUS_GREEN": "🟢 All shards online",
+  "STATUS_YELLOW": "🟡 Some shards are reconnecting...",
+  "STATUS_ORANGE": "🟠 Still logging in...",
+  "STATUS_RED": "🔴 Some shards are offline",
+  "UPTIME": "**Uptime**: {uptime} (last restart: {lastRestart})",
+  "BOT_STATS": "Bot Stats",
+  "BOT": "Bot",
+  "STAT_SERVERS": "**Servers**: {servers, number}",
+  "STAT_USERS": "**Users**: {users, number}",
+  "STAT_COMMANDS_RAN": "**Commands Ran**: {commandsRan, number}",
+  "CACHE": "Cache",
+  "STAT_CACHED_USERS": "**Cached Users**: {cachedUsers, number}",
+  "STAT_CACHED_MEMBERS": "**Cached Members**: {cachedMembers, number}",
+  "STAT_CACHED_MESSAGES": "**Cached Messages**: {cachedMessages, number}",
+  "SYSTEM": "System",
+  "STAT_CPU_USAGE": "**CPU Usage**: {cpuUsage, number, ::percent}",
+  "STAT_MEMORY_USAGE": "**Memory Usage**: {memoryUsage}",
+  "STARRED_MESSAGE_NOT_FOUND": "I could not resolve a starred message from your input. The message you're referring to probably hasn't gotten any stars yet.\nIf it has gotten stars before, try re-reacting on the message with a star so I can notice it, while ensuring the message is in a channel I can see.",
+  "ALREADY_FROZEN": "This starred message is already frozen.",
+  "SUCCESSFULLY_FROZE_MESSAGE": "Successfully froze that starred message. No stars can be added or removed from the message anymore, and the starboard message will no longer be updated.",
+  "NOT_ALREADY_FROZEN": "This starred message is not frozen.",
+  "CANNOT_UNFREEZE_TRASHED_MESSAGES": "This message cannot be unfrozen because it is currently trashed.",
+  "SUCCESSFULLY_UNFROZE_MESSAGE": "Successfully unfroze that starred message. Stars can be added or removed from the message again, and the starboard message will now get updated.",
+  "ALREADY_LOCKED": "This starred message is already locked to the starboard.",
+  "CANNOT_LOCK_TRASHED_MESSAGES": "This message cannot be locked because it is currently trashed.",
+  "SUCCESSFULLY_LOCKED_MESSAGE": "Successfully locked that starred message. Now, even if the starred message's stars drop below **Required Stars To Remove**, the starboard message will stay on the starboard.",
+  "NOT_ALREADY_LOCKED": "This starred message is not locked to the starboard.",
+  "SUCCESSFULLY_UNLOCKED_MESSAGE": "Successfully unlocked that starred message. Now, when the starred message's stars drop below **Required Stars To Remove**, the starboard message will be removed from the starboard as normal.",
+  "CANNOT_FORCE_STARBOARD_MESSAGE": "You cannot force a starboard message to the starboard.",
+  "CANNOT_FORCE_THIS_MESSAGE": "You cannot force this message to the starboard.",
+  "ALREADY_ON_STARBOARD": "It seems this starred message has already been posted to the starboard.",
+  "CANNOT_FORCE_TRASHED_MESSAGES": "Trashed messages cannot be forced to the starboard.",
+  "SUCCESSFULLY_FORCED_MESSAGE": "Successfully forced this message to the starboard. You can view the starboard message [here](<{link}>).\nI've also locked the newly forced starboard message to prevent it from instantly being removed. If you wish, you can unlock it with {unlock}.",
+  "FAILED_FORCE_MESSAGE": "It seems something went wrong and this message could not be forced (to {starboard}). Make sure I have the permissions required to send messages in this channel.",
+  "NO_STARBOARDS_FOR_FORCE": "You cannot force this starred message because you have no starboard channels set for this server.",
+  "NO_STARBOARD_TO_FORCE": "It seems there's no starboard channel that this starred message can be forced to. Ensure the server's settings/overrides are set up correctly, and I have the permissions required to send messages in whatever channel you set the starboard to.",
+  "CANNOT_RECOUNT_FROZEN": "I can't recount the stars for this starred message because it is currently frozen.",
+  "CANNOT_RECOUNT_TRASHED": "I can't recount the stars for this starred message because it is trashed.",
+  "RECOUNTED_RECENTLY": "You cannot recount this starred message's stars because it has already been recounted quite recently.",
+  "SUCCESSFULLY_RECOUNTED": "Successfully recounted the stars for that message - it now has {stars, plural, =1 {# star} other {# stars}}.{link, select, null {} other { The starboard message is [here](<{link}>).}}",
+  "ALREADY_TRASHED": "This starred message is already trashed.",
+  "CONFIRMATION_TRASH_MESSAGE": "Just to confirm, are you sure you want to trash [this starred message]({link}) {reason, select, null {for an unspecified reason?} other {for the following reason?\n{reason}}} \nIts starboard message will be removed from the starboard immediately, and the starred message will be frozen to ensure it doesn't get back on the starboard again. You can always reverse this action later.",
+  "SUCCESSFULLY_TRASHED_MESSAGE": "Successfully trashed this message and removed it from the starboard. It will no longer be able to get any more stars as long as it is trashed.\nIf my calculations are correct, the first few people to star this message were {users, select, null {no-one} other {{users}}}.",
+  "NOT_ALREADY_TRASHED": "This starred message is not currently trashed.",
+  "SUCCESSFULLY_UNTRASHED_MESSAGE": "Successfully untrashed this message. It is now able to get on the starboard again.",
+  "NO_MESSAGES_TRASHED": "There are currently no starred messages trashed in this server.",
+  "CONFIRMATION_CLEAR_TRASH": "Are you sure you want to clear the list of trashed messages? Every message that was on the list will be able to get more stars again and get back on the starboard.",
+  "SUCCESSFULLY_CLEAR_TRASH": "Successfully removed {items, plural, =1 {1 item} other {# items}} from the list of trashed starred messages.",
+  "HALL_OF_FAME_MAX": "This server has reached the maximum amount of starred messages allowed on the Hall Of Fame.",
+  "ALREADY_ON_HALL_OF_FAME": "This starred message is already on the server's Hall Of Fame.",
+  "SUCCESSFULLY_ADD_HALL_OF_FAME": "Successfully added {message} to the server's Hall Of Fame.",
+  "NOT_ON_HALL_OF_FAME": "This starred message is not on the server's Hall Of Fame.",
+  "SUCCESSFULLY_REMOVE_HALL_OF_FAME": "Successfully removed {message} from the server's Hall Of Fame.",
+  "CONFIRMATION_HALL_OF_FAME_CLEAR": "Are you sure you want to clear all starred messages from the server's Hall Of Fame? This action is irreversible.",
+  "SUCCESSFULLY_CLEAR_HALL_OF_FAME": "Successfully removed {number, number} starred messages from the server's Hall of Fame.",
+  "STARRED_MESSAGE": "Starred Message",
+  "THIS_MESSAGE_IS_TRASHED": "This message has been trashed by a moderator and cannot get any more stars. Reason: {reason, select, null {no reason given.} other {\n{reason}}}",
+  "AUTHOR": "Author",
+  "CHANNEL": "Channel",
+  "STARBOARD": "Starboard",
+  "MESSAGE": "Message",
+  "STARBOARD_MESSAGE": "Starboard Message",
+  "FIRST_STARRED_AT": "First Starred At",
+  "STARS": "Stars",
+  "STARS_FIELD": "{stars, number}{requiredStars, select, null {} other {/{requiredStars, number}}} ({upvotes, plural, =1 {1 upvote} other {# upvotes}}, {downvotes, plural, =1 {1 downvote} other {# downvotes}})",
+  "DOWNVOTES": "Downvotes",
+  "GLOBAL_POINTS": "Global Points",
+  "ON_STARBOARD_BEFORE": "On Starboard Before",
+  "LOCKED": "Locked",
+  "FROZEN": "Frozen",
+  "ON_HALL_OF_FAME": "On Hall Of Fame",
+  "TRASHED": "Trashed",
+  "ORIGINAL_MESSAGE_DELETED": "Original Message Deleted",
+  "FREEZE": "Freeze",
+  "LOCK": "Lock",
+  "UNFREEZE": "Unfreeze",
+  "UNLOCK": "Unlock",
+  "UNTRASH_MESSAGE": "Untrash Message",
+  "TRASH_MESSAGE": "Trash Message",
+  "REASON": "Reason",
+  "REASON_PLACEHOLDER": "Inappropriate content.",
+  "MESSAGE_ID": "Message ID",
+  "TRASHED_MESSAGES": "Trashed Messages",
+  "NO_STARRED_MESSAGES": "It seems this server has no starred messages yet!",
+  "NO_STARRED_MESSAGES_AVAILABLE": "There are no starred messages I am able to show - the only ones I've found are unobtainable. They might be deleted, in deleted channels, or you or I don't have permission to see them.",
+  "NO_STARRED_MESSAGES_BY_QUERY": "I could not find any starred messages based on your query.",
+  "NO_STARRED_MESSAGES_COULD_BE_FOUND": "I could not find any starred messages.",
+  "STARRED_MESSAGE_UNOBTAINABLE": [
+    "I could not obtain the contents of this starred message. This could be for any of the following reasons:\n",
+    "- I don't have the permissions required to read messages in {channel}.\n",
+    "- The channel the message was sent in, or the message itself, has since been deleted.\n",
+    "- {channel} is marked as NSFW and this channel isn't - I can't send NSFW messages in non-NSFW channels.\n"
+  ],
+  "HALL_OF_FAME": "Hall Of Fame",
+  "HALL_OF_FAME_DESCRIPTION": "This is the Hall of Fame, messages that \"belong in a museum\" - the best messages on the server. These messages were picked by various moderators, so appearing here is a great achievement.",
+  "NO_STARRED_MESSAGES_HALL_OF_FAME": "It seems this server has no starred messages on the Hall of Fame yet.",
+  "TIMES_ON_STARBOARD": "Times On Starboard",
+  "STARRED_MESSAGES": "Starred Messages",
+  "LOCKED_MESSAGES": "Locked Messages",
+  "FROZEN_MESSAGES": "Frozen Messages",
+  "AVERAGE_STARS_PER_MESSAGE": "Average Stars Per Message",
+  "MOST_STARS_EARNED_IN": "Most Stars Earned In",
+  "MOST_STARRED_MESSAGE": "Most Starred Message",
+  "MOST_STARS_ON_A_MESSAGE": "Most Stars On A Message",
+  "PERCENT_LOCKED": "% Locked",
+  "PERCENT_FROZEN": "% Frozen",
+  "PERCENT_TRASHED": "% Trashed",
+  "PERCENT_STARRED_MESSAGES_BY_YOU": "% Of Starred Messages By You",
+  "WORLDWIDE_STATS": "Worldwide Stats",
+  "TOTAL_STARS": "Total Stars",
+  "MESSAGES_ON_HALL_OF_FAME": "Messages On Hall Of Fame",
+  "YOUR_STATS": "Your Stats",
+  "USERS_STATS": "{user}'s Stats",
+  "SERVER_STATS": "Server Stats",
+  "STAT_WITH_PAST_24_HRS": "{count, number} ({today, number} in the past 24hrs)",
+  "STARBOARD_MESSAGES_POSTED": "Starboard Messages Posted",
+  "MOST_STARS_GIVEN_IN": "Most Stars Given In",
+  "MOST_STARRED_USER": "Most Starred User",
+  "MOST_STARRED_USERS": "Most Starred Users",
+  "MOST_STARRED_MESSAGES": "Most Starred Messages",
+  "MOST_STARRED_CHANNELS": "Most Starred Channels",
+  "GLOBAL_STATS": "Global Stats",
+  "STARBOARD_MESSAGES_EDITED": "Starboard Messages Edited",
+  "REWARD_ROLES_GIVEN": "Reward Roles Given",
+  "LEADERBOARD_TITLE": "Leaderboard - {title}",
+  "YOUR_PLACE": "Your Place: {place, select, 0 {Not on the leaderboard.} other {#{place, number}}}",
+  "USERS_PLACE": "{user}'s Place: {place, select, 0 {Not on the leaderboard.} other {#{place, number}}}",
+  "NOTHING_TO_SHOW_PREMIUM": "Nothing to show. (**[Premium Servers]({patreonLink})** can have up to {premiumLimit, number} pages.)",
+  "LAST_RESET": "Last Reset:",
+  "RECORDING_SINCE": "Recording Since:",
+  "CONFIRMATION_LEADERBOARD_RESET_USER": "Are you sure you want to remove all of the leaderboard data for **{username}** ({mention})?\nTheir stats for the server leaderboards will be {keepOldRewardRoles, select, true {reset back to 0, but they won't lose any reward roles and} false {reset back to 0 and they will lose all their reward roles, but}} the {statsUser} command will not be affected for them. This action is **irreversable** (you cannot manually add stats to users).",
+  "SUCCESSFULLY_RESET_LEADERBOARD_USER_KEEP_REWARD_ROLES": "Successfully reset leaderboard stats for **{username}** ({mention}).",
+  "SUCCESSFULLY_RESET_LEADERBOARD_USER": "Successfully reset leaderboard stats for **{username}** ({mention}) and removed all their reward roles.",
+  "CONFIRMATION_LEADERBOARD_RESET": "Are you sure you want to reset the server's leaderboard?\nNo reward roles will be removed from users, and the {stats} commands will not be affected. {hasPremium, select, true {Any custom stats erased will **not** be recoverable by {modLeaderboardRestore}.} false {This action is **irreversable**. (Due to how slow and intensive restoring is, {modLeaderboardRestore} is limited to **[Premium Servers]({patreonLink})**.)}}",
+  "SUCCESSFULLY_RESET_LEADERBOARD": "Successfully cleared the server's leaderboard, removing {count, number} users from it.",
+  "SUCCESSFULLY_ENABLED_AUTO_RESET": "Successfully enabled the auto-reset for the server leaderboard.",
+  "LEADERBOARD_AUTO_RESET_EVERY": "The leaderboard will be reset {type, select, days {{days, plural, =1 {every day} other {every # days}}} date {on the {date, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} of every month}}, with the next auto-reset being on {nextReset}.",
+  "LEADERBOARD_AUTO_RESET_ENABLED": "Auto-resetting the server leaderboard is enabled:",
+  "LEADERBOARD_AUTO_RESET_NOT_ENABLED": "Auto-resetting the server leaderboard is not currently enabled.",
+  "SUCCESSFULLY_DISABLED_LEADERBOARD_AUTO_RESET": "Successfully disabled the server leaderboard auto-reset.",
+  "SUCCESSFULLY_RESTORE_LEADERBOARD": "Successfully restored {entries, number} leaderboard entries.",
+  "LEADERBOARD_CURRENTLY_BEING_RESTORED": "This server's leaderboard is currently being restored.",
+  "LEADERBOARD_ALREADY_BEING_RESTORED": "This server's leaderboard is already being restored right now.",
+  "CONFIRMATION_LEADERBOARD_RESTORE": "Just to confirm, are you sure you want to restore the leaderboard using {after, select, null {all starred message data?} other {starred message data of messages starred after {after}? The leaderboard **will first be reset** before being restored.}}\nAlthough the leaderboard doesn't count self stars, the star counts restored by this command *will* include self stars. Also, due to the complexity of custom leaderboards, custom stats will **not** be restored.",
+  "NO_STARBOARDS_SET": "It seems this server has no starboard channels set.",
+  "DEBUG_NO_STARBOARD_FOR_MESSAGE": "This message cannot be starred because there is no starboard set on the server settings.",
+  "DEBUG_NO_STARBOARD_FOR_MESSAGE_OVERRIDE": "This message cannot be starred because there is no starboard channel it is able to go to. Please ensure the server's settings/overrides are set up correctly.",
+  "MESSAGE_CHANNEL_BLACKLISTED": "The channel that this message was sent in is blacklisted and no messages from this channel can be starred.",
+  "MESSAGE_AUTHOR_BLACKLISTED": "The user that sent this message is blacklisted.",
+  "MESSAGE_AUTHOR_ROLE_BLACKLISTED": "The user that sent this message has a role that is blacklisted.",
+  "DEBUG_STARBOARD_NOT_NSFW": "This message cannot be posted to the starboard {starboard} because the channel is marked as NSFW and the starboard isn't.",
+  "DEBUG_FILTER_BOTS": "This message cannot be starred because bots cannot be starred. (**Filter Bots** is enabled)",
+  "DEBUG_SELF_STARS": "You cannot star this message as users are not allowed to star their own messages. (**Self Stars** is disabled)",
+  "DEBUG_FAILED_FILTERS": "This message doesn't pass the filters {filters}. Run {filtersTestCommand} for more information.",
+  "DEBUG_NOTHING_WRONG": "There seems to be nothing wrong with [this message](<{link}>) and it should be able to get stars as normal. If this message has gotten stars already, try running {modInfoCommand} for more info about the message.",
+  "DEBUG": "Debug",
+  "SUCCESSFULLY_CREATE_AUTO_STAR_CONFIG": "Successfully created an auto-star configuration **{name}** for the emojis {emojis} in {includeThreads, select, true {{channels, plural, =1 {1 channel and its threads} other {# channels and their threads}}} false {{channels, plural, =1 {1 channel} other {# channels}}}}.",
+  "SUCCESSFULLY_EDIT_AUTO_STAR_CONFIG": "Successfully edited the auto-star configuration **{name}**:\n{changes}",
+  "ASC_EDIT_NAME": "this auto-star configuration is now named **{name}**",
+  "ASC_EDIT_EMOJIS": "the auto-star emojis are now {emojis}",
+  "ASC_EDIT_CHANNELS": "this auto-star configuration is now active for {includeThreads, select, true {{channels, plural, =1 {1 channel and its threads} other {# channels and their threads}}} false {{channels, plural, =1 {1 channel} other {# channels}}}}",
+  "ASC_EDIT_DELETE_INVALID_MESSAGES": "invalid messages (from blacklisted users or that don't pass filters) will {value, select, true {now} false {no longer}} be deleted",
+  "AUTO_STAR_CONFIG_NOT_FOUND": "There is no existing auto-star configuration created under the name **{name}**.",
+  "CONFIRMATION_DELETE_AUTO_STAR_CONFIG": "Are you sure you want to delete **{name}**? No other settings, overrides or filters will be affected.",
+  "NO_AUTO_STAR_CONFIGS": "There are no auto-star configurations set up in this server.",
+  "AUTO_STAR_CONFIG_ACTIVE_IN": "This auto-star configuration is active in {includeThreads, select, true {{numChannels, plural, =1 {{channels} and its threads} other {{channels} and their threads}}} false {{channels}}}.",
+  "DELETE_INVALID_MESSAGES": "Delete Invalid Messages",
+  "ASC_EXTRA_INFO": "Other settings (such as **Filter Bots** and blacklists) will be taken into account from the server settings and overrides. Only the emojis that a user can use to star the message will be added.",
+  "ASC_MESSAGE_FILTERS": "Auto-Star Message Filters",
+  "ASC_FILTERS_DESCRIPTION_SHORT": "These are the message filters a message must *also* pass in order to be auto-starred, alongside filters set on server settings or on overrides.",
+  "AUTO_STAR_CONFIGURATIONS": "Auto-Star Configurations",
+  "ASC_SUCCESS_FILTER_ADD": "Successfully added **{filter}** to the list of filters on auto-star configuration **{autoStarConfig}**{optional, select, true { as an optional filter} false {}}. You can view the list of filters and the rest of the current configuration with {autostarView}.",
+  "ASC_NO_FILTER_AT_POSITION": "There is no message filter at the given position {position, number} on auto-star configuration **{autoStarConfig}**.",
+  "ASC_SUCCESS_FILTER_REMOVE": "Successfully removed {optional, select, true {optional filter **{filter}**} false {**{filter}**}} (position: {position, number}) from auto-star configuration **{autoStarConfig}**.",
+  "ASC_SUCCESS_FILTER_MOVE": "Successfully moved **{filter}** from {old, number} to {position, plural, =1 {the start,} other {**{position, number}** (after **{after}**)}} on auto-star configuration **{autoStarConfig}**.",
+  "COULD_NOT_PARSE_TOKEN": "Could not parse a valid Discord bot token from your input.",
+  "INVALID_TOKEN_PROVIDED": "An invalid token was provided.",
+  "CUSTOM_BOT_NOT_A_BOT_USER": "The application or user you provided ({app}) is not a bot and can't be used.",
+  "CUSTOM_BOT_NOT_IN_SERVER": "The bot you provided ({bot}) is not in this server. Add the bot to this server and try again.",
+  "CONFIRMATION_SET_CUSTOM_BOT": "Are you sure you want to set the server's custom bot to {bot}? This bot will __only__ be used to post starboard messages, everything else (commands, auto-star, reward roles, etc.) will be handled by me as normal. Your bot's token will be encrypted before it is saved, and will not be visible to anyone (including you).",
+  "SUCCESSFULLY_SET_CUSTOM_BOT": "Successfully set {bot} as the custom bot for the server. {bot} will now be used for posting starboard messages.",
+  "NO_CUSTOM_BOT_SET": "This server has no custom bot set.",
+  "SUCCESSFULLY_UNSET_CUSTOM_BOT": "Successfully unset the custom bot for the server. Starboard messages will now be posted by me as normal.",
+  "CUSTOM_BOT_DESCRIPTION": [
+    "Have a special community bot? Want to follow a server theme or roleplay environment? You can now configure a custom bot to use to post starboard messages, while the magic of Starboard works in the background.\n\n",
+    "Current custom bot: {bot, select, null {not set ({command})} other {{bot}}} {unauthorised, select, true {(warning: no longer a valid token, please reprovide with {command})} false {}}\n\n",
+    "*The custom bot will __only__ be used for posting and editing starboard messages, nothing else. All custom bot tokens are encrypted.*"
+  ],
+  "CUSTOM_STAT_NAME_TOO_LONG": "The name you give the custom leaderboard stat has to be less than 32 characters.",
+  "SUCCESSFULLY_CREATED_CUSTOM_STAT": "Successfully created the custom stat {display, select, null {**{stat}**} other {**{stat}** (`{display}`)}} based on {type, select, 0 {the total amount of stars users have} 1 {the total amount of upvotes users have} 2 {the total amount of downvotes users have} 3 {users' most starred message} 4 {the number of times users have reached the starboard}}. Right now, this custom leaderboard stat is not active. To enable it, add it to an override with {addCommand} so this stat is recorded whenever the override is applied.",
+  "CUSTOM_STAT_NOT_FOUND": "There is no existing custom leaderboard stat created under the name **{name}**.",
+  "SUCCESSFULLY_EDITED_CUSTOM_STAT": "Successfully edited the custom stat **{oldName}**:",
+  "CUSTOM_STAT_NOW_NAMED": "This custom leaderboard stat is now named **{name}**.",
+  "CUSTOM_STAT_NOW_DISPLAYED": "This custom leaderboard stat is now displayed as {display, select, null {just the number} other {`{display}`}}.",
+  "CONFIRMATION_DELETE_CUSTOM_STAT": "Are you sure you want to delete **{name}**? This custom leaderboard stat will be removed from wherever it is used, and any reward roles depending on this stat will be deleted as well (but no reward roles will immediately be removed from users). Finally, all recorded information regarding this stat will be wiped. This action is **irreversable**.",
+  "CUSTOM_STAT_ALREADY_ADDED": "**{stat}** is already added as a custom leaderboard stat on **{override}**.",
+  "SUCCESSFULLY_ADDED_CUSTOM_STAT": "Successfully added **{stat}** as a custom leaderboard stat on **{override}**. This stat will now be recorded when this override is applied.",
+  "CUSTOM_STAT_NOT_ADDED": "**{stat}** is not added as a custom leaderboard stat on **{override}**.",
+  "SUCCESSFULLY_REMOVED_CUSTOM_STAT": "Successfully removed the custom leaderboard stat **{stat}** from **{override}**. This stat will no longer be recorded when this override is applied.",
+  "CUSTOM_LEADERBOARDS": "Custom Leaderboards",
+  "CUSTOM_LEADERBOARD_DESCRIPTION": "Custom Leaderboard Stats allow you to create custom leaderboards, based on a subset of leaderboard data. Specific data is recorded based on which overrides are applied, so you can, for example, create a leaderboard based on only messages sent in a specific channel or category.",
+  "CUSTOM_STATS_NO_CUSTOM_STATS": "There are no custom leaderboard stats currently made in this server.",
+  "CUSTOM_STATS_DESCRIPTION_CREATE_CUSTOM_STATS": "To create custom leaderboard stats you can run {command}.",
+  "CUSTOM_STAT_RECORDED_WHEN": "This custom leaderboard stat is recorded when any of the following overrides are applied:",
+  "CUSTOM_STAT_BASED_ON": "This custom stat is based on: **{type}**",
+  "CUSTOM_LEADERBOARD_STAT_TYPE_0": "Total Stars",
+  "CUSTOM_LEADERBOARD_STAT_TYPE_1": "Total Upvotes",
+  "CUSTOM_LEADERBOARD_STAT_TYPE_2": "Total Downvotes",
+  "CUSTOM_LEADERBOARD_STAT_TYPE_3": "Most Starred Message",
+  "CUSTOM_LEADERBOARD_STAT_TYPE_4": "Times On Starboard",
+  "INVALID_PREMIUM_CODE": "That premium code is not valid or has already been redeemed.",
+  "SUCCESSFULLY_REDEEMED_PREMIUM_CODE": "Successfully redeemed a Starboard Premium code `{code}`. This server now has Starboard Premium for {duration}!",
+  "PREMIUM_WILL_BE_ACTIVATED": "{type, select, code {This premium code will be activated} pledge {Your premium pledge will come into effect}} when this server's current Starboard Premium runs out.",
+  "NOT_A_PATRON": "You are not currently a patron and have no Starboard Premium to redeem. If you are a patron, make sure you've [connected your Discord account to your Patreon account](https://support.patreon.com/hc/en-us/articles/212052266-Getting-Discord-access).",
+  "PATRON_FOR_A_DIFFERENT_TIER": "Although you are a patron, you cannot redeem Starboard Premium as you are not pledged to the Starboard Premium tier and are pledged to a different tier.",
+  "ALREADY_REDEEMED_PREMIUM": "It seems you've already redeemed premium in one of your servers.",
+  "PATRON_PAYMENT_DECLINED": "It seems your Patron payment has declined and you cannot redeem Starboard Premium until that is resolved.",
+  "SUCCESSFULLY_REDEEMED_PREMIUM": "Successfully redeemed Starboard Premium for this server!",
+  "OLD_PREMIUM_FEATURES_RESTORED": "This server had Starboard Premium before, and had items (overrides, reward roles, emojis etc.) that exceeded the free limit and got taken away when the premium expired, so I've gone and restored them back.",
+  "STARBOARD_PREMIUM": "Starboard Premium",
+  "STARBOARD_PREMIUM_INFO_BASIC": "Starboard Premium is a great way to show your support to the development of Starboard. In return, you can unlock the true potential of Starboard.",
+  "PREMIUM_FEATURES_SAVED_FOR_YOU": "When the server's current Starboard Premium ends, any items (overrides, reward roles, etc.) that exceed the free limit will be saved and will be waiting for you when you decide to get Starboard Premium again.",
+  "TO_REDEEM_STARBOARD_PREMIUM": "To redeem Starboard premium for a server of your choice, simply run {premiumRedeem} in that server.",
+  "TO_GET_STARBOARD_PREMIUM": "To get Starboard Premium for one server of your choice, [become a patron on Patreon]({patreonLink}) on the Starboard Premium tier.",
+  "SERVER_HAS_PREMIUM": "This server has Starboard Premium, {type, select, pledge {courtesy of {user} being a patron} code {which will expire {inTimeLeft}}}.",
+  "STARBOARD_PREMIUM_INFO_EXTRA": "Starboard Premium allows you to unlock the true potential of Starboard, with many features to offer, such as:",
+  "PREMIUM_FEATURES_SUMMARY": [
+    "- more starring emojis and downvote emojis\n",
+    "- bigger file uploads\n",
+    "- set a custom bot to use for posting starboard messages\n",
+    "- improved server leaderboard, and custom leaderboards\n",
+    "- better auto-star setups\n",
+    "- raised limits on the number of overrides, reward roles, message filters, cosmetic display tiers, etc."
+  ],
+  "PREMIUM_FEATURE_OLD_FEATURES": "- access to all the old items taken away as a result of the server's last Starboard Premium ending",
+  "PREMIUM_FEATURE_VIEW_MORE": "For more precise information on premium features, visit the Patreon page.",
+  "REACHED_LIMIT_PREMIUM_UPSELL": [
+    "This server has reached the maximum amount of {type, select, ",
+    "filters {filters}",
+    "overrides {overrides}",
+    "rewardRoles {reward roles}",
+    "displayTiers {display tiers}",
+    "autoStarConfigs {auto-star configurations}",
+    "customLeaderboardStats {custom leaderboard stats}",
+    "} allowed for one server {premium, select, true {({premiumLimit, number}).} false {({freeLimit, number}). To have {premiumLimit, select, null {as many as you want} other {up to {premiumLimit, number}}}, this server needs to have **[Starboard Premium]({patreonLink})**.}}"
+  ],
+  "LOCKED_FEATURE_PREMIUM_UPSELL": [
+    "{feature, select, ",
+    "lbRestore {Due to how slow and intensive it is, restoring the leaderboard}",
+    "autoStarIncludeThreads {Automatically auto-starring messages in the threads of listed channels}",
+    "customBot {Setting a custom bot to use for posting starboard messages}",
+    "customLeaderboards {Creating custom leaderboards}",
+    "null {This feature}",
+    "} is reserved for servers that have **[Starboard Premium]({patreonLink})**."
+  ],
+  "SET_LIMIT_PREMIUM_UPSELL": [
+    "You cannot have that many {type, select, ",
+    "emojis {emojis}",
+    "downvoteEmojis {downvote emojis}",
+    "autoStarConfigEmojis {emojis on an auto-star configuration}",
+    "autoStarConfigChannels {channels on an auto-star configuration}",
+    "} set {premium, select, true {({premiumLimit, number}).} false {({freeLimit, number}). To have {premiumLimit, select, null {as many as you want} other {up to {premiumLimit, number}}}, this server needs to have **[Starboard Premium]({patreonLink})**.}}"
+  ],
+  "GET_STARBOARD_PREMIUM": "Get Starboard Premium",
+  "BECOME_A_PATRON": "Become a Patron",
+  "LOCKED_FEATURE_VOTE_UPSELL": [
+    "In order to {feature, select, ",
+    "emojis {change the emojis used to star messages}",
+    "}, you need to **[vote for the bot]({voteLink})**. Once you have voted, you have to wait a few minutes for me to recieve your vote. You only have to vote once."
+  ],
+  "VOTE_TOPGG": "Vote on top.gg",
+  "HELP_TITLE": "Starboard",
+  "HELP_DESCRIPTION": "Starboard is Discord's first advanced starboard bot, with a massive range of customisable settings and features.",
+  "HELP_GETTING_STARTED_TITLE": "Getting Started",
+  "HELP_GETTING_STARTED": [
+    "- To get the starboard up and running in your server, all you have to do is run {settingsEditMain} and set the starboard channel to where you want messages to go - and that's it!\n",
+    "- {settingsView} gives you a full overview of what can be configured, and will be your central point of focus while configuring the bot for your server.\n\n",
+    "Starboard offers more ambitious users the ability to create advanced setups, but also offers simple setups for new users, so don't over-complicate things for yourself!\n",
+    "If you're ever stuck, you can read the [guide]({guideLink}), or ask for help in the [support server]({supportLink})."
+  ],
+  "HELP_SUPPORT_THE_BOT_TITLE": "Support The Bot",
+  "HELP_SUPPORT_THE_BOT": [
+    "If you're enjoying Starboard in your server, make sure to [vote for the bot]({voteLink}) and [leave a review]({reviewLink}) on top.gg!\n",
+    "Becoming a patron on [Patreon]({patreonLink}) also helps tremendously, and you also unlock cool features in return - {premiumInfoCommand}."
+  ],
+  "SUPPORT_SERVER": "Support Server",
+  "INVITE": "Invite",
+  "LEAVE_A_REVIEW": "Leave A Review",
+  "STARBOARD_GUIDE": "Starboard Guide",
+  "PING_HELP": "## Hey! 👋\nStarboard has made the switch from prefix commands to slash commands! (about time, right?) Type `/` to see all of Starboards commands. {helpCommand}",
+  "PING_HELP_MIGRATED_TEMPORARY_NOTICE": "If you've used the bot before, all your starred messages are still saved and all your configurations have been carefully migrated. A lot of things have changed and a lot of new things have been added, so please double check your setup and ensure everything is as expected :) {settingsView}",
+  "SUCCESSFULLY_SET_LANGUAGE": "Successfully set the language for the server to **{language}**.",
+  "LANGUAGES": "Languages",
+  "LANGUAGES_DESCRIPTION": "This server's language is currently set to **{current}**. Use this command to change the language the bot should use in this server. The currently supported languages are:\n{languages}\nIf you speak a language that the bot doesn't yet support, and would like to see it supported, you can [help with the translations]({translationLink}).",
+  "SETTINGS": {
+    "STARBOARD_ID": {
+      "NAME": "Starboard"
+    },
+    "REQUIRED": {
+      "NAME": "Required Stars"
+    },
+    "REQUIRED_TO_REMOVE": {
+      "NAME": "Required Stars To Remove"
+    },
+    "EMOJIS": {
+      "NAME": "Emoji"
+    },
+    "DOWNVOTE_EMOJIS": {
+      "NAME": "Downvote Emoji"
+    },
+    "ON_DELETION": {
+      "NAME": "When Deleted",
+      "CHOICE_0": "Do Nothing",
+      "CHOICE_1": "Repost Message",
+      "CHOICE_2": "Freeze Message",
+      "CHOICE_3": "Trash Message"
+    },
+    "MESSAGE_JUMP_LINK": {
+      "NAME": "Message Jump Link",
+      "CHOICE_0": "No Link",
+      "CHOICE_1": "Button/Link",
+      "CHOICE_2": "Mention Link"
+    },
+    "NAME_DISPLAY": {
+      "NAME": "Name Display",
+      "CHOICE_0": "Username",
+      "CHOICE_1": "Display Name",
+      "CHOICE_2": "Server Nickname"
+    },
+    "MAX_CONTENT_DISPLAYED": {
+      "NAME": "Max Content Displayed"
+    },
+    "MAX_MEDIA_DISPLAYED": {
+      "NAME": "Max Media Displayed"
+    },
+    "MAX_EMBEDS_DISPLAYED": {
+      "NAME": "Max Embeds Displayed"
+    },
+    "MAX_OVERALL_MESSAGE_LENGTH": {
+      "NAME": "Max Overall Message Length"
+    },
+    "LINK_DELETES": {
+      "NAME": "Sync Message Deletes"
+    },
+    "FILTER_BLACKLISTED": {
+      "NAME": "Filter Blacklisted Users",
+      "CHOICE_1": {
+        "NAME": "Filter Reactors",
+        "VALUE": "Reactors"
+      },
+      "CHOICE_2": {
+        "NAME": "Filter Message Authors",
+        "VALUE": "Authors"
+      },
+      "CHOICE_3": {
+        "NAME": "Filter Both (Reactors & Message Authors)",
+        "VALUE": "All"
+      }
+    },
+    "STARBOARD_REACT": {
+      "NAME": "Starboard React",
+      "CHOICE_0": "None",
+      "CHOICE_1": "Upvote Emojis",
+      "CHOICE_2": "Downvote Emojis",
+      "CHOICE_3": "Upvote & Downvote Emojis"
+    },
+    "FILTER_BOTS": {
+      "NAME": "Filter Bots"
+    },
+    "SELF_STARS": {
+      "NAME": "Self Stars"
+    },
+    "PUBLIC_SERVER": {
+      "NAME": "Public Server"
+    },
+    "REUPLOAD_ATTACHMENTS": {
+      "NAME": "Reupload Attachments"
+    },
+    "FILTER_BLACKLISTED_USERS": {
+      "NAME": "Filter Blacklisted Users"
+    },
+    "REMOVE_INVALID_REACTIONS": {
+      "NAME": "Remove Invalid Reactions"
+    },
+    "KEEP_OLD_REWARD_ROLES": {
+      "NAME": "Keep Old Reward Roles"
+    },
+    "MENTION_AUTHOR": {
+      "NAME": "Mention Author"
+    },
+    "LINK_EDITS": {
+      "NAME": "Sync Message Edits"
+    },
+    "DISPLAY_AVATAR": {
+      "NAME": "Display Avatar"
+    },
+    "DISPLAY_REPLIED_MESSAGE": {
+      "NAME": "Display Replied Message"
+    },
+    "USE_ORIGINAL_EMBED_COLOR": {
+      "NAME": "Use Original Embed Colour"
+    },
+    "USE_LINKS_OVER_BUTTONS": {
+      "NAME": "Use Links Over Buttons"
+    }
+  },
+  "COMMANDS": {
+    "AUTOSTAR": {
+      "NAME": "autostar",
+      "DESCRIPTION": "Manage auto-star configurations for automatically starring messages as they're sent.",
+      "CREATE": {
+        "NAME": "create",
+        "DESCRIPTION": "Create an auto-star configuration to automatically star messages as they're sent.",
+        "OPTIONS": {
+          "NAME": {
+            "NAME": "name",
+            "DESCRIPTION": "The name of this auto-star configuration."
+          },
+          "CHANNELS": {
+            "NAME": "channels",
+            "DESCRIPTION": "The channels in which this configuration should be active."
+          },
+          "EMOJIS": {
+            "NAME": "emojis",
+            "DESCRIPTION": "The emojis to automatically react with."
+          },
+          "INCLUDE_THREADS": {
+            "NAME": "include-threads",
+            "DESCRIPTION": "Also add reactions to messages sent in threads under these channels."
+          },
+          "DELETE_INVALID_MESSAGES": {
+            "NAME": "delete-invalid-messages",
+            "DESCRIPTION": "If delete messages (i.e. ones that don't pass filters) should automatically get deleted."
+          }
+        }
+      },
+      "DELETE": {
+        "NAME": "delete",
+        "DESCRIPTION": "Delete an auto-star configuration.",
+        "OPTIONS": {
+          "AUTO_STAR_CONFIG": {
+            "NAME": "auto-star-config",
+            "DESCRIPTION": "The auto-star configuration to delete."
+          }
+        }
+      },
+      "EDIT": {
+        "NAME": "edit",
+        "DESCRIPTION": "Edit an auto-star configuration.",
+        "OPTIONS": {
+          "AUTO_STAR_CONFIG": {
+            "NAME": "auto-star-config",
+            "DESCRIPTION": "The auto-star configuration to edit."
+          },
+          "NAME": {
+            "NAME": "new-name",
+            "DESCRIPTION": "The new name of this auto-star configuration."
+          },
+          "CHANNELS": {
+            "NAME": "channels",
+            "DESCRIPTION": "The channels in which this configuration should now be active."
+          },
+          "EMOJIS": {
+            "NAME": "emojis",
+            "DESCRIPTION": "The emojis to now automatically react with."
+          },
+          "INCLUDE_THREADS": {
+            "NAME": "include-threads",
+            "DESCRIPTION": "Also add reactions to messages sent in threads under these channels."
+          },
+          "DELETE_INVALID_MESSAGES": {
+            "NAME": "delete-invalid-messages",
+            "DESCRIPTION": "If delete messages (i.e. ones that don't pass filters) should automatically get deleted."
+          }
+        }
+      },
+      "VIEW": {
+        "NAME": "view",
+        "DESCRIPTION": "View all your auto-star configurations.",
+        "OPTIONS": {
+          "AUTO_STAR_CONFIG": {
+            "NAME": "auto-star-config",
+            "DESCRIPTION": "The auto-star configuration to view."
+          }
+        }
+      },
+      "FILTERS": {
+        "NAME": "filters",
+        "DESCRIPTION": "Manage message filters for auto-starring.",
+        "ADD": {
+          "NAME": "add",
+          "DESCRIPTION": "Add a message filter to an auto-star config, so messages must pass it to be auto-starred.",
+          "OPTIONS": {
+            "FILTER": {
+              "NAME": "filter",
+              "DESCRIPTION": "The filter you want to add."
+            },
+            "AUTO_STAR_CONFIG": {
+              "NAME": "auto-star-config",
+              "DESCRIPTION": "The auto-star configuration you'd like to add a filter to."
+            },
+            "POSITION": {
+              "NAME": "position",
+              "DESCRIPTION": "The position you'd like the filter to be in. Filters are checked from top to bottom."
+            },
+            "OPTIONAL": {
+              "NAME": "optional",
+              "DESCRIPTION": "When 2 or more optional filters are beside eachother, only one has to pass for them all to pass."
+            }
+          }
+        },
+        "REMOVE": {
+          "NAME": "remove",
+          "DESCRIPTION": "Remove or move a message filter that's in an auto-star config's list of enabled message filters.",
+          "OPTIONS": {
+            "AUTO_STAR_CONFIG": {
+              "NAME": "auto-star-config",
+              "DESCRIPTION": "The auto-star configuration you want to move/remove a filter from."
+            },
+            "FILTER": {
+              "NAME": "filter",
+              "DESCRIPTION": "The message filter you want to move/remove."
+            },
+            "NEW_POSITION": {
+              "NAME": "new-position",
+              "DESCRIPTION": "The new position for this filter. If nothing is provided, the filter is simply removed."
+            }
+          }
+        }
+      }
+    },
+    "BLACKLIST": {
+      "NAME": "blacklist",
+      "DESCRIPTION": "View info about blacklisted users, roles, and channels, or modify the blacklist.",
+      "ADD": {
+        "NAME": "add",
+        "DESCRIPTION": "Add a user, role or channel to the blacklist.",
+        "USER": {
+          "NAME": "user",
+          "DESCRIPTION": "Add a user to the blacklist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the blacklist on, server settings by default."
+            },
+            "USER": {
+              "NAME": "user",
+              "DESCRIPTION": "The user to blacklist."
+            }
+          }
+        },
+        "ROLE": {
+          "NAME": "role",
+          "DESCRIPTION": "Add a role to the blacklist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the blacklist on, server settings by default."
+            },
+            "ROLE": {
+              "NAME": "role",
+              "DESCRIPTION": "The role to blacklist."
+            }
+          }
+        },
+        "CHANNEL": {
+          "NAME": "channel",
+          "DESCRIPTION": "Add a channel to the blacklist, or provide no specific channel to blacklist all channels.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the blacklist on, server settings by default."
+            },
+            "CHANNEL": {
+              "NAME": "channel",
+              "DESCRIPTION": "The channel to blacklist. All the channel's children will also be blacklisted by default."
+            }
+          }
+        }
+      },
+      "REMOVE": {
+        "NAME": "remove",
+        "DESCRIPTION": "Remove a user, role or channel from the blacklist.",
+        "USER": {
+          "NAME": "user",
+          "DESCRIPTION": "Remove a user from the blacklist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the blacklist on, server settings by default."
+            },
+            "USER": {
+              "NAME": "user",
+              "DESCRIPTION": "The user to unblacklist."
+            }
+          }
+        },
+        "ROLE": {
+          "NAME": "role",
+          "DESCRIPTION": "Remove a role from the blacklist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the blacklist on, server settings by default."
+            },
+            "ROLE": {
+              "NAME": "role",
+              "DESCRIPTION": "The role to unblacklist."
+            }
+          }
+        },
+        "CHANNEL": {
+          "NAME": "channel",
+          "DESCRIPTION": "Remove a channel from the blacklist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the blacklist on, server settings by default."
+            },
+            "CHANNEL": {
+              "NAME": "channel",
+              "DESCRIPTION": "The channel to unblacklist."
+            }
+          }
+        },
+        "ID": {
+          "NAME": "id",
+          "DESCRIPTION": "Remove any ID, perhaps of a deleted channel, role or user, from the blacklist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the blacklist on, server settings by default."
+            },
+            "ID": {
+              "NAME": "id",
+              "DESCRIPTION": "The id of the item to unblacklist."
+            }
+          }
+        }
+      },
+      "CLEAR": {
+        "NAME": "clear",
+        "DESCRIPTION": "Remove all users/roles/channel from the blacklist.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override to modify the blacklist on, server settings by default."
+          },
+          "TYPE": {
+            "NAME": "type",
+            "DESCRIPTION": "What to remove all items of from the blacklist."
+          }
+        }
+      },
+      "VIEW": {
+        "NAME": "view",
+        "DESCRIPTION": "View the list of blacklisted users, roles and channels.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override you want to see the blacklist for."
+          }
+        }
+      }
+    },
+    "BOT": {
+      "NAME": "bot",
+      "DESCRIPTION": "View information to do with the bot.",
+      "STATS": {
+        "NAME": "stats",
+        "DESCRIPTION": "View statistics about the bot."
+      },
+      "STATUS": {
+        "NAME": "status",
+        "DESCRIPTION": "Check the bot's status."
+      }
+    },
+    "CUSTOM_BOT": {
+      "NAME": "custom-bot",
+      "DESCRIPTION": "Configure a custom bot for the server to use for posting starboard messages.",
+      "SET": {
+        "NAME": "set",
+        "DESCRIPTION": "Set the custom bot you want to use for posting starboard messages in this server.",
+        "OPTIONS": {
+          "TOKEN": {
+            "NAME": "token",
+            "DESCRIPTION": "The Discord bot token of the bot you want to use. The token will be encrypted and hidden."
+          }
+        }
+      },
+      "UNSET": {
+        "NAME": "unset",
+        "DESCRIPTION": "Unset the server's custom bot for posting starboard messages."
+      },
+      "VIEW": {
+        "NAME": "view",
+        "DESCRIPTION": "View info about the server's custom bot for posting starboard messages."
+      }
+    },
+    "CUSTOM_LEADERBOARD": {
+      "NAME": "custom-leaderboard",
+      "DESCRIPTION": "Manage custom leaderboards.",
+      "CREATE": {
+        "NAME": "create",
+        "DESCRIPTION": "Create a custom leaderboard stat, recorded when specific overrides are applied.",
+        "OPTIONS": {
+          "NAME": {
+            "NAME": "name",
+            "DESCRIPTION": "The name to give this custom leaderboard stat."
+          },
+          "TYPE": {
+            "NAME": "based-on",
+            "DESCRIPTION": "What this custom leaderboard stat is based on."
+          },
+          "DISPLAY": {
+            "NAME": "display",
+            "DESCRIPTION": "How the stat should be displayed. # represents the number. # stars -> 10 stars."
+          }
+        }
+      },
+      "EDIT": {
+        "NAME": "edit",
+        "DESCRIPTION": "Edit a custom leaderboard stat.",
+        "OPTIONS": {
+          "STAT": {
+            "NAME": "stat",
+            "DESCRIPTION": "The existing custom leaderboard stat you want to edit."
+          },
+          "NAME": {
+            "NAME": "new-name",
+            "DESCRIPTION": "The new name to give this custom leaderboard stat."
+          },
+          "DISPLAY": {
+            "NAME": "display",
+            "DESCRIPTION": "How the stat should now be displayed. # represents the number. # stars -> 10 stars."
+          }
+        }
+      },
+      "DELETE": {
+        "NAME": "delete",
+        "DESCRIPTION": "Delete a custom leaderboard stat.",
+        "OPTIONS": {
+          "STAT": {
+            "NAME": "stat",
+            "DESCRIPTION": "The existing custom leaderboard stat you want to delete."
+          }
+        }
+      },
+      "ADD": {
+        "NAME": "add",
+        "DESCRIPTION": "Add a custom leaderboard stat to an override to start tracking it.",
+        "OPTIONS": {
+          "STAT": {
+            "NAME": "stat",
+            "DESCRIPTION": "The existing custom leaderboard stat you want to add to an override."
+          },
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override you want to enable this custom leaderboard stat on."
+          }
+        }
+      },
+      "REMOVE": {
+        "NAME": "remove",
+        "DESCRIPTION": "Remove a custom leaderboard stat from an override.",
+        "OPTIONS": {
+          "STAT": {
+            "NAME": "stat",
+            "DESCRIPTION": "The custom leaderboard stat you want to remove from an override."
+          },
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override you want to disable and remove this custom leaderboard stat from."
+          }
+        }
+      },
+      "VIEW": {
+        "NAME": "view",
+        "DESCRIPTION": "View all the custom stats for custom leaderboards created in this server."
+      }
+    },
+    "DISPLAYTIERS": {
+      "NAME": "displaytiers",
+      "DESCRIPTION": "Edit the list of cosmetic changes a starboard message can go through as it gets stars.",
+      "CREATE": {
+        "NAME": "create",
+        "DESCRIPTION": "Create a display tier, cosmetic changes that get applied after a certain number of stars.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override to modify the display tiers for, server settings by default."
+          },
+          "THRESHOLD": {
+            "NAME": "threshold",
+            "DESCRIPTION": "This tier will take effect once the starred message has obtained this number of stars."
+          },
+          "STAR": {
+            "NAME": "star",
+            "DESCRIPTION": "The star the starboard message should display beside the star count once this tier is reached."
+          },
+          "COLOR": {
+            "NAME": "colour",
+            "DESCRIPTION": "The colour the starboard message embed should use once it reaches this tier."
+          }
+        }
+      },
+      "DELETE": {
+        "NAME": "delete",
+        "DESCRIPTION": "Delete a display tier.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override you want to delete a display tier from."
+          },
+          "TIER": {
+            "NAME": "tier",
+            "DESCRIPTION": "The number of the display tier you want to delete."
+          }
+        }
+      },
+      "EDIT": {
+        "NAME": "edit",
+        "DESCRIPTION": "Edit a display tier.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override to modify the display tiers for, server settings by default."
+          },
+          "TIER": {
+            "NAME": "tier",
+            "DESCRIPTION": "The number of the display tier you want to edit."
+          },
+          "THRESHOLD": {
+            "NAME": "threshold",
+            "DESCRIPTION": "This tier should now take effect once the starred message has obtained this number of stars."
+          },
+          "STAR": {
+            "NAME": "star",
+            "DESCRIPTION": "The star the starboard message should now display beside the star count once this tier is reached."
+          },
+          "COLOR": {
+            "NAME": "colour",
+            "DESCRIPTION": "The colour the starboard message embed should now use once it reaches this tier."
+          }
+        }
+      },
+      "VIEW": {
+        "NAME": "view",
+        "DESCRIPTION": "View all display tiers.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override you want to list all display tiers for."
+          }
+        }
+      }
+    },
+    "FILTER": {
+      "NAME": "filter",
+      "DESCRIPTION": "-",
+      "ADD": {
+        "NAME": "add",
+        "DESCRIPTION": "Add a message filter you've created to the list of enabled message filters.",
+        "OPTIONS": {
+          "FILTER": {
+            "NAME": "filter",
+            "DESCRIPTION": "The filter you want to add."
+          },
+          "SETTINGS": {
+            "NAME": "settings",
+            "DESCRIPTION": "Where you'd like the filter to be added."
+          },
+          "POSITION": {
+            "NAME": "position",
+            "DESCRIPTION": "The position you'd like the filter to be in. Filters are checked from top to bottom."
+          },
+          "OPTIONAL": {
+            "NAME": "optional",
+            "DESCRIPTION": "When 2 or more optional filters are beside eachother, only one has to pass for them all to pass."
+          }
+        }
+      },
+      "DELETE": {
+        "NAME": "delete",
+        "DESCRIPTION": "Delete a message filter you've previously created.",
+        "OPTIONS": {
+          "FILTER": {
+            "NAME": "filter",
+            "DESCRIPTION": "The name of the message filter you want to delete."
+          }
+        }
+      },
+      "EDIT": {
+        "NAME": "edit",
+        "DESCRIPTION": "edit",
+        "CONTENT": {
+          "NAME": "content",
+          "DESCRIPTION": "Edit a message content filter.",
+          "OPTIONS": {
+            "FILTER": {
+              "NAME": "filter",
+              "DESCRIPTION": "The message content filter you want to edit."
+            },
+            "NAME": {
+              "NAME": "new-name",
+              "DESCRIPTION": "The new name for this message content filter."
+            },
+            "APPLIES_TO": {
+              "NAME": "applies-to",
+              "DESCRIPTION": "Provide every item to set, or provide +@mention / -@mention to add or remove from the current list."
+            },
+            "DOES_NOT_APPLY_TO": {
+              "NAME": "does-not-apply-to",
+              "DESCRIPTION": "Provide every item to set, or provide +@mention / -@mention to add or remove from the current list."
+            },
+            "MIN_LENGTH": {
+              "NAME": "min-length",
+              "DESCRIPTION": "The minimum amount of characters a message is now allowed to have. Provide 0 to unset."
+            },
+            "MAX_LENGTH": {
+              "NAME": "max-length",
+              "DESCRIPTION": "The maximum amount of characters a message is now allowed to have. Provide -1 to unset."
+            },
+            "INCLUDE_TEXT": {
+              "NAME": "include-text",
+              "DESCRIPTION": "Text the message (including embeds) must now contain. Provide \",\" to unset."
+            },
+            "NOT_INCLUDE_TEXT": {
+              "NAME": "not-include-text",
+              "DESCRIPTION": "Text the message (including embeds) must now NOT contain. Provide \",\" to unset."
+            },
+            "MATCH_REGEX": {
+              "NAME": "match-regex",
+              "DESCRIPTION": "For advanced matching, provide a regex pattern instead of include-text. Provide \".\" to unset."
+            },
+            "NOT_MATCH_REGEX": {
+              "NAME": "not-match-regex",
+              "DESCRIPTION": "For advanced matching, provide a regex pattern instead of not-include-text. Provide \".\" to unset."
+            }
+          }
+        },
+        "ATTACHMENTS": {
+          "NAME": "attachments",
+          "DESCRIPTION": "Edit a message attachments filter.",
+          "OPTIONS": {
+            "FILTER": {
+              "NAME": "filter",
+              "DESCRIPTION": "The message attachments filter you want to edit."
+            },
+            "NAME": {
+              "NAME": "new-name",
+              "DESCRIPTION": "The new name for this message attachments filter."
+            },
+            "APPLIES_TO": {
+              "NAME": "applies-to",
+              "DESCRIPTION": "Provide every item to set, or provide +@mention / -@mention to add or remove from the current list."
+            },
+            "DOES_NOT_APPLY_TO": {
+              "NAME": "does-not-apply-to",
+              "DESCRIPTION": "Provide every item to set, or provide +@mention / -@mention to add or remove from the current list."
+            },
+            "MIN_ATTACHMENTS": {
+              "NAME": "min-attachments",
+              "DESCRIPTION": "The minimum amount of attachments and embeds a message is now allowed to have. Provide 0 to unset."
+            },
+            "MAX_ATTACHMENTS": {
+              "NAME": "max-attachments",
+              "DESCRIPTION": "The maximum amount of attachments and embeds a message is now allowed to have. Provide -1 to unset."
+            },
+            "MEDIA_REQUIRED": {
+              "NAME": "media-required",
+              "DESCRIPTION": "Whether or not watchable content (images and videos) should now be required."
+            },
+            "INCLUDE_TEXT": {
+              "NAME": "include-text",
+              "DESCRIPTION": "Text the embed/attachment URLs must now contain. Provide \" \" to unset."
+            },
+            "NOT_INCLUDE_TEXT": {
+              "NAME": "not-include-text",
+              "DESCRIPTION": "Text the embed/attachment URLs must now NOT contain. Provide \" \" to unset."
+            },
+            "MATCH_REGEX": {
+              "NAME": "match-regex",
+              "DESCRIPTION": "For advanced matching, provide a regex pattern instead of include-text. Provide \".\" to unset."
+            },
+            "NOT_MATCH_REGEX": {
+              "NAME": "not-match-regex",
+              "DESCRIPTION": "For advanced matching provide a regex pattern instead of not-include-text. Provide \".\" to unset."
+            }
+          }
+        },
+        "AGE": {
+          "NAME": "age",
+          "DESCRIPTION": "Edit a message age filter.",
+          "OPTIONS": {
+            "FILTER": {
+              "NAME": "filter",
+              "DESCRIPTION": "The message age filter you want to edit."
+            },
+            "NAME": {
+              "NAME": "new-name",
+              "DESCRIPTION": "The new name for this message age filter."
+            },
+            "APPLIES_TO": {
+              "NAME": "applies-to",
+              "DESCRIPTION": "Provide every item to set, or provide +@mention / -@mention to add or remove from the current list."
+            },
+            "DOES_NOT_APPLY_TO": {
+              "NAME": "does-not-apply-to",
+              "DESCRIPTION": "Provide every item to set, or provide +@mention / -@mention to add or remove from the current list."
+            },
+            "MIN": {
+              "NAME": "older-than",
+              "DESCRIPTION": "The message must now be older than this at the time of starring. Provide an invalid age to unset."
+            },
+            "MAX": {
+              "NAME": "newer-than",
+              "DESCRIPTION": "The message must now be newer than this at the time of starring. Provide an invalid age to unset."
+            }
+          }
+        },
+        "DATE": {
+          "NAME": "date",
+          "DESCRIPTION": "Edit a message date filter.",
+          "OPTIONS": {
+            "FILTER": {
+              "NAME": "filter",
+              "DESCRIPTION": "The message date filter you want to edit."
+            },
+            "NAME": {
+              "NAME": "new-name",
+              "DESCRIPTION": "The new name for this message date filter."
+            },
+            "APPLIES_TO": {
+              "NAME": "applies-to",
+              "DESCRIPTION": "Provide every item to set, or provide +@mention / -@mention to add or remove from the current list."
+            },
+            "DOES_NOT_APPLY_TO": {
+              "NAME": "does-not-apply-to",
+              "DESCRIPTION": "Provide every item to set, or provide +@mention / -@mention to add or remove from the current list."
+            },
+            "MIN": {
+              "NAME": "sent-after",
+              "DESCRIPTION": "The message must now be sent after this date. Provide an invalid date to unset."
+            },
+            "MAX": {
+              "NAME": "sent-before",
+              "DESCRIPTION": "The message must now be sent before this date. Provide an invalid date to unset."
+            }
+          }
+        }
+      },
+      "REMOVE": {
+        "NAME": "remove",
+        "DESCRIPTION": "Remove or move a message filter that's in the list of enabled message filters.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "settings",
+            "DESCRIPTION": "Where you want to move/remove a filter from."
+          },
+          "FILTER": {
+            "NAME": "filter",
+            "DESCRIPTION": "The message filter you want to move/remove."
+          },
+          "NEW_POSITION": {
+            "NAME": "new-position",
+            "DESCRIPTION": "The new position for this filter. If nothing is provided, the filter is simply removed."
+          }
+        }
+      }
+    },
+    "FILTERS": {
+      "NAME": "filters",
+      "DESCRIPTION": "View or create message filters for the server.",
+      "CREATE": {
+        "NAME": "create",
+        "DESCRIPTION": "Create a filter that filters which messages can be starred.",
+        "CONTENT": {
+          "NAME": "content",
+          "DESCRIPTION": "Create a filter that filters messages based on the content of the message and its embeds.",
+          "OPTIONS": {
+            "NAME": {
+              "NAME": "name",
+              "DESCRIPTION": "The name of this message content filter."
+            },
+            "APPLIES_TO": {
+              "NAME": "applies-to",
+              "DESCRIPTION": "A list of users and roles that this filter applies to. (everyone by default)"
+            },
+            "DOES_NOT_APPLY_TO": {
+              "NAME": "does-not-apply-to",
+              "DESCRIPTION": "A list of users and roles that this filter does not apply to."
+            },
+            "MIN_LENGTH": {
+              "NAME": "min-length",
+              "DESCRIPTION": "The minimum amount of characters a message is allowed to have, including embeds."
+            },
+            "MAX_LENGTH": {
+              "NAME": "max-length",
+              "DESCRIPTION": "The maximum amount of characters a message is allowed to have, including embeds."
+            },
+            "INCLUDE_TEXT": {
+              "NAME": "include-text",
+              "DESCRIPTION": "Text the message (including embeds) must contain. Separate words and phrases with commas."
+            },
+            "NOT_INCLUDE_TEXT": {
+              "NAME": "not-include-text",
+              "DESCRIPTION": "Text the message (including embeds) must NOT contain. Separate words and phrases with commas."
+            },
+            "MATCH_REGEX": {
+              "NAME": "match-regex",
+              "DESCRIPTION": "For advanced matching, you can provide one regex pattern instead of include-text. (e.g. /meme: .+/i)"
+            },
+            "NOT_MATCH_REGEX": {
+              "NAME": "not-match-regex",
+              "DESCRIPTION": "For advanced matching, you can provide one regex pattern instead of not-include-text. (e.g. /ba+d/)"
+            }
+          }
+        },
+        "ATTACHMENTS": {
+          "NAME": "attachments",
+          "DESCRIPTION": "Create a filter that filters messages based on the attachments, files and urls in the message.",
+          "OPTIONS": {
+            "NAME": {
+              "NAME": "name",
+              "DESCRIPTION": "The name of this message attachments filter."
+            },
+            "APPLIES_TO": {
+              "NAME": "applies-to",
+              "DESCRIPTION": "A list of users and roles that this filter applies to. (everyone by default)"
+            },
+            "DOES_NOT_APPLY_TO": {
+              "NAME": "does-not-apply-to",
+              "DESCRIPTION": "A list of users and roles that this filter does not apply to."
+            },
+            "MIN_ATTACHMENTS": {
+              "NAME": "min-attachments",
+              "DESCRIPTION": "The minimum amount of attachments and embeds a message is allowed to have."
+            },
+            "MAX_ATTACHMENTS": {
+              "NAME": "max-attachments",
+              "DESCRIPTION": "The maximum amount of attachments and embeds a message is allowed to have."
+            },
+            "MEDIA_REQUIRED": {
+              "NAME": "media-required",
+              "DESCRIPTION": "Whether or not watchable content (images and videos) is required. False by default."
+            },
+            "INCLUDE_TEXT": {
+              "NAME": "include-text",
+              "DESCRIPTION": "Text the embed/attachment URLs must contain. Separate words and phrases with commas."
+            },
+            "NOT_INCLUDE_TEXT": {
+              "NAME": "not-include-text",
+              "DESCRIPTION": "Text the embed/attachment URLs must NOT contain. Separate words and phrases with commas."
+            },
+            "MATCH_REGEX": {
+              "NAME": "match-regex",
+              "DESCRIPTION": "For advanced matching, you can provide one regex pattern instead of include-text. (e.g. /^https:/i)"
+            },
+            "NOT_MATCH_REGEX": {
+              "NAME": "not-match-regex",
+              "DESCRIPTION": "For advanced matching you can provide one regex pattern instead of not-include-text. (e.g. /^http:/)"
+            }
+          }
+        },
+        "AGE": {
+          "NAME": "age",
+          "DESCRIPTION": "Create a filter that filters messages based on the age of the message at the time of starring it.",
+          "OPTIONS": {
+            "NAME": {
+              "NAME": "name",
+              "DESCRIPTION": "The name of this message age filter."
+            },
+            "APPLIES_TO": {
+              "NAME": "applies-to",
+              "DESCRIPTION": "A list of users and roles that this filter applies to. (everyone by default)"
+            },
+            "DOES_NOT_APPLY_TO": {
+              "NAME": "does-not-apply-to",
+              "DESCRIPTION": "A list of users and roles that this filter does not apply to."
+            },
+            "MIN": {
+              "NAME": "older-than",
+              "DESCRIPTION": "The message must be older than this at the time of starring. (e.g. 1 hour 30 mins)"
+            },
+            "MAX": {
+              "NAME": "newer-than",
+              "DESCRIPTION": "The message must be newer than this at the time of starring. (e.g. 1 year 6 months)"
+            }
+          }
+        },
+        "DATE": {
+          "NAME": "date",
+          "DESCRIPTION": "Create a filter that filters messages based on the date the message was sent on.",
+          "OPTIONS": {
+            "NAME": {
+              "NAME": "name",
+              "DESCRIPTION": "The name of this message date filter."
+            },
+            "APPLIES_TO": {
+              "NAME": "applies-to",
+              "DESCRIPTION": "A list of users and roles that this filter applies to. (everyone by default)"
+            },
+            "DOES_NOT_APPLY_TO": {
+              "NAME": "does-not-apply-to",
+              "DESCRIPTION": "A list of users and roles that this filter does not apply to."
+            },
+            "MIN": {
+              "NAME": "sent-after",
+              "DESCRIPTION": "The message must be sent after this date. (e.g. 14/9/2019, 3/2020, 2018)"
+            },
+            "MAX": {
+              "NAME": "sent-before",
+              "DESCRIPTION": "The message must be sent before this date. (e.g. 14/9/2024, 20/1/21, 2020)"
+            }
+          }
+        }
+      },
+      "TEST": {
+        "NAME": "test",
+        "DESCRIPTION": "Test all the message filters you've created on this server against a message.",
+        "OPTIONS": {
+          "MESSAGE": {
+            "NAME": "message",
+            "DESCRIPTION": "A link to the message you want to test all message filters against."
+          }
+        }
+      },
+      "VIEW": {
+        "NAME": "view",
+        "DESCRIPTION": "View the filters you've created in this server."
+      }
+    },
+    "HALL_OF_FAME": {
+      "NAME": "hall-of-fame",
+      "DESCRIPTION": "View the list of starred messages on the server's Hall Of Fame."
+    },
+    "HELP": {
+      "NAME": "help",
+      "DESCRIPTION": "View useful information about using the bot."
+    },
+    "LANGUAGE": {
+      "NAME": "language",
+      "DESCRIPTION": "Change the language the bot uses for messages in this server.",
+      "OPTIONS": {
+        "LANGUAGE": {
+          "NAME": "language",
+          "DESCRIPTION": "The language you want to use."
+        }
+      }
+    },
+    "LEADERBOARD": {
+      "NAME": "leaderboard",
+      "DESCRIPTION": "View the server leaderboard.",
+      "STARS": {
+        "NAME": "stars",
+        "DESCRIPTION": "View the server leaderboard for the users with the most stars earned.",
+        "OPTIONS": {
+          "PAGE": {
+            "NAME": "page",
+            "DESCRIPTION": "The page to jump to."
+          },
+          "USER": {
+            "NAME": "user",
+            "DESCRIPTION": "Jump to a user's position on the leaderboard and highlight them."
+          }
+        }
+      },
+      "TIMES_ON_STARBOARD": {
+        "NAME": "times-on-starboard",
+        "DESCRIPTION": "View the server leaderboard for the users who've gotten on the starboard the most.",
+        "OPTIONS": {
+          "PAGE": {
+            "NAME": "page",
+            "DESCRIPTION": "The page to jump to."
+          },
+          "USER": {
+            "NAME": "user",
+            "DESCRIPTION": "Jump to a user's position on the leaderboard and highlight them."
+          }
+        }
+      },
+      "MOST_STARRED_MESSAGE": {
+        "NAME": "most-starred-message",
+        "DESCRIPTION": "View the server leaderboard for the users with the most stars on a message.",
+        "OPTIONS": {
+          "PAGE": {
+            "NAME": "page",
+            "DESCRIPTION": "The page to jump to."
+          },
+          "USER": {
+            "NAME": "user",
+            "DESCRIPTION": "Jump to a user's position on the leaderboard and highlight them."
+          }
+        }
+      },
+      "CUSTOM": {
+        "NAME": "custom",
+        "DESCRIPTION": "View a custom leaderboard, of a custom leaderboard stat configured in the server.",
+        "OPTIONS": {
+          "STAT": {
+            "NAME": "stat",
+            "DESCRIPTION": "The custom leaderboard stat you want to view the leaderboard of."
+          },
+          "PAGE": {
+            "NAME": "page",
+            "DESCRIPTION": "The page to jump to."
+          },
+          "USER": {
+            "NAME": "user",
+            "DESCRIPTION": "Jump to a user's position on the leaderboard and highlight them."
+          }
+        }
+      }
+    },
+    "MOD": {
+      "NAME": "mod",
+      "DESCRIPTION": "Moderator commands for starred messages.",
+      "FORCE": {
+        "NAME": "force",
+        "DESCRIPTION": "Force a message to the starboard regardless of whether it has enough stars or not.",
+        "OPTIONS": {
+          "MESSAGE": {
+            "NAME": "message",
+            "DESCRIPTION": "A link to the message you want to force."
+          }
+        }
+      },
+      "RECOUNT": {
+        "NAME": "recount",
+        "DESCRIPTION": "Recount a starred message's stars, if the current number seem to be inaccurate.",
+        "OPTIONS": {
+          "STARRED_MESSAGE": {
+            "NAME": "starred-message",
+            "DESCRIPTION": "A link to the starred message/starboard message you want to recount stars for."
+          }
+        }
+      },
+      "INFO": {
+        "NAME": "info",
+        "DESCRIPTION": "View information about a starred message.",
+        "OPTIONS": {
+          "STARRED_MESSAGE": {
+            "NAME": "starred-message",
+            "DESCRIPTION": "A link to the starred message/starboard message you want to view information about."
+          }
+        }
+      },
+      "FREEZE": {
+        "NAME": "freeze",
+        "DESCRIPTION": "Freeze a starred message so it can't get/lose any more stars and does not get updated.",
+        "OPTIONS": {
+          "STARRED_MESSAGE": {
+            "NAME": "starred-message",
+            "DESCRIPTION": "The starred message you want to freeze. Provide a link to the message or the starboard message."
+          }
+        }
+      },
+      "UNFREEZE": {
+        "NAME": "unfreeze",
+        "DESCRIPTION": "Unfreeze a starred message so it can get/lose stars and get updated as normal.",
+        "OPTIONS": {
+          "STARRED_MESSAGE": {
+            "NAME": "starred-message",
+            "DESCRIPTION": "The starred message you want to unfreeze. Provide a link to the message or the starboard message."
+          }
+        }
+      },
+      "LOCK": {
+        "NAME": "lock",
+        "DESCRIPTION": "Lock a starred message so it stays on the starboard no matter how many stars it loses.",
+        "OPTIONS": {
+          "STARRED_MESSAGE": {
+            "NAME": "starred-message",
+            "DESCRIPTION": "The starred message you want to lock. Provide a link to the message or the starboard message."
+          }
+        }
+      },
+      "UNLOCK": {
+        "NAME": "unlock",
+        "DESCRIPTION": "Unlocks a starred message so it gets removed from the starboard as normal.",
+        "OPTIONS": {
+          "STARRED_MESSAGE": {
+            "NAME": "starred-message",
+            "DESCRIPTION": "The starred message you want to unlock. Provide a link to the message or the starboard message."
+          }
+        }
+      },
+      "TRASH": {
+        "NAME": "trash",
+        "DESCRIPTION": "Manage trashed messages.",
+        "ADD": {
+          "NAME": "add",
+          "DESCRIPTION": "Trash a starred message, deleting it from the starboard and preventing it from coming back.",
+          "OPTIONS": {
+            "STARRED_MESSAGE": {
+              "NAME": "starred-message",
+              "DESCRIPTION": "The starred message you want to trash. Provide a link to the message or the starboard message."
+            },
+            "REASON": {
+              "NAME": "reason",
+              "DESCRIPTION": "A reason for trashing this message."
+            }
+          }
+        },
+        "REMOVE": {
+          "NAME": "remove",
+          "DESCRIPTION": "Remove a trashed message from the list of trashed messages.",
+          "OPTIONS": {
+            "STARRED_MESSAGE": {
+              "NAME": "starred-message",
+              "DESCRIPTION": "A link to the starred message you want to remove from the list of trashed messages."
+            }
+          }
+        },
+        "LIST": {
+          "NAME": "list",
+          "DESCRIPTION": "List all the trashed messages in the server."
+        },
+        "CLEAR": {
+          "NAME": "clear",
+          "DESCRIPTION": "Remove all messages from the list of trashed messages."
+        }
+      },
+      "HALL_OF_FAME": {
+        "NAME": "hall-of-fame",
+        "DESCRIPTION": "Hall Of Fame.",
+        "ADD": {
+          "NAME": "add",
+          "DESCRIPTION": "Add a starred message to the server's Hall Of Fame.",
+          "OPTIONS": {
+            "STARRED_MESSAGE": {
+              "NAME": "starred-message",
+              "DESCRIPTION": "A link to the starred message message you want to add to the server's Hall Of Fame."
+            }
+          }
+        },
+        "REMOVE": {
+          "NAME": "remove",
+          "DESCRIPTION": "Remove a starred message from the server's Hall Of Fame.",
+          "OPTIONS": {
+            "STARRED_MESSAGE": {
+              "NAME": "starred-message",
+              "DESCRIPTION": "A link to the starred message message you want to remove from the server's Hall Of Fame."
+            }
+          }
+        },
+        "CLEAR": {
+          "NAME": "clear",
+          "DESCRIPTION": "Remove all starred messages from the server's Hall Of Fame."
+        }
+      },
+      "LEADERBOARD": {
+        "NAME": "leaderboard",
+        "DESCRIPTION": "Reset leaderboard data.",
+        "RESET_USER": {
+          "NAME": "reset-user",
+          "DESCRIPTION": "Reset the leaderboard data for one specific user, removing them from the leaderboard.",
+          "OPTIONS": {
+            "USER": {
+              "NAME": "user",
+              "DESCRIPTION": "The user who's leaderboard data you want to reset."
+            }
+          }
+        },
+        "RESET": {
+          "NAME": "reset",
+          "DESCRIPTION": "Reset the entire server leaderboard, removing all users from it."
+        },
+        "AUTO_RESET": {
+          "NAME": "auto-reset",
+          "DESCRIPTION": "Have the server leaderboard automatically reset every set period of time, or view the current setup.",
+          "OPTIONS": {
+            "DAYS": {
+              "NAME": "days",
+              "DESCRIPTION": "Reset the leaderboard every certain number of days."
+            },
+            "DATE_OF_MONTH": {
+              "NAME": "date-of-month",
+              "DESCRIPTION": "Or reset the leaderboard on a specific date of every month."
+            },
+            "START_FROM": {
+              "NAME": "start-from",
+              "DESCRIPTION": "Start resetting the leaderboard automatically from this date and onwards."
+            }
+          }
+        },
+        "RESTORE": {
+          "NAME": "restore",
+          "DESCRIPTION": "Premium servers can restore leaderboard data using all of the server's starred message data.",
+          "OPTIONS": {
+            "AFTER": {
+              "NAME": "after",
+              "DESCRIPTION": "Reset the leaderboard and restore it based on starred messages after this date."
+            }
+          }
+        }
+      },
+      "DEBUG": {
+        "NAME": "debug",
+        "DESCRIPTION": "Debug a message and get reasons for why it isn't on the starboard.",
+        "OPTIONS": {
+          "MESSAGE": {
+            "NAME": "message",
+            "DESCRIPTION": "The message to debug."
+          }
+        }
+      }
+    },
+    "OVERRIDES": {
+      "NAME": "overrides",
+      "DESCRIPTION": "Manage overrides made for specific scenarios.",
+      "CREATE": {
+        "NAME": "create",
+        "DESCRIPTION": "Create an override for a specific scenario.",
+        "CHANNEL": {
+          "NAME": "channel",
+          "DESCRIPTION": "Create a channel override for specific channels.",
+          "OPTIONS": {
+            "NAME": {
+              "NAME": "name",
+              "DESCRIPTION": "The name you want to give this new override."
+            },
+            "SYNC_WITH": {
+              "NAME": "inherit-from",
+              "DESCRIPTION": "The override you create will inherit settings and copy changes from this existing override."
+            },
+            "PRIORITY": {
+              "NAME": "priority",
+              "DESCRIPTION": "High priority overrides will be used before lower priority overrides. (default: 0)"
+            },
+            "INHERIT_FILTERS": {
+              "NAME": "inherit-filters",
+              "DESCRIPTION": "Whether or not filters are inherited from server settings or other overrides. (default: yes)"
+            },
+            "INHERIT_BLACKLIST": {
+              "NAME": "inherit-blacklist",
+              "DESCRIPTION": "Whether or not blacklisted/whitelisted items are inherited from other settings. (default: yes)"
+            },
+            "CHANNELS": {
+              "NAME": "channels",
+              "DESCRIPTION": "The channels this override should be applied in."
+            }
+          }
+        },
+        "CHANNEL_TYPE": {
+          "NAME": "channel-type",
+          "DESCRIPTION": "Create a channel-type override for specific types of channels.",
+          "OPTIONS": {
+            "NAME": {
+              "NAME": "name",
+              "DESCRIPTION": "The name you want to give this new override."
+            },
+            "SYNC_WITH": {
+              "NAME": "inherit-from",
+              "DESCRIPTION": "The override you create will inherit settings and copy changes from this existing override."
+            },
+            "PRIORITY": {
+              "NAME": "priority",
+              "DESCRIPTION": "High priority overrides will be used before lower priority overrides. (default: 0)"
+            },
+            "INHERIT_FILTERS": {
+              "NAME": "inherit-filters",
+              "DESCRIPTION": "Whether or not filters are inherited from server settings or other overrides. (default: yes)"
+            },
+            "INHERIT_BLACKLIST": {
+              "NAME": "inherit-blacklist",
+              "DESCRIPTION": "Whether or not blacklisted/whitelisted items are inherited from other settings. (default: yes)"
+            },
+            "CHANNEL_TYPES": {
+              "NAME": "channel-types",
+              "DESCRIPTION": "The types of channels this override should be applied in."
+            }
+          }
+        },
+        "ROLE": {
+          "NAME": "role",
+          "DESCRIPTION": "Create a role override that get applied when the message author has specific roles.",
+          "OPTIONS": {
+            "NAME": {
+              "NAME": "name",
+              "DESCRIPTION": "The name you want to give this new override."
+            },
+            "SYNC_WITH": {
+              "NAME": "inherit-from",
+              "DESCRIPTION": "The override you create will inherit settings and copy changes from this existing override."
+            },
+            "PRIORITY": {
+              "NAME": "priority",
+              "DESCRIPTION": "High priority overrides will be used before lower priority overrides. (default: 0)"
+            },
+            "INHERIT_FILTERS": {
+              "NAME": "inherit-filters",
+              "DESCRIPTION": "Whether or not filters are inherited from server settings or other overrides. (default: yes)"
+            },
+            "INHERIT_BLACKLIST": {
+              "NAME": "inherit-blacklist",
+              "DESCRIPTION": "Whether or not blacklisted/whitelisted items are inherited from other settings. (default: yes)"
+            },
+            "ROLES": {
+              "NAME": "roles",
+              "DESCRIPTION": "The roles the message author must have one of for this override to apply."
+            },
+            "CHANNELS": {
+              "NAME": "channels",
+              "DESCRIPTION": "The channels the message must also be in for this override to apply."
+            }
+          }
+        },
+        "EMOJI": {
+          "NAME": "emoji",
+          "DESCRIPTION": "Create an emoji override for specific emojis.",
+          "OPTIONS": {
+            "NAME": {
+              "NAME": "name",
+              "DESCRIPTION": "The name you want to give this new override."
+            },
+            "SYNC_WITH": {
+              "NAME": "inherit-from",
+              "DESCRIPTION": "The override you create will inherit settings and copy changes from this existing override."
+            },
+            "PRIORITY": {
+              "NAME": "priority",
+              "DESCRIPTION": "High priority overrides will be used before lower priority overrides. (default: 0)"
+            },
+            "INHERIT_FILTERS": {
+              "NAME": "inherit-filters",
+              "DESCRIPTION": "Whether or not filters are inherited from server settings or other overrides. (default: yes)"
+            },
+            "INHERIT_BLACKLIST": {
+              "NAME": "inherit-blacklist",
+              "DESCRIPTION": "Whether or not blacklisted/whitelisted items are inherited from other settings. (default: yes)"
+            },
+            "EMOJIS": {
+              "NAME": "emojis",
+              "DESCRIPTION": "This override will only apply when these emojis are used."
+            },
+            "CHANNELS": {
+              "NAME": "channels",
+              "DESCRIPTION": "The channels the message must also be in for this override to apply."
+            }
+          }
+        }
+      },
+      "DELETE": {
+        "NAME": "delete",
+        "DESCRIPTION": "Delete an override you've previously created.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The name of the override you want to delete."
+          }
+        }
+      },
+      "EDIT": {
+        "NAME": "edit",
+        "DESCRIPTION": "Edit info about an override, such as the name or where it is applied.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override to edit."
+          },
+          "NAME": {
+            "NAME": "name",
+            "DESCRIPTION": "The new name for this override."
+          },
+          "CHANNELS": {
+            "NAME": "channels",
+            "DESCRIPTION": "Provide every channel to set, or provide +#channel / -#channel to add/remove from the existing list."
+          },
+          "CHANNEL_TYPES": {
+            "NAME": "channel-types",
+            "DESCRIPTION": "The type of channels this override should now be applied in."
+          },
+          "EMOJIS": {
+            "NAME": "emojis",
+            "DESCRIPTION": "The full list of emojis that this override should now be applied for."
+          },
+          "ROLES": {
+            "NAME": "roles",
+            "DESCRIPTION": "Provide the full list of roles or provide +@role or -@role to add or remove from the existing list."
+          },
+          "PRIORITY": {
+            "NAME": "priority",
+            "DESCRIPTION": "The priority this override should now have."
+          },
+          "INHERIT_FILTERS": {
+            "NAME": "inherit-filters",
+            "DESCRIPTION": "Whether or not filters should now be inherited, from server settings or other overrides."
+          },
+          "INHERIT_BLACKLIST": {
+            "NAME": "inherit-blacklist",
+            "DESCRIPTION": "Whether or not blacklisted/whitelisted items should now be inherited from other settings."
+          },
+          "SYNC_WITH": {
+            "NAME": "inherit-from",
+            "DESCRIPTION": "The override that this override should now inherit settings and copy changes from."
+          }
+        }
+      },
+      "TEST": {
+        "NAME": "test",
+        "DESCRIPTION": "Test the overrides you've created to see how they're applied in a provided context.",
+        "OPTIONS": {
+          "CHANNEL": {
+            "NAME": "channel",
+            "DESCRIPTION": "The channel that the message would be in."
+          },
+          "ROLES": {
+            "NAME": "roles",
+            "DESCRIPTION": "The role the message author would have. Provide a user to test with all their roles."
+          },
+          "EMOJI": {
+            "NAME": "emoji",
+            "DESCRIPTION": "The emoji that would be used to react."
+          },
+          "MESSAGE": {
+            "NAME": "message",
+            "DESCRIPTION": "Instead of channel and roles, provide a message to use it's channel and author roles."
+          }
+        }
+      }
+    },
+    "PING": {
+      "NAME": "ping",
+      "DESCRIPTION": "Pong!"
+    },
+    "PREMIUM": {
+      "NAME": "premium",
+      "DESCRIPTION": "View and manage Starboard Premium.",
+      "INFO": {
+        "NAME": "info",
+        "DESCRIPTION": "View info about Starboard Premium."
+      },
+      "REDEEM": {
+        "NAME": "redeem",
+        "DESCRIPTION": "Redeem Starboard Premium for this server.",
+        "OPTIONS": {
+          "CODE": {
+            "NAME": "code",
+            "DESCRIPTION": "The Starboard Premium code to redeem, if you were gifted one. Patrons don't need codes to redeem."
+          }
+        }
+      }
+    },
+    "REWARDROLES": {
+      "NAME": "rewardroles",
+      "DESCRIPTION": "View and manage the list of reward roles, roles awarded to users as they get more stars.",
+      "CREATE": {
+        "NAME": "create",
+        "DESCRIPTION": "Create a reward role.",
+        "OPTIONS": {
+          "ROLE": {
+            "NAME": "role",
+            "DESCRIPTION": "The role to make a reward role out of."
+          },
+          "TYPE": {
+            "NAME": "type",
+            "DESCRIPTION": "The type of requirement the reward role you want to create should have."
+          },
+          "REQUIRED": {
+            "NAME": "required",
+            "DESCRIPTION": "What is required for this reward role. (i.e. 50 total stars, 50 stars on most starred message, etc.)"
+          }
+        }
+      },
+      "EDIT": {
+        "NAME": "edit",
+        "DESCRIPTION": "Edit the requirement for a reward role.",
+        "OPTIONS": {
+          "ROLE": {
+            "NAME": "role",
+            "DESCRIPTION": "The reward role to change the requirement of."
+          },
+          "TYPE": {
+            "NAME": "type",
+            "DESCRIPTION": "The type of requirement the reward role you want to edit has."
+          },
+          "REQUIRED": {
+            "NAME": "required",
+            "DESCRIPTION": "What should now be required for this reward role."
+          }
+        }
+      },
+      "DELETE": {
+        "NAME": "delete",
+        "DESCRIPTION": "Delete a reward role.",
+        "OPTIONS": {
+          "ROLE": {
+            "NAME": "role",
+            "DESCRIPTION": "The reward role to delete."
+          },
+          "TYPE": {
+            "NAME": "type",
+            "DESCRIPTION": "The type of requirement you want to delete from the reward role."
+          }
+        }
+      },
+      "VIEW": {
+        "NAME": "view",
+        "DESCRIPTION": "View the list of reward roles created in this server."
+      }
+    },
+    "REWARDROLE": {
+      "NAME": "rewardrole",
+      "DESCRIPTION": "Personal reward role information.",
+      "PROGRESS": {
+        "NAME": "progress",
+        "DESCRIPTION": "View your progress in relation to getting reward roles."
+      }
+    },
+    "SETTINGS": {
+      "NAME": "settings",
+      "DESCRIPTION": "View all available settings or make edits.",
+      "EDIT": {
+        "NAME": "edit",
+        "DESCRIPTION": "Edit settings.",
+        "MAIN": {
+          "NAME": "main",
+          "DESCRIPTION": "Edit the main settings, such as where starred messages go or how many stars are needed.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to make changes to, if you have any. Leave blank to edit server settings."
+            },
+            "STARBOARD": {
+              "NAME": "starboard",
+              "DESCRIPTION": "Where all starred messages go."
+            },
+            "REQUIRED_STARS": {
+              "NAME": "required-stars",
+              "DESCRIPTION": "Number of stars required to reach the starboard."
+            },
+            "REQUIRED_STARS_TO_REMOVE": {
+              "NAME": "required-stars-to-remove",
+              "DESCRIPTION": "Drop below this and get removed from the starboard."
+            },
+            "EMOJIS": {
+              "NAME": "emojis",
+              "DESCRIPTION": "The emojis used to add stars to messages."
+            },
+            "DOWNVOTE_EMOJIS": {
+              "NAME": "downvote-emojis",
+              "DESCRIPTION": "The emojis used to downvote messages."
+            }
+          }
+        },
+        "FILTERING": {
+          "NAME": "filtering",
+          "DESCRIPTION": "Edit settings related to filtering starred messages, such as allowing self stars.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to make changes to, if you have any. Leave blank to edit server settings."
+            },
+            "FILTER_BOTS": {
+              "NAME": "filter-bots",
+              "DESCRIPTION": "Filter messages by bots off the starboard."
+            },
+            "SELF_STARS": {
+              "NAME": "self-stars",
+              "DESCRIPTION": "Allow users to star their own messages."
+            },
+            "FILTER_BLACKLISTED_USERS": {
+              "NAME": "filter-blacklisted-users",
+              "DESCRIPTION": "The blacklisted users which should be filtered."
+            },
+            "REMOVE_INVALID_REACTIONS": {
+              "NAME": "remove-invalid-reactions",
+              "DESCRIPTION": "Remove invalid reactions, reactions on messages that shouldn't be starred."
+            }
+          }
+        },
+        "APPEARANCE": {
+          "NAME": "appearance",
+          "DESCRIPTION": "Edit settings related to how the starboard message looks.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to make changes to, if you have any. Leave blank to edit server settings."
+            },
+            "MESSAGE_JUMP_LINK": {
+              "NAME": "message-jump-link",
+              "DESCRIPTION": "How the link to jump to the original message should be displayed."
+            },
+            "NAME_DISPLAY": {
+              "NAME": "name-display",
+              "DESCRIPTION": "How user's names should be displayed on starboard messages."
+            },
+            "MAX_CONTENT_DISPLAYED": {
+              "NAME": "max-content-displayed",
+              "DESCRIPTION": "The maximum number of characters of the original message's content to display."
+            },
+            "MAX_MEDIA_DISPLAYED": {
+              "NAME": "max-media-displayed",
+              "DESCRIPTION": "The maximum amount of images/videos/files displayed, the rest being linked instead."
+            },
+            "MAX_EMBEDS_DISPLAYED": {
+              "NAME": "max-embeds-displayed",
+              "DESCRIPTION": "The maximum amount of embeds the bot should display for starboard messages."
+            },
+            "MAX_OVERALL_MESSAGE_LENGTH": {
+              "NAME": "max-overall-message-length",
+              "DESCRIPTION": "The maximum number of characters displayed on the starboard message in total."
+            },
+            "REUPLOAD_ATTACHMENTS": {
+              "NAME": "reupload-attachments",
+              "DESCRIPTION": "Reupload videos and files with the starboard message, instead of just appending as links."
+            },
+            "MENTION_AUTHOR": {
+              "NAME": "mention-author",
+              "DESCRIPTION": "Mention users on their starboard messages."
+            },
+            "DISPLAY_AVATAR": {
+              "NAME": "display-avatar",
+              "DESCRIPTION": "Display user avatars on starboard messages."
+            },
+            "DISPLAY_REPLIED_MESSAGE": {
+              "NAME": "display-replied-message",
+              "DESCRIPTION": "Always display the message that is being replied to, if any."
+            },
+            "USE_ORIGINAL_EMBED_COLOR": {
+              "NAME": "use-original-embed-colour",
+              "DESCRIPTION": "If an embed with colour is starred, use that colour on the starboard message."
+            },
+            "USE_LINKS_OVER_BUTTONS": {
+              "NAME": "use-links-over-buttons",
+              "DESCRIPTION": "For linking videos and other files, use blue text links instead of grey button links."
+            }
+          }
+        },
+        "MISC": {
+          "NAME": "misc",
+          "DESCRIPTION": "Edit miscellaneous settings that are useful but fall under no real category.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to make changes to, if you have any. Leave blank to edit server settings."
+            },
+            "ON_DELETION": {
+              "NAME": "when-deleted",
+              "DESCRIPTION": "What to do when a moderator deletes a starboard message."
+            },
+            "LINK_DELETES": {
+              "NAME": "sync-message-deletes",
+              "DESCRIPTION": "Delete the starboard message when the original is deleted."
+            },
+            "KEEP_OLD_REWARD_ROLES": {
+              "NAME": "keep-old-reward-roles",
+              "DESCRIPTION": "Keep old reward roles when a new reward role is achieved."
+            },
+            "LINK_EDITS": {
+              "NAME": "sync-message-edits",
+              "DESCRIPTION": "Update the starboard message when the original message is edited."
+            },
+            "STARBOARD_REACT": {
+              "NAME": "starboard-react",
+              "DESCRIPTION": "Have the bot react on the starboard message with upvote/downvote emojis as a shortcut."
+            }
+          }
+        }
+      },
+      "VIEW": {
+        "NAME": "view",
+        "DESCRIPTION": "View the settings you've configured.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "settings",
+            "DESCRIPTION": "The settings you want to view - an override or the server settings."
+          }
+        }
+      },
+      "RESET": {
+        "NAME": "reset",
+        "DESCRIPTION": "Reset the settings you've configured back to their defaults.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "settings",
+            "DESCRIPTION": "The settings you want to reset - an override or the server settings."
+          },
+          "SETTING": {
+            "NAME": "setting",
+            "DESCRIPTION": "The specific setting you want to reset or unset."
+          }
+        }
+      }
+    },
+    "SHOW": {
+      "NAME": "show",
+      "DESCRIPTION": "Show messages that have been starred in the past.",
+      "HALL_OF_FAME": {
+        "NAME": "hall-of-fame",
+        "DESCRIPTION": "Show messages that are on the server's Hall Of Fame."
+      },
+      "LOST": {
+        "NAME": "lost",
+        "DESCRIPTION": "Show a random lost starred message - one that hasn't yet reached the starboard.",
+        "OPTIONS": {
+          "AUTHOR": {
+            "NAME": "author",
+            "DESCRIPTION": "Only show messages by this user."
+          },
+          "CHANNEL": {
+            "NAME": "channel",
+            "DESCRIPTION": "Only show messages from this channel."
+          },
+          "STARBOARD": {
+            "NAME": "starboard",
+            "DESCRIPTION": "Only show messages where the starboard is this channel."
+          }
+        }
+      },
+      "MOSTSTARRED": {
+        "NAME": "moststarred",
+        "DESCRIPTION": "Show the most starred messages.",
+        "OPTIONS": {
+          "AUTHOR": {
+            "NAME": "author",
+            "DESCRIPTION": "Only show messages by this user."
+          },
+          "CHANNEL": {
+            "NAME": "channel",
+            "DESCRIPTION": "Only show messages from this channel."
+          },
+          "STARBOARD": {
+            "NAME": "starboard",
+            "DESCRIPTION": "Only show messages where the starboard is this channel."
+          }
+        }
+      },
+      "RANDOM": {
+        "NAME": "random",
+        "DESCRIPTION": "Show a random starboard message.",
+        "OPTIONS": {
+          "AUTHOR": {
+            "NAME": "author",
+            "DESCRIPTION": "Only show messages by this user."
+          },
+          "CHANNEL": {
+            "NAME": "channel",
+            "DESCRIPTION": "Only show messages from this channel."
+          },
+          "STARBOARD": {
+            "NAME": "starboard",
+            "DESCRIPTION": "Only show messages where the starboard is this channel."
+          },
+          "MIN_STARS": {
+            "NAME": "min-stars",
+            "DESCRIPTION": "Only show messages with at least this many stars."
+          },
+          "MAX_STARS": {
+            "NAME": "max-stars",
+            "DESCRIPTION": "Only show messages with no more than this many stars."
+          }
+        }
+      },
+      "SINGLE": {
+        "NAME": "single",
+        "DESCRIPTION": "Show a single starred message.",
+        "OPTIONS": {
+          "STARRED_MESSAGE": {
+            "NAME": "starred-message",
+            "DESCRIPTION": "A link to the starred message/starboard message you want to preview."
+          }
+        }
+      }
+    },
+    "STATS": {
+      "NAME": "stats",
+      "DESCRIPTION": "View starred message related all-time stats.",
+      "USER": {
+        "NAME": "user",
+        "DESCRIPTION": "View all-time stats about a user's starred messages.",
+        "OPTIONS": {
+          "USER": {
+            "NAME": "user",
+            "DESCRIPTION": "The user whose stats you'd like to view."
+          }
+        }
+      },
+      "SERVER": {
+        "NAME": "server",
+        "DESCRIPTION": "View all-time stats about the server's starred messages."
+      },
+      "GLOBAL": {
+        "NAME": "global",
+        "DESCRIPTION": "View all-time stats about starred messages around the world."
+      }
+    },
+    "USER": {
+      "NAME": "user",
+      "DESCRIPTION": "Customise user settings.",
+      "DISPLAYTIERS": {
+        "NAME": "displaytiers",
+        "DESCRIPTION": "Modify and personalise the list of display tiers for your own starboard messages.",
+        "CREATE": {
+          "NAME": "create",
+          "DESCRIPTION": "Create a cosmetic display tier just for your starboard messages.",
+          "OPTIONS": {
+            "THRESHOLD": {
+              "NAME": "threshold",
+              "DESCRIPTION": "This tier will take effect once your starred message has obtained this number of stars."
+            },
+            "STAR": {
+              "NAME": "star",
+              "DESCRIPTION": "The star your starboard messages should display beside the star count once this tier is reached."
+            },
+            "COLOR": {
+              "NAME": "colour",
+              "DESCRIPTION": "The colour your starboard message embeds should use once this tier is reached."
+            }
+          }
+        },
+        "DELETE": {
+          "NAME": "delete",
+          "DESCRIPTION": "Delete one of your display tiers.",
+          "OPTIONS": {
+            "TIER": {
+              "NAME": "tier",
+              "DESCRIPTION": "The number of the display tier you want to delete."
+            }
+          }
+        },
+        "EDIT": {
+          "NAME": "edit",
+          "DESCRIPTION": "Edit one of your display tiers.",
+          "OPTIONS": {
+            "TIER": {
+              "NAME": "tier",
+              "DESCRIPTION": "The number of the display tier you want to edit."
+            },
+            "THRESHOLD": {
+              "NAME": "threshold",
+              "DESCRIPTION": "This tier should now take effect once your starred message has obtained this number of stars."
+            },
+            "STAR": {
+              "NAME": "star",
+              "DESCRIPTION": "The star your starboard messages should now display beside the star count once this tier is reached."
+            },
+            "COLOR": {
+              "NAME": "colour",
+              "DESCRIPTION": "The colour your starboard message embeds should now use once this tier is reached."
+            }
+          }
+        },
+        "VIEW": {
+          "NAME": "view",
+          "DESCRIPTION": "View all of your display tiers."
+        }
+      }
+    },
+    "WHITELIST": {
+      "NAME": "whitelist",
+      "DESCRIPTION": "View info about whitelisted items. Whitelisted items aren't affected by the blacklist.",
+      "ADD": {
+        "NAME": "add",
+        "DESCRIPTION": "Add a user, role or channel to the whitelist.",
+        "USER": {
+          "NAME": "user",
+          "DESCRIPTION": "Add a user to the whitelist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the whitelist on, server settings by default."
+            },
+            "USER": {
+              "NAME": "user",
+              "DESCRIPTION": "The user to whitelist."
+            }
+          }
+        },
+        "ROLE": {
+          "NAME": "role",
+          "DESCRIPTION": "Add a role to the whitelist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the whitelist on, server settings by default."
+            },
+            "ROLE": {
+              "NAME": "role",
+              "DESCRIPTION": "The role to whitelist."
+            }
+          }
+        },
+        "CHANNEL": {
+          "NAME": "channel",
+          "DESCRIPTION": "Add a channel to the whitelist. All of the channel's children will also be whitelisted by default.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the whitelist on, server settings by default."
+            },
+            "CHANNEL": {
+              "NAME": "channel",
+              "DESCRIPTION": "The channel to whitelist."
+            }
+          }
+        }
+      },
+      "REMOVE": {
+        "NAME": "remove",
+        "DESCRIPTION": "Remove a user, role or channel from the whitelist.",
+        "USER": {
+          "NAME": "user",
+          "DESCRIPTION": "Remove a user from the whitelist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the whitelist on, server settings by default."
+            },
+            "USER": {
+              "NAME": "user",
+              "DESCRIPTION": "The user to unwhitelist."
+            }
+          }
+        },
+        "ROLE": {
+          "NAME": "role",
+          "DESCRIPTION": "Remove a role from the whitelist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the whitelist on, server settings by default."
+            },
+            "ROLE": {
+              "NAME": "role",
+              "DESCRIPTION": "The role to unwhitelist."
+            }
+          }
+        },
+        "CHANNEL": {
+          "NAME": "channel",
+          "DESCRIPTION": "Remove a channel from the whitelist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the whitelist on, server settings by default."
+            },
+            "CHANNEL": {
+              "NAME": "channel",
+              "DESCRIPTION": "The channel to unwhitelist."
+            }
+          }
+        },
+        "ID": {
+          "NAME": "id",
+          "DESCRIPTION": "Remove any ID, perhaps of a deleted channel, role or user, from the whitelist.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to modify the whitelist on, server settings by default."
+            },
+            "ID": {
+              "NAME": "id",
+              "DESCRIPTION": "The id of the item to unwhitelist."
+            }
+          }
+        }
+      },
+      "CLEAR": {
+        "NAME": "clear",
+        "DESCRIPTION": "Remove all users/roles/channel from the whitelist.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override to modify the whitelist on, server settings by default."
+          },
+          "TYPE": {
+            "NAME": "type",
+            "DESCRIPTION": "What to remove all items of from the whitelist."
+          }
+        }
+      },
+      "VIEW": {
+        "NAME": "view",
+        "DESCRIPTION": "View the list of whitelisted users, roles and channels.",
+        "OPTIONS": {
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override you want to see the whitelist for."
+          }
+        }
+      }
+    },
+    "TEST": {
+      "NAME": "test",
+      "DESCRIPTION": "test"
+    },
+    "ADD_TO_HALL_OF_FAME": {
+      "NAME": "Add to Hall of Fame"
+    },
+    "DELETE_MY_MESSAGE": {
+      "NAME": "Delete My Message"
+    },
+    "FORCE_TO_STARBOARD": {
+      "NAME": "Force to Starboard"
+    },
+    "TRASH_MESSAGE": {
+      "NAME": "Trash Message"
+    }
+  }
+}

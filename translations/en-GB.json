@@ -111,26 +111,30 @@
   "SUCCESS_CHANGE_SETTINGS": "Successfully changed those settings for {name}.",
 
   "SUCCESS_CHANGE_SETTINGS_NOTICE": "Note that:\n{notices}",
-  "MISSING_ATTACH_FILES_PERMISSION_NOTICE": "The bot is missing the `Attach Files` permission in {channel}, so media and files that are supposed to be reuploaded due to the **Reupload Attachments** setting will be linked instead.",
+  "MISSING_ATTACH_FILES_PERMISSION_NOTICE": "{bot, select, null {The bot} other {{bot}}} is missing the `Attach Files` permission in {channel}, so media and files that are supposed to be reuploaded due to the **Reupload Attachments** setting will be linked instead.",
   "MISSING_MANAGE_MESSAGES_PERMISSION_NOTICE": "The bot is missing the `Manage Messages` permission in {channel}, so I cannot remove invalid reactions and messages that are supposed to be removed due to the **Remove Invalid Reactions**/**Delete Invalid Messages** setting.",
   "REQUIRED_STARS_CLASH_SET": "Because the value of **Required Stars** has to be higher than **Required Stars To Remove**, I've set **Required Stars** to {requiredStars, number} and **Required Stars To Remove** to {requiredToRemove, number}.",
   "EMOJI_OVERRIDE_REQUIRED_NOTICE": "When figuring out which settings to take into account when posting starboard messages (i.e. when not reacting to messages), this emoji override will only apply when the starred message has {required, number} or more {emojis} reactions.",
+  "PREMIUM_BASED_FILE_SIZE_LIMIT_NOTICE": "The bot will only reupload attachments that are smaller than {limit, number}MB in size. Premium servers can have attachments up to the Nitro limit ({nitroLimit, number}MB) in size reuploaded.",
+  "NITRO_BASED_FILE_SIZE_LIMIT_NOTICE": "The bot can only reupload attachments that are smaller than the Nitro limit ({nitroLimit, number}MB) in size.",
   "UNUSABLE_REACTION_EMOJIS_PROVIDED": "I cannot use the emojis {emojis}. Please choose emojis from servers I am in.",
   "UPVOTE_DOWNVOTE_EMOJIS_CLASH": "You cannot set the same emoji to star messages and downvote messages.",
   "SETTING_ONLY_FOR_SERVER_SETTINGS": "The setting **{setting}** can only be modified when editing Server Settings.",
   "CANNOT_EDIT_SETTING_ON_EMOJI_OVERRIDE": "The setting **{setting}** cannot be modified on emoji overrides.",
 
-  "CANNOT_SEND_MESSAGES_IN_CHANNEL": "I cannot send messages in {channel}, please enable the `Send Messages` permission.",
-  "CANNOT_SEND_EMBEDS_IN_CHANNEL": "I cannot send embeds in {channel}, please enable the `Embed Links` permission.",
-  "CANNOT_VIEW_CHANNEL": "I cannot view {channel}, please enable the `View Channel` permission.",
-  "CANNOT_VIEW_VOICE_CHANNEL": "I cannot view {channel}, please enable the `View Channel` and the `Connect` permissions.",
-  "CANNOT_READ_HISTORY_IN_CHANNEL": "I cannot read message history in {channel}, please enable the `Read Message History` permission.",
+  "CANNOT_SEND_MESSAGES_IN_CHANNEL": "{bot, select, null {I} other {{bot}}} cannot send messages in {channel}, please enable the `Send Messages` permission.",
+  "CANNOT_SEND_EMBEDS_IN_CHANNEL": "{bot, select, null {I} other {{bot}}} cannot send embeds in {channel}, please enable the `Embed Links` permission.",
+  "CANNOT_VIEW_CHANNEL": "{bot, select, null {I} other {{bot}}} cannot view {channel}, please enable the `View Channel` permission.",
+  "CANNOT_VIEW_VOICE_CHANNEL": "{bot, select, null {I} other {{bot}}} cannot view {channel}, please enable the `View Channel` and the `Connect` permissions.",
+  "CANNOT_READ_HISTORY_IN_CHANNEL": "{bot, select, null {I} other {{bot}}} cannot read message history in {channel}, please enable the `Read Message History` permission.",
 
   "OVERRIDE_EDIT_INVALID_CHANGE_ON_INVALID_TYPE": "You cannot make those changes on this type of override.",
   "SUCCESS_EDIT_OVERRIDE": "Successfully edited the override **{name}**:\n{changes}",
   "OVERRIDE_NOW_NAMED": "This override is now named **{name}**.",
   "OVERRIDE_PRIORITY_NOW": "This override now has a priority value of `{priority}`.",
   "OVERRIDE_NOW_INHERITS": "This override now inherits settings from **{name}**.",
+  "OVERRIDE_NOW_INHERITS_FILTERS": "This override {inherits, select, true {now} false {no longer}} inherits filters from the server settings or other overrides.",
+  "OVERRIDE_NOW_INHERITS_BLACKLIST": "This override {inherits, select, true {now} false {no longer}} inherits blacklists/whitelists from the server settings or other overrides.",
 
   "VIEW_EXPANDED": "View Expanded",
   "VIEW_COMPILED": "View Compiled",
@@ -212,25 +216,33 @@
   "SUCCESSFULLY_CREATED_DISPLAY_TIER": "Successfully created a new display tier: {tier}",
   "DISPLAY_TIER_DUPLICATE": "A display tier with the provided options already exists.",
   "CREATED_DEFAULT_DISPLAY_TIER": "As this is the first display tier you're creating for this override, display tiers are no longer inherited from server settings and other overrides. So, I've gone ahead and created a default display tier that is used when the one you've just created hasn't yet been reached.",
+  "CREATED_DEFAULT_DISPLAY_TIER_USER": "I've also gone ahead and created a default display tier that is used when the one you've just created hasn't yet been reached.",
   "DISPLAY_TIERS": "Display Tiers",
   "DISPLAY_TIERS_DESCRIPTION_1": "Display tiers are the different tiers of cosmetic changes that a starboard message can go through as it gets more stars.",
   "DISPLAY_TIERS_DESCRIPTION_2": "Currently the cosmetics you can change are the star beside the star count and the colour of the starboard message's embeds.",
+  "DISPLAY_TIERS_DESCRIPTION_USER": "These user display tiers allow you to personalise your own starboard messages, using your customisations instead of the server's.",
   "DISPLAY_TIERS_DESCRIPTION_CREATE_TIER": "To create a display tier you can run {command}.",
+  "DISPLAY_TIERS_DESCRIPTION_CREATE_TIER_USER": "To create a display tier for yourself you can run {command}.",
   "DISPLAY_TIERS_DESCRIPTION_INHERITED": "Since you have no display tiers created specifically for this override, the display tiers are inherited from the server settings or other overrides, and are listed in *italics*.",
   "DISPLAY_TIERS_DESCRIPTION_UNUSED": "Some display tiers have no effect as their changes are immediately overridden by the next display tier - those tiers are ~~crossed out~~.",
   "DISPLAY_TIER_UNDELETABLE": "You cannot delete this display tier.",
   "DISPLAY_TIER_UNDELETABLE_OVERRIDE": "You cannot delete this display tier. Delete all other display tiers first, then delete this display tier, to go back to inheriting the display tiers from the server settings or other overrides.",
   "NO_DISPLAY_TIERS_OVERRIDE": "You have no display tiers created specifically for this override.",
-  "DISPLAY_TIER_NOT_FOUND": "There is no display tier #{number, number} created. Double check the number of the display tiers with {command}.",
+  "DISPLAY_TIER_NOT_FOUND": "There is no display tier #{number, number} created. Double check the number of the display tier with {command}.",
   "SUCCESSFULLY_DELETED_DISPLAY_TIER": "Successfully deleted the display tier: {tier}.",
   "DISPLAY_TIERS_INHERITED_AGAIN": "As there are no display tiers for this override anymore, display tiers are now inherited again.",
   "DISPLAY_TIER_CANNOT_EDIT_THRESHOLD": "You cannot change the threshold of this display tier.",
   "SUCCESSFULLY_EDITED_DISPLAY_TIER": "Successfully edited the display tier: {old} -> {tier}.",
+  "USER_DISPLAY_TIERS_NOT_A_PATRON": "To personalise custom display tiers just for your starboard messages, you must be a [patron]({patreonLink}).",
+  "USER_DISPLAY_TIERS_REACHED_MAX": "You have reached the maximum amount of display tiers allowed for one user. ({premiumLimit, number})",
+  "NO_DISPLAY_TIERS_USER": "You have no display tiers created for yourself.",
+
 
   "REWARD_ROLE_TYPE_0": "Total Stars",
   "REWARD_ROLE_TYPE_1": "Most Starred Message",
   "REWARD_ROLE_TYPE_2": "Times On Starboard",
   "REWARD_ROLE_TYPE_3": "Times On Hall Of Fame",
+  "REWARD_ROLE_CUSTOM_AUTOCOMPLETE": "Custom: {name}",
   "REWARD_ROLE_MANAGED": "This role is automatically managed by an integration and cannot be manually assigned to members.",
   "REWARD_ROLE_EVERYONE": "You cannot make that role a reward role.",
   "REWARD_ROLES_HIGHER_THAN_ME": "I cannot assign this role to users as it is higher than my highest role.",
@@ -243,6 +255,7 @@
   "SUCCESS_CREATE_REWARD_ROLE_1": "Successfully created a reward role {role}, awarded to users when their most starred message has gotten {required, number} stars.",
   "SUCCESS_CREATE_REWARD_ROLE_2": "Successfully created a reward role {role}, awarded to users when they've reached the starboard {required, number} times.",
   "SUCCESS_CREATE_REWARD_ROLE_3": "Successfully created a reward role {role}, awarded to users when they've gotten {required, number} messages on the Hall of Fame.",
+  "SUCCESS_CREATE_REWARD_ROLE_4": "Successfully created a reward role {role}, awarded to users when they've gotten {required} of the custom stat **{stat}**.",
   "REWARD_ROLE_NOT_FOUND": "That reward role could not be found.",
   "REWARD_ROLE_NOT_FOUND_TYPE": "That type of requirement for that reward role doesn't exist.",
   "SUCCESS_EDIT_REWARD_ROLE": "Successfully changed the requirement for that reward role to {required, number}.",
@@ -256,6 +269,7 @@
   "REWARD_ROLE_DESCRIPTION_REQUIREMENT_1": "get **{required, number}** stars on your most starred message",
   "REWARD_ROLE_DESCRIPTION_REQUIREMENT_2": "reach the starboard **{required, number}** times",
   "REWARD_ROLE_DESCRIPTION_REQUIREMENT_3": "get **{required, number}** messages on the Hall of Fame",
+  "REWARD_ROLE_DESCRIPTION_REQUIREMENT_4": "get **{required, number}** of the custom stat **{stat}**",
   "REWARD_ROLES_PROGRESS": "Reward Roles Progress",
   "REWARD_ROLES_OBTAINED": "Reward Roles Obtained",
   "REWARD_ROLES_PROGRESS_STARS": "{obtained, number}/{required, number} stars",
@@ -264,6 +278,7 @@
   "AUDIT_LOG_ACHIEVEMENT_MOST_STARRED_MESSAGE": "has {stars, number} stars on their most starred message",
   "AUDIT_LOG_ACHIEVEMENT_TIMES_ON_STARBOARD": "has been on the starboard {timesOnStarboard, number} times",
   "AUDIT_LOG_ACHIEVEMENT_TIMES_ON_HALL_OF_FAME": "has been on the Hall of Fame {timesOnHallOfFame, number} times",
+  "AUDIT_LOG_ACHIEVEMENT_CUSTOM": "has achieved a custom stat requirement",
 
   "FILTER_INCLUDE_MATCH_CONFLICT": "A filter cannot check if a message includes text and matches a regex pattern at the same time - those two options are mutually exclusive.",
   "FILTER_NOT_INCLUDE_MATCH_CONFLICT": "A filter cannot check for the inclusion of text and the matching of a regex pattern at the same time - those two options are mutually exclusive.",
@@ -507,10 +522,11 @@
   "USERS_PLACE": "{user}'s Place: {place, select, 0 {Not on the leaderboard.} other {#{place, number}}}",
   "NOTHING_TO_SHOW_PREMIUM": "Nothing to show. (**[Premium Servers]({patreonLink})** can have up to {premiumLimit, number} pages.)",
   "LAST_RESET": "Last Reset:",
-  "CONFIRMATION_LEADERBOARD_RESET_USER": "Are you sure you want to remove all of the leaderboard data for **{username}** ({mention})?\nTheir stats for the server leaderboards will be {keepOldRewardRoles, select, true {reset back to 0, but they won't lose any reward roles and} false {reset back to 0 and they will lose all their reward roles, but}} the {statsUser} command will not be affected for them.",
+  "RECORDING_SINCE": "Recording Since:",
+  "CONFIRMATION_LEADERBOARD_RESET_USER": "Are you sure you want to remove all of the leaderboard data for **{username}** ({mention})?\nTheir stats for the server leaderboards will be {keepOldRewardRoles, select, true {reset back to 0, but they won't lose any reward roles and} false {reset back to 0 and they will lose all their reward roles, but}} the {statsUser} command will not be affected for them. This action is **irreversable** (you cannot manually add stats to users).",
   "SUCCESSFULLY_RESET_LEADERBOARD_USER_KEEP_REWARD_ROLES": "Successfully reset leaderboard stats for **{username}** ({mention}).",
   "SUCCESSFULLY_RESET_LEADERBOARD_USER": "Successfully reset leaderboard stats for **{username}** ({mention}) and removed all their reward roles.",
-  "CONFIRMATION_LEADERBOARD_RESET": "Are you sure you want to reset the server's leaderboard?\nNo reward roles will be removed from users, and the {stats} commands will not be affected. {hasPremium, select, true {} false {This action is **irreversable**. (Due to how slow and intensive restoring is, {modLeaderboardRestore} is limited to **[Premium Servers]({patreonLink})**.)}}",
+  "CONFIRMATION_LEADERBOARD_RESET": "Are you sure you want to reset the server's leaderboard?\nNo reward roles will be removed from users, and the {stats} commands will not be affected. {hasPremium, select, true {Any custom stats erased will **not** be recoverable by {modLeaderboardRestore}.} false {This action is **irreversable**. (Due to how slow and intensive restoring is, {modLeaderboardRestore} is limited to **[Premium Servers]({patreonLink})**.)}}",
   "SUCCESSFULLY_RESET_LEADERBOARD": "Successfully cleared the server's leaderboard, removing {count, number} users from it.",
   "SUCCESSFULLY_ENABLED_AUTO_RESET": "Successfully enabled the auto-reset for the server leaderboard.",
   "LEADERBOARD_AUTO_RESET_EVERY": "The leaderboard will be reset {type, select, days {{days, plural, =1 {every day} other {every # days}}} date {on the {date, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} of every month}}, with the next auto-reset being on {nextReset}.",
@@ -520,7 +536,7 @@
   "SUCCESSFULLY_RESTORE_LEADERBOARD": "Successfully restored {entries, number} leaderboard entries.",
   "LEADERBOARD_CURRENTLY_BEING_RESTORED": "This server's leaderboard is currently being restored.",
   "LEADERBOARD_ALREADY_BEING_RESTORED": "This server's leaderboard is already being restored right now.",
-  "CONFIRMATION_LEADERBOARD_RESTORE": "Just to confirm, are you sure you want to restore the leaderboard using {after, select, null {all starred message data?} other {starred message data of messages starred after {after}? The leaderboard **will first be reset** before being restored.}}\nAlthough the leaderboard doesn't count self stars, the star counts restored by this command *will* include self stars.",
+  "CONFIRMATION_LEADERBOARD_RESTORE": "Just to confirm, are you sure you want to restore the leaderboard using {after, select, null {all starred message data?} other {starred message data of messages starred after {after}? The leaderboard **will first be reset** before being restored.}}\nAlthough the leaderboard doesn't count self stars, the star counts restored by this command *will* include self stars. Also, due to the complexity of custom leaderboards, custom stats will **not** be restored.",
 
   "NO_STARBOARDS_SET": "It seems this server has no starboard channels set.",
   "DEBUG_NO_STARBOARD_FOR_MESSAGE": "This message cannot be starred because there is no starboard set on the server settings.",
@@ -530,6 +546,7 @@
   "MESSAGE_AUTHOR_ROLE_BLACKLISTED": "The user that sent this message has a role that is blacklisted.",
   "DEBUG_STARBOARD_NOT_NSFW": "This message cannot be posted to the starboard {starboard} because the channel is marked as NSFW and the starboard isn't.",
   "DEBUG_FILTER_BOTS": "This message cannot be starred because bots cannot be starred. (**Filter Bots** is enabled)",
+  "DEBUG_SELF_STARS": "You cannot star this message as users are not allowed to star their own messages. (**Self Stars** is disabled)",
   "DEBUG_FAILED_FILTERS": "This message doesn't pass the filters {filters}. Run {filtersTestCommand} for more information.",
   "DEBUG_NOTHING_WRONG": "There seems to be nothing wrong with [this message](<{link}>) and it should be able to get stars as normal. If this message has gotten stars already, try running {modInfoCommand} for more info about the message.",
   "DEBUG": "Debug",
@@ -554,13 +571,49 @@
   "ASC_SUCCESS_FILTER_REMOVE": "Successfully removed {optional, select, true {optional filter **{filter}**} false {**{filter}**}} (position: {position, number}) from auto-star configuration **{autoStarConfig}**.",
   "ASC_SUCCESS_FILTER_MOVE": "Successfully moved **{filter}** from {old, number} to {position, plural, =1 {the start,} other {**{position, number}** (after **{after}**)}} on auto-star configuration **{autoStarConfig}**.",
 
+  "COULD_NOT_PARSE_TOKEN": "Could not parse a valid Discord bot token from your input.",
+  "INVALID_TOKEN_PROVIDED": "An invalid token was provided.",
+  "CUSTOM_BOT_NOT_A_BOT_USER": "The application or user you provided ({app}) is not a bot and can't be used.",
+  "CUSTOM_BOT_NOT_IN_SERVER": "The bot you provided ({bot}) is not in this server. Add the bot to this server and try again.",
+  "CONFIRMATION_SET_CUSTOM_BOT": "Are you sure you want to set the server's custom bot to {bot}? This bot will __only__ be used to post starboard messages, everything else (commands, auto-star, reward roles, etc.) will be handled by me as normal. Your bot's token will be encrypted before it is saved, and will not be visible to anyone (including you).",
+  "SUCCESSFULLY_SET_CUSTOM_BOT": "Successfully set {bot} as the custom bot for the server. {bot} will now be used for posting starboard messages.",
+  "NO_CUSTOM_BOT_SET": "This server has no custom bot set.",
+  "SUCCESSFULLY_UNSET_CUSTOM_BOT": "Successfully unset the custom bot for the server. Starboard messages will now be posted by me as normal.",
+  "CUSTOM_BOT_DESCRIPTION": [
+    "Have a special community bot? Want to follow a server theme or roleplay environment? You can now configure a custom bot to use to post starboard messages, while the magic of Starboard works in the background.\n\n",
+    "Current custom bot: {bot, select, null {not set ({command})} other {{bot}}} {unauthorised, select, true {(warning: no longer a valid token, please reprovide with {command})} false {}}\n\n",
+    "*The custom bot will __only__ be used for posting and editing starboard messages, nothing else. All custom bot tokens are encrypted.*"
+  ],
+
+  "CUSTOM_STAT_NAME_TOO_LONG": "The name you give the custom leaderboard stat has to be less than 32 characters.",
+  "SUCCESSFULLY_CREATED_CUSTOM_STAT": "Successfully created the custom stat {display, select, null {**{stat}**} other {**{stat}** (`{display}`)}} based on {type, select, 0 {the total amount of stars users have} 1 {the total amount of upvotes users have} 2 {the total amount of downvotes users have} 3 {users' most starred message} 4 {the number of times users have reached the starboard}}. Right now, this custom leaderboard stat is not active. To enable it, add it to an override with {addCommand} so this stat is recorded whenever the override is applied.",
+  "CUSTOM_STAT_NOT_FOUND": "There is no existing custom leaderboard stat created under the name **{name}**.",
+  "SUCCESSFULLY_EDITED_CUSTOM_STAT": "Successfully edited the custom stat **{oldName}**:",
+  "CUSTOM_STAT_NOW_NAMED": "This custom leaderboard stat is now named **{name}**.",
+  "CUSTOM_STAT_NOW_DISPLAYED": "This custom leaderboard stat is now displayed as {display, select, null {just the number} other {`{display}`}}.",
+  "CONFIRMATION_DELETE_CUSTOM_STAT": "Are you sure you want to delete **{name}**? This custom leaderboard stat will be removed from wherever it is used, and any reward roles depending on this stat will be deleted as well (but no reward roles will immediately be removed from users). Finally, all recorded information regarding this stat will be wiped. This action is **irreversable**.",
+  "CUSTOM_STAT_ALREADY_ADDED": "**{stat}** is already added as a custom leaderboard stat on **{override}**.",
+  "SUCCESSFULLY_ADDED_CUSTOM_STAT": "Successfully added **{stat}** as a custom leaderboard stat on **{override}**. This stat will now be recorded when this override is applied.",
+  "CUSTOM_STAT_NOT_ADDED": "**{stat}** is not added as a custom leaderboard stat on **{override}**.",
+  "SUCCESSFULLY_REMOVED_CUSTOM_STAT": "Successfully removed the custom leaderboard stat **{stat}** from **{override}**. This stat will no longer be recorded when this override is applied.",
+  "CUSTOM_LEADERBOARDS": "Custom Leaderboards",
+  "CUSTOM_LEADERBOARD_DESCRIPTION": "Custom Leaderboard Stats allow you to create custom leaderboards, based on a subset of leaderboard data. Specific data is recorded based on which overrides are applied, so you can, for example, create a leaderboard based on only messages sent in a specific channel or category.",
+  "CUSTOM_STATS_NO_CUSTOM_STATS": "There are no custom leaderboard stats currently made in this server.",
+  "CUSTOM_STATS_DESCRIPTION_CREATE_CUSTOM_STATS": "To create custom leaderboard stats you can run {command}.",
+  "CUSTOM_STAT_RECORDED_WHEN": "This custom leaderboard stat is recorded when any of the following overrides are applied:",
+  "CUSTOM_STAT_BASED_ON": "This custom stat is based on: **{type}**",
+  "CUSTOM_LEADERBOARD_STAT_TYPE_0": "Total Stars",
+  "CUSTOM_LEADERBOARD_STAT_TYPE_1": "Total Upvotes",
+  "CUSTOM_LEADERBOARD_STAT_TYPE_2": "Total Downvotes",
+  "CUSTOM_LEADERBOARD_STAT_TYPE_3": "Most Starred Message",
+  "CUSTOM_LEADERBOARD_STAT_TYPE_4": "Times On Starboard",
 
   "INVALID_PREMIUM_CODE": "That premium code is not valid or has already been redeemed.",
   "SUCCESSFULLY_REDEEMED_PREMIUM_CODE": "Successfully redeemed a Starboard Premium code `{code}`. This server now has Starboard Premium for {duration}!",
   "PREMIUM_WILL_BE_ACTIVATED": "{type, select, code {This premium code will be activated} pledge {Your premium pledge will come into effect}} when this server's current Starboard Premium runs out.",
-  "NOT_A_PATRON": "You are not currently a patron and have no Starboard Premium to redeem. If you are a patron, make sure you've [connected your Patreon account to your Discord account](https://support.patreon.com/hc/en-us/articles/212052266-Getting-Discord-access).",
+  "NOT_A_PATRON": "You are not currently a patron and have no Starboard Premium to redeem. If you are a patron, make sure you've [connected your Discord account to your Patreon account](https://support.patreon.com/hc/en-us/articles/212052266-Getting-Discord-access).",
+  "PATRON_FOR_A_DIFFERENT_TIER": "Although you are a patron, you cannot redeem Starboard Premium as you are not pledged to the Starboard Premium tier and are pledged to a different tier.",
   "ALREADY_REDEEMED_PREMIUM": "It seems you've already redeemed premium in one of your servers.",
-  "PREMIUM_PENDING": "It seems your Patron payment is currently pending, please try again in a few minutes.",
   "PATRON_PAYMENT_DECLINED": "It seems your Patron payment has declined and you cannot redeem Starboard Premium until that is resolved.",
   "SUCCESSFULLY_REDEEMED_PREMIUM": "Successfully redeemed Starboard Premium for this server!",
   "OLD_PREMIUM_FEATURES_RESTORED": "This server had Starboard Premium before, and had items (overrides, reward roles, emojis, etc.) that exceeded the free limit and got taken away when the premium expired, so I've gone and restored them back.",
@@ -571,20 +624,16 @@
   "TO_GET_STARBOARD_PREMIUM": "To get Starboard Premium for one server of your choice, [become a patron on Patreon]({patreonLink}) on the Starboard Premium tier.",
   "SERVER_HAS_PREMIUM": "This server has Starboard Premium, {type, select, pledge {courtesy of {user} being a patron} code {which will expire {inTimeLeft}}}.",
   "STARBOARD_PREMIUM_INFO_EXTRA": "Starboard Premium allows you to unlock the true potential of Starboard, with many features to offer, such as:",
-  "PREMIUM_FEATURE_EMOJIS": "up to **{premiumLimit, number}** emojis for starring messages (previously {freeLimit, number})",
-  "PREMIUM_FEATURE_DOWNVOTE_EMOJIS": "up to **{premiumLimit, number}** downvote emojis (previously {freeLimit, number})",
-  "PREMIUM_FEATURE_OVERRIDES": "create up to **{premiumLimit, number}** overrides, to fine-tune which settings are applied based on the message's channel and author's roles (previously {freeLimit, number})",
-  "PREMIUM_FEATURE_REWARD_ROLES": "up to **{premiumLimit, number}** reward roles, rewarded to users as they get more stars (previously {freeLimit, number})",
-  "PREMIUM_FEATURE_FILTERS": "up to **{premiumLimit, number}** advanced message filters (previously {freeLimit, number})",
-  "PREMIUM_FEATURE_DISPLAY_TIERS": "personalise up to **{premiumLimit, number}** cosmetic display tiers to make popular starboard messages stand out even more (previously {freeLimit, number})",
-  "PREMIUM_FEATURE_LEADERBOARD_ENTRIES": "view up to **{premiumLimit, number}** entries on the server leaderboards (previously {freeLimit, number})",
-  "PREMIUM_FEATURE_LEADERBOARD_AUTO_RESET": "the ability to create and customise server leaderboard automatic resets (e.g. auto-reset at the start of every month)",
-  "PREMIUM_FEATURE_LEADERBOARD_RESTORE": "the ability to restore the leaderboard (using data from all starred messages recorded)",
-  "PREMIUM_FEATURE_FILE_UPLOADS": "have media up to 100MB in size reuploaded onto starboard messages, instead of being linked (previously {freeMB, number}MB)",
-  "PREMIUM_FEATURE_AUTO_STAR_CONFIGS": "configure up to **{premiumLimit, number}** auto-star configurations (previously {freeLimit, number})",
-  "PREMIUM_FEATURE_AUTO_STAR_CONFIG_EMOJIS_CHANNELS": "set up to **{premiumLimitEmojis, number}** emojis and **{premiumLimitChannels, number}** channels per auto-star configuration (previously {freeLimitEmojis, number} emojis and {freeLimitChannels, number} channels)",
-  "PREMIUM_FEATURE_AUTO_STAR_INCLUDE_THREADS": "the option to include all threads of channels you've enabled auto-starring in",
-  "PREMIUM_FEATURE_OLD_FEATURES": "access to all the old items taken away as a result of the server's last Starboard Premium ending",
+  "PREMIUM_FEATURES_SUMMARY": [
+    "- more starring emojis and downvote emojis\n",
+    "- bigger file uploads\n",
+    "- set a custom bot to use for posting starboard messages\n",
+    "- improved server leaderboard, and custom leaderboards\n",
+    "- better auto-star setups\n",
+    "- raised limits on the number of overrides, reward roles, message filters, cosmetic display tiers, etc."
+  ],
+  "PREMIUM_FEATURE_OLD_FEATURES": "- access to all the old items that were taken away as a result of the server's last Starboard Premium ending",
+  "PREMIUM_FEATURE_VIEW_MORE": "For more precise information on premium features, visit the Patreon page.",
 
   "REACHED_LIMIT_PREMIUM_UPSELL": [
     "This server has reached the maximum amount of {type, select, ",
@@ -593,13 +642,15 @@
     "rewardRoles {reward roles}",
     "displayTiers {display tiers}",
     "autoStarConfigs {auto-star configurations}",
+    "customLeaderboardStats {custom leaderboard stats}",
     "} allowed for one server {premium, select, true {({premiumLimit, number}).} false {({freeLimit, number}). To have {premiumLimit, select, null {as many as you want} other {up to {premiumLimit, number}}}, this server needs to have **[Starboard Premium]({patreonLink})**.}}"
   ],
   "LOCKED_FEATURE_PREMIUM_UPSELL": [
     "{feature, select, ",
     "lbRestore {Due to how slow and intensive it is, restoring the leaderboard}",
     "autoStarIncludeThreads {Automatically auto-starring messages in the threads of listed channels}",
-    "emojiOverridesBeta {Emoji Overrides are an experimental, beta feature and aren't yet available to the public. The use of beta features}",
+    "customBot {Setting a custom bot to use for posting starboard messages}",
+    "customLeaderboards {Creating custom leaderboards}",
     "null {This feature}",
     "} is reserved for servers that have **[Starboard Premium]({patreonLink})**."
   ],
@@ -609,9 +660,10 @@
     "downvoteEmojis {downvote emojis}",
     "autoStarConfigEmojis {emojis on an auto-star configuration}",
     "autoStarConfigChannels {channels on an auto-star configuration}",
-    "} set{premium, select, true { ({premiumLimit, number}).} false {({freeLimit, number}). To have {premiumLimit, select, null {as many as you want} other {up to {premiumLimit, number}}}, this server needs to have **[Starboard Premium]({patreonLink})**.}}"
+    "} set {premium, select, true {({premiumLimit, number}).} false {({freeLimit, number}). To have {premiumLimit, select, null {as many as you want} other {up to {premiumLimit, number}}}, this server needs to have **[Starboard Premium]({patreonLink})**.}}"
   ],
   "GET_STARBOARD_PREMIUM": "Get Starboard Premium",
+  "BECOME_A_PATRON": "Become a Patron",
 
   "LOCKED_FEATURE_VOTE_UPSELL": [
     "In order to {feature, select, ",
@@ -1027,6 +1079,110 @@
       "STATUS": {
         "NAME": "status",
         "DESCRIPTION": "Check the bot's status."
+      }
+    },
+    "CUSTOM_BOT": {
+      "NAME": "custom-bot",
+      "DESCRIPTION": "Configure a custom bot for the server to use for posting starboard messages.",
+      "SET": {
+        "NAME": "set",
+        "DESCRIPTION": "Set the custom bot you want to use for posting starboard messages in this server.",
+        "OPTIONS": {
+          "TOKEN": {
+            "NAME": "token",
+            "DESCRIPTION": "The Discord bot token of the bot you want to use. The token will be encrypted and hidden."
+          }
+        }
+      },
+      "UNSET": {
+        "NAME": "unset",
+        "DESCRIPTION": "Unset the server's custom bot for posting starboard messages."
+      },
+      "VIEW": {
+        "NAME": "view",
+        "DESCRIPTION": "View info about the server's custom bot for posting starboard messages."
+      }
+    },
+    "CUSTOM_LEADERBOARD": {
+      "NAME": "custom-leaderboard",
+      "DESCRIPTION": "Manage custom leaderboards.",
+      "CREATE": {
+        "NAME": "create",
+        "DESCRIPTION": "Create a custom leaderboard stat, recorded when specific overrides are applied.",
+        "OPTIONS": {
+          "NAME": {
+            "NAME": "name",
+            "DESCRIPTION": "The name to give this custom leaderboard stat."
+          },
+          "TYPE": {
+            "NAME": "based-on",
+            "DESCRIPTION": "What this custom leaderboard stat is based on."
+          },
+          "DISPLAY": {
+            "NAME": "display",
+            "DESCRIPTION": "How the stat should be displayed. # represents the number. # stars -> 10 stars."
+          }
+        }
+      },
+      "EDIT": {
+        "NAME": "edit",
+        "DESCRIPTION": "Edit a custom leaderboard stat.",
+        "OPTIONS": {
+          "STAT": {
+            "NAME": "stat",
+            "DESCRIPTION": "The existing custom leaderboard stat you want to edit."
+          },
+          "NAME": {
+            "NAME": "new-name",
+            "DESCRIPTION": "The new name to give this custom leaderboard stat."
+          },
+          "DISPLAY": {
+            "NAME": "display",
+            "DESCRIPTION": "How the stat should now be displayed. # represents the number. # stars -> 10 stars."
+          }
+        }
+      },
+      "DELETE": {
+        "NAME": "delete",
+        "DESCRIPTION": "Delete a custom leaderboard stat.",
+        "OPTIONS": {
+          "STAT": {
+            "NAME": "stat",
+            "DESCRIPTION": "The existing custom leaderboard stat you want to delete."
+          }
+        }
+      },
+      "ADD": {
+        "NAME": "add",
+        "DESCRIPTION": "Add a custom leaderboard stat to an override to start tracking it.",
+        "OPTIONS": {
+          "STAT": {
+            "NAME": "stat",
+            "DESCRIPTION": "The existing custom leaderboard stat you want to add to an override."
+          },
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override you want to enable this custom leaderboard stat on."
+          }
+        }
+      },
+      "REMOVE": {
+        "NAME": "remove",
+        "DESCRIPTION": "Remove a custom leaderboard stat from an override.",
+        "OPTIONS": {
+          "STAT": {
+            "NAME": "stat",
+            "DESCRIPTION": "The custom leaderboard stat you want to remove from an override."
+          },
+          "SETTINGS": {
+            "NAME": "override",
+            "DESCRIPTION": "The override you want to disable and remove this custom leaderboard stat from."
+          }
+        }
+      },
+      "VIEW": {
+        "NAME": "view",
+        "DESCRIPTION": "View all the custom stats for custom leaderboards created in this server."
       }
     },
     "DISPLAYTIERS": {
@@ -1543,6 +1699,24 @@
             "DESCRIPTION": "Jump to a user's position on the leaderboard and highlight them."
           }
         }
+      },
+      "CUSTOM": {
+        "NAME": "custom",
+        "DESCRIPTION": "View a custom leaderboard, of a custom leaderboard stat configured in the server.",
+        "OPTIONS": {
+          "STAT": {
+            "NAME": "stat",
+            "DESCRIPTION": "The custom leaderboard stat you want to view the leaderboard of."
+          },
+          "PAGE": {
+            "NAME": "page",
+            "DESCRIPTION": "The page to jump to."
+          },
+          "USER": {
+            "NAME": "user",
+            "DESCRIPTION": "Jump to a user's position on the leaderboard and highlight them."
+          }
+        }
       }
     },
     "MOD": {
@@ -1761,6 +1935,14 @@
               "NAME": "priority",
               "DESCRIPTION": "High priority overrides will be used before lower priority overrides. (default: 0)"
             },
+            "INHERIT_FILTERS": {
+              "NAME": "inherit-filters",
+              "DESCRIPTION": "Whether or not filters are inherited from server settings or other overrides. (default: yes)"
+            },
+            "INHERIT_BLACKLIST": {
+              "NAME": "inherit-blacklist",
+              "DESCRIPTION": "Whether or not blacklisted/whitelisted items are inherited from other settings. (default: yes)"
+            },
             "CHANNELS": {
               "NAME": "channels",
               "DESCRIPTION": "The channels this override should be applied in."
@@ -1783,6 +1965,14 @@
               "NAME": "priority",
               "DESCRIPTION": "High priority overrides will be used before lower priority overrides. (default: 0)"
             },
+            "INHERIT_FILTERS": {
+              "NAME": "inherit-filters",
+              "DESCRIPTION": "Whether or not filters are inherited from server settings or other overrides. (default: yes)"
+            },
+            "INHERIT_BLACKLIST": {
+              "NAME": "inherit-blacklist",
+              "DESCRIPTION": "Whether or not blacklisted/whitelisted items are inherited from other settings. (default: yes)"
+            },
             "CHANNEL_TYPES": {
               "NAME": "channel-types",
               "DESCRIPTION": "The types of channels this override should be applied in."
@@ -1804,6 +1994,14 @@
             "PRIORITY": {
               "NAME": "priority",
               "DESCRIPTION": "High priority overrides will be used before lower priority overrides. (default: 0)"
+            },
+            "INHERIT_FILTERS": {
+              "NAME": "inherit-filters",
+              "DESCRIPTION": "Whether or not filters are inherited from server settings or other overrides. (default: yes)"
+            },
+            "INHERIT_BLACKLIST": {
+              "NAME": "inherit-blacklist",
+              "DESCRIPTION": "Whether or not blacklisted/whitelisted items are inherited from other settings. (default: yes)"
             },
             "ROLES": {
               "NAME": "roles",
@@ -1830,6 +2028,14 @@
             "PRIORITY": {
               "NAME": "priority",
               "DESCRIPTION": "High priority overrides will be used before lower priority overrides. (default: 0)"
+            },
+            "INHERIT_FILTERS": {
+              "NAME": "inherit-filters",
+              "DESCRIPTION": "Whether or not filters are inherited from server settings or other overrides. (default: yes)"
+            },
+            "INHERIT_BLACKLIST": {
+              "NAME": "inherit-blacklist",
+              "DESCRIPTION": "Whether or not blacklisted/whitelisted items are inherited from other settings. (default: yes)"
             },
             "EMOJIS": {
               "NAME": "emojis",
@@ -1884,6 +2090,14 @@
             "NAME": "priority",
             "DESCRIPTION": "The priority this override should now have."
           },
+          "INHERIT_FILTERS": {
+            "NAME": "inherit-filters",
+            "DESCRIPTION": "Whether or not filters should now be inherited, from server settings or other overrides."
+          },
+          "INHERIT_BLACKLIST": {
+            "NAME": "inherit-blacklist",
+            "DESCRIPTION": "Whether or not blacklisted/whitelisted items should now be inherited from other settings."
+          },
           "SYNC_WITH": {
             "NAME": "inherit-from",
             "DESCRIPTION": "The override that this override should now inherit settings and copy changes from."
@@ -1892,7 +2106,7 @@
       },
       "TEST": {
         "NAME": "test",
-        "DESCRIPTION": "Test settings you've created in a provided context, and the order they're applied to.",
+        "DESCRIPTION": "Test the overrides you've created to see how they're applied in a provided context.",
         "OPTIONS": {
           "CHANNEL": {
             "NAME": "channel",
@@ -1984,7 +2198,7 @@
           },
           "TYPE": {
             "NAME": "type",
-            "DESCRIPTION": "The type of requirement the reward role you want to delete has."
+            "DESCRIPTION": "The type of requirement you want to delete from the reward role."
           }
         }
       },
@@ -2055,7 +2269,7 @@
             },
             "FILTER_BLACKLISTED_USERS": {
               "NAME": "filter-blacklisted-users",
-              "DESCRIPTION": "Filter messages by blacklisted users off the starboard."
+              "DESCRIPTION": "The blacklisted users which should be filtered."
             },
             "REMOVE_INVALID_REACTIONS": {
               "NAME": "remove-invalid-reactions",
@@ -2277,6 +2491,68 @@
       "GLOBAL": {
         "NAME": "global",
         "DESCRIPTION": "View all-time stats about starred messages around the world."
+      }
+    },
+    "USER": {
+      "NAME": "user",
+      "DESCRIPTION": "Customise user settings.",
+      "DISPLAYTIERS": {
+        "NAME": "displaytiers",
+        "DESCRIPTION": "Modify and personalise the list of display tiers for your own starboard messages.",
+        "CREATE": {
+          "NAME": "create",
+          "DESCRIPTION": "Create a cosmetic display tier just for your starboard messages.",
+          "OPTIONS": {
+            "THRESHOLD": {
+              "NAME": "threshold",
+              "DESCRIPTION": "This tier will take effect once your starred message has obtained this number of stars."
+            },
+            "STAR": {
+              "NAME": "star",
+              "DESCRIPTION": "The star your starboard messages should display beside the star count once this tier is reached."
+            },
+            "COLOR": {
+              "NAME": "colour",
+              "DESCRIPTION": "The colour your starboard message embeds should use once this tier is reached."
+            }
+          }
+        },
+        "DELETE": {
+          "NAME": "delete",
+          "DESCRIPTION": "Delete one of your display tiers.",
+          "OPTIONS": {
+            "TIER": {
+              "NAME": "tier",
+              "DESCRIPTION": "The number of the display tier you want to delete."
+            }
+          }
+        },
+        "EDIT": {
+          "NAME": "edit",
+          "DESCRIPTION": "Edit one of your display tiers.",
+          "OPTIONS": {
+            "TIER": {
+              "NAME": "tier",
+              "DESCRIPTION": "The number of the display tier you want to edit."
+            },
+            "THRESHOLD": {
+              "NAME": "threshold",
+              "DESCRIPTION": "This tier should now take effect once your starred message has obtained this number of stars."
+            },
+            "STAR": {
+              "NAME": "star",
+              "DESCRIPTION": "The star your starboard messages should now display beside the star count once this tier is reached."
+            },
+            "COLOR": {
+              "NAME": "colour",
+              "DESCRIPTION": "The colour your starboard message embeds should now use once this tier is reached."
+            }
+          }
+        },
+        "VIEW": {
+          "NAME": "view",
+          "DESCRIPTION": "View all of your display tiers."
+        }
       }
     },
     "WHITELIST": {

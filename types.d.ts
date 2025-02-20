@@ -91,6 +91,7 @@ declare type MessageParameters = {
     notices: string,
   },
   "MISSING_ATTACH_FILES_PERMISSION_NOTICE": {
+    bot: string | null,
     channel: string,
   },
   "MISSING_MANAGE_MESSAGES_PERMISSION_NOTICE": {
@@ -104,6 +105,13 @@ declare type MessageParameters = {
     required: number,
     emojis: string,
   },
+  "PREMIUM_BASED_FILE_SIZE_LIMIT_NOTICE": {
+    limit: number,
+    nitroLimit: number,
+  },
+  "NITRO_BASED_FILE_SIZE_LIMIT_NOTICE": {
+    nitroLimit: number,
+  },
   "UNUSABLE_REACTION_EMOJIS_PROVIDED": {
     emojis: string,
   },
@@ -114,18 +122,23 @@ declare type MessageParameters = {
     setting: string,
   },
   "CANNOT_SEND_MESSAGES_IN_CHANNEL": {
+    bot: string | null,
     channel: string,
   },
   "CANNOT_SEND_EMBEDS_IN_CHANNEL": {
+    bot: string | null,
     channel: string,
   },
   "CANNOT_VIEW_CHANNEL": {
+    bot: string | null,
     channel: string,
   },
   "CANNOT_VIEW_VOICE_CHANNEL": {
+    bot: string | null,
     channel: string,
   },
   "CANNOT_READ_HISTORY_IN_CHANNEL": {
+    bot: string | null,
     channel: string,
   },
   "SUCCESS_EDIT_OVERRIDE": {
@@ -140,6 +153,12 @@ declare type MessageParameters = {
   },
   "OVERRIDE_NOW_INHERITS": {
     name: string,
+  },
+  "OVERRIDE_NOW_INHERITS_FILTERS": {
+    inherits: boolean,
+  },
+  "OVERRIDE_NOW_INHERITS_BLACKLIST": {
+    inherits: boolean,
   },
   "ALREADY_BLACKLISTED": {
     name: string,
@@ -223,6 +242,9 @@ declare type MessageParameters = {
   "DISPLAY_TIERS_DESCRIPTION_CREATE_TIER": {
     command: string,
   },
+  "DISPLAY_TIERS_DESCRIPTION_CREATE_TIER_USER": {
+    command: string,
+  },
   "DISPLAY_TIER_NOT_FOUND": {
     number: number,
     command: string,
@@ -233,6 +255,15 @@ declare type MessageParameters = {
   "SUCCESSFULLY_EDITED_DISPLAY_TIER": {
     old: string,
     tier: string,
+  },
+  "USER_DISPLAY_TIERS_NOT_A_PATRON": {
+    patreonLink: string,
+  },
+  "USER_DISPLAY_TIERS_REACHED_MAX": {
+    premiumLimit: number,
+  },
+  "REWARD_ROLE_CUSTOM_AUTOCOMPLETE": {
+    name: string,
   },
   "SUCCESS_CREATE_REWARD_ROLE_0": {
     role: string,
@@ -249,6 +280,11 @@ declare type MessageParameters = {
   "SUCCESS_CREATE_REWARD_ROLE_3": {
     role: string,
     required: number,
+  },
+  "SUCCESS_CREATE_REWARD_ROLE_4": {
+    role: string,
+    required: string,
+    stat: string,
   },
   "SUCCESS_EDIT_REWARD_ROLE": {
     required: number,
@@ -273,6 +309,10 @@ declare type MessageParameters = {
   },
   "REWARD_ROLE_DESCRIPTION_REQUIREMENT_3": {
     required: number,
+  },
+  "REWARD_ROLE_DESCRIPTION_REQUIREMENT_4": {
+    required: number,
+    stat: string,
   },
   "REWARD_ROLES_PROGRESS_STARS": {
     obtained: number,
@@ -668,6 +708,66 @@ declare type MessageParameters = {
     autoStarConfig: string,
     after: string,
   },
+  "CUSTOM_BOT_NOT_A_BOT_USER": {
+    app: string,
+  },
+  "CUSTOM_BOT_NOT_IN_SERVER": {
+    bot: string,
+  },
+  "CONFIRMATION_SET_CUSTOM_BOT": {
+    bot: string,
+  },
+  "SUCCESSFULLY_SET_CUSTOM_BOT": {
+    bot: string,
+  },
+  "CUSTOM_BOT_DESCRIPTION": {
+    bot: string | null,
+    unauthorised: boolean,
+    command: string,
+  },
+  "SUCCESSFULLY_CREATED_CUSTOM_STAT": {
+    display: string | null,
+    type: number,
+    addCommand: string,
+    stat: string,
+  },
+  "CUSTOM_STAT_NOT_FOUND": {
+    name: string,
+  },
+  "SUCCESSFULLY_EDITED_CUSTOM_STAT": {
+    oldName: string,
+  },
+  "CUSTOM_STAT_NOW_NAMED": {
+    name: string,
+  },
+  "CUSTOM_STAT_NOW_DISPLAYED": {
+    display: string | null,
+  },
+  "CONFIRMATION_DELETE_CUSTOM_STAT": {
+    name: string,
+  },
+  "CUSTOM_STAT_ALREADY_ADDED": {
+    stat: string,
+    override: string,
+  },
+  "SUCCESSFULLY_ADDED_CUSTOM_STAT": {
+    stat: string,
+    override: string,
+  },
+  "CUSTOM_STAT_NOT_ADDED": {
+    stat: string,
+    override: string,
+  },
+  "SUCCESSFULLY_REMOVED_CUSTOM_STAT": {
+    stat: string,
+    override: string,
+  },
+  "CUSTOM_STATS_DESCRIPTION_CREATE_CUSTOM_STATS": {
+    command: string,
+  },
+  "CUSTOM_STAT_BASED_ON": {
+    type: string,
+  },
   "SUCCESSFULLY_REDEEMED_PREMIUM_CODE": {
     code: string,
     duration: string,
@@ -686,56 +786,15 @@ declare type MessageParameters = {
     user: string,
     inTimeLeft: string,
   },
-  "PREMIUM_FEATURE_EMOJIS": {
-    premiumLimit: number,
-    freeLimit: number,
-  },
-  "PREMIUM_FEATURE_DOWNVOTE_EMOJIS": {
-    premiumLimit: number,
-    freeLimit: number,
-  },
-  "PREMIUM_FEATURE_OVERRIDES": {
-    premiumLimit: number,
-    freeLimit: number,
-  },
-  "PREMIUM_FEATURE_REWARD_ROLES": {
-    premiumLimit: number,
-    freeLimit: number,
-  },
-  "PREMIUM_FEATURE_FILTERS": {
-    premiumLimit: number,
-    freeLimit: number,
-  },
-  "PREMIUM_FEATURE_DISPLAY_TIERS": {
-    premiumLimit: number,
-    freeLimit: number,
-  },
-  "PREMIUM_FEATURE_LEADERBOARD_ENTRIES": {
-    premiumLimit: number,
-    freeLimit: number,
-  },
-  "PREMIUM_FEATURE_FILE_UPLOADS": {
-    freeMB: number,
-  },
-  "PREMIUM_FEATURE_AUTO_STAR_CONFIGS": {
-    premiumLimit: number,
-    freeLimit: number,
-  },
-  "PREMIUM_FEATURE_AUTO_STAR_CONFIG_EMOJIS_CHANNELS": {
-    premiumLimitEmojis: number,
-    premiumLimitChannels: number,
-    freeLimitEmojis: number,
-    freeLimitChannels: number,
-  },
   "REACHED_LIMIT_PREMIUM_UPSELL": {
-    type: "autoStarConfigs" | "displayTiers" | "filters" | "overrides" | "rewardRoles",
+    type: "autoStarConfigs" | "customLeaderboardStats" | "displayTiers" | "filters" | "overrides" | "rewardRoles",
     premium: boolean,
     premiumLimit: number | null,
     freeLimit: number,
     patreonLink: string,
   },
   "LOCKED_FEATURE_PREMIUM_UPSELL": {
-    feature: "autoStarIncludeThreads" | "emojiOverridesBeta" | "lbRestore" | null,
+    feature: "autoStarIncludeThreads" | "customBot" | "customLeaderboards" | "lbRestore" | null,
     patreonLink: string,
   },
   "SET_LIMIT_PREMIUM_UPSELL": {

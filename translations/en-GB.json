@@ -1409,7 +1409,7 @@
             },
             "NOT_MATCH_REGEX": {
               "NAME": "not-match-regex",
-              "DESCRIPTION": "For advanced matching, you can provide one regex pattern instead of not-include-text. (e.g. /^http:/)"
+              "DESCRIPTION": "For advanced matching you can provide one regex pattern instead of not-include-text. (e.g. /^http:/)"
             }
           }
         },

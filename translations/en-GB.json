@@ -144,7 +144,7 @@
   "SUCCESSFULLY_BLACKLISTED_USER_OR_ROLE_2": "Messages sent by {type, select, users {this user} roles {users with this role}} will not be able to reach the starboard, but they will still be able to star other messages.",
   "SUCCESSFULLY_BLACKLISTED_USER_OR_ROLE_3": "{type, select, users {They} roles {Users with this role}} will not be able to star messages and their messages will not be able to reach the starboard.",
   "SUCCESSFULLY_BLACKLISTED_THREAD": "Users will no longer be able to star messages sent in this thread.",
-  "SUCCESSFULLY_BLACKLISTED_CHANNEL": "Users will no longer be able to star messages sent in this channel or any of its threads.",
+  "SUCCESSFULLY_BLACKLISTED_CHANNEL": "Users will no longer be able to star messages sent in this channel, or any of its threads.",
   "SUCCESSFULLY_BLACKLISTED_CATEGORY": "Users will no longer be able to star messages sent in any channel under this category, and any threads under this category too.",
   "SUCCESSFULLY_BLACKLISTED_ALL_CHANNELS": "All channels in the server are now blacklisted, users will not be able to star messages anywhere. Whitelist a channel to enable starring there.",
   "NOT_BLACKLISTED": "{name} is not on the blacklist.",

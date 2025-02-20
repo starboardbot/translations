@@ -117,8 +117,8 @@
   "OVERRIDE_NOW_INHERITS_BLACKLIST": "This override {inherits, select, true {now} false {no longer}} inherits blacklists/whitelists from the server settings or other overrides.",
   "VIEW_EXPANDED": "View Expanded",
   "VIEW_COMPILED": "View Compiled",
-  "PLEASE_PROVIDE_CONTEXT_OVERRIDE_TEST": "Please provide a channel, role or emoji to use to test.",
-  "NO_OVERRIDES_APPLIED": "No overrides are appplied when in the provided scenario.",
+  "PLEASE_PROVIDE_CONTEXT_OVERRIDE_TEST": "Please provide a channel, role, or emoji to use to test.",
+  "NO_OVERRIDES_APPLIED": "No overrides are applied when in the provided scenario.",
   "ALREADY_BLACKLISTED": "{name} is already on the blacklist.",
   "MAX_BLACKLISTED_ITEMS_FOR_SERVER": "This server has reached the maximum amount of items on the blacklist.",
   "SUCCESSFULLY_BLACKLISTED": "Successfully added {name} to the blacklist.",
@@ -164,16 +164,16 @@
   "BLACKLIST_DESCRIPTION_USERS_2": "Blacklisted users cannot have their messages on the starboard, but they can still star messages sent by other users.",
   "BLACKLIST_DESCRIPTION_USERS_3": "Blacklisted users cannot star messages and cannot have their messages on the starboard.",
   "BLACKLIST_DESCRIPTION_CHANNELS": "Users cannot star messages that were sent in blacklisted channels.\nIf a channel is blacklisted, the channel's threads will automatically be blacklisted too unless whitelisted. If a category is blacklisted, all the channels in the category will be blacklisted too, including threads.",
-  "BLACKLIST_DESCRIPTION_NOTHING_BLACKLISTED": "Currently there are no users, roles or channels blacklisted.",
-  "BLACKLIST_DESCRIPTION_NOTHING_BLACKLISTED_OVERRIDE": "Currently there are no users, roles or channels blacklisted on this override, but some are inherently blacklisted via server settings or other overrides.",
-  "BLACKLIST_DESCRIPTION_ADD_ITEMS": "To add users, roles or channels to the blacklist, you can run any one of {commands}.",
+  "BLACKLIST_DESCRIPTION_NOTHING_BLACKLISTED": "Currently there are no users, roles, or channels blacklisted.",
+  "BLACKLIST_DESCRIPTION_NOTHING_BLACKLISTED_OVERRIDE": "Currently there are no users, roles, or channels blacklisted on this override, but some are inherently blacklisted via server settings or other overrides.",
+  "BLACKLIST_DESCRIPTION_ADD_ITEMS": "To add users, roles, or channels to the blacklist, you can run any one of {commands}.",
   "NUMBER_OF_BLACKLISTED_ITEMS": "Number of items blacklisted: {num, number}",
   "INHERITS_BLACKLISTED_ITEMS_FROM": "Inherits blacklisted items from {name}",
-  "WHITELIST_DESCRIPTION_USERS": "Whitelisted users are able to star messages and have their messages on the starboard regardless of if they are on the blacklist or have a role on the blacklist.",
+  "WHITELIST_DESCRIPTION_USERS": "Whitelisted users can star messages and have their messages on the starboard regardless of if they are on the blacklist or have a role on the blacklist.",
   "WHITELIST_DESCRIPTION_CHANNELS": "Users can star messages that were sent in whitelisted channels, even if the channel or its parent is on the blacklist.\nIf a channel is whitelisted, the channel's threads will also be whitelisted, and the threads can be individually blacklisted if needed.",
   "WHITELIST_DESCRIPTION_NOTHING_WHITELISTED": "Currently there are no users, roles or channels whitelisted.",
-  "WHITELIST_DESCRIPTION_NOTHING_WHITELISTED_OVERRIDE": "Currently there are no users, roles or channels whitelisted on this override, but some are inherently whitelisted via server settings or other overrides.",
-  "WHITELIST_DESCRIPTION_ADD_ITEMS": "To add users, roles or channels to the whitelist, you can run any one of {commands}.",
+  "WHITELIST_DESCRIPTION_NOTHING_WHITELISTED_OVERRIDE": "Currently there are no users, roles, or channels whitelisted on this override, but some are inherently whitelisted via server settings or other overrides.",
+  "WHITELIST_DESCRIPTION_ADD_ITEMS": "To add users, roles, or channels to the whitelist, you can run any one of {commands}.",
   "NUMBER_OF_WHITELISTED_ITEMS": "Number of items whitelisted: {num, number}",
   "NO_MORE_ITEMS": "No more items.",
   "DISPLAY_TIER_COLOR_ROLE": "Colour of message author's highest role",
@@ -197,7 +197,7 @@
   "DISPLAY_TIERS_DESCRIPTION_CREATE_TIER": "To create a display tier you can run {command}.",
   "DISPLAY_TIERS_DESCRIPTION_CREATE_TIER_USER": "To create a display tier for yourself you can run {command}.",
   "DISPLAY_TIERS_DESCRIPTION_INHERITED": "Since you have no display tiers created specifically for this override, the display tiers are inherited from the server settings or other overrides, and are listed in *italics*.",
-  "DISPLAY_TIERS_DESCRIPTION_UNUSED": "Some display tiers have no effect as their changes are immediately overriden by the next display tier - those tiers are ~~crossed out~~.",
+  "DISPLAY_TIERS_DESCRIPTION_UNUSED": "Some display tiers have no effect as their changes are immediately overridden by the next display tier - those tiers are ~~crossed out~~.",
   "DISPLAY_TIER_UNDELETABLE": "You cannot delete this display tier.",
   "DISPLAY_TIER_UNDELETABLE_OVERRIDE": "You cannot delete this display tier. Delete all other display tiers first, then delete this display tier, to go back to inheriting the display tiers from the server settings or other overrides.",
   "NO_DISPLAY_TIERS_OVERRIDE": "You have no display tiers created specifically for this override.",
@@ -263,10 +263,10 @@
   "RELATIVE_MAX_AGE_TIME": "Newer than {time}",
   "INVALID_DATE_AUTOCOMPLETE": "Invalid Date",
   "INVALID_DATE_AUTOCOMPLETE_EDIT": "No Date (unset)",
-  "INVALID_DATE": "An invalid date was provided. Make sure your using the right format (dd/mm/yyyy for everyone, mm/dd/yyyy if you live in the US).",
+  "INVALID_DATE": "An invalid date was provided. Make sure you're using the right format (dd/mm/yyyy for everyone, mm/dd/yyyy if you live in the US).",
   "INVALID_AGE_AUTOCOMPLETE": "Invalid Age",
   "INVALID_AGE_AUTOCOMPLETE_EDIT": "No Age (unset)",
-  "INVALID_AGE": "An invalid age was provided. You can provide your age in seconds, minutes, hours, days, weeks, months (30d) and years. (example: `1 day 12 hours`)",
+  "INVALID_AGE": "An invalid age was provided. You can provide your age in seconds, minutes, hours, days, weeks, months (30d), and years. (example: `1 day 12 hours`)",
   "PLEASE_INPUT_FILTER_OPTIONS": "Please input some options for this filter.",
   "CANNOT_HAVE_EMPTY_FILTER": "A message filter can't exist without any options.",
   "SUCCESS_CREATE_FILTER": "Successfully created a message filter **{name}** based on the message's {type, select, 0 {content (and embed content)} 1 {attachments, links and embeds} other {age}}, which applies to {appliesTo, plural, =0 {everyone} =1 {1 user/role} other {# users/roles}} and does not apply to {doesNotApplyTo, plural, =1 {1 user/role} other {# users/roles}}.",
@@ -286,7 +286,7 @@
   "DELETED_FILTER_INBETWEEN_OPTIONALS": "Deleted Filter (this was kept here due to being surrounded by optional filters)",
   "FILTERS_DESCRIPTION_ALL_CREATED": [
     "These are all the message filters created in this server. To enable them you have to add them to the settings with {filtersAdd}.\n",
-    "When adding filters, if two or more filters beside eachother are marked as optional it means only one of them have to pass for them all to pass. For example, A, B, C, D, with B & C both optional means A must pass, B *or* C must pass, and D must pass, to allow the message to be starred."
+    "When adding filters, if two or more filters beside each other are marked as optional it means only one of them has to pass for them all to pass. For example, A, B, C, D, with B & C both optional means A must pass, B *or* C must pass, and D must pass, to allow the message to be starred."
   ],
   "FILTERS_DESCRIPTION_NO_FILTERS_CREATED": "There are no message filters currently created in this server. To create one, run any one of {filtersCreate}.",
   "VIEW_ALL_CREATED_FILTERS": "View all created filters with {command}.",
@@ -367,7 +367,7 @@
   "SYSTEM": "System",
   "STAT_CPU_USAGE": "**CPU Usage**: {cpuUsage, number, ::percent}",
   "STAT_MEMORY_USAGE": "**Memory Usage**: {memoryUsage}",
-  "STARRED_MESSAGE_NOT_FOUND": "I could not resolve a starred message from your input. The message you're referring to probably hasn't gotten any stars yet.\nIf it has gotten stars before, try re-reacting on the message with a star so I can notice it, while ensuring the message is in a channel I can see.",
+  "STARRED_MESSAGE_NOT_FOUND": "I could not resolve a starred message from your input. The message you're referring to probably hasn't gotten any stars yet.\nIf it has gotten stars before, try re-reacting to the message with a star so I can notice it, while ensuring the message is in a channel I can see.",
   "ALREADY_FROZEN": "This starred message is already frozen.",
   "SUCCESSFULLY_FROZE_MESSAGE": "Successfully froze that starred message. No stars can be added or removed from the message anymore, and the starboard message will no longer be updated.",
   "NOT_ALREADY_FROZEN": "This starred message is not frozen.",
@@ -513,7 +513,7 @@
   "ASC_EDIT_CHANNELS": "this auto-star configuration is now active for {includeThreads, select, true {{channels, plural, =1 {1 channel and its threads} other {# channels and their threads}}} false {{channels, plural, =1 {1 channel} other {# channels}}}}",
   "ASC_EDIT_DELETE_INVALID_MESSAGES": "invalid messages (from blacklisted users or that don't pass filters) will {value, select, true {now} false {no longer}} be deleted",
   "AUTO_STAR_CONFIG_NOT_FOUND": "There is no existing auto-star configuration created under the name **{name}**.",
-  "CONFIRMATION_DELETE_AUTO_STAR_CONFIG": "Are you sure you want to delete **{name}**? No other settings, overrides or filters will be affected.",
+  "CONFIRMATION_DELETE_AUTO_STAR_CONFIG": "Are you sure you want to delete **{name}**? No other settings, overrides, or filters will be affected.",
   "NO_AUTO_STAR_CONFIGS": "There are no auto-star configurations set up in this server.",
   "AUTO_STAR_CONFIG_ACTIVE_IN": "This auto-star configuration is active in {includeThreads, select, true {{numChannels, plural, =1 {{channels} and its threads} other {{channels} and their threads}}} false {{channels}}}.",
   "DELETE_INVALID_MESSAGES": "Delete Invalid Messages",
@@ -568,9 +568,9 @@
   "ALREADY_REDEEMED_PREMIUM": "It seems you've already redeemed premium in one of your servers.",
   "PATRON_PAYMENT_DECLINED": "It seems your Patron payment has declined and you cannot redeem Starboard Premium until that is resolved.",
   "SUCCESSFULLY_REDEEMED_PREMIUM": "Successfully redeemed Starboard Premium for this server!",
-  "OLD_PREMIUM_FEATURES_RESTORED": "This server had Starboard Premium before, and had items (overrides, reward roles, emojis etc.) that exceeded the free limit and got taken away when the premium expired, so I've gone and restored them back.",
+  "OLD_PREMIUM_FEATURES_RESTORED": "This server had Starboard Premium before, and had items (overrides, reward roles, emojis, etc.) that exceeded the free limit and got taken away when the premium expired, so I've gone and restored them back.",
   "STARBOARD_PREMIUM": "Starboard Premium",
-  "STARBOARD_PREMIUM_INFO_BASIC": "Starboard Premium is a great way to show your support to the development of Starboard. In return, you can unlock the true potential of Starboard.",
+  "STARBOARD_PREMIUM_INFO_BASIC": "Starboard Premium is a great way to show your support for the development of Starboard. In return, you can unlock the true potential of Starboard.",
   "PREMIUM_FEATURES_SAVED_FOR_YOU": "When the server's current Starboard Premium ends, any items (overrides, reward roles, etc.) that exceed the free limit will be saved and will be waiting for you when you decide to get Starboard Premium again.",
   "TO_REDEEM_STARBOARD_PREMIUM": "To redeem Starboard premium for a server of your choice, simply run {premiumRedeem} in that server.",
   "TO_GET_STARBOARD_PREMIUM": "To get Starboard Premium for one server of your choice, [become a patron on Patreon]({patreonLink}) on the Starboard Premium tier.",
@@ -584,7 +584,7 @@
     "- better auto-star setups\n",
     "- raised limits on the number of overrides, reward roles, message filters, cosmetic display tiers, etc."
   ],
-  "PREMIUM_FEATURE_OLD_FEATURES": "- access to all the old items taken away as a result of the server's last Starboard Premium ending",
+  "PREMIUM_FEATURE_OLD_FEATURES": "- access to all the old items that were taken away as a result of the server's last Starboard Premium ending",
   "PREMIUM_FEATURE_VIEW_MORE": "For more precise information on premium features, visit the Patreon page.",
   "REACHED_LIMIT_PREMIUM_UPSELL": [
     "This server has reached the maximum amount of {type, select, ",
@@ -618,7 +618,7 @@
   "LOCKED_FEATURE_VOTE_UPSELL": [
     "In order to {feature, select, ",
     "emojis {change the emojis used to star messages}",
-    "}, you need to **[vote for the bot]({voteLink})**. Once you have voted, you have to wait a few minutes for me to recieve your vote. You only have to vote once."
+    "}, you need to **[vote for the bot]({voteLink})**. Once you have voted, you have to wait a few minutes for me to receive your vote. You only have to vote once."
   ],
   "VOTE_TOPGG": "Vote on top.gg",
   "HELP_TITLE": "Starboard",
@@ -632,7 +632,7 @@
   ],
   "HELP_SUPPORT_THE_BOT_TITLE": "Support The Bot",
   "HELP_SUPPORT_THE_BOT": [
-    "If you're enjoying Starboard in your server, make sure to [vote for the bot]({voteLink}) and [leave a review]({reviewLink}) on top.gg!\n",
+    "If you're enjoying Starboard in your server, make sure to [vote for the bot]({voteLink}) and [leave a review]({reviewLink}) on Top.gg!\n",
     "Becoming a patron on [Patreon]({patreonLink}) also helps tremendously, and you also unlock cool features in return - {premiumInfoCommand}."
   ],
   "SUPPORT_SERVER": "Support Server",
@@ -857,7 +857,7 @@
             },
             "OPTIONAL": {
               "NAME": "optional",
-              "DESCRIPTION": "When 2 or more optional filters are beside eachother, only one has to pass for them all to pass."
+              "DESCRIPTION": "When 2 or more optional filters are beside each other, only one has to pass for them all to pass."
             }
           }
         },
@@ -886,7 +886,7 @@
       "DESCRIPTION": "View info about blacklisted users, roles, and channels, or modify the blacklist.",
       "ADD": {
         "NAME": "add",
-        "DESCRIPTION": "Add a user, role or channel to the blacklist.",
+        "DESCRIPTION": "Add a user, role, or channel to the blacklist.",
         "USER": {
           "NAME": "user",
           "DESCRIPTION": "Add a user to the blacklist.",
@@ -932,7 +932,7 @@
       },
       "REMOVE": {
         "NAME": "remove",
-        "DESCRIPTION": "Remove a user, role or channel from the blacklist.",
+        "DESCRIPTION": "Remove a user, role, or channel from the blacklist.",
         "USER": {
           "NAME": "user",
           "DESCRIPTION": "Remove a user from the blacklist.",
@@ -977,7 +977,7 @@
         },
         "ID": {
           "NAME": "id",
-          "DESCRIPTION": "Remove any ID, perhaps of a deleted channel, role or user, from the blacklist.",
+          "DESCRIPTION": "Remove any ID, perhaps of a deleted channel, role, or user, from the blacklist.",
           "OPTIONS": {
             "SETTINGS": {
               "NAME": "override",
@@ -992,7 +992,7 @@
       },
       "CLEAR": {
         "NAME": "clear",
-        "DESCRIPTION": "Remove all users/roles/channel from the blacklist.",
+        "DESCRIPTION": "Remove all users/roles/channels from the blacklist.",
         "OPTIONS": {
           "SETTINGS": {
             "NAME": "override",
@@ -1228,7 +1228,7 @@
           },
           "OPTIONAL": {
             "NAME": "optional",
-            "DESCRIPTION": "When 2 or more optional filters are beside eachother, only one has to pass for them all to pass."
+            "DESCRIPTION": "When 2 or more optional filters are beside each other, only one has to pass for them all to pass."
           }
         }
       },
@@ -1471,7 +1471,7 @@
         },
         "ATTACHMENTS": {
           "NAME": "attachments",
-          "DESCRIPTION": "Create a filter that filters messages based on the attachments, files and urls in the message.",
+          "DESCRIPTION": "Create a filter that filters messages based on the attachments, files, and URLs in the message.",
           "OPTIONS": {
             "NAME": {
               "NAME": "name",
@@ -1517,7 +1517,7 @@
         },
         "AGE": {
           "NAME": "age",
-          "DESCRIPTION": "Create a filter that filters messages based on the age of the message at the time of starring it.",
+          "DESCRIPTION": "Create a filter that filters messages based on the age of the message at the time it was starred.",
           "OPTIONS": {
             "NAME": {
               "NAME": "name",
@@ -1543,7 +1543,7 @@
         },
         "DATE": {
           "NAME": "date",
-          "DESCRIPTION": "Create a filter that filters messages based on the date the message was sent on.",
+          "DESCRIPTION": "Create a filter that filters messages based on the date the message was sent.",
           "OPTIONS": {
             "NAME": {
               "NAME": "name",
@@ -1680,7 +1680,7 @@
       },
       "RECOUNT": {
         "NAME": "recount",
-        "DESCRIPTION": "Recount a starred message's stars, if the current number seem to be inaccurate.",
+        "DESCRIPTION": "Recount a starred message's stars, if the current number seems to be inaccurate.",
         "OPTIONS": {
           "STARRED_MESSAGE": {
             "NAME": "starred-message",
@@ -1811,7 +1811,7 @@
           "OPTIONS": {
             "USER": {
               "NAME": "user",
-              "DESCRIPTION": "The user who's leaderboard data you want to reset."
+              "DESCRIPTION": "The user whose leaderboard data you want to reset."
             }
           }
         },
@@ -1927,7 +1927,7 @@
         },
         "ROLE": {
           "NAME": "role",
-          "DESCRIPTION": "Create a role override that get applied when the message author has specific roles.",
+          "DESCRIPTION": "Create a role override that gets applied when the message author has specific roles.",
           "OPTIONS": {
             "NAME": {
               "NAME": "name",
@@ -2068,7 +2068,7 @@
           },
           "MESSAGE": {
             "NAME": "message",
-            "DESCRIPTION": "Instead of channel and roles, provide a message to use it's channel and author roles."
+            "DESCRIPTION": "Instead of channel and roles, provide a message to use its channel and author roles."
           }
         }
       }
@@ -2158,7 +2158,7 @@
       "DESCRIPTION": "Personal reward role information.",
       "PROGRESS": {
         "NAME": "progress",
-        "DESCRIPTION": "View your progress in relation to getting reward roles."
+        "DESCRIPTION": "View your progress towards getting reward roles."
       }
     },
     "SETTINGS": {
@@ -2257,7 +2257,7 @@
             },
             "REUPLOAD_ATTACHMENTS": {
               "NAME": "reupload-attachments",
-              "DESCRIPTION": "Reupload videos and files with the starboard message, instead of just appending as links."
+              "DESCRIPTION": "Reupload videos and files with the starboard message, instead of just appending them as links."
             },
             "MENTION_AUTHOR": {
               "NAME": "mention-author",
@@ -2506,7 +2506,7 @@
       "DESCRIPTION": "View info about whitelisted items. Whitelisted items aren't affected by the blacklist.",
       "ADD": {
         "NAME": "add",
-        "DESCRIPTION": "Add a user, role or channel to the whitelist.",
+        "DESCRIPTION": "Add a user, role, or channel to the whitelist.",
         "USER": {
           "NAME": "user",
           "DESCRIPTION": "Add a user to the whitelist.",
@@ -2552,7 +2552,7 @@
       },
       "REMOVE": {
         "NAME": "remove",
-        "DESCRIPTION": "Remove a user, role or channel from the whitelist.",
+        "DESCRIPTION": "Remove a user, role, or channel from the whitelist.",
         "USER": {
           "NAME": "user",
           "DESCRIPTION": "Remove a user from the whitelist.",
@@ -2597,7 +2597,7 @@
         },
         "ID": {
           "NAME": "id",
-          "DESCRIPTION": "Remove any ID, perhaps of a deleted channel, role or user, from the whitelist.",
+          "DESCRIPTION": "Remove any ID, perhaps of a deleted channel, role, or user, from the whitelist.",
           "OPTIONS": {
             "SETTINGS": {
               "NAME": "override",
@@ -2612,7 +2612,7 @@
       },
       "CLEAR": {
         "NAME": "clear",
-        "DESCRIPTION": "Remove all users/roles/channel from the whitelist.",
+        "DESCRIPTION": "Remove all users/roles/channels from the whitelist.",
         "OPTIONS": {
           "SETTINGS": {
             "NAME": "override",
@@ -2626,7 +2626,7 @@
       },
       "VIEW": {
         "NAME": "view",
-        "DESCRIPTION": "View the list of whitelisted users, roles and channels.",
+        "DESCRIPTION": "View the list of whitelisted users, roles, and channels.",
         "OPTIONS": {
           "SETTINGS": {
             "NAME": "override",

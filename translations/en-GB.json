@@ -563,7 +563,7 @@
   "PREMIUM_PENDING": "It seems your Patron payment is currently pending, please try again in a few minutes.",
   "PATRON_PAYMENT_DECLINED": "It seems your Patron payment has declined and you cannot redeem Starboard Premium until that is resolved.",
   "SUCCESSFULLY_REDEEMED_PREMIUM": "Successfully redeemed Starboard Premium for this server!",
-  "OLD_PREMIUM_FEATURES_RESTORED": "This server had Starboard Premium before, and had items (overrides, reward roles, emojis, etc.) that exceeded the free limit and were removed when the premium expired, so I've gone and restored them back.",
+  "OLD_PREMIUM_FEATURES_RESTORED": "This server had Starboard Premium before, and had items (overrides, reward roles, emojis, etc.) that exceeded the free limit and got taken away when the premium expired, so I've gone and restored them back.",
   "STARBOARD_PREMIUM": "Starboard Premium",
   "STARBOARD_PREMIUM_INFO_BASIC": "Starboard Premium is a great way to show your support for the development of Starboard. In return, you can unlock the true potential of Starboard.",
   "PREMIUM_FEATURES_SAVED_FOR_YOU": "When the server's current Starboard Premium ends, any items (overrides, reward roles, etc.) that exceed the free limit will be saved and will be waiting for you when you decide to get Starboard Premium again.",

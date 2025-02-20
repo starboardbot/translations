@@ -285,7 +285,7 @@
   "PLEASE_INPUT_FILTER_OPTIONS": "Please input some options for this filter.",
   "CANNOT_HAVE_EMPTY_FILTER": "A message filter can't exist without any options.",
   "SUCCESS_CREATE_FILTER": "Successfully created a message filter **{name}** based on the message's {type, select, 0 {content (and embed content)} 1 {attachments, links and embeds} other {age}}, which applies to {appliesTo, plural, =0 {everyone} =1 {1 user/role} other {# users/roles}} and does not apply to {doesNotApplyTo, plural, =1 {1 user/role} other {# users/roles}}.",
-  "TO_ADD_FILTER": "To enable this filter for messages across the whole server, run {filtersAdd}. If you want this filter to only apply to a set of channels, try creating a channel override with {overridesCreateChannel} and then add this filter to the newly created override with {filtersAdd}.",
+  "TO_ADD_FILTER": "To enable this filter for messages across the whole server, run {filtersAdd}. If you want this filter to only apply for a set of channels, try creating a channel override with {overridesCreateChannel} and then add this filter to the newly created override with {filtersAdd}.",
   "TO_ADD_FILTER_OVERRIDE": "To enable this filter you can add it to the list of filters on the server settings to enable it server-wide, or add it to an override to have this filter enabled whenever the override is applied. You can add the filter with {filtersAdd}.",
   "SUCCESS_EDIT_FILTER": "Successfully edited the message {type, select, 0 {content} 1 {attachments} 2 {age} 3 {date}} filter **{name}**:\n{changes}",
   "FILTER_NOW_NAMED": "This filter is now named **{name}**.",

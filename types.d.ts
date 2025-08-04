@@ -611,12 +611,20 @@ declare type MessageParameters = {
     keepOldRewardRoles: boolean,
     statsUser: string,
   },
+  "CONFIRMATION_LEADERBOARD_RESET_ID": {
+    id: string,
+    mention: string,
+  },
   "SUCCESSFULLY_RESET_LEADERBOARD_USER_KEEP_REWARD_ROLES": {
     username: string,
     mention: string,
   },
   "SUCCESSFULLY_RESET_LEADERBOARD_USER": {
     username: string,
+    mention: string,
+  },
+  "SUCCESSFULLY_RESET_LEADERBOARD_ID": {
+    id: string,
     mention: string,
   },
   "CONFIRMATION_LEADERBOARD_RESET": {

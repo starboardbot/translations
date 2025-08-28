@@ -1871,6 +1871,16 @@
             }
           }
         },
+        "RESET_ID": {
+          "NAME": "reset-id",
+          "DESCRIPTION": "Use the ID of a webhook or deleted user to remove their data from the leaderboard.",
+          "OPTIONS": {
+            "ID": {
+              "NAME": "id",
+              "DESCRIPTION": "The ID of the webhook/deleted user whose leaderboard data you want to reset."
+            }
+          }
+        },
         "RESET": {
           "NAME": "reset",
           "DESCRIPTION": "Reset the entire server leaderboard, removing all users from it."

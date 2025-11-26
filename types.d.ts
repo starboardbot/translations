@@ -783,6 +783,14 @@ declare type MessageParameters = {
   "PREMIUM_WILL_BE_ACTIVATED": {
     type: "code" | "pledge",
   },
+  "ASK_TO_MOVE_PREMIUM": {
+    guild: string | null,
+    guildID: string,
+  },
+  "MOVE_PREMIUM_MOVE_SUCCESS": {
+    guild: string | null,
+    guildID: string,
+  },
   "TO_REDEEM_STARBOARD_PREMIUM": {
     premiumRedeem: string,
   },

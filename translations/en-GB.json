@@ -395,7 +395,7 @@
   "BOT": "Bot",
   "STAT_SERVERS": "**Servers**: {servers, number}",
   "STAT_USERS": "**Users**: {users, number}",
-  "STAT_COMMANDS_RAN": "**Commands Ran**: {commandsRan, number}",
+  "STAT_COMMANDS_RAN": "**Commands Run**: {commandsRan, number}",
   "CACHE": "Cache",
   "STAT_CACHED_USERS": "**Cached Users**: {cachedUsers, number}",
   "STAT_CACHED_MEMBERS": "**Cached Members**: {cachedMembers, number}",

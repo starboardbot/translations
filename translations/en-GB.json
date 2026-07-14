@@ -55,7 +55,7 @@
   "VIEW_SETTINGS": "View Settings",
   "OVERRIDE_NOT_FOUND": "There is no existing override created under the name **{name}**.",
 
-  "PLEASE_PROVIDE_VALID_LIST_CHANNELS": "Please provide a valid list of channels.",
+  "PLEASE_PROVIDE_VALID_LIST_CHANNELS": "Please provide a valid list of channels, by mentioning each channel, not just providing their names.",
   "PLEASE_PROVIDE_VALID_LIST_ROLES": "Please provide a valid list of roles.",
   "PLEASE_PROVIDE_VALID_LIST_EMOJIS": "Please provide a valid list of emojis.",
 
@@ -363,6 +363,7 @@
     "- I can't view the channel, due to missing the `Read Message History` or `View Channel` permissions, or the `Connect` permission in voice/stage channels.\n",
     "- The message is in another server.\n",
     "- The channel or message does not exist or has been deleted.\n",
+    "- Only a message ID was provided, but the message is in a channel other than this one. (I won't be able to know which channel it's in.)\n",
     "- A valid message link or message ID was not provided."
   ],
   "PASSES_FILTER": "Passes **{filter}**: {result}",

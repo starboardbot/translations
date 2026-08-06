@@ -518,6 +518,20 @@ declare type MessageParameters = {
     uptime: string,
     lastRestart: string,
   },
+  "YOUR_SERVER_SHARD_INFO": {
+    shard: number,
+    latency: string,
+    cluster: number,
+  },
+  "CLUSTER_SUMMARY": {
+    cluster: number,
+    shardsOnline: number | null,
+    shardsTotal: number,
+  },
+  "CLUSTER_PING_SUMMARY": {
+    avgPing: string,
+    maxPing: string,
+  },
   "STAT_SERVERS": {
     servers: number,
   },

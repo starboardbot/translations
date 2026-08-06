@@ -138,6 +138,7 @@
 
   "VIEW_EXPANDED": "View Expanded",
   "VIEW_COMPILED": "View Compiled",
+  "VIEW_SUMMARISED": "View Summarised",
   "PLEASE_PROVIDE_CONTEXT_OVERRIDE_TEST": "Please provide a channel, role, or emoji to use to test.",
   "NO_OVERRIDES_APPLIED": "No overrides are applied when in the provided scenario.",
 
@@ -391,6 +392,9 @@
   "STATUS_ORANGE": "🟠 Still logging in...",
   "STATUS_RED": "🔴 Some shards are offline",
   "UPTIME": "**Uptime**: {uptime} (last restart: {lastRestart})",
+  "YOUR_SERVER_SHARD_INFO": "**Your Server**: Shard {shard, number} (latency: {latency}) on Cluster {cluster, number}",
+  "CLUSTER_SUMMARY": "**Cluster {cluster, number}**: {shardsOnline, select, null {} other {{shardsOnline, number}/}}{shardsTotal, plural, =1 {# shard} other {# shards}}",
+  "CLUSTER_PING_SUMMARY": "(avg ping: {avgPing}, max ping: {maxPing})",
 
   "BOT_STATS": "Bot Stats",
   "BOT": "Bot",

@@ -59,6 +59,13 @@ declare type MessageParameters = {
     setting: string,
     name: string | null,
   },
+  "SETTINGS_EDIT_REMINDER": {
+    settingsEdit: string,
+  },
+  "ENTER_NUMBER_BETWEEN": {
+    min: number,
+    max: number,
+  },
   "INHERITS_SETTINGS_FROM": {
     name: string,
   },
@@ -226,11 +233,25 @@ declare type MessageParameters = {
   "INHERITS_BLACKLISTED_ITEMS_FROM": {
     name: string,
   },
+  "INHERITS_N_BLACKLISTED_ITEMS_FROM": {
+    number: number,
+    name: string,
+  },
+  "INHERITS_N_WHITELISTED_ITEMS_FROM": {
+    number: number,
+    name: string,
+  },
   "WHITELIST_DESCRIPTION_ADD_ITEMS": {
     commands: string,
   },
   "NUMBER_OF_WHITELISTED_ITEMS": {
     num: number,
+  },
+  "BLACKLIST_REMINDER": {
+    blacklistView: string,
+  },
+  "WHITELIST_REMINDER": {
+    whitelistView: string,
   },
   "DISPLAY_TIER_FROM": {
     style: string,
@@ -261,6 +282,13 @@ declare type MessageParameters = {
   },
   "USER_DISPLAY_TIERS_REACHED_MAX": {
     premiumLimit: number,
+  },
+  "INHERITS_N_DISPLAY_TIERS_FROM": {
+    number: number,
+    name: string,
+  },
+  "DISPLAY_TIERS_REMINDER": {
+    displayTiersView: string,
   },
   "REWARD_ROLE_CUSTOM_AUTOCOMPLETE": {
     name: string,
@@ -370,7 +398,7 @@ declare type MessageParameters = {
     doesNotApplyTo: number,
   },
   "FILTERS_DESCRIPTION": {
-    settingsEditFiltering: string,
+    settingsEditFiltering: string | null,
   },
   "FILTER_OR": {
     a: string,
@@ -482,6 +510,23 @@ declare type MessageParameters = {
     position: number,
     override: string | null,
     after: string,
+  },
+  "FILTERS_REMINDER": {
+    filtersView: string,
+  },
+  "NUMBER_OF_FILTERS_ENABLED": {
+    num: number,
+  },
+  "INHERITS_N_FILTERS_FROM": {
+    number: number,
+    name: string,
+  },
+  "INTERACTIVE_FILTER_COMMAND_REDIRECT": {
+    type: "add" | "create" | "delete" | "edit",
+    command: string,
+  },
+  "CHANGES_MADE_COUNT": {
+    count: number,
   },
   "PASSES_FILTER": {
     filter: string,

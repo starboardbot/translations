@@ -21,6 +21,9 @@
   "RETRY": "Retry",
   "DISABLE": "Disable",
   "RESTORE": "Restore",
+  "EDIT": "Edit",
+  "REMOVE": "Remove",
+  "DONE": "Done",
 
   "NONE": "None",
   "NOT_SET": "Not set",
@@ -49,6 +52,7 @@
   "ARE_YOU_SURE": "Are you sure?",
   "ARE_YOU_SURE_PROMPT": "Are you sure you want to perform this action?",
   "ARE_YOU_SURE_PROMPT_DESTRUCTIVE": "Are you sure you want to perform this action? This action cannot be reversed.",
+  "CANCELLED": "Cancelled.",
 
   "SERVER_SETTINGS": "Server Settings",
   "SETTINGS_TITLE": "Settings",
@@ -88,9 +92,17 @@
   "SUCCESS_RESET_SETTING": "Successfully reset **{setting}** on {name, select, null {the server settings} other {**{name}**}}.",
 
   "MAIN_SETTINGS": "Main Settings",
+  "MAIN_SETTINGS_DESCRIPTION": "These settings are the primary settings for getting the bot up and running in your server. If you want to control the appearance of starboard messages or simple filtering of reactions, visit the other categories.",
   "FILTERING_SETTINGS": "Filtering",
+  "FILTERING_SETTINGS_DESCRIPTION": "These settings allow you to add simple filtering to reactions, providing basic control over which messages can be starred. For more advanced filtering, take a look at **Message Filters**.",
   "APPEARANCE_SETTINGS": "Appearance",
+  "APPEARANCE_SETTINGS_DESCRIPTION": "These settings control the appearance of starboard messages, more specifically the content shown on starboard messages. To control the cosmetics of the message, such as the star or the colour, take a look at **Display Tiers**.",
   "MISCELLANEOUS_SETTINGS": "Miscellaneous Settings",
+  "MISCELLANEOUS_SETTINGS_DESCRIPTION": "These miscellaneous settings don't fall under the other categories, but they are still useful and you may want to have a look at them.",
+  "SETTINGS_EDIT_REMINDER": "Also, you are still able to edit these settings all at once using {settingsEdit}.",
+  "GREYED_SETTINGS_INHERITED": "Some settings are greyed out as they are not set on this override specifically, and are inherited from:",
+  "MODAL_EDIT_SETTING": "Edit Setting",
+  "ENTER_NUMBER_BETWEEN": "Enter a number between {min, number} and {max, number}.",
 
   "INHERITS_SETTINGS_FROM": "Inherits from {name}",
   "OVERRIDE_APPLY_CHANNELS": "This override applies to messages in {other, plural, =0 {{channels}} =1 {{channels} and 1 other channel} other {{channels} and # other channels}}.",
@@ -98,7 +110,6 @@
   "OVERRIDE_APPLY_ROLES": "This override applies to messages where the author has {other, plural, =0 {{roles}} =1 {{roles} and 1 other role} other {{roles} and # other roles}}{channels, select, null {} other { in {channels}}}.",
   "OVERRIDE_APPLY_EMOJIS": "This override applies when reacting with {emojis}{channels, select, null {} other { in {channels}}}.",
 
-  "APPLIES_TO": "Applies to",
   "CHANNELS": "Channels",
   "IN_CHANNELS": "In Channels",
   "CHANNEL_TYPE": "Channel Type",
@@ -201,6 +212,8 @@
   "NUMBER_OF_BLACKLISTED_ITEMS": "Number of items blacklisted: {num, number}",
 
   "INHERITS_BLACKLISTED_ITEMS_FROM": "Inherits blacklisted items from {name}",
+  "INHERITS_N_BLACKLISTED_ITEMS_FROM": "Inherits {number, number} blacklisted items from {name}",
+  "INHERITS_N_WHITELISTED_ITEMS_FROM": "Inherits {number, number} whitelisted items from {name}",
   "WHITELIST_DESCRIPTION_USERS": "Whitelisted users can star messages and have their messages on the starboard regardless of if they are on the blacklist or have a role on the blacklist.",
   "WHITELIST_DESCRIPTION_CHANNELS": "Users can star messages that were sent in whitelisted channels, even if the channel or its parent is on the blacklist.\nIf a channel is whitelisted, the channel's threads will also be whitelisted, and the threads can be individually blacklisted if needed.",
   "WHITELIST_DESCRIPTION_NOTHING_WHITELISTED": "Currently there are no users, roles or channels whitelisted.",
@@ -208,6 +221,18 @@
   "WHITELIST_DESCRIPTION_ADD_ITEMS": "To add users, roles, or channels to the whitelist, you can run any one of {commands}.",
   "NUMBER_OF_WHITELISTED_ITEMS": "Number of items whitelisted: {num, number}",
   "NO_MORE_ITEMS": "No more items.",
+
+  "ADD_USER": "Add User",
+  "REMOVE_USER": "Remove User",
+  "CLEAR_ALL_USERS": "Clear All Users",
+  "ADD_ROLE": "Add Role",
+  "REMOVE_ROLE": "Remove Role",
+  "CLEAR_ALL_ROLES": "Clear All Roles",
+  "ADD_CHANNEL": "Add Channel",
+  "REMOVE_CHANNEL": "Remove Channel",
+  "CLEAR_ALL_CHANNELS": "Clear All Channels",
+  "BLACKLIST_REMINDER": "Also, you are still able to manage the blacklist with the commands. ({blacklistView})",
+  "WHITELIST_REMINDER": "Also, you are still able to manage the whitelist with the commands. ({whitelistView})",
 
   "DISPLAY_TIER_COLOR_ROLE": "Colour of message author's highest role",
   "DISPLAY_TIER_COLOR_RANDOM": "Random colour",
@@ -242,6 +267,13 @@
   "USER_DISPLAY_TIERS_NOT_A_PATRON": "To personalise custom display tiers just for your starboard messages, you must be a [patron]({patreonLink}).",
   "USER_DISPLAY_TIERS_REACHED_MAX": "You have reached the maximum amount of display tiers allowed for one user. ({premiumLimit, number})",
   "NO_DISPLAY_TIERS_USER": "You have no display tiers created for yourself.",
+  "INHERITS_N_DISPLAY_TIERS_FROM": "Inherits {number, number} display tiers from {name}",
+  "DISPLAY_TIERS_REMINDER": "Also, you are still able to manage display tiers with the commands. ({displayTiersView})",
+  "CREATE_NEW_DISPLAY_TIER": "Create New Display Tier",
+  "EDIT_DISPLAY_TIER": "Edit Display Tier",
+  "THRESHOLD": "Threshold",
+  "STAR": "Star",
+  "COLOR": "Colour",
 
 
   "REWARD_ROLE_TYPE_0": "Total Stars",
@@ -314,7 +346,7 @@
   "FILTER_NOW_NOT_APPLIES": "This filter now does not apply to {doesNotApplyTo, plural, =1 {1 user/role} other {# users/roles}}.",
 
   "MESSAGE_FILTERS": "Message Filters",
-  "FILTERS_DESCRIPTION": "Message Filters are a more advanced way to filter messages off the starboard. For simple filtering of messages, you can edit the **Filtering Settings** with {settingsEditFiltering}.",
+  "FILTERS_DESCRIPTION": "Message Filters are a more advanced way to filter messages off the starboard. For simple filtering of messages, you can edit the **Filtering Settings**{settingsEditFiltering, select, other { with {settingsEditFiltering}} null {}}.",
   "FILTERS_DESCRIPTION_MESSAGE_CANNOT_BE_STARRED_IF_NOT_PASS_ALL": "A message cannot be starred if it doesn't pass all filters.",
   "FILTERS_DESCRIPTION_SHORT": "These are the message filters a message must pass in order to be starred.",
   "NOTHING_TO_SHOW": "Nothing to show.",
@@ -350,6 +382,10 @@
   "FILTER_EXPLAIN_DATE_MAX": "be sent before **{date, date, medium}**",
   "FILTER_EXPLAIN_APPLIES_TO": "This filter applies to {list}.",
   "FILTER_EXPLAIN_DOES_NOT_APPLY_TO": "This filter does not apply to {list}.",
+  "MESSAGE_CONTENT_FILTER": "Message Content Filter",
+  "MESSAGE_ATTACHMENTS_FILTER": "Message Attachments Filter",
+  "MESSAGE_AGE_FILTER": "Message Age Filter",
+  "MESSAGE_DATE_FILTER": "Message Date Filter",
 
   "AFTER_FILTER": "After {filter} (position: {position, number})",
   "AT_START": "At start",
@@ -359,10 +395,42 @@
   "TOO_MANY_FILTERS": "You have added too many filters here.",
   "SUCCESS_FILTER_ADD": "Successfully added **{filter}** to the list of filters on {override, select, null {the server settings} other {the **{override}** override}}{optional, select, true { as an optional filter} false {}}. You can view the list of filters with {settingsView}.",
   "CONFIRMATION_DELETE_FILTER": "Are you sure you want to delete **{name}**? This filter will be removed from wherever it is used and will be deleted permanently.",
+  "CONFIRMATION_DELETE_FILTER_SHORT": "This filter will be removed from wherever it is used and will be deleted permanently.",
   "FILTER_IN_SETTINGS_AUTOCOMPLETE": "{position, number}: {filter} {optional, select, true {(optional filter)} false {}}",
   "NO_FILTER_AT_POSITION": "There is no message filter at the given position {position, number} on {override, select, null {the server settings} other {override **{override}**}}.",
   "SUCCESS_FILTER_REMOVE": "Successfully removed {optional, select, true {optional filter **{filter}**} false {**{filter}**}} (position: {position, number}) from {override, select, null {the server settings} other {the **{override}** override}}.",
   "SUCCESS_FILTER_MOVE": "Successfully moved **{filter}** from {old, number} to {position, plural, =1 {the start,} other {**{position, number}** (after **{after}**)}} on {override, select, null {the server settings} other {the **{override}** override}}.",
+  "MOVE_UP": "Move Up",
+  "MOVE_DOWN": "Move Down",
+  "MARK_AS_OPTIONAL": "Mark as Optional",
+  "UNMARK_AS_OPTIONAL": "Unmark as Optional",
+  "ADD_FILTER": "Add Filter",
+  "CREATE_FILTER": "Create New Filter",
+  "DELETE_FILTER": "Delete Filter",
+  "EDIT_FILTER": "Edit Filter",
+  "FILTER": "Filter",
+  "POSITION": "Position",
+  "FILTERS_REMINDER": "Also, you are still able to manage filters with the commands. ({filtersView})",
+  "NUMBER_OF_FILTERS_ENABLED": "Number of enabled filters: {num, number}",
+  "INHERITS_N_FILTERS_FROM": "After these filters, {number, number} filters are inherited from {name}.",
+  "INTERACTIVE_FILTER_COMMAND_REDIRECT": "To {type, select, create {create a new message filter} delete {delete an existing message filter} edit {edit an existing message filter} add {add a new message filter to the list of enabled message filters}}, you can use the command {command}.",
+  "CHANGES_MADE_COUNT": "Changes made: {count, number}",
+  "NAME": "Name",
+  "APPLIES_TO": "Applies To",
+  "DOES_NOT_APPLY_TO": "Does Not Apply To",
+  "MIN_LENGTH": "Min Length",
+  "MAX_LENGTH": "Max Length",
+  "INCLUDE_TEXT": "Include Text",
+  "NOT_INCLUDE_TEXT": "Not Include Text",
+  "MATCH_REGEX": "Match Regex",
+  "NOT_MATCH_REGEX": "Not Match Regex",
+  "MIN_ATTACHMENTS": "Min Attachments",
+  "MAX_ATTACHMENTS": "Max Attachments",
+  "MEDIA_REQUIRED": "Media Required",
+  "OLDER_THAN": "Older Than",
+  "NEWER_THAN": "Newer Than",
+  "SENT_AFTER": "Sent After",
+  "SENT_BEFORE": "Sent Before",
 
   "MESSAGE_NOT_FOUND": [
     "I could not find a message from your input. This could be due to different reasons:\n",
@@ -1012,7 +1080,7 @@
             },
             "USER": {
               "NAME": "user",
-              "DESCRIPTION": "The user to unblacklist."
+              "DESCRIPTION": "The user to remove from the blacklist."
             }
           }
         },
@@ -1026,7 +1094,7 @@
             },
             "ROLE": {
               "NAME": "role",
-              "DESCRIPTION": "The role to unblacklist."
+              "DESCRIPTION": "The role to remove from the blacklist."
             }
           }
         },
@@ -1040,7 +1108,7 @@
             },
             "CHANNEL": {
               "NAME": "channel",
-              "DESCRIPTION": "The channel to unblacklist."
+              "DESCRIPTION": "The channel to remove from the blacklist."
             }
           }
         },
@@ -1054,7 +1122,7 @@
             },
             "ID": {
               "NAME": "id",
-              "DESCRIPTION": "The id of the item to unblacklist."
+              "DESCRIPTION": "The ID of the item to remove from the blacklist."
             }
           }
         }
@@ -2387,6 +2455,20 @@
             "STARBOARD_REACT": {
               "NAME": "starboard-react",
               "DESCRIPTION": "Have the bot react on the starboard message with upvote/downvote emojis as a shortcut."
+            }
+          }
+        },
+        "INTERACTIVE": {
+          "NAME": "interactive",
+          "DESCRIPTION": "Edit various settings with an interactive interface.",
+          "OPTIONS": {
+            "SETTINGS": {
+              "NAME": "override",
+              "DESCRIPTION": "The override to make changes to, if you have any. Leave blank to edit server settings."
+            },
+            "CATEGORY": {
+              "NAME": "category",
+              "DESCRIPTION": "The category of the settings you wish to edit."
             }
           }
         }

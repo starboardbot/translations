@@ -2488,20 +2488,6 @@
               "DESCRIPTION": "Have the bot react on the starboard message with upvote/downvote emojis as a shortcut."
             }
           }
-        },
-        "INTERACTIVE": {
-          "NAME": "interactive",
-          "DESCRIPTION": "Edit various settings with an interactive interface.",
-          "OPTIONS": {
-            "SETTINGS": {
-              "NAME": "override",
-              "DESCRIPTION": "The override to make changes to, if you have any. Leave blank to edit server settings."
-            },
-            "CATEGORY": {
-              "NAME": "category",
-              "DESCRIPTION": "The category of the settings you wish to edit."
-            }
-          }
         }
       },
       "VIEW": {
@@ -2526,6 +2512,20 @@
             "NAME": "setting",
             "DESCRIPTION": "The specific setting you want to reset or unset."
           }
+        }
+      }
+    },
+    "SETUP": {
+      "NAME": "setup",
+      "DESCRIPTION": "Setup your server and edit various settings with an interactive interface.",
+      "OPTIONS": {
+        "SETTINGS": {
+          "NAME": "settings",
+          "DESCRIPTION": "The settings to make changes to, if you have any. Leave blank to setup server settings."
+        },
+        "CATEGORY": {
+          "NAME": "category",
+          "DESCRIPTION": "The category of settings you wish to edit."
         }
       }
     },

@@ -30,6 +30,9 @@ declare type MessageParameters = {
   "OVERRIDE_NOT_FOUND": {
     name: string,
   },
+  "OVERRIDE_EDIT_REMINDER": {
+    overridesEdit: string,
+  },
   "SUCCESS_CREATE_OVERRIDE": {
     name: string,
     type: "channel" | "channelType" | "emoji" | "role",

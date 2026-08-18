@@ -364,6 +364,12 @@ declare type MessageParameters = {
   "AUDIT_LOG_ACHIEVEMENT_TIMES_ON_HALL_OF_FAME": {
     timesOnHallOfFame: number,
   },
+  "REWARD_ROLES_REMINDER": {
+    rewardRolesView: string,
+  },
+  "REWARD_ROLE_COUNT": {
+    count: number,
+  },
   "INVALID_REGEX": {
     error: string,
   },

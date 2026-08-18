@@ -94,6 +94,7 @@
   ],
   "SELECT_WHAT_OVERRIDE_CREATE": "Select what type of override you would like to create:",
   "OVERRIDE_SETTINGS": "Override Settings",
+  "OVERRIDE_EDIT_REMINDER": "Also, you are still able to edit overrides using the commands. ({overridesEdit})",
   "SUCCESS_CREATE_OVERRIDE": "Successfully created an override **{name}** that only applies {type, select, channel {to {channels, plural, =1 {1 channel} other {# channels}}} channelType {to messages in the specified type of channels} emoji {when one of the specified {emojis, plural, =1 {1 emoji} other {# emojis}} are used} role {when the message author has one of the specified {roles, plural, =1 {1 role} other {# roles}}}}.",
   "SUCCESS_CREATE_OVERRIDE_CHANNELS_NOTICE": "This override also only applies in {channels, plural, =1 {1 channel} other {# channels}}.",
   "SUCCESS_CREATE_EMOJI_OVERRIDE_NOTICE": "Please note that this override will only take effect for an emoji if the **Emoji**/**Downvote Emoji** setting is set to that emoji. Right now, no settings have the **Emoji**/**Downvote Emoji** setting set to {emojis}.",

@@ -780,6 +780,10 @@ declare type MessageParameters = {
     numChannels: number,
     channels: string,
   },
+  "AUTO_STAR_CONFIG_ACTIVE_IN_N": {
+    includeThreads: boolean,
+    numChannels: number,
+  },
   "ASC_INVALID_EMOJIS": {
     emojis: string,
   },
@@ -805,6 +809,9 @@ declare type MessageParameters = {
     position: number,
     autoStarConfig: string,
     after: string,
+  },
+  "AUTO_STAR_REMINDER": {
+    autostarView: string,
   },
   "CUSTOM_BOT_NOT_A_BOT_USER": {
     app: string,

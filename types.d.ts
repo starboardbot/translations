@@ -906,6 +906,7 @@ declare type MessageParameters = {
   },
   "HELP_GETTING_STARTED": {
     settingsEditMain: string,
+    setup: string,
     settingsView: string,
     guideLink: string,
     supportLink: string,
@@ -918,9 +919,6 @@ declare type MessageParameters = {
   },
   "PING_HELP": {
     helpCommand: string,
-  },
-  "PING_HELP_MIGRATED_TEMPORARY_NOTICE": {
-    settingsView: string,
   },
   "SUCCESSFULLY_SET_LANGUAGE": {
     language: string,

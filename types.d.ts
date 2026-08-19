@@ -796,10 +796,13 @@ declare type MessageParameters = {
   "SUCCESSFULLY_SET_CUSTOM_BOT": {
     bot: string,
   },
-  "CUSTOM_BOT_DESCRIPTION": {
+  "CUSTOM_BOT_CURRENT_BOT": {
     bot: string | null,
     unauthorised: boolean,
-    command: string,
+    command: string | null,
+  },
+  "CUSTOM_BOT_REMINDER": {
+    customBotView: string,
   },
   "SUCCESSFULLY_CREATED_CUSTOM_STAT": {
     display: string | null,

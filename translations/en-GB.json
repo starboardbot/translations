@@ -24,6 +24,8 @@
   "EDIT": "Edit",
   "REMOVE": "Remove",
   "DONE": "Done",
+  "CONFIGURE": "Configure",
+  "UNSET": "Unset",
 
   "NONE": "None",
   "NOT_SET": "Not set",
@@ -698,11 +700,13 @@
   "SUCCESSFULLY_SET_CUSTOM_BOT": "Successfully set {bot} as the custom bot for the server. {bot} will now be used for posting starboard messages.",
   "NO_CUSTOM_BOT_SET": "This server has no custom bot set.",
   "SUCCESSFULLY_UNSET_CUSTOM_BOT": "Successfully unset the custom bot for the server. Starboard messages will now be posted by me as normal.",
-  "CUSTOM_BOT_DESCRIPTION": [
-    "Have a special community bot? Want to follow a server theme or roleplay environment? You can now configure a custom bot to use to post starboard messages, while the magic of Starboard works in the background.\n\n",
-    "Current custom bot: {bot, select, null {not set ({command})} other {{bot}}} {unauthorised, select, true {(warning: no longer a valid token, please reprovide with {command})} false {}}\n\n",
-    "*The custom bot will __only__ be used for posting and editing starboard messages, nothing else. All custom bot tokens are encrypted.*"
-  ],
+  "CUSTOM_BOT_DESCRIPTION_1": "Have a special community bot? Want to follow a server theme or roleplay environment? You can now configure a custom bot to use to post starboard messages, while the magic of Starboard works in the background.",
+  "CUSTOM_BOT_CURRENT_BOT": "Current custom bot: {bot, select, null {not set{command, select, null {} other { ({command})}}} other {{bot}}} {unauthorised, select, true {(warning: no longer a valid token, please reprovide{command, select, null {} other { with {command}}})} false {}}",
+  "CUSTOM_BOT_DESCRIPTION_NOTICE": "The custom bot will __only__ be used for posting and editing starboard messages, nothing else. All custom bot tokens are encrypted.",
+  "CUSTOM_BOT": "Custom Bot",
+  "CUSTOM_BOT_REMINDER": "Also, you are still able to manage the custom bot with the commands. ({customBotView})",
+  "BOT_TOKEN": "Bot Token",
+  "CUSTOM_BOT_TOKEN_MODAL_DESCRIPTION": "Here you are asked to provide the Discord bot token for your custom bot. This token will be **encrypted** before it is saved, and will **not** be visible to anyone (including you, and other moderators). It will only be used to post starboard messages under the custom bot's profile, not for anything else.",
 
   "CUSTOM_STAT_NAME_TOO_LONG": "The name you give the custom leaderboard stat has to be less than 32 characters.",
   "SUCCESSFULLY_CREATED_CUSTOM_STAT": "Successfully created the custom stat {display, select, null {**{stat}**} other {**{stat}** (`{display}`)}} based on {type, select, 0 {the total amount of stars users have} 1 {the total amount of upvotes users have} 2 {the total amount of downvotes users have} 3 {users' most starred message} 4 {the number of times users have reached the starboard}}. Right now, this custom leaderboard stat is not active. To enable it, add it to an override with {addCommand} so this stat is recorded whenever the override is applied.",

@@ -670,11 +670,16 @@
   "DEBUG_STARBOARD_NOT_NSFW": "This message cannot be posted to the starboard {starboard} because the channel is marked as NSFW and the starboard isn't.",
   "DEBUG_FILTER_BOTS": "This message cannot be starred because bots cannot be starred. (**Filter Bots** is enabled)",
   "DEBUG_SELF_STARS": "You cannot star this message as users are not allowed to star their own messages. (**Self Stars** is disabled)",
+  "DEBUG_AUTO_STAR_CONFIG_NOT_USED": "The auto-star configuration **{autoStarConfig}** is not used for this message because it is configured for the emojis {ascEmojis}, but you are meant to use the emojis {emojis} to star this message.",
+  "DEBUG_AUTO_STAR_CONFIG_NOT_USED_NOTICE": "{emojis} are the emojis used to star this message, according to the **Emojis** setting. Ensure auto-star configurations are set up to use the correct emojis, as the bot will not auto-react with emojis that can't actually be used for starring messages.",
+  "DEBUG_OTHER_REACTIONS_DETECTED": "This message seems to already have reactions, but none of which are of the emojis {emojis} used to star this message, as according to the **Emojis** setting.",
   "DEBUG_FAILED_FILTERS": "This message doesn't pass the filters {filters}. Run {filtersTestCommand} for more information.",
   "DEBUG_NOTHING_WRONG": "There seems to be nothing wrong with [this message](<{link}>) and it should be able to get stars as normal. If this message has gotten stars already, try running {modInfoCommand} for more info about the message.",
   "DEBUG": "Debug",
 
   "SUCCESSFULLY_CREATE_AUTO_STAR_CONFIG": "Successfully created an auto-star configuration **{name}** for the emojis {emojis} in {includeThreads, select, true {{channels, plural, =1 {1 channel and its threads} other {# channels and their threads}}} false {{channels, plural, =1 {1 channel} other {# channels}}}}.",
+  "ASC_CREATE_NOTICE_NO_STARBOARDS": "This auto-star configuration will not be able to star any messages because there are no starboard channels set up in this server.",
+  "ASC_CREATE_NOTICE_NO_EMOJIS": "Some of the emojis provided ({disabledEmojis}) can't actually be used to star messages, so they will be ignored. Ensure the emojis you provide line up with the emojis set in the **Emojis** setting.",
   "SUCCESSFULLY_EDIT_AUTO_STAR_CONFIG": "Successfully edited the auto-star configuration **{name}**:\n{changes}",
   "ASC_EDIT_NAME": "this auto-star configuration is now named **{name}**",
   "ASC_EDIT_EMOJIS": "the auto-star emojis are now {emojis}",
@@ -685,7 +690,8 @@
   "NO_AUTO_STAR_CONFIGS": "There are no auto-star configurations set up in this server.",
   "AUTO_STAR_CONFIG_ACTIVE_IN": "This auto-star configuration is active in {includeThreads, select, true {{numChannels, plural, =1 {{channels} and its threads} other {{channels} and their threads}}} false {{channels}}}.",
   "DELETE_INVALID_MESSAGES": "Delete Invalid Messages",
-  "ASC_EXTRA_INFO": "Other settings (such as **Filter Bots** and blacklists) will be taken into account from the server settings and overrides. Only the emojis that a user can use to star the message will be added.",
+  "ASC_EXTRA_INFO": "Other settings (such as **Filter Bots** and blacklists) will be taken into account from the server settings and overrides. A starboard channel must be set for me to react, and I will only react with the emojis that a user can actually use to star the message.",
+  "ASC_INVALID_EMOJIS": "invalid: {emojis}",
   "ASC_MESSAGE_FILTERS": "Auto-Star Message Filters",
   "ASC_FILTERS_DESCRIPTION_SHORT": "These are the message filters a message must *also* pass in order to be auto-starred, alongside filters set on server settings or on overrides.",
   "AUTO_STAR_CONFIGURATIONS": "Auto-Star Configurations",
@@ -2859,6 +2865,9 @@
 
     "ADD_TO_HALL_OF_FAME": {
       "NAME": "Add to Hall of Fame"
+    },
+    "DEBUG_MESSAGE": {
+      "NAME": "Debug Message"
     },
     "DELETE_MY_MESSAGE": {
       "NAME": "Delete My Message"

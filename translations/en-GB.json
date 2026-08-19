@@ -158,6 +158,7 @@
 
   "PLEASE_PROVIDE_CHANGES": "Please provide the changes you would like to make.",
   "SUCCESS_CHANGE_SETTINGS": "Successfully changed those settings for {name}.",
+  "FIRST_SET_STARBOARD_NOTICE": "Now that a starboard channel has been set, the bot will now start tracking stars! Messages currently need {requiredStars, number} or more star {emojis} reactions to be posted to the starboard {starboard}.",
 
   "SUCCESS_CHANGE_SETTINGS_NOTICE": "Note that:\n{notices}",
   "MISSING_ATTACH_FILES_PERMISSION_NOTICE": "{bot, select, null {The bot} other {{bot}}} is missing the `Attach Files` permission in {channel}, so media and files that are supposed to be reuploaded due to the **Reupload Attachments** setting will be linked instead.",

@@ -814,22 +814,22 @@
   "HELP_DESCRIPTION": "Starboard is Discord's first advanced starboard bot, with a massive range of customisable settings and features.",
   "HELP_GETTING_STARTED_TITLE": "Getting Started",
   "HELP_GETTING_STARTED": [
-    "- To get the starboard up and running in your server, all you have to do is run {settingsEditMain} and set the starboard channel to where you want messages to go - and that's it!\n",
-    "- {settingsView} gives you a full overview of what can be configured, and will be your central point of focus while configuring the bot for your server.\n\n",
+    "- To get the starboard up and running in your server, all you have to do is run {settingsEditMain} and set the starboard channel to where you want messages to go — and that's it!\n",
+    "- If you want a more interactive setup, you can run {setup} — this command allows you to configure all of Starboard's features, but you can stop and resume at any time.\n",
+    "  -# - Otherwise, {settingsView} gives you a full overview of what can be configured, and can be a central point of focus.\n\n",
     "Starboard offers more ambitious users the ability to create advanced setups, but also offers simple setups for new users, so don't over-complicate things for yourself!\n",
     "If you're ever stuck, you can read the [guide]({guideLink}), or ask for help in the [support server]({supportLink})."
   ],
   "HELP_SUPPORT_THE_BOT_TITLE": "Support The Bot",
   "HELP_SUPPORT_THE_BOT": [
     "If you're enjoying Starboard in your server, make sure to [vote for the bot]({voteLink}) and [leave a review]({reviewLink}) on Top.gg!\n",
-    "Becoming a patron on [Patreon]({patreonLink}) also helps tremendously, and you also unlock cool features in return - {premiumInfoCommand}."
+    "Becoming a patron on [Patreon]({patreonLink}) also helps tremendously, and you also unlock cool features in return — {premiumInfoCommand}."
   ],
   "SUPPORT_SERVER": "Support Server",
   "INVITE": "Invite",
   "LEAVE_A_REVIEW": "Leave A Review",
   "STARBOARD_GUIDE": "Starboard Guide",
-  "PING_HELP": "## Hey! 👋\nStarboard has made the switch from prefix commands to slash commands! (about time, right?) Type `/` to see all of Starboards commands. {helpCommand}",
-  "PING_HELP_MIGRATED_TEMPORARY_NOTICE": "If you've used the bot before, all your starred messages are still saved and all your configurations have been carefully migrated. A lot of things have changed and a lot of new things have been added, so please double check your setup and ensure everything is as expected :) {settingsView}",
+  "PING_HELP": "## Hey! 👋\nStarboard uses slash commands! Type `/` to see all of Starboards commands. {helpCommand}",
 
   "SUCCESSFULLY_SET_LANGUAGE": "Successfully set the language for the server to **{language}**.",
   "LANGUAGES": "Languages",

@@ -688,17 +688,25 @@
   "AUTO_STAR_CONFIG_NOT_FOUND": "There is no existing auto-star configuration created under the name **{name}**.",
   "CONFIRMATION_DELETE_AUTO_STAR_CONFIG": "Are you sure you want to delete **{name}**? No other settings, overrides, or filters will be affected.",
   "NO_AUTO_STAR_CONFIGS": "There are no auto-star configurations set up in this server.",
-  "AUTO_STAR_CONFIG_ACTIVE_IN": "This auto-star configuration is active in {includeThreads, select, true {{numChannels, plural, =1 {{channels} and its threads} other {{channels} and their threads}}} false {{channels}}}.",
+  "AUTO_STAR_CONFIG_ACTIVE_IN": "This auto-star configuration is active in {includeThreads, select, true {{numChannels, plural, =1 {{channels} and its threads} other {{channels} and their threads}}} false {{channels} (excluding threads)}}.",
+  "AUTO_STAR_CONFIG_ACTIVE_IN_N": "This auto-star configuration is active in {includeThreads, select, true {{numChannels, plural, =1 {# channel and its threads} other {# channels and their threads}}} false {{numChannels, plural, =1 {# channel} other {# channels}}}}:",
   "DELETE_INVALID_MESSAGES": "Delete Invalid Messages",
+  "INCLUDE_THREADS": "Include Threads",
   "ASC_EXTRA_INFO": "Other settings (such as **Filter Bots** and blacklists) will be taken into account from the server settings and overrides. A starboard channel must be set for me to react, and I will only react with the emojis that a user can actually use to star the message.",
   "ASC_INVALID_EMOJIS": "invalid: {emojis}",
   "ASC_MESSAGE_FILTERS": "Auto-Star Message Filters",
   "ASC_FILTERS_DESCRIPTION_SHORT": "These are the message filters a message must *also* pass in order to be auto-starred, alongside filters set on server settings or on overrides.",
+  "ASC_FILTERS_DESCRIPTION_2": "These work exactly like message filters on server settings or overrides.",
   "AUTO_STAR_CONFIGURATIONS": "Auto-Star Configurations",
+  "AUTO_STAR_CONFIGURATION": "Auto-Star Configuration",
   "ASC_SUCCESS_FILTER_ADD": "Successfully added **{filter}** to the list of filters on auto-star configuration **{autoStarConfig}**{optional, select, true { as an optional filter} false {}}. You can view the list of filters and the rest of the current configuration with {autostarView}.",
   "ASC_NO_FILTER_AT_POSITION": "There is no message filter at the given position {position, number} on auto-star configuration **{autoStarConfig}**.",
   "ASC_SUCCESS_FILTER_REMOVE": "Successfully removed {optional, select, true {optional filter **{filter}**} false {**{filter}**}} (position: {position, number}) from auto-star configuration **{autoStarConfig}**.",
   "ASC_SUCCESS_FILTER_MOVE": "Successfully moved **{filter}** from {old, number} to {position, plural, =1 {the start,} other {**{position, number}** (after **{after}**)}} on auto-star configuration **{autoStarConfig}**.",
+  "ASC_DESCRIPTION": "Auto-Star Configurations allow you to automatically star messages in specific channels with specific emojis.",
+  "AUTO_STAR_REMINDER": "Also, you are still able to manage auto-star configurations with the commands. ({autostarView})",
+  "CREATE_AUTO_STAR_CONFIG": "Create New Auto-Star Configuration",
+  "EDIT_AUTO_STAR_CONFIG": "Edit Auto-Star Configuration",
 
   "COULD_NOT_PARSE_TOKEN": "Could not parse a valid Discord bot token from your input.",
   "INVALID_TOKEN_PROVIDED": "An invalid token was provided.",
@@ -981,7 +989,7 @@
           },
           "DELETE_INVALID_MESSAGES": {
             "NAME": "delete-invalid-messages",
-            "DESCRIPTION": "If delete messages (i.e. ones that don't pass filters) should automatically get deleted."
+            "DESCRIPTION": "If invalid messages (e.g. ones don't pass filters) should automatically get deleted."
           }
         }
       },
@@ -1021,7 +1029,7 @@
           },
           "DELETE_INVALID_MESSAGES": {
             "NAME": "delete-invalid-messages",
-            "DESCRIPTION": "If delete messages (i.e. ones that don't pass filters) should automatically get deleted."
+            "DESCRIPTION": "If invalid messages (e.g. ones don't pass filters) should automatically get deleted."
           }
         }
       },

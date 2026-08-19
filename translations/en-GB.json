@@ -289,7 +289,7 @@
   "DISPLAY_TIERS_DESCRIPTION_CREATE_TIER": "To create a display tier you can run {command}.",
   "DISPLAY_TIERS_DESCRIPTION_CREATE_TIER_USER": "To create a display tier for yourself you can run {command}.",
   "DISPLAY_TIERS_DESCRIPTION_INHERITED": "Since you have no display tiers created specifically for this override, the display tiers are inherited from the server settings or other overrides, and are listed in *italics*.",
-  "DISPLAY_TIERS_DESCRIPTION_UNUSED": "Some display tiers have no effect as their changes are immediately overridden by the next display tier - those tiers are ~~crossed out~~.",
+  "DISPLAY_TIERS_DESCRIPTION_UNUSED": "Some display tiers have no effect as their changes are immediately overridden by the next display tier — those tiers are ~~crossed out~~.",
   "DISPLAY_TIER_UNDELETABLE": "You cannot delete this display tier.",
   "DISPLAY_TIER_UNDELETABLE_OVERRIDE": "You cannot delete this display tier. Delete all other display tiers first, then delete this display tier, to go back to inheriting the display tiers from the server settings or other overrides.",
   "NO_DISPLAY_TIERS_OVERRIDE": "You have no display tiers created specifically for this override.",
@@ -345,7 +345,7 @@
   "REWARD_ROLES_PROGRESS": "Reward Roles Progress",
   "REWARD_ROLES_OBTAINED": "Reward Roles Obtained",
   "REWARD_ROLES_PROGRESS_STARS": "{obtained, number}/{required, number} stars",
-  "AUDIT_LOG_REWARD_ROLES": "Starboard Reward Roles - this user {achievements}.",
+  "AUDIT_LOG_REWARD_ROLES": "Starboard Reward Roles — this user {achievements}.",
   "AUDIT_LOG_ACHIEVEMENT_STARS": "has {stars, number} stars",
   "AUDIT_LOG_ACHIEVEMENT_MOST_STARRED_MESSAGE": "has {stars, number} stars on their most starred message",
   "AUDIT_LOG_ACHIEVEMENT_TIMES_ON_STARBOARD": "has been on the starboard {timesOnStarboard, number} times",
@@ -360,8 +360,8 @@
   "TO_GET_THIS_REWARD_ROLE": "To get this reward role, users must either:",
   "REWARD_ROLE_COUNT": "Reward Roles: {count, number}",
 
-  "FILTER_INCLUDE_MATCH_CONFLICT": "A filter cannot check if a message includes text and matches a regex pattern at the same time - those two options are mutually exclusive.",
-  "FILTER_NOT_INCLUDE_MATCH_CONFLICT": "A filter cannot check for the inclusion of text and the matching of a regex pattern at the same time - those two options are mutually exclusive.",
+  "FILTER_INCLUDE_MATCH_CONFLICT": "A filter cannot check if a message includes text and matches a regex pattern at the same time — those two options are mutually exclusive.",
+  "FILTER_NOT_INCLUDE_MATCH_CONFLICT": "A filter cannot check for the inclusion of text and the matching of a regex pattern at the same time — those two options are mutually exclusive.",
   "CONTENT_FILTER_MIN_GREATER_THAN_MAX": "The minimum length option cannot be greater than the maximum length option.",
   "ATTACHMENTS_FILTER_MIN_GREATER_THAN_MAX": "The min number of attachments option cannot be greater than the min number of attachments option.",
   "RELATIVE_AGE_FILTER_MIN_GREATER_THAN_MAX": "The \"older than\" option cannot be greater than the \"newer than\" option. (A message can't be older than 10 days and newer than 5 days at the same time.)",
@@ -492,7 +492,7 @@
   "NOT_STARBOARD_MESSAGE": "This message is not a starboard message.",
   "NOT_YOUR_STARBOARD_MESSAGE": "This starboard message does not belong to you.",
   "SUCCESSFULLY_DELETED_YOUR_STARBOARD_MESSAGE": "Successfully deleted your starboard message.",
-  "SUCCESSFULLY_DELETED_YOUR_STARBOARD_MESSAGE_PLUS_FREEZE_OPTION": "Successfully deleted your starboard message.\nUsers may still get this message back on the starboard again by giving it more stars - to prevent this, you can freeze the message. If you don't have moderator permissions and you want to unfreeze the message again, you'll need to get a moderator to help.",
+  "SUCCESSFULLY_DELETED_YOUR_STARBOARD_MESSAGE_PLUS_FREEZE_OPTION": "Successfully deleted your starboard message.\nUsers may still get this message back on the starboard again by giving it more stars — to prevent this, you can freeze the message. If you don't have moderator permissions and you want to unfreeze the message again, you'll need to get a moderator to help.",
 
   "PONG": [
     "Pong!\n",
@@ -546,7 +546,7 @@
   "CANNOT_RECOUNT_FROZEN": "I can't recount the stars for this starred message because it is currently frozen.",
   "CANNOT_RECOUNT_TRASHED": "I can't recount the stars for this starred message because it is trashed.",
   "RECOUNTED_RECENTLY": "You cannot recount this starred message's stars because it has already been recounted quite recently.",
-  "SUCCESSFULLY_RECOUNTED": "Successfully recounted the stars for that message - it now has {stars, plural, =1 {# star} other {# stars}}.{link, select, null {} other { The starboard message is [here](<{link}>).}}",
+  "SUCCESSFULLY_RECOUNTED": "Successfully recounted the stars for that message — it now has {stars, plural, =1 {# star} other {# stars}}.{link, select, null {} other { The starboard message is [here](<{link}>).}}",
   "ALREADY_TRASHED": "This starred message is already trashed.",
   "CONFIRMATION_TRASH_MESSAGE": "Just to confirm, are you sure you want to trash [this starred message]({link}) {reason, select, null {for an unspecified reason?} other {for the following reason?\n{reason}}} \nIts starboard message will be removed from the starboard immediately, and the starred message will be frozen to ensure it doesn't get back on the starboard again. You can always reverse this action later.",
   "SUCCESSFULLY_TRASHED_MESSAGE": "Successfully trashed this message and removed it from the starboard. It will no longer be able to get any more stars as long as it is trashed.\nIf my calculations are correct, the first few people to star this message were {users, select, null {no-one} other {{users}}}.",
@@ -593,18 +593,18 @@
   "TRASHED_MESSAGES": "Trashed Messages",
 
   "NO_STARRED_MESSAGES": "It seems this server has no starred messages yet!",
-  "NO_STARRED_MESSAGES_AVAILABLE": "There are no starred messages I am able to show - the only ones I've found are unobtainable. They might be deleted, in deleted channels, or you or I don't have permission to see them.",
+  "NO_STARRED_MESSAGES_AVAILABLE": "There are no starred messages I am able to show — the only ones I've found are unobtainable. They might be deleted, in deleted channels, or you or I don't have permission to see them.",
   "NO_STARRED_MESSAGES_BY_QUERY": "I could not find any starred messages based on your query.",
   "NO_STARRED_MESSAGES_COULD_BE_FOUND": "I could not find any starred messages.",
   "STARRED_MESSAGE_UNOBTAINABLE": [
     "I could not obtain the contents of this starred message. This could be for any of the following reasons:\n",
     "- I don't have the permissions required to read messages in {channel}.\n",
     "- The channel the message was sent in, or the message itself, has since been deleted.\n",
-    "- {channel} is marked as NSFW and this channel isn't - I can't send NSFW messages in non-NSFW channels.\n"
+    "- {channel} is marked as NSFW and this channel isn't — I can't send NSFW messages in non-NSFW channels.\n"
   ],
 
   "HALL_OF_FAME": "Hall Of Fame",
-  "HALL_OF_FAME_DESCRIPTION": "This is the Hall of Fame, messages that \"belong in a museum\" - the best messages on the server. These messages were picked by various moderators, so appearing here is a great achievement.",
+  "HALL_OF_FAME_DESCRIPTION": "This is the Hall of Fame, messages that \"belong in a museum\" — the best messages on the server. These messages were picked by various moderators, so appearing here is a great achievement.",
   "NO_STARRED_MESSAGES_HALL_OF_FAME": "It seems this server has no starred messages on the Hall of Fame yet.",
 
   "TIMES_ON_STARBOARD": "Times On Starboard",
@@ -637,7 +637,7 @@
   "REWARD_ROLES_GIVEN": "Reward Roles Given",
 
 
-  "LEADERBOARD_TITLE": "Leaderboard - {title}",
+  "LEADERBOARD_TITLE": "Leaderboard – {title}",
   "YOUR_PLACE": "Your Place: {place, select, 0 {Not on the leaderboard.} other {#{place, number}}}",
   "USERS_PLACE": "{user}'s Place: {place, select, 0 {Not on the leaderboard.} other {#{place, number}}}",
   "NOTHING_TO_SHOW_PREMIUM": "Nothing to show. (**[Premium Servers]({patreonLink})** can have up to {premiumLimit, number} pages.)",
@@ -2520,7 +2520,7 @@
         "OPTIONS": {
           "SETTINGS": {
             "NAME": "settings",
-            "DESCRIPTION": "The settings you want to view - an override or the server settings."
+            "DESCRIPTION": "The settings you want to view — an override or the server settings."
           }
         }
       },
@@ -2530,7 +2530,7 @@
         "OPTIONS": {
           "SETTINGS": {
             "NAME": "settings",
-            "DESCRIPTION": "The settings you want to reset - an override or the server settings."
+            "DESCRIPTION": "The settings you want to reset — an override or the server settings."
           },
           "SETTING": {
             "NAME": "setting",
@@ -2562,7 +2562,7 @@
       },
       "LOST": {
         "NAME": "lost",
-        "DESCRIPTION": "Show a random lost starred message - one that hasn't yet reached the starboard.",
+        "DESCRIPTION": "Show a random lost starred message — one that hasn't yet reached the starboard.",
         "OPTIONS": {
           "AUTHOR": {
             "NAME": "author",

@@ -804,6 +804,9 @@ declare type MessageParameters = {
   "CUSTOM_BOT_REMINDER": {
     customBotView: string,
   },
+  "CUSTOM_STAT_DISPLAY_NAME_TOO_LONG": {
+    max: number,
+  },
   "SUCCESSFULLY_CREATED_CUSTOM_STAT": {
     display: string | null,
     type: number,

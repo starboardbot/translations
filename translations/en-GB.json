@@ -815,8 +815,8 @@
   "HELP_GETTING_STARTED_TITLE": "Getting Started",
   "HELP_GETTING_STARTED": [
     "- To get the starboard up and running in your server, all you have to do is run {settingsEditMain} and set the starboard channel to where you want messages to go — and that's it!\n",
-    "- If you want a more interactive setup, you can run {setup} — this command allows you to configure all of Starboard's features, but you can stop and resume at any time.\n",
-    "  -# - Otherwise, {settingsView} gives you a full overview of what can be configured, and can be a central point of focus.\n\n",
+    "- If you want a more interactive setup, you can run {setup} — this command allows you to configure all of Starboard's features. It automatically saves changes as you make them, so you can stop and resume at any time.\n",
+    "  -# - Otherwise, {settingsView} gives you an overview of what settings can be configured.\n\n",
     "Starboard offers more ambitious users the ability to create advanced setups, but also offers simple setups for new users, so don't over-complicate things for yourself!\n",
     "If you're ever stuck, you can read the [guide]({guideLink}), or ask for help in the [support server]({supportLink})."
   ],

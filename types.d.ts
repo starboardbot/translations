@@ -97,6 +97,11 @@ declare type MessageParameters = {
   "SUCCESS_CHANGE_SETTINGS": {
     name: string,
   },
+  "FIRST_SET_STARBOARD_NOTICE": {
+    requiredStars: number,
+    emojis: string,
+    starboard: string,
+  },
   "SUCCESS_CHANGE_SETTINGS_NOTICE": {
     notices: string,
   },

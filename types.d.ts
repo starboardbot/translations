@@ -850,6 +850,12 @@ declare type MessageParameters = {
   "CUSTOM_STAT_BASED_ON": {
     type: string,
   },
+  "CUSTOM_LEADERBOARD_REMINDER": {
+    customLeaderboardView: string,
+  },
+  "SHOWING_ONLY_CUSTOM_LEADERBOARDS_OVERRIDE": {
+    override: string,
+  },
   "SUCCESSFULLY_REDEEMED_PREMIUM_CODE": {
     code: string,
     duration: string,

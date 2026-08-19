@@ -85,6 +85,7 @@
   "OVERRIDE_CHANNEL_TYPES_SPOILER": "All Spoiler Channels",
 
   "OVERRIDES": "Overrides",
+  "OVERRIDE": "Override",
   "OVERRIDES_DESCRIPTION": "Overrides allow you to have slightly different settings depending on the context of the message. For example, you can have a different **Required Stars** value for messages sent by `@Moderators`, or have a different **Starboard** value for messages in Voice Channels.",
   "OVERRIDES_DESCRIPTION_2": "Overrides inherit everything from Server Settings. This means that if you change a setting on Server Settings, you don't have to change the setting on the override as well — overrides work exactly like Discord permissions.",
   "OVERRIDES_DESCRIPTION_TYPES": [
@@ -296,7 +297,7 @@
   "SUCCESSFULLY_DELETED_DISPLAY_TIER": "Successfully deleted the display tier: {tier}.",
   "DISPLAY_TIERS_INHERITED_AGAIN": "As there are no display tiers for this override anymore, display tiers are now inherited again.",
   "DISPLAY_TIER_CANNOT_EDIT_THRESHOLD": "You cannot change the threshold of this display tier.",
-  "SUCCESSFULLY_EDITED_DISPLAY_TIER": "Successfully edited the display tier: {old} -> {tier}.",
+  "SUCCESSFULLY_EDITED_DISPLAY_TIER": "Successfully edited the display tier: {old} → {tier}.",
   "USER_DISPLAY_TIERS_NOT_A_PATRON": "To personalise custom display tiers just for your starboard messages, you must be a [patron]({patreonLink}).",
   "USER_DISPLAY_TIERS_REACHED_MAX": "You have reached the maximum amount of display tiers allowed for one user. ({premiumLimit, number})",
   "NO_DISPLAY_TIERS_USER": "You have no display tiers created for yourself.",
@@ -722,6 +723,7 @@
   "CUSTOM_LEADERBOARDS": "Custom Leaderboards",
   "CUSTOM_LEADERBOARD_DESCRIPTION": "Custom Leaderboard Stats allow you to create custom leaderboards, based on a subset of leaderboard data. Specific data is recorded based on which overrides are applied, so you can, for example, create a leaderboard based on only messages sent in a specific channel or category.",
   "CUSTOM_STATS_NO_CUSTOM_STATS": "There are no custom leaderboard stats currently made in this server.",
+  "CUSTOM_STATS_NO_CUSTOM_STATS_OVERRIDE": "There are no custom leaderboard stats enabled on this override yet.",
   "CUSTOM_STATS_DESCRIPTION_CREATE_CUSTOM_STATS": "To create custom leaderboard stats you can run {command}.",
   "CUSTOM_STAT_RECORDED_WHEN": "This custom leaderboard stat is recorded when any of the following overrides are applied:",
   "CUSTOM_STAT_BASED_ON": "This custom stat is based on: **{type}**",
@@ -730,6 +732,16 @@
   "CUSTOM_LEADERBOARD_STAT_TYPE_2": "Total Downvotes",
   "CUSTOM_LEADERBOARD_STAT_TYPE_3": "Most Starred Message",
   "CUSTOM_LEADERBOARD_STAT_TYPE_4": "Times On Starboard",
+  "CREATE_NEW_CUSTOM_LEADERBOARD_STAT": "Create New Custom Leaderboard Stat",
+  "EDIT_CUSTOM_LEADERBOARD_STAT": "Edit Custom Leaderboard Stat",
+  "ADD_EXISTING": "Add Existing",
+  "ADD_CUSTOM_LEADERBOARD_STAT": "Add Custom Leaderboard Stat",
+  "CUSTOM_LEADERBOARD_STAT": "Custom Leaderboard Stat",
+  "BASED_ON": "Based On",
+  "DISPLAY": "Display",
+  "CUSTOM_LEADERBOARD_REMINDER": "Also, you are still able to manage custom leaderboard stats with the commands. ({customLeaderboardView})",
+  "NO_OVERRIDES_FOR_CUSTOM_LEADERBOARDS": "Right now, you have no overrides created. You can still create custom leaderboard stats, but they won't be recorded unless you add them to an override.",
+  "SHOWING_ONLY_CUSTOM_LEADERBOARDS_OVERRIDE": "Currently showing only custom leaderboard stats that are recorded when **{override}** is applied.",
 
   "INVALID_PREMIUM_CODE": "That premium code is not valid or has already been redeemed.",
   "SUCCESSFULLY_REDEEMED_PREMIUM_CODE": "Successfully redeemed a Starboard Premium code `{code}`. This server now has Starboard Premium for {duration}!",
@@ -1246,7 +1258,7 @@
           },
           "DISPLAY": {
             "NAME": "display",
-            "DESCRIPTION": "How the stat should be displayed. # represents the number. # stars -> 10 stars."
+            "DESCRIPTION": "How the stat should be displayed. # represents the number. # stars → 10 stars."
           }
         }
       },
@@ -1264,7 +1276,7 @@
           },
           "DISPLAY": {
             "NAME": "display",
-            "DESCRIPTION": "How the stat should now be displayed. # represents the number. # stars -> 10 stars."
+            "DESCRIPTION": "How the stat should now be displayed. # represents the number. # stars → 10 stars."
           }
         }
       },

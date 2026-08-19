@@ -708,7 +708,7 @@
   "BOT_TOKEN": "Bot Token",
   "CUSTOM_BOT_TOKEN_MODAL_DESCRIPTION": "Here you are asked to provide the Discord bot token for your custom bot. This token will be **encrypted** before it is saved, and will **not** be visible to anyone (including you, and other moderators). It will only be used to post starboard messages under the custom bot's profile, not for anything else.",
 
-  "CUSTOM_STAT_NAME_TOO_LONG": "The name you give the custom leaderboard stat has to be less than 32 characters.",
+  "CUSTOM_STAT_DISPLAY_NAME_TOO_LONG": "The display you give the custom leaderboard stat has to be less than {max, number} characters.",
   "SUCCESSFULLY_CREATED_CUSTOM_STAT": "Successfully created the custom stat {display, select, null {**{stat}**} other {**{stat}** (`{display}`)}} based on {type, select, 0 {the total amount of stars users have} 1 {the total amount of upvotes users have} 2 {the total amount of downvotes users have} 3 {users' most starred message} 4 {the number of times users have reached the starboard}}. Right now, this custom leaderboard stat is not active. To enable it, add it to an override with {addCommand} so this stat is recorded whenever the override is applied.",
   "CUSTOM_STAT_NOT_FOUND": "There is no existing custom leaderboard stat created under the name **{name}**.",
   "SUCCESSFULLY_EDITED_CUSTOM_STAT": "Successfully edited the custom stat **{oldName}**:",

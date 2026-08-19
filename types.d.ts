@@ -724,6 +724,17 @@ declare type MessageParameters = {
   "DEBUG_STARBOARD_NOT_NSFW": {
     starboard: string,
   },
+  "DEBUG_AUTO_STAR_CONFIG_NOT_USED": {
+    autoStarConfig: string,
+    ascEmojis: string,
+    emojis: string,
+  },
+  "DEBUG_AUTO_STAR_CONFIG_NOT_USED_NOTICE": {
+    emojis: string,
+  },
+  "DEBUG_OTHER_REACTIONS_DETECTED": {
+    emojis: string,
+  },
   "DEBUG_FAILED_FILTERS": {
     filters: string,
     filtersTestCommand: string,
@@ -737,6 +748,9 @@ declare type MessageParameters = {
     emojis: string,
     includeThreads: boolean,
     channels: number,
+  },
+  "ASC_CREATE_NOTICE_NO_EMOJIS": {
+    disabledEmojis: string,
   },
   "SUCCESSFULLY_EDIT_AUTO_STAR_CONFIG": {
     name: string,
@@ -765,6 +779,9 @@ declare type MessageParameters = {
     includeThreads: boolean,
     numChannels: number,
     channels: string,
+  },
+  "ASC_INVALID_EMOJIS": {
+    emojis: string,
   },
   "ASC_SUCCESS_FILTER_ADD": {
     filter: string,

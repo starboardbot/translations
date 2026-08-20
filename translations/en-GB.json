@@ -26,6 +26,7 @@
   "DONE": "Done",
   "CONFIGURE": "Configure",
   "UNSET": "Unset",
+  "REFRESH": "Refresh",
 
   "NONE": "None",
   "NOT_SET": "Not set",

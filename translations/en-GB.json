@@ -36,6 +36,8 @@
 
   "ORIGINAL_MESSAGE": "Original Message",
   "REPLYING_TO_USER": "Replying to {user}",
+  "FORWARDED_A_MESSAGE": "{user} Forwarded a Message",
+  "FORWARDED_MESSAGE": "Forwarded Message",
   "REFERENCED_MESSAGE": "Referenced Message",
   "SENT_A_STICKER": "Sent a sticker: {name}",
   "CLICK_TO_JUMP_TO_MESSAGE": "Click to jump to message!",

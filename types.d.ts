@@ -8,6 +8,9 @@ declare type MessageParameters = {
   "REPLYING_TO_USER": {
     user: string,
   },
+  "FORWARDED_A_MESSAGE": {
+    user: string,
+  },
   "SENT_A_STICKER": {
     name: string,
   },
